@@ -313,7 +313,7 @@
 <p>This document defines the comprehensive data architecture for BitVelocity, including OLTP to OLAP data flows, audit database strategy, data governance, and analytics patterns that address the gaps identified in the original design.</p>
 <h2 id="architecture-overview">Architecture Overview</h2>
 <h3 id="data-layer-strategy">Data Layer Strategy</h3>
-<pre><code>┌─────────────────────────────────────────────────────────────────┐
+<pre class="highlight"><code>┌─────────────────────────────────────────────────────────────────┐
 │                        OLTP Layer                               │
 │  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐│
 │  │ PostgreSQL  │ │  Cassandra  │ │   MongoDB   │ │    Redis    ││
@@ -342,13 +342,12 @@
 │  │   Bronze    │ │   Silver    │ │    Gold     │ │   Serving   ││
 │  │ (Raw Data)  │ │ (Cleaned)   │ │ (Business)  │ │   Layer     ││
 │  └─────────────┘ └─────────────┘ └─────────────┘ └─────────────┘│
-└─────────────────────────────────────────────────────────────────┘
-</code></pre>
+└─────────────────────────────────────────────────────────────────┘</code></pre>
 <h2 id="oltp-database-strategy">OLTP Database Strategy</h2>
 <h3 id="primary-transactional-database-postgresql">Primary Transactional Database: PostgreSQL</h3>
 <h4 id="table-design-with-audit-strategy">Table Design with Audit Strategy</h4>
 <p>Every business entity includes comprehensive audit columns:</p>
-<pre><code class="language-sql">-- Standard audit columns for all tables
+<pre class="highlight"><code class="language-sql">-- Standard audit columns for all tables
 CREATE TABLE audit_base (
     id BIGSERIAL PRIMARY KEY,
     created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
@@ -385,11 +384,10 @@ CREATE TABLE orders_audit (
     old_values JSONB,
     new_values JSONB,
     correlation_id UUID -- For tracing changes across services
-);
-</code></pre>
+);</code></pre>
 <h4 id="partitioning-strategy">Partitioning Strategy</h4>
-<p><strong>Time-Based Partitioning</strong> for high-volume tables:</p>
-<pre><code class="language-sql">-- Monthly partitions for orders
+<p><strong>Time-Based Partitioning</strong> for high-volume tables:
+<pre class="highlight"><code class="language-sql">-- Monthly partitions for orders
 CREATE TABLE orders_y2024m01 PARTITION OF orders
 FOR VALUES FROM ('2024-01-01') TO ('2024-02-01');
 
@@ -400,11 +398,10 @@ SELECT partman.create_parent(
     p_type =&gt; 'range',
     p_interval =&gt; 'monthly',
     p_premake =&gt; 2
-);
-</code></pre>
+);</code></pre></p>
 <h3 id="scale-out-databases">Scale-Out Databases</h3>
 <h4 id="cassandra-for-high-volume-event-data">Cassandra for High-Volume Event Data</h4>
-<pre><code class="language-cql">-- Chat messages with time-series pattern
+<pre class="highlight"><code class="language-cql">-- Chat messages with time-series pattern
 CREATE TABLE chat_messages (
     room_id UUID,
     message_time TIMEUUID,
@@ -428,10 +425,9 @@ CREATE TABLE device_telemetry (
 
     -- Partitioning by device and time
     PRIMARY KEY ((device_id, sensor_type), timestamp)
-) WITH CLUSTERING ORDER BY (timestamp DESC);
-</code></pre>
+) WITH CLUSTERING ORDER BY (timestamp DESC);</code></pre>
 <h4 id="mongodb-for-document-heavy-domains">MongoDB for Document-Heavy Domains</h4>
-<pre><code class="language-javascript">// Social media posts with flexible schema
+<pre class="highlight"><code class="language-javascript">// Social media posts with flexible schema
 {
   _id: ObjectId,
   user_id: UUID,
@@ -457,12 +453,11 @@ CREATE TABLE device_telemetry (
   updated_by: String,
   version: Number,
   trace_id: String
-}
-</code></pre>
+}</code></pre>
 <h2 id="oltp-to-olap-data-flow">OLTP to OLAP Data Flow</h2>
 <h3 id="change-data-capture-cdc-strategy">Change Data Capture (CDC) Strategy</h3>
 <h4 id="debezium-configuration">Debezium Configuration</h4>
-<pre><code class="language-yaml"># Debezium connector for PostgreSQL
+<pre class="highlight"><code class="language-yaml"># Debezium connector for PostgreSQL
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaConnector
 metadata:
@@ -482,47 +477,45 @@ spec:
     transforms: unwrap
     transforms.unwrap.type: io.debezium.transforms.ExtractNewRecordState
     key.converter: org.apache.kafka.connect.json.JsonConverter
-    value.converter: org.apache.kafka.connect.json.JsonConverter
-</code></pre>
+    value.converter: org.apache.kafka.connect.json.JsonConverter</code></pre>
 <h4 id="event-schema-with-audit-context">Event Schema with Audit Context</h4>
-<pre><code class="language-json">{
-  &quot;schema&quot;: {
-    &quot;type&quot;: &quot;struct&quot;,
-    &quot;fields&quot;: [
-      {&quot;field&quot;: &quot;order_id&quot;, &quot;type&quot;: &quot;string&quot;},
-      {&quot;field&quot;: &quot;customer_id&quot;, &quot;type&quot;: &quot;string&quot;},
-      {&quot;field&quot;: &quot;status&quot;, &quot;type&quot;: &quot;string&quot;},
-      {&quot;field&quot;: &quot;total_amount&quot;, &quot;type&quot;: &quot;double&quot;},
-      {&quot;field&quot;: &quot;created_at&quot;, &quot;type&quot;: &quot;string&quot;},
-      {&quot;field&quot;: &quot;created_by&quot;, &quot;type&quot;: &quot;string&quot;},
-      {&quot;field&quot;: &quot;updated_at&quot;, &quot;type&quot;: &quot;string&quot;},
-      {&quot;field&quot;: &quot;updated_by&quot;, &quot;type&quot;: &quot;string&quot;},
-      {&quot;field&quot;: &quot;version&quot;, &quot;type&quot;: &quot;int32&quot;}
+<pre class="highlight"><code class="language-json">{
+  "schema": {
+    "type": "struct",
+    "fields": [
+      {"field": "order_id", "type": "string"},
+      {"field": "customer_id", "type": "string"},
+      {"field": "status", "type": "string"},
+      {"field": "total_amount", "type": "double"},
+      {"field": "created_at", "type": "string"},
+      {"field": "created_by", "type": "string"},
+      {"field": "updated_at", "type": "string"},
+      {"field": "updated_by", "type": "string"},
+      {"field": "version", "type": "int32"}
     ]
   },
-  &quot;payload&quot;: {
-    &quot;order_id&quot;: &quot;550e8400-e29b-41d4-a716-446655440000&quot;,
-    &quot;customer_id&quot;: &quot;123e4567-e89b-12d3-a456-426614174000&quot;,
-    &quot;status&quot;: &quot;CONFIRMED&quot;,
-    &quot;total_amount&quot;: 99.99,
-    &quot;created_at&quot;: &quot;2024-01-15T10:30:00Z&quot;,
-    &quot;created_by&quot;: &quot;customer-service&quot;,
-    &quot;updated_at&quot;: &quot;2024-01-15T10:35:00Z&quot;,
-    &quot;updated_by&quot;: &quot;payment-service&quot;,
-    &quot;version&quot;: 2
+  "payload": {
+    "order_id": "550e8400-e29b-41d4-a716-446655440000",
+    "customer_id": "123e4567-e89b-12d3-a456-426614174000",
+    "status": "CONFIRMED",
+    "total_amount": 99.99,
+    "created_at": "2024-01-15T10:30:00Z",
+    "created_by": "customer-service",
+    "updated_at": "2024-01-15T10:35:00Z",
+    "updated_by": "payment-service",
+    "version": 2
   },
-  &quot;metadata&quot;: {
-    &quot;operation&quot;: &quot;UPDATE&quot;,
-    &quot;source&quot;: &quot;orders&quot;,
-    &quot;timestamp&quot;: &quot;2024-01-15T10:35:00Z&quot;,
-    &quot;transaction_id&quot;: &quot;txn_123456&quot;,
-    &quot;lsn&quot;: &quot;24/3F000140&quot;
+  "metadata": {
+    "operation": "UPDATE",
+    "source": "orders",
+    "timestamp": "2024-01-15T10:35:00Z",
+    "transaction_id": "txn_123456",
+    "lsn": "24/3F000140"
   }
-}
-</code></pre>
+}</code></pre>
 <h3 id="medallion-architecture-bronze-silver-gold">Medallion Architecture: Bronze → Silver → Gold</h3>
 <h4 id="bronze-layer-raw-data-ingestion">Bronze Layer (Raw Data Ingestion)</h4>
-<pre><code class="language-sql">-- Raw events from Kafka stored in Delta Lake format
+<pre class="highlight"><code class="language-sql">-- Raw events from Kafka stored in Delta Lake format
 CREATE TABLE bronze_orders (
     event_id UUID DEFAULT gen_random_uuid(),
     event_timestamp TIMESTAMP WITH TIME ZONE,
@@ -542,11 +535,10 @@ VALUES (
     'postgres-orders',
     'UPDATE',
     'orders',
-    '{&quot;order_id&quot;: &quot;550e8400-e29b-41d4-a716-446655440000&quot;, &quot;status&quot;: &quot;CONFIRMED&quot;, ...}'
-);
-</code></pre>
+    '{"order_id": "550e8400-e29b-41d4-a716-446655440000", "status": "CONFIRMED", ...}'
+);</code></pre>
 <h4 id="silver-layer-cleaned-and-standardized">Silver Layer (Cleaned and Standardized)</h4>
-<pre><code class="language-sql">-- Cleaned, typed, and standardized data
+<pre class="highlight"><code class="language-sql">-- Cleaned, typed, and standardized data
 CREATE TABLE silver_orders (
     order_id UUID PRIMARY KEY,
     customer_id UUID NOT NULL,
@@ -591,10 +583,9 @@ BEGIN
         total_amount = EXCLUDED.total_amount,
         processed_at = NOW();
 END;
-$$ LANGUAGE plpgsql;
-</code></pre>
+$$ LANGUAGE plpgsql;</code></pre>
 <h4 id="gold-layer-business-logic-and-aggregations">Gold Layer (Business Logic and Aggregations)</h4>
-<pre><code class="language-sql">-- Business-ready dimensional model
+<pre class="highlight"><code class="language-sql">-- Business-ready dimensional model
 CREATE TABLE gold_order_facts (
     fact_id BIGSERIAL PRIMARY KEY,
     order_date_key INTEGER, -- Links to date dimension
@@ -629,21 +620,20 @@ SELECT
     COUNT(DISTINCT customer_key) as unique_customers
 FROM gold_order_facts
 WHERE is_current = TRUE
-GROUP BY order_date_key;
-</code></pre>
+GROUP BY order_date_key;</code></pre>
 <h2 id="real-time-analytics">Real-Time Analytics</h2>
 <h3 id="kafka-streams-processing">Kafka Streams Processing</h3>
-<pre><code class="language-java">@Component
+<pre class="highlight"><code class="language-java">@Component
 public class OrderAnalyticsStream {
 
     @Autowired
     public void processOrderEvents(StreamsBuilder builder) {
         KStream&lt;String, OrderEvent&gt; orderStream = builder
-            .stream(&quot;orders-topic&quot;, Consumed.with(Serdes.String(), orderEventSerde));
+            .stream("orders-topic", Consumed.with(Serdes.String(), orderEventSerde));
 
         // Real-time revenue calculation
         KTable&lt;Windowed&lt;String&gt;, Double&gt; revenueByHour = orderStream
-            .filter((key, order) -&gt; &quot;CONFIRMED&quot;.equals(order.getStatus()))
+            .filter((key, order) -&gt; "CONFIRMED".equals(order.getStatus()))
             .groupByKey()
             .windowedBy(TimeWindows.of(Duration.ofHours(1)))
             .aggregate(
@@ -655,13 +645,12 @@ public class OrderAnalyticsStream {
         // Output to analytics topic
         revenueByHour
             .toStream()
-            .to(&quot;hourly-revenue-topic&quot;);
+            .to("hourly-revenue-topic");
     }
-}
-</code></pre>
+}</code></pre>
 <h3 id="feature-store-integration">Feature Store Integration</h3>
-<pre><code class="language-java">@Entity
-@Table(name = &quot;customer_features&quot;)
+<pre class="highlight"><code class="language-java">@Entity
+@Table(name = "customer_features")
 public class CustomerFeatures {
     @Id
     private UUID customerId;
@@ -678,43 +667,41 @@ public class CustomerFeatures {
     private BigDecimal lifetimeValue;
 
     // Feature freshness tracking
-    @Column(name = &quot;features_updated_at&quot;)
+    @Column(name = "features_updated_at")
     private Instant featuresUpdatedAt;
 
-    @Column(name = &quot;feature_version&quot;)
+    @Column(name = "feature_version")
     private String featureVersion;
-}
-</code></pre>
+}</code></pre>
 <h2 id="data-governance-quality">Data Governance &amp; Quality</h2>
 <h3 id="schema-registry-and-evolution">Schema Registry and Evolution</h3>
-<pre><code class="language-json">{
-  &quot;type&quot;: &quot;record&quot;,
-  &quot;name&quot;: &quot;OrderEvent&quot;,
-  &quot;namespace&quot;: &quot;com.bitvelocity.events&quot;,
-  &quot;version&quot;: &quot;v2&quot;,
-  &quot;fields&quot;: [
-    {&quot;name&quot;: &quot;orderId&quot;, &quot;type&quot;: &quot;string&quot;},
-    {&quot;name&quot;: &quot;customerId&quot;, &quot;type&quot;: &quot;string&quot;},
-    {&quot;name&quot;: &quot;status&quot;, &quot;type&quot;: {&quot;type&quot;: &quot;enum&quot;, &quot;symbols&quot;: [&quot;PENDING&quot;, &quot;CONFIRMED&quot;, &quot;SHIPPED&quot;, &quot;DELIVERED&quot;, &quot;CANCELLED&quot;]}},
-    {&quot;name&quot;: &quot;totalAmount&quot;, &quot;type&quot;: &quot;double&quot;},
-    {&quot;name&quot;: &quot;currency&quot;, &quot;type&quot;: &quot;string&quot;, &quot;default&quot;: &quot;USD&quot;},
+<pre class="highlight"><code class="language-json">{
+  "type": "record",
+  "name": "OrderEvent",
+  "namespace": "com.bitvelocity.events",
+  "version": "v2",
+  "fields": [
+    {"name": "orderId", "type": "string"},
+    {"name": "customerId", "type": "string"},
+    {"name": "status", "type": {"type": "enum", "symbols": ["PENDING", "CONFIRMED", "SHIPPED", "DELIVERED", "CANCELLED"]}},
+    {"name": "totalAmount", "type": "double"},
+    {"name": "currency", "type": "string", "default": "USD"},
     {
-      &quot;name&quot;: &quot;auditInfo&quot;, 
-      &quot;type&quot;: {
-        &quot;type&quot;: &quot;record&quot;,
-        &quot;name&quot;: &quot;AuditInfo&quot;,
-        &quot;fields&quot;: [
-          {&quot;name&quot;: &quot;createdAt&quot;, &quot;type&quot;: &quot;long&quot;},
-          {&quot;name&quot;: &quot;createdBy&quot;, &quot;type&quot;: &quot;string&quot;},
-          {&quot;name&quot;: &quot;traceId&quot;, &quot;type&quot;: [&quot;null&quot;, &quot;string&quot;], &quot;default&quot;: null}
+      "name": "auditInfo", 
+      "type": {
+        "type": "record",
+        "name": "AuditInfo",
+        "fields": [
+          {"name": "createdAt", "type": "long"},
+          {"name": "createdBy", "type": "string"},
+          {"name": "traceId", "type": ["null", "string"], "default": null}
         ]
       }
     }
   ]
-}
-</code></pre>
+}</code></pre>
 <h3 id="data-quality-framework">Data Quality Framework</h3>
-<pre><code class="language-sql">-- Data quality rules table
+<pre class="highlight"><code class="language-sql">-- Data quality rules table
 CREATE TABLE data_quality_rules (
     rule_id UUID PRIMARY KEY,
     table_name VARCHAR(100),
@@ -727,9 +714,9 @@ CREATE TABLE data_quality_rules (
 
 -- Example quality rules
 INSERT INTO data_quality_rules VALUES
-('rule-001', 'orders', 'total_amount', 'RANGE', '{&quot;min&quot;: 0, &quot;max&quot;: 10000}', 'ERROR', true),
-('rule-002', 'orders', 'email', 'PATTERN', '{&quot;regex&quot;: &quot;^[^@]+@[^@]+\\.[^@]+$&quot;}', 'ERROR', true),
-('rule-003', 'orders', 'customer_id', 'REFERENCE', '{&quot;table&quot;: &quot;customers&quot;, &quot;column&quot;: &quot;id&quot;}', 'ERROR', true);
+('rule-001', 'orders', 'total_amount', 'RANGE', '{"min": 0, "max": 10000}', 'ERROR', true),
+('rule-002', 'orders', 'email', 'PATTERN', '{"regex": "^[^@]+@[^@]+\\.[^@]+$"}', 'ERROR', true),
+('rule-003', 'orders', 'customer_id', 'REFERENCE', '{"table": "customers", "column": "id"}', 'ERROR', true);
 
 -- Quality check results
 CREATE TABLE data_quality_results (
@@ -740,10 +727,9 @@ CREATE TABLE data_quality_results (
     failed_count INTEGER,
     success_rate DECIMAL(5,2),
     sample_failures JSONB
-);
-</code></pre>
+);</code></pre>
 <h3 id="data-lineage-tracking">Data Lineage Tracking</h3>
-<pre><code class="language-sql">-- Data lineage tracking
+<pre class="highlight"><code class="language-sql">-- Data lineage tracking
 CREATE TABLE data_lineage (
     lineage_id UUID PRIMARY KEY,
     source_dataset VARCHAR(200),
@@ -756,17 +742,16 @@ CREATE TABLE data_lineage (
 
 -- OpenLineage integration
 INSERT INTO data_lineage VALUES
-('lineage-001', 'postgres.public.orders', 'bronze_orders', 'CDC_CAPTURE', '{&quot;connector&quot;: &quot;debezium&quot;}', 1, NOW()),
-('lineage-002', 'bronze_orders', 'silver_orders', 'ETL_TRANSFORM', '{&quot;job&quot;: &quot;bronze_to_silver_orders&quot;}', 2, NOW()),
-('lineage-003', 'silver_orders', 'gold_order_facts', 'DIMENSIONAL_MODEL', '{&quot;type&quot;: &quot;fact_table&quot;}', 3, NOW());
-</code></pre>
+('lineage-001', 'postgres.public.orders', 'bronze_orders', 'CDC_CAPTURE', '{"connector": "debezium"}', 1, NOW()),
+('lineage-002', 'bronze_orders', 'silver_orders', 'ETL_TRANSFORM', '{"job": "bronze_to_silver_orders"}', 2, NOW()),
+('lineage-003', 'silver_orders', 'gold_order_facts', 'DIMENSIONAL_MODEL', '{"type": "fact_table"}', 3, NOW());</code></pre>
 <h2 id="caching-strategy">Caching Strategy</h2>
 <h3 id="multi-layer-caching-architecture">Multi-Layer Caching Architecture</h3>
-<pre><code class="language-java">@Component
+<pre class="highlight"><code class="language-java">@Component
 public class CacheStrategy {
 
     // L1: Application-level cache
-    @Cacheable(value = &quot;products&quot;, key = &quot;#productId&quot;)
+    @Cacheable(value = "products", key = "#productId")
     public Product getProduct(UUID productId) {
         return productRepository.findById(productId);
     }
@@ -776,7 +761,7 @@ public class CacheStrategy {
     private RedisTemplate&lt;String, Object&gt; redisTemplate;
 
     public CustomerProfile getCustomerProfile(UUID customerId) {
-        String cacheKey = &quot;customer:&quot; + customerId;
+        String cacheKey = "customer:" + customerId;
         CustomerProfile cached = (CustomerProfile) redisTemplate.opsForValue().get(cacheKey);
 
         if (cached == null) {
@@ -793,31 +778,29 @@ public class CacheStrategy {
         List&lt;UUID&gt; topProductIds = analyticsService.getTopSellingProducts(100);
         topProductIds.forEach(this::getProduct);
     }
-}
-</code></pre>
+}</code></pre>
 <h3 id="cache-invalidation-patterns">Cache Invalidation Patterns</h3>
-<pre><code class="language-java">@EventListener
+<pre class="highlight"><code class="language-java">@EventListener
 public class CacheInvalidationHandler {
 
     @Autowired
     private CacheManager cacheManager;
 
-    @KafkaListener(topics = &quot;product-updates&quot;)
+    @KafkaListener(topics = "product-updates")
     public void handleProductUpdate(ProductUpdateEvent event) {
-        Cache productCache = cacheManager.getCache(&quot;products&quot;);
+        Cache productCache = cacheManager.getCache("products");
         productCache.evict(event.getProductId());
 
         // Invalidate related caches
         if (event.isCategoryChange()) {
-            Cache categoryCache = cacheManager.getCache(&quot;categories&quot;);
+            Cache categoryCache = cacheManager.getCache("categories");
             categoryCache.evict(event.getCategoryId());
         }
     }
-}
-</code></pre>
+}</code></pre>
 <h2 id="performance-optimization">Performance Optimization</h2>
 <h3 id="database-optimization">Database Optimization</h3>
-<pre><code class="language-sql">-- Index strategies for common query patterns
+<pre class="highlight"><code class="language-sql">-- Index strategies for common query patterns
 CREATE INDEX CONCURRENTLY idx_orders_customer_date 
 ON orders (customer_id, created_date DESC) 
 WHERE deleted_at IS NULL;
@@ -841,11 +824,10 @@ BEGIN
     END IF;
     RETURN NULL;
 END;
-$$ LANGUAGE plpgsql;
-</code></pre>
+$$ LANGUAGE plpgsql;</code></pre>
 <h2 id="disaster-recovery-backup">Disaster Recovery &amp; Backup</h2>
 <h3 id="backup-strategy">Backup Strategy</h3>
-<pre><code class="language-yaml"># Automated backup configuration
+<pre class="highlight"><code class="language-yaml"># Automated backup configuration
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -858,17 +840,16 @@ data:
     # Full database backup
     pg_dump -h $POSTGRES_HOST -U $POSTGRES_USER -d bitvelocity \
       --format=custom --compress=9 \
-      --file=&quot;/backups/full_backup_${DATE}.dump&quot;
+      --file="/backups/full_backup_${DATE}.dump"
 
     # Incremental WAL archiving
     archive_command = 'cp %p /archive/%f'
 
     # Upload to cloud storage
-    aws s3 cp &quot;/backups/full_backup_${DATE}.dump&quot; \
-      &quot;s3://bitvelocity-backups/postgres/${DATE}/&quot;
-</code></pre>
+    aws s3 cp "/backups/full_backup_${DATE}.dump" \
+      "s3://bitvelocity-backups/postgres/${DATE}/"</code></pre>
 <h3 id="cross-region-replication">Cross-Region Replication</h3>
-<pre><code class="language-sql">-- PostgreSQL streaming replication setup
+<pre class="highlight"><code class="language-sql">-- PostgreSQL streaming replication setup
 -- Primary server configuration
 wal_level = replica
 max_wal_senders = 3
@@ -882,11 +863,10 @@ CREATE USER replicator REPLICATION LOGIN PASSWORD 'secure_password';
 -- Replica server setup
 standby_mode = 'on'
 primary_conninfo = 'host=primary_host port=5432 user=replicator'
-restore_command = 'cp /archive/%f %p'
-</code></pre>
+restore_command = 'cp /archive/%f %p'</code></pre>
 <h2 id="monitoring-alerting">Monitoring &amp; Alerting</h2>
 <h3 id="data-pipeline-monitoring">Data Pipeline Monitoring</h3>
-<pre><code class="language-java">@Component
+<pre class="highlight"><code class="language-java">@Component
 public class DataPipelineMonitor {
 
     @Autowired
@@ -898,29 +878,28 @@ public class DataPipelineMonitor {
 
         try {
             // Process data
-            sample.stop(Timer.builder(&quot;data.processing.duration&quot;)
-                .tag(&quot;pipeline&quot;, event.getPipelineName())
-                .tag(&quot;status&quot;, &quot;success&quot;)
+            sample.stop(Timer.builder("data.processing.duration")
+                .tag("pipeline", event.getPipelineName())
+                .tag("status", "success")
                 .register(meterRegistry));
 
-            meterRegistry.counter(&quot;data.records.processed&quot;,
-                &quot;pipeline&quot;, event.getPipelineName())
+            meterRegistry.counter("data.records.processed",
+                "pipeline", event.getPipelineName())
                 .increment(event.getRecordCount());
 
         } catch (Exception e) {
-            sample.stop(Timer.builder(&quot;data.processing.duration&quot;)
-                .tag(&quot;pipeline&quot;, event.getPipelineName())
-                .tag(&quot;status&quot;, &quot;error&quot;)
+            sample.stop(Timer.builder("data.processing.duration")
+                .tag("pipeline", event.getPipelineName())
+                .tag("status", "error")
                 .register(meterRegistry));
 
-            meterRegistry.counter(&quot;data.processing.errors&quot;,
-                &quot;pipeline&quot;, event.getPipelineName(),
-                &quot;error_type&quot;, e.getClass().getSimpleName())
+            meterRegistry.counter("data.processing.errors",
+                "pipeline", event.getPipelineName(),
+                "error_type", e.getClass().getSimpleName())
                 .increment();
         }
     }
-}
-</code></pre>
+}</code></pre>
 <h2 id="cost-optimization">Cost Optimization</h2>
 <h3 id="storage-cost-management">Storage Cost Management</h3>
 <ul>

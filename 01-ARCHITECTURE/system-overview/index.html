@@ -345,7 +345,7 @@
 </ul>
 <h2 id="system-topology">System Topology</h2>
 <h3 id="high-level-architecture">High-Level Architecture</h3>
-<pre><code>┌─────────────────────────────────────────────────────────────────┐
+<pre class="highlight"><code>┌─────────────────────────────────────────────────────────────────┐
 │                         API Gateway / Ingress                   │
 │                     (Kong/Envoy + Load Balancer)               │
 └─────────────────────────┬───────────────────────────────────────┘
@@ -380,11 +380,10 @@
 │  │   Warehouse │ │   Feature   │ │   Vector    │ │   Stream    ││
 │  │   (OLAP)    │ │    Store    │ │     DB      │ │ Processing  ││
 │  └─────────────┘ └─────────────┘ └─────────────┘ └─────────────┘│
-└─────────────────────────────────────────────────────────────────┘
-</code></pre>
+└─────────────────────────────────────────────────────────────────┘</code></pre>
 <h2 id="domain-architecture">Domain Architecture</h2>
 <h3 id="domain-interaction-map">Domain Interaction Map</h3>
-<pre><code>    ┌─────────────┐    Events     ┌─────────────┐
+<pre class="highlight"><code>    ┌─────────────┐    Events     ┌─────────────┐
     │ E-Commerce  │ ────────────► │   ML/AI     │
     │             │               │  Platform   │
     └─────┬───────┘               └─────────────┘
@@ -399,8 +398,7 @@
     ┌─────────────┐    Device Data ┌─────────────┐
     │    IoT      │ ◄────────────── │   Social    │
     │             │                 │             │
-    └─────────────┘                 └─────────────┘
-</code></pre>
+    └─────────────┘                 └─────────────┘</code></pre>
 <h3 id="e-commerce-domain-primary">E-Commerce Domain (Primary)</h3>
 <p><strong>Services</strong>: Product, Order, Inventory, Payment, Notification
 <strong>Protocols</strong>: REST, GraphQL, gRPC, SOAP, Webhooks, SSE
@@ -496,7 +494,7 @@
 </tbody>
 </table>
 <h3 id="event-driven-architecture">Event-Driven Architecture</h3>
-<pre><code>┌─────────────┐    Order Events    ┌─────────────┐
+<pre class="highlight"><code>┌─────────────┐    Order Events    ┌─────────────┐
 │   Orders    │ ──────────────────► │  Inventory  │
 │   Service   │                     │   Service   │
 └─────────────┘                     └─────────────┘
@@ -512,8 +510,7 @@
 ┌─────────────┐                     ┌─────────────┐
 │ Notification│                     │  Analytics  │
 │   Service   │                     │   Service   │
-└─────────────┘                     └─────────────┘
-</code></pre>
+└─────────────┘                     └─────────────┘</code></pre>
 <h2 id="data-architecture-overview">Data Architecture Overview</h2>
 <h3 id="oltp-strategy">OLTP Strategy</h3>
 <ul>

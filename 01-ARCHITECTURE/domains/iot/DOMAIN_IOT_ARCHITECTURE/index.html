@@ -387,15 +387,14 @@
 </table>
 <h2 id="4-telemetry-payload">4. Telemetry Payload</h2>
 <p>MQTT Topic: devices/{deviceId}/telemetry<br />
-Payload (JSON):</p>
-<pre><code>{
-  &quot;ts&quot;: &quot;...&quot;,
-  &quot;temperature&quot;: 24.1,
-  &quot;voltage&quot;: 3.7,
-  &quot;status&quot;: &quot;OK&quot;
-}
-</code></pre>
-<p>Transformed into event: iot.telemetry.raw.v1 (partition by deviceId).</p>
+Payload (JSON):
+<pre class="highlight"><code>{
+  "ts": "...",
+  "temperature": 24.1,
+  "voltage": 3.7,
+  "status": "OK"
+}</code></pre>
+Transformed into event: iot.telemetry.raw.v1 (partition by deviceId).</p>
 <h2 id="5-data-model">5. Data Model</h2>
 <p>Postgres:
 - devices(id, serial, type, status, created_at)
@@ -404,12 +403,11 @@ Payload (JSON):</p>
 - firmware_rollouts(id, artifact_id, target_group, status)
 - firmware_rollout_device(rollout_id, device_id, status, updated_at)</p>
 <h2 id="6-firmware-grpc-simplified">6. Firmware gRPC (simplified)</h2>
-<pre><code>service Firmware {
+<pre class="highlight"><code>service Firmware {
   rpc StartRollout(RolloutRequest) returns (RolloutAck);
   rpc ReportStatus(StatusReport) returns (Ack);
   rpc GetRollout(RolloutId) returns (RolloutState);
-}
-</code></pre>
+}</code></pre>
 <h2 id="7-stream-processing">7. Stream Processing</h2>
 <p>Jobs:
 - TelemetryNormalizer → enrich + validate

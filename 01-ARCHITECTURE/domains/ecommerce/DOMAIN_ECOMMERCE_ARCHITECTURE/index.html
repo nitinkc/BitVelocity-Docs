@@ -473,20 +473,18 @@
 - POST /api/v1/orders/{id}/pay
 - POST /api/v1/orders/{id}/cancel
 - GET /api/v1/orders/{id}</p>
-<p>GraphQL (later):</p>
-<pre><code>type Query {
+<p>GraphQL (later):
+<pre class="highlight"><code>type Query {
   product(id: ID!): Product
   products(filter: ProductFilter): [Product]
   productInventory(id: ID!): InventoryInfo
-}
-</code></pre>
-<p>gRPC (inventory):</p>
-<pre><code>service Inventory {
+}</code></pre></p>
+<p>gRPC (inventory):
+<pre class="highlight"><code>service Inventory {
   rpc ReserveStock(ReserveRequest) returns (ReserveResponse);
   rpc ReleaseStock(ReleaseRequest) returns (ReleaseResponse);
   rpc QueryStock(StockQuery) returns (StockStatus);
-}
-</code></pre>
+}</code></pre></p>
 <p>WebSocket Channels:
 - /ws/orders (subscribe {orderId} or personal channel)
 SSE:
@@ -570,25 +568,24 @@ SSE:
 </tr>
 </tbody>
 </table>
-<p>Canonical Payload (example order.created):</p>
-<pre><code>{
-  &quot;eventId&quot;: &quot;...&quot;,
-  &quot;eventType&quot;: &quot;ecommerce.order.order.created.v1&quot;,
-  &quot;occurredAt&quot;: &quot;...&quot;,
-  &quot;producer&quot;: &quot;order-service&quot;,
-  &quot;traceId&quot;: &quot;...&quot;,
-  &quot;correlationId&quot;: &quot;...&quot;,
-  &quot;schemaVersion&quot;: &quot;1.0&quot;,
-  &quot;partitionKey&quot;: &quot;ORDER-123&quot;,
-  &quot;payload&quot;: {
-    &quot;orderId&quot;: &quot;ORDER-123&quot;,
-    &quot;userId&quot;: &quot;USER-9&quot;,
-    &quot;totalAmount&quot;: 129.50,
-    &quot;currency&quot;: &quot;USD&quot;,
-    &quot;items&quot;: [{&quot;productId&quot;:&quot;P1&quot;,&quot;qty&quot;:2,&quot;price&quot;:25.00}]
+<p>Canonical Payload (example order.created):
+<pre class="highlight"><code>{
+  "eventId": "...",
+  "eventType": "ecommerce.order.order.created.v1",
+  "occurredAt": "...",
+  "producer": "order-service",
+  "traceId": "...",
+  "correlationId": "...",
+  "schemaVersion": "1.0",
+  "partitionKey": "ORDER-123",
+  "payload": {
+    "orderId": "ORDER-123",
+    "userId": "USER-9",
+    "totalAmount": 129.50,
+    "currency": "USD",
+    "items": [{"productId":"P1","qty":2,"price":25.00}]
   }
-}
-</code></pre>
+}</code></pre></p>
 <h2 id="7-caching-strategy">7. Caching Strategy</h2>
 <table>
 <thead>

@@ -356,11 +356,10 @@
 <p>REST:
 - GET /api/v1/recommendations/products?userId=U1
 - POST /api/v1/fraud/score { orderId }
-gRPC (optional future):</p>
-<pre><code>service Recommendations {
+gRPC (optional future):
+<pre class="highlight"><code>service Recommendations {
   rpc GetProductRecommendations(UserId) returns (ProductList);
-}
-</code></pre>
+}</code></pre></p>
 <h2 id="6-model-management">6. Model Management</h2>
 <p>Metadata store (Postgres):
 - models(id, name, version, status, created_at)

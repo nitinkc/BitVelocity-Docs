@@ -391,40 +391,36 @@ Kafka events:
 - chat.message.sent.v1
 - chat.message.edited.v1 (optional)
 - chat.message.deleted.v1 (optional)</p>
-<p>Message payload example:</p>
-<pre><code>{
-  &quot;eventType&quot;: &quot;chat.message.sent.v1&quot;,
-  &quot;payload&quot;: {
-    &quot;messageId&quot;: &quot;M123&quot;,
-    &quot;roomId&quot;: &quot;R88&quot;,
-    &quot;senderId&quot;: &quot;U9&quot;,
-    &quot;content&quot;: &quot;hello&quot;,
-    &quot;sentAt&quot;: &quot;...&quot;,
-    &quot;attachments&quot;: []
+<p>Message payload example:
+<pre class="highlight"><code>{
+  "eventType": "chat.message.sent.v1",
+  "payload": {
+    "messageId": "M123",
+    "roomId": "R88",
+    "senderId": "U9",
+    "content": "hello",
+    "sentAt": "...",
+    "attachments": []
   }
-}
-</code></pre>
+}</code></pre></p>
 <h2 id="5-websocket-contract">5. WebSocket Contract</h2>
-<p>Client → Server:</p>
-<pre><code>{
-  &quot;type&quot;: &quot;SEND_MESSAGE&quot;,
-  &quot;roomId&quot;: &quot;R88&quot;,
-  &quot;content&quot;: &quot;hello&quot;
-}
-</code></pre>
-<p>Server → Client:</p>
-<pre><code>{
-  &quot;type&quot;: &quot;MESSAGE&quot;,
-  &quot;roomId&quot;: &quot;R88&quot;,
-  &quot;messageId&quot;:&quot;M123&quot;,
-  &quot;senderId&quot;:&quot;U9&quot;,
-  &quot;content&quot;:&quot;hello&quot;,
-  &quot;ts&quot;:&quot;...&quot;
-}
-</code></pre>
-<p>Presence event push:</p>
-<pre><code>{ &quot;type&quot;: &quot;PRESENCE&quot;, &quot;userId&quot;: &quot;U10&quot;, &quot;status&quot;: &quot;ONLINE&quot; }
-</code></pre>
+<p>Client → Server:
+<pre class="highlight"><code>{
+  "type": "SEND_MESSAGE",
+  "roomId": "R88",
+  "content": "hello"
+}</code></pre>
+Server → Client:
+<pre class="highlight"><code>{
+  "type": "MESSAGE",
+  "roomId": "R88",
+  "messageId":"M123",
+  "senderId":"U9",
+  "content":"hello",
+  "ts":"..."
+}</code></pre>
+Presence event push:
+<pre class="highlight"><code>{ "type": "PRESENCE", "userId": "U10", "status": "ONLINE" }</code></pre></p>
 <h2 id="6-caching-session-model">6. Caching &amp; Session Model</h2>
 <ul>
 <li>Redis pub/sub optional for local fan-out.</li>
