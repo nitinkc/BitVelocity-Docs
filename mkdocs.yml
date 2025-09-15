@@ -46,3 +46,14 @@ nav:
       - IoT: event-contracts/iot/README.md
       - ML: event-contracts/ml/README.md
       - Schema: event-contracts/schema/README.md
+
+plugins:
+    - search
+    - mermaid2
+    
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
