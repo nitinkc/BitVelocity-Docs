@@ -33,10 +33,10 @@
 <!-- Main navigation -->
 <ul class="nav navbar-nav">
 <li class="nav-item">
-<a aria-current="page" class="nav-link active" href=".">Home</a>
+<a class="nav-link" href="README.md">Home</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="INDEX_DOMAIN_DESIGNS/">Index Domain Designs</a>
+<a class="nav-link" href="INDEX_DOMAIN_DESIGNS.md">Index Domain Designs</a>
 </li>
 <li class="nav-item dropdown">
 <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">Overview</a>
@@ -188,16 +188,6 @@
 <i class="fa fa-search"></i> Search
                             </a>
 </li>
-<li class="nav-item">
-<a class="nav-link disabled" rel="prev">
-<i class="fa fa-arrow-left"></i> Previous
-                                </a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="INDEX_DOMAIN_DESIGNS/" rel="next">
-                                    Next <i class="fa fa-arrow-right"></i>
-</a>
-</li>
 </ul>
 </div>
 </div>
@@ -230,11 +220,11 @@
 <ul class="nav flex-column">
 </ul>
 </li>
-<li class="nav-item" data-bs-level="2"><a class="nav-link" href="#documentation-maintenance">🔄 Documentation Maintenance</a>
+<li class="nav-item" data-bs-level="2"><a class="nav-link" href="#getting-help">🆘 Getting Help</a>
 <ul class="nav flex-column">
 </ul>
 </li>
-<li class="nav-item" data-bs-level="2"><a class="nav-link" href="#getting-help">🆘 Getting Help</a>
+<li class="nav-item" data-bs-level="2"><a class="nav-link" href="#layered-dependency-contract-do-not-violate">Layered Dependency Contract (Do Not Violate)</a>
 <ul class="nav flex-column">
 </ul>
 </li>
@@ -393,14 +383,6 @@
 <li><strong>Cloud Platforms</strong>: GCP ⏳, AWS ⏳, Azure ⏳</li>
 <li><strong>Patterns</strong>: CQRS ⏳, Event Sourcing ⏳, Saga ⏳, Circuit Breaker ⏳</li>
 </ul>
-<h2 id="documentation-maintenance">🔄 Documentation Maintenance</h2>
-<h3 id="recent-changes">Recent Changes</h3>
-<ul>
-<li><strong>2024-01</strong>: Complete reorganization and consolidation</li>
-<li><strong>2024-01</strong>: Added comprehensive data architecture with OLTP→OLAP flows</li>
-<li><strong>2024-01</strong>: Enhanced budget planning and cost optimization</li>
-<li><strong>2024-01</strong>: Consolidated microservices patterns documentation</li>
-</ul>
 <h3 id="contributing-guidelines">Contributing Guidelines</h3>
 <ol>
 <li>Follow the existing document structure and naming conventions</li>
@@ -426,9 +408,11 @@
 <li><strong>Budget Concerns</strong>: Reference budget planning and cost optimization guides</li>
 </ul>
 <hr/>
-<p><strong>Last Updated</strong>: January 2024<br/>
-<strong>Version</strong>: 2.0 (Post-reorganization)<br/>
-<strong>Maintainers</strong>: BitVelocity Architecture Team</p>
+<h2 id="layered-dependency-contract-do-not-violate">Layered Dependency Contract (Do Not Violate)</h2>
+<p>Shared Libs ← (used by) All Domains<br/>
+Security Platform ← (used by) All Domains<br/>
+E-Commerce Events → consumed by others (but Order svc never imports Chat code etc.)<br/>
+Cross-cutting docs define invariants; domain docs must not redefine them.</p>
 <p><em>This documentation is a living resource that evolves with the project. Feedback and improvements are always welcome.</em></p></div>
 </div>
 </div>
@@ -507,5 +491,5 @@
 </html>
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-09-15 09:47:19.285683+00:00
+Build Date UTC : 2025-09-15 10:18:54.628304+00:00
 -->
