@@ -329,72 +329,72 @@
 <table>
 <thead>
 <tr>
-<th>Context</th>
-<th>Service</th>
-<th>Responsibility</th>
-<th>Initial Status</th>
+<th style="text-align: left;">Context</th>
+<th style="text-align: left;">Service</th>
+<th style="text-align: left;">Responsibility</th>
+<th style="text-align: left;">Initial Status</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Catalog</td>
-<td>product-service</td>
-<td>Product CRUD, price versioning</td>
-<td>Phase 1</td>
+<td style="text-align: left;">Catalog</td>
+<td style="text-align: left;">product-service</td>
+<td style="text-align: left;">Product CRUD, price versioning</td>
+<td style="text-align: left;">Phase 1</td>
 </tr>
 <tr>
-<td>Pricing</td>
-<td>pricing-service (optional merge into product early)</td>
-<td>Flash sales, dynamic overrides</td>
-<td>Phase 4</td>
+<td style="text-align: left;">Pricing</td>
+<td style="text-align: left;">pricing-service (optional merge into product early)</td>
+<td style="text-align: left;">Flash sales, dynamic overrides</td>
+<td style="text-align: left;">Phase 4</td>
 </tr>
 <tr>
-<td>Cart</td>
-<td>cart-service</td>
-<td>Manage session/user carts</td>
-<td>Phase 1</td>
+<td style="text-align: left;">Cart</td>
+<td style="text-align: left;">cart-service</td>
+<td style="text-align: left;">Manage session/user carts</td>
+<td style="text-align: left;">Phase 1</td>
 </tr>
 <tr>
-<td>Order Lifecycle</td>
-<td>order-service</td>
-<td>Create, pay, cancel, fulfill</td>
-<td>Phase 2</td>
+<td style="text-align: left;">Order Lifecycle</td>
+<td style="text-align: left;">order-service</td>
+<td style="text-align: left;">Create, pay, cancel, fulfill</td>
+<td style="text-align: left;">Phase 2</td>
 </tr>
 <tr>
-<td>Inventory</td>
-<td>inventory-service</td>
-<td>Reserve/release, stock adjustments, IoT feed</td>
-<td>Phase 2–3</td>
+<td style="text-align: left;">Inventory</td>
+<td style="text-align: left;">inventory-service</td>
+<td style="text-align: left;">Reserve/release, stock adjustments, IoT feed</td>
+<td style="text-align: left;">Phase 2–3</td>
 </tr>
 <tr>
-<td>Payment Integration</td>
-<td>payment-adapter-service</td>
-<td>Simulated SOAP legacy + REST fallback</td>
-<td>Phase 4</td>
+<td style="text-align: left;">Payment Integration</td>
+<td style="text-align: left;">payment-adapter-service</td>
+<td style="text-align: left;">Simulated SOAP legacy + REST fallback</td>
+<td style="text-align: left;">Phase 4</td>
 </tr>
 <tr>
-<td>Notification</td>
-<td>notification-service</td>
-<td>WebSocket &amp; SSE push for order &amp; sale status</td>
-<td>Phase 3</td>
+<td style="text-align: left;">Notification</td>
+<td style="text-align: left;">notification-service</td>
+<td style="text-align: left;">WebSocket &amp; SSE push for order &amp; sale status</td>
+<td style="text-align: left;">Phase 3</td>
 </tr>
 <tr>
-<td>Partner Integrations</td>
-<td>partner-webhook-dispatcher</td>
-<td>Outbound webhooks + retry queue</td>
-<td>Phase 4</td>
+<td style="text-align: left;">Partner Integrations</td>
+<td style="text-align: left;">partner-webhook-dispatcher</td>
+<td style="text-align: left;">Outbound webhooks + retry queue</td>
+<td style="text-align: left;">Phase 4</td>
 </tr>
 <tr>
-<td>Analytics Projection</td>
-<td>analytics-streaming-service</td>
-<td>Streams metrics &amp; aggregates</td>
-<td>Phase 5</td>
+<td style="text-align: left;">Analytics Projection</td>
+<td style="text-align: left;">analytics-streaming-service</td>
+<td style="text-align: left;">Streams metrics &amp; aggregates</td>
+<td style="text-align: left;">Phase 5</td>
 </tr>
 <tr>
-<td>Replay (shared)</td>
-<td>replay-service (cross repo)</td>
-<td>Reconstruct projections/read models</td>
-<td>Phase ≥7</td>
+<td style="text-align: left;">Replay (shared)</td>
+<td style="text-align: left;">replay-service (cross repo)</td>
+<td style="text-align: left;">Reconstruct projections/read models</td>
+<td style="text-align: left;">Phase ≥7</td>
 </tr>
 </tbody>
 </table>
@@ -402,66 +402,66 @@
 <table>
 <thead>
 <tr>
-<th>Use Case</th>
-<th>Protocol</th>
-<th>Rationale</th>
+<th style="text-align: left;">Use Case</th>
+<th style="text-align: left;">Protocol</th>
+<th style="text-align: left;">Rationale</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Product CRUD</td>
-<td>REST</td>
-<td>Simplicity &amp; ubiquity</td>
+<td style="text-align: left;">Product CRUD</td>
+<td style="text-align: left;">REST</td>
+<td style="text-align: left;">Simplicity &amp; ubiquity</td>
 </tr>
 <tr>
-<td>Product + Inventory query</td>
-<td>GraphQL federation</td>
-<td>Aggregated read model</td>
+<td style="text-align: left;">Product + Inventory query</td>
+<td style="text-align: left;">GraphQL federation</td>
+<td style="text-align: left;">Aggregated read model</td>
 </tr>
 <tr>
-<td>Stock reservation</td>
-<td>gRPC</td>
-<td>Low-latency internal call</td>
+<td style="text-align: left;">Stock reservation</td>
+<td style="text-align: left;">gRPC</td>
+<td style="text-align: left;">Low-latency internal call</td>
 </tr>
 <tr>
-<td>Order lifecycle events</td>
-<td>Kafka events</td>
-<td>Decoupled downstream consumers</td>
+<td style="text-align: left;">Order lifecycle events</td>
+<td style="text-align: left;">Kafka events</td>
+<td style="text-align: left;">Decoupled downstream consumers</td>
 </tr>
 <tr>
-<td>Flash sale broadcast</td>
-<td>SSE</td>
-<td>One-way scalable updates</td>
+<td style="text-align: left;">Flash sale broadcast</td>
+<td style="text-align: left;">SSE</td>
+<td style="text-align: left;">One-way scalable updates</td>
 </tr>
 <tr>
-<td>Real-time order status</td>
-<td>WebSocket</td>
-<td>Bidirectional channel (future ack)</td>
+<td style="text-align: left;">Real-time order status</td>
+<td style="text-align: left;">WebSocket</td>
+<td style="text-align: left;">Bidirectional channel (future ack)</td>
 </tr>
 <tr>
-<td>Payment gateway</td>
-<td>SOAP + REST fallback</td>
-<td>Legacy simulation &amp; resilience</td>
+<td style="text-align: left;">Payment gateway</td>
+<td style="text-align: left;">SOAP + REST fallback</td>
+<td style="text-align: left;">Legacy simulation &amp; resilience</td>
 </tr>
 <tr>
-<td>Outbound partner updates</td>
-<td>Webhooks + RabbitMQ retry</td>
-<td>External integration reliability</td>
+<td style="text-align: left;">Outbound partner updates</td>
+<td style="text-align: left;">Webhooks + RabbitMQ retry</td>
+<td style="text-align: left;">External integration reliability</td>
 </tr>
 <tr>
-<td>IoT stock adjustments</td>
-<td>MQTT ingest → Kafka</td>
-<td>Device realism</td>
+<td style="text-align: left;">IoT stock adjustments</td>
+<td style="text-align: left;">MQTT ingest → Kafka</td>
+<td style="text-align: left;">Device realism</td>
 </tr>
 <tr>
-<td>Batch sales summary</td>
-<td>Batch job</td>
-<td>Deferred computation</td>
+<td style="text-align: left;">Batch sales summary</td>
+<td style="text-align: left;">Batch job</td>
+<td style="text-align: left;">Deferred computation</td>
 </tr>
 <tr>
-<td>Streaming revenue metrics</td>
-<td>Kafka Streams</td>
-<td>Near real-time dashboard</td>
+<td style="text-align: left;">Streaming revenue metrics</td>
+<td style="text-align: left;">Kafka Streams</td>
+<td style="text-align: left;">Near real-time dashboard</td>
 </tr>
 </tbody>
 </table>
@@ -505,14 +505,43 @@ SSE:
 - inventory_stock, inventory_adjustment
 - webhook_subscriptions, webhook_delivery_attempts</p>
 <p>CDC: Debezium captures orders, inventory_adjustment, product changes.</p>
-<p>Derived Serving:
-| Projection | Store | Built From |
-|------------|-------|------------|
-| orders_by_customer | Cassandra | domain events + CDC status |
-| inventory_snapshot | Redis + Cassandra | inventory.adjusted events |
-| product_search_index | OpenSearch (later) | product.updated event |
-| flash_sale_price_map | Redis | pricing.* events |
-| daily_revenue | ClickHouse / Streams state | order.paid / order.canceled |</p>
+<p>Derived Serving:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Projection</th>
+<th style="text-align: left;">Store</th>
+<th style="text-align: left;">Built From</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">orders_by_customer</td>
+<td style="text-align: left;">Cassandra</td>
+<td style="text-align: left;">domain events + CDC status</td>
+</tr>
+<tr>
+<td style="text-align: left;">inventory_snapshot</td>
+<td style="text-align: left;">Redis + Cassandra</td>
+<td style="text-align: left;">inventory.adjusted events</td>
+</tr>
+<tr>
+<td style="text-align: left;">product_search_index</td>
+<td style="text-align: left;">OpenSearch (later)</td>
+<td style="text-align: left;">product.updated event</td>
+</tr>
+<tr>
+<td style="text-align: left;">flash_sale_price_map</td>
+<td style="text-align: left;">Redis</td>
+<td style="text-align: left;">pricing.* events</td>
+</tr>
+<tr>
+<td style="text-align: left;">daily_revenue</td>
+<td style="text-align: left;">ClickHouse / Streams state</td>
+<td style="text-align: left;">order.paid / order.canceled</td>
+</tr>
+</tbody>
+</table>
 <p>OLAP / Warehouse:
 - fact_orders, fact_inventory_adjustments, dim_product, dim_date</p>
 <p>No Dual Write Rule: Application writes only to Postgres; all projections built via Kafka streams or connectors.</p>
@@ -520,51 +549,51 @@ SSE:
 <table>
 <thead>
 <tr>
-<th>Event Type</th>
-<th>Purpose</th>
-<th>Partition Key</th>
+<th style="text-align: left;">Event Type</th>
+<th style="text-align: left;">Purpose</th>
+<th style="text-align: left;">Partition Key</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>ecommerce.order.order.created.v1</td>
-<td>Start lifecycle</td>
-<td>orderId</td>
+<td style="text-align: left;">ecommerce.order.order.created.v1</td>
+<td style="text-align: left;">Start lifecycle</td>
+<td style="text-align: left;">orderId</td>
 </tr>
 <tr>
-<td>ecommerce.order.order.paid.v1</td>
-<td>Payment success</td>
-<td>orderId</td>
+<td style="text-align: left;">ecommerce.order.order.paid.v1</td>
+<td style="text-align: left;">Payment success</td>
+<td style="text-align: left;">orderId</td>
 </tr>
 <tr>
-<td>ecommerce.order.order.canceled.v1</td>
-<td>Compensation</td>
-<td>orderId</td>
+<td style="text-align: left;">ecommerce.order.order.canceled.v1</td>
+<td style="text-align: left;">Compensation</td>
+<td style="text-align: left;">orderId</td>
 </tr>
 <tr>
-<td>ecommerce.order.order.fulfilled.v1</td>
-<td>Completion</td>
-<td>orderId</td>
+<td style="text-align: left;">ecommerce.order.order.fulfilled.v1</td>
+<td style="text-align: left;">Completion</td>
+<td style="text-align: left;">orderId</td>
 </tr>
 <tr>
-<td>ecommerce.inventory.stock.adjusted.v1</td>
-<td>Stock delta broadcast</td>
-<td>productId</td>
+<td style="text-align: left;">ecommerce.inventory.stock.adjusted.v1</td>
+<td style="text-align: left;">Stock delta broadcast</td>
+<td style="text-align: left;">productId</td>
 </tr>
 <tr>
-<td>ecommerce.product.product.updated.v1</td>
-<td>Cache/search invalidation</td>
-<td>productId</td>
+<td style="text-align: left;">ecommerce.product.product.updated.v1</td>
+<td style="text-align: left;">Cache/search invalidation</td>
+<td style="text-align: left;">productId</td>
 </tr>
 <tr>
-<td>ecommerce.pricing.flash_sale.started.v1</td>
-<td>Broadcast sale</td>
-<td>productId or saleId</td>
+<td style="text-align: left;">ecommerce.pricing.flash_sale.started.v1</td>
+<td style="text-align: left;">Broadcast sale</td>
+<td style="text-align: left;">productId or saleId</td>
 </tr>
 <tr>
-<td>ecommerce.webhook.delivery.failed.v1</td>
-<td>Alert operations</td>
-<td>subscriptionId</td>
+<td style="text-align: left;">ecommerce.webhook.delivery.failed.v1</td>
+<td style="text-align: left;">Alert operations</td>
+<td style="text-align: left;">subscriptionId</td>
 </tr>
 </tbody>
 </table>
@@ -590,42 +619,42 @@ SSE:
 <table>
 <thead>
 <tr>
-<th>Cache</th>
-<th>Key</th>
-<th>Policy</th>
-<th>Invalidation</th>
+<th style="text-align: left;">Cache</th>
+<th style="text-align: left;">Key</th>
+<th style="text-align: left;">Policy</th>
+<th style="text-align: left;">Invalidation</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Product read</td>
-<td>product:{id}</td>
-<td>Read-through</td>
-<td>product.updated</td>
+<td style="text-align: left;">Product read</td>
+<td style="text-align: left;">product:{id}</td>
+<td style="text-align: left;">Read-through</td>
+<td style="text-align: left;">product.updated</td>
 </tr>
 <tr>
-<td>Inventory</td>
-<td>inventory:{productId}</td>
-<td>Event-driven set</td>
-<td>inventory.stock.adjusted</td>
+<td style="text-align: left;">Inventory</td>
+<td style="text-align: left;">inventory:{productId}</td>
+<td style="text-align: left;">Event-driven set</td>
+<td style="text-align: left;">inventory.stock.adjusted</td>
 </tr>
 <tr>
-<td>Order status ephemeral</td>
-<td>order_status:{orderId}</td>
-<td>Write-through on event</td>
-<td>fulfillment/cancel remove</td>
+<td style="text-align: left;">Order status ephemeral</td>
+<td style="text-align: left;">order_status:{orderId}</td>
+<td style="text-align: left;">Write-through on event</td>
+<td style="text-align: left;">fulfillment/cancel remove</td>
 </tr>
 <tr>
-<td>Flash sale price</td>
-<td>flash_price:{productId}</td>
-<td>Cache authority TTL</td>
-<td>sale end event/TTL</td>
+<td style="text-align: left;">Flash sale price</td>
+<td style="text-align: left;">flash_price:{productId}</td>
+<td style="text-align: left;">Cache authority TTL</td>
+<td style="text-align: left;">sale end event/TTL</td>
 </tr>
 <tr>
-<td>GraphQL aggregated</td>
-<td>gql:product:{id}</td>
-<td>Short TTL (30s)</td>
-<td>Same as underlying components</td>
+<td style="text-align: left;">GraphQL aggregated</td>
+<td style="text-align: left;">gql:product:{id}</td>
+<td style="text-align: left;">Short TTL (30s)</td>
+<td style="text-align: left;">Same as underlying components</td>
 </tr>
 </tbody>
 </table>
@@ -633,41 +662,41 @@ SSE:
 <table>
 <thead>
 <tr>
-<th>Operation</th>
-<th>Pattern</th>
-<th>Limits</th>
+<th style="text-align: left;">Operation</th>
+<th style="text-align: left;">Pattern</th>
+<th style="text-align: left;">Limits</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Payment SOAP</td>
-<td>Exponential w/ jitter + circuit breaker</td>
-<td>5 attempts</td>
+<td style="text-align: left;">Payment SOAP</td>
+<td style="text-align: left;">Exponential w/ jitter + circuit breaker</td>
+<td style="text-align: left;">5 attempts</td>
 </tr>
 <tr>
-<td>Inventory Reserve gRPC</td>
-<td>Exponential (bounded)</td>
-<td>3 attempts</td>
+<td style="text-align: left;">Inventory Reserve gRPC</td>
+<td style="text-align: left;">Exponential (bounded)</td>
+<td style="text-align: left;">3 attempts</td>
 </tr>
 <tr>
-<td>Webhook dispatch</td>
-<td>Progressive schedule + DLQ</td>
-<td>5 attempts</td>
+<td style="text-align: left;">Webhook dispatch</td>
+<td style="text-align: left;">Progressive schedule + DLQ</td>
+<td style="text-align: left;">5 attempts</td>
 </tr>
 <tr>
-<td>Event publish</td>
-<td>Async retry + DLQ fallback</td>
-<td>configurable</td>
+<td style="text-align: left;">Event publish</td>
+<td style="text-align: left;">Async retry + DLQ fallback</td>
+<td style="text-align: left;">configurable</td>
 </tr>
 <tr>
-<td>Flash sale price update</td>
-<td>Fast fail (no retry)</td>
-<td>propagate error upward</td>
+<td style="text-align: left;">Flash sale price update</td>
+<td style="text-align: left;">Fast fail (no retry)</td>
+<td style="text-align: left;">propagate error upward</td>
 </tr>
 <tr>
-<td>MQTT ingestion</td>
-<td>Buffer &amp; batch after reconnect</td>
-<td>device-level QoS simulation</td>
+<td style="text-align: left;">MQTT ingestion</td>
+<td style="text-align: left;">Buffer &amp; batch after reconnect</td>
+<td style="text-align: left;">device-level QoS simulation</td>
 </tr>
 </tbody>
 </table>
@@ -694,51 +723,51 @@ Logs:
 <table>
 <thead>
 <tr>
-<th>Layer</th>
-<th>Focus</th>
-<th>Tooling</th>
+<th style="text-align: left;">Layer</th>
+<th style="text-align: left;">Focus</th>
+<th style="text-align: left;">Tooling</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Unit</td>
-<td>Validation (SKU uniqueness)</td>
-<td>JUnit</td>
+<td style="text-align: left;">Unit</td>
+<td style="text-align: left;">Validation (SKU uniqueness)</td>
+<td style="text-align: left;">JUnit</td>
 </tr>
 <tr>
-<td>Integration</td>
-<td>DB + Kafka + Redis</td>
-<td>Testcontainers</td>
+<td style="text-align: left;">Integration</td>
+<td style="text-align: left;">DB + Kafka + Redis</td>
+<td style="text-align: left;">Testcontainers</td>
 </tr>
 <tr>
-<td>Contract</td>
-<td>REST (product/order), gRPC (inventory)</td>
-<td>Pact / protobuf golden</td>
+<td style="text-align: left;">Contract</td>
+<td style="text-align: left;">REST (product/order), gRPC (inventory)</td>
+<td style="text-align: left;">Pact / protobuf golden</td>
 </tr>
 <tr>
-<td>BDD</td>
-<td>Checkout flow</td>
-<td>Cucumber</td>
+<td style="text-align: left;">BDD</td>
+<td style="text-align: left;">Checkout flow</td>
+<td style="text-align: left;">Cucumber</td>
 </tr>
 <tr>
-<td>Performance</td>
-<td>Order create p95 &lt; 200ms</td>
-<td>Gatling</td>
+<td style="text-align: left;">Performance</td>
+<td style="text-align: left;">Order create p95 &lt; 200ms</td>
+<td style="text-align: left;">Gatling</td>
 </tr>
 <tr>
-<td>Security</td>
-<td>AuthZ tests (cancel path)</td>
-<td>Spring Test + OPA test harness</td>
+<td style="text-align: left;">Security</td>
+<td style="text-align: left;">AuthZ tests (cancel path)</td>
+<td style="text-align: left;">Spring Test + OPA test harness</td>
 </tr>
 <tr>
-<td>Fuzz</td>
-<td>Order JSON parser</td>
-<td>Jazzer</td>
+<td style="text-align: left;">Fuzz</td>
+<td style="text-align: left;">Order JSON parser</td>
+<td style="text-align: left;">Jazzer</td>
 </tr>
 <tr>
-<td>Chaos (later)</td>
-<td>Kill inventory pod mid-reserve</td>
-<td>Chaos Mesh</td>
+<td style="text-align: left;">Chaos (later)</td>
+<td style="text-align: left;">Kill inventory pod mid-reserve</td>
+<td style="text-align: left;">Chaos Mesh</td>
 </tr>
 </tbody>
 </table>
@@ -746,42 +775,42 @@ Logs:
 <table>
 <thead>
 <tr>
-<th>Phase</th>
-<th>Deliverables</th>
+<th style="text-align: left;">Phase</th>
+<th style="text-align: left;">Deliverables</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1</td>
-<td>Product + Cart (REST + Postgres + basic tests)</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Product + Cart (REST + Postgres + basic tests)</td>
 </tr>
 <tr>
-<td>2</td>
-<td>Order + Inventory gRPC stub + Kafka events</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">Order + Inventory gRPC stub + Kafka events</td>
 </tr>
 <tr>
-<td>3</td>
-<td>WebSocket notifications + Redis caching</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">WebSocket notifications + Redis caching</td>
 </tr>
 <tr>
-<td>4</td>
-<td>Payment SOAP + Partner webhooks + flash sale SSE</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">Payment SOAP + Partner webhooks + flash sale SSE</td>
 </tr>
 <tr>
-<td>5</td>
-<td>Pricing service + Kafka Streams metrics + CDC</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">Pricing service + Kafka Streams metrics + CDC</td>
 </tr>
 <tr>
-<td>6</td>
-<td>IoT MQTT ingestion (inventory adjustments)</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">IoT MQTT ingestion (inventory adjustments)</td>
 </tr>
 <tr>
-<td>7</td>
-<td>Cassandra projections + OpenSearch indexing</td>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">Cassandra projections + OpenSearch indexing</td>
 </tr>
 <tr>
-<td>8+</td>
-<td>DR replay + advanced resilience</td>
+<td style="text-align: left;">8+</td>
+<td style="text-align: left;">DR replay + advanced resilience</td>
 </tr>
 </tbody>
 </table>
@@ -823,26 +852,26 @@ Logs:
 <table>
 <thead>
 <tr>
-<th>Risk</th>
-<th>Mitigation</th>
+<th style="text-align: left;">Risk</th>
+<th style="text-align: left;">Mitigation</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Event schema churn</td>
-<td>Freeze MVP schema early; additive evolution only</td>
+<td style="text-align: left;">Event schema churn</td>
+<td style="text-align: left;">Freeze MVP schema early; additive evolution only</td>
 </tr>
 <tr>
-<td>Cache staleness bugs</td>
-<td>Integration tests with consumer-driven expectations</td>
+<td style="text-align: left;">Cache staleness bugs</td>
+<td style="text-align: left;">Integration tests with consumer-driven expectations</td>
 </tr>
 <tr>
-<td>Payment circuit thrashing</td>
-<td>Configure conservative sliding window for breaker</td>
+<td style="text-align: left;">Payment circuit thrashing</td>
+<td style="text-align: left;">Configure conservative sliding window for breaker</td>
 </tr>
 <tr>
-<td>Webhook backlog growth</td>
-<td>DLQ monitoring &amp; alert threshold</td>
+<td style="text-align: left;">Webhook backlog growth</td>
+<td style="text-align: left;">DLQ monitoring &amp; alert threshold</td>
 </tr>
 </tbody>
 </table>
