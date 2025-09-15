@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        
+        <link rel="canonical" href="https://nitinkc.github.io/BitVelocity-Docs/adr/ADR-004-oltp-cdc-olap-architecture/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>ADR-004: OLTP → Events/CDC → Derived → OLAP - My Docs</title>
+        <title>ADR-004 OLTP CDC OLAP Architecture - BitVelocity Documentation</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -24,7 +24,7 @@
     <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href="../..">My Docs</a>
+                <a class="navbar-brand" href="../..">BitVelocity Documentation</a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -38,7 +38,186 @@
                                 <a href="../.." class="nav-link">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../../docs/README.md" class="nav-link">About</a>
+                                <a href="../../INDEX_DOMAIN_DESIGNS/" class="nav-link">Index Domain Designs</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Overview</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../00-OVERVIEW/project-charter/" class="dropdown-item">Project Charter</a>
+</li>
+                                    
+<li>
+    <a href="../../00-OVERVIEW/stakeholder-guide/" class="dropdown-item">Stakeholder Guide</a>
+</li>
+                                    
+<li>
+    <a href="../../00-OVERVIEW/" class="dropdown-item">README</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Architecture</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../01-ARCHITECTURE/data-architecture/" class="dropdown-item">Data Architecture</a>
+</li>
+                                    
+<li>
+    <a href="../../01-ARCHITECTURE/system-overview/" class="dropdown-item">System Overview</a>
+</li>
+                                    
+<li>
+    <a href="../../01-ARCHITECTURE/CROSS_COST_OPTIMIZATION/" class="dropdown-item">Cross-Cost Optimization</a>
+</li>
+                                    
+<li>
+    <a href="../../01-ARCHITECTURE/CROSS_DATA_PLATFORM_AND_ANALYTICS/" class="dropdown-item">Cross-Data Platform and Analytics</a>
+</li>
+                                    
+<li>
+    <a href="../../01-ARCHITECTURE/CROSS_EVENT_CONTRACTS_AND_VERSIONING/" class="dropdown-item">Cross-Event Contracts and Versioning</a>
+</li>
+                                    
+<li>
+    <a href="../../01-ARCHITECTURE/CROSS_EXECUTION_BACKLOG_AND_SPRINT_PLAN/" class="dropdown-item">Cross-Execution Backlog and Sprint Plan</a>
+</li>
+                                    
+<li>
+    <a href="../../01-ARCHITECTURE/CROSS_OBSERVABILITY_AND_TESTING/" class="dropdown-item">Cross-Observability and Testing</a>
+</li>
+                                    
+<li>
+    <a href="../../01-ARCHITECTURE/CROSS_REPLAY_DR_DRILLS/" class="dropdown-item">Cross-Replay DR Drills</a>
+</li>
+                                    
+<li>
+    <a href="../../01-ARCHITECTURE/domains/" class="dropdown-item">Domains</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Infrastructure</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../02-INFRASTRUCTURE/cloud-strategy/" class="dropdown-item">Cloud Strategy</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Development</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../03-DEVELOPMENT/microservices-patterns/" class="dropdown-item">Microservices Patterns</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Project Management</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../05-PROJECT-MANAGEMENT/budget-planning/" class="dropdown-item">Budget Planning</a>
+</li>
+                                    
+<li>
+    <a href="../../05-PROJECT-MANAGEMENT/sprint-1-daily-execution-plan/" class="dropdown-item">Sprint 1 Daily Execution Plan</a>
+</li>
+                                    
+<li>
+    <a href="../../05-PROJECT-MANAGEMENT/sprint-planning/" class="dropdown-item">Sprint Planning</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">ADRs</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../ADR-TEMPLATE/" class="dropdown-item">Template</a>
+</li>
+                                    
+<li>
+    <a href="../GUIDE_ADR_STARTER_PACK/" class="dropdown-item">Starter Pack</a>
+</li>
+                                    
+<li>
+    <a href="../ADR-001-multi-repo-vs-monorepo/" class="dropdown-item">ADR-001 Multi-repo vs Monorepo</a>
+</li>
+                                    
+<li>
+    <a href="../ADR-001_1-github%20Packages-vs-JitPack/" class="dropdown-item">ADR-001 Github Packages vs JitPack</a>
+</li>
+                                    
+<li>
+    <a href="../ADR-002-event-vs-cdc-strategy/" class="dropdown-item">ADR-002 Event vs CDC Strategy</a>
+</li>
+                                    
+<li>
+    <a href="../ADR-003-protocol-introduction-order/" class="dropdown-item">ADR-003 Protocol Introduction Order</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">ADR-004 OLTP CDC OLAP Architecture</a>
+</li>
+                                    
+<li>
+    <a href="../ADR-005-security-layering/" class="dropdown-item">ADR-005 Security Layering</a>
+</li>
+                                    
+<li>
+    <a href="../ADR-006-retry-backoff-policies/" class="dropdown-item">ADR-006 Retry Backoff Policies</a>
+</li>
+                                    
+<li>
+    <a href="../ADR-007-observability-baseline/" class="dropdown-item">ADR-007 Observability Baseline</a>
+</li>
+                                    
+<li>
+    <a href="../ADR-008-pulumi-cloud-provider-abstraction/" class="dropdown-item">ADR-008 Pulumi Cloud Provider Abstraction</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Event Contracts</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../event-contracts/GUIDE_EVENT_CONTRACTS_USAGE/" class="dropdown-item">Guide</a>
+</li>
+                                    
+<li>
+    <a href="../../event-contracts/CHANGELOG/" class="dropdown-item">Changelog</a>
+</li>
+                                    
+<li>
+    <a href="../../event-contracts/" class="dropdown-item">Readme</a>
+</li>
+                                    
+<li>
+    <a href="../../event-contracts/chat/README.md" class="dropdown-item">Chat</a>
+</li>
+                                    
+<li>
+    <a href="../../event-contracts/ecommerce/README.md" class="dropdown-item">Ecommerce</a>
+</li>
+                                    
+<li>
+    <a href="../../event-contracts/iot/README.md" class="dropdown-item">IoT</a>
+</li>
+                                    
+<li>
+    <a href="../../event-contracts/ml/README.md" class="dropdown-item">ML</a>
+</li>
+                                    
+<li>
+    <a href="../../event-contracts/schema/README.md" class="dropdown-item">Schema</a>
+</li>
+                                </ul>
                             </li>
                         </ul>
 
@@ -48,6 +227,16 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../ADR-003-protocol-introduction-order/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../ADR-005-security-layering/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
                     </ul>
                 </div>
             </div>
