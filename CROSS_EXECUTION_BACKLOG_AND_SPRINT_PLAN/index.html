@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Cross-Cutting – Execution Backlog &amp; Sprint Planning (Granular) - My Docs</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../docs/README.md" class="nav-link">About</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#cross-cutting-execution-backlog-sprint-planning-granular" class="nav-link">Cross-Cutting – Execution Backlog &amp; Sprint Planning (Granular)</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1-sprint-themes-refined" class="nav-link">1. Sprint Themes (Refined)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2-detailed-sprint-backlog-seeds" class="nav-link">2. Detailed Sprint Backlog Seeds</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3-story-sizing-template" class="nav-link">3. Story Sizing Template</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4-definition-of-ready-checklist" class="nav-link">4. Definition of Ready Checklist</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5-definition-of-done" class="nav-link">5. Definition of Done</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6-risk-review-every-sprint" class="nav-link">6. Risk Review Every Sprint</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7-burndown-metrics" class="nav-link">7. Burndown &amp; Metrics</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#8-backlog-grooming-cadence" class="nav-link">8. Backlog Grooming Cadence</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#9-exit-gates-milestone" class="nav-link">9. Exit Gates (Milestone)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="cross-cutting-execution-backlog-sprint-planning-granular">Cross-Cutting – Execution Backlog &amp; Sprint Planning (Granular)</h1>
+<p>Assumptions: 2–3 devs, 10–15 hrs/week each, 2-week sprints.</p>
+<h2 id="1-sprint-themes-refined">1. Sprint Themes (Refined)</h2>
+<table>
+<thead>
+<tr>
+<th>Sprint</th>
+<th>Theme</th>
+<th>Domains Touched</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Core bootstrap (Auth, Product)</td>
+<td>Security, E-Com</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Orders + Events + Basic Inventory</td>
+<td>E-Com</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Realtime (WS) + Inventory gRPC</td>
+<td>E-Com</td>
+</tr>
+<tr>
+<td>4</td>
+<td>GraphQL + Chat seed</td>
+<td>E-Com, Chat</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Payment SOAP + SSE Feed + Webhooks</td>
+<td>E-Com, Social</td>
+</tr>
+<tr>
+<td>6</td>
+<td>IoT Telemetry + RabbitMQ retries</td>
+<td>IoT, E-Com</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Streams + Feature Store stub</td>
+<td>E-Com, ML</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Multi-Region infra + Vault intro</td>
+<td>Infra, Security</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Active-active Chat + DR drill 1</td>
+<td>Chat, Infra</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Cloud migration (AWS)</td>
+<td>Infra</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Replay service + resilience hardening</td>
+<td>Cross</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Performance + Security gating</td>
+<td>All</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-detailed-sprint-backlog-seeds">2. Detailed Sprint Backlog Seeds</h2>
+<h3 id="sprint-1">Sprint 1</h3>
+<ul>
+<li>Auth service (JWT issuance)</li>
+<li>Product service CRUD</li>
+<li>Shared libs (event envelope)</li>
+<li>Postgres + Pulumi local infrastructure</li>
+<li>OpenTelemetry bootstrap</li>
+<li>Unit + integration pipelines</li>
+</ul>
+<h3 id="sprint-2">Sprint 2</h3>
+<ul>
+<li>Order service + events</li>
+<li>Inventory proto + stub</li>
+<li>Redis cache product</li>
+<li>Kafka local cluster</li>
+<li>BDD: simple checkout (no payment)</li>
+</ul>
+<h3 id="sprint-3">Sprint 3</h3>
+<ul>
+<li>Inventory gRPC implementation</li>
+<li>WebSocket order status</li>
+<li>Retry policies (Resilience4j baseline)</li>
+<li>Event schema registry integration</li>
+<li>Integration tests (Kafka + Redis)</li>
+</ul>
+<h3 id="sprint-4">Sprint 4</h3>
+<ul>
+<li>GraphQL aggregator (product + inventory)</li>
+<li>Chat WebSocket echo service</li>
+<li>Presence Redis TTL</li>
+<li>Contract tests (REST/gRPC)</li>
+<li>Update docs (API / events)</li>
+</ul>
+<h3 id="sprint-5">Sprint 5</h3>
+<ul>
+<li>Payment SOAP adapter</li>
+<li>SSE flash sale endpoint</li>
+<li>Webhook dispatcher initial version</li>
+<li>OPA policy for cancel order</li>
+<li>Security integration tests</li>
+</ul>
+<h3 id="sprint-6">Sprint 6</h3>
+<ul>
+<li>MQTT ingestion (telemetry)</li>
+<li>Inventory adjustment from IoT path</li>
+<li>RabbitMQ deployment + webhook retry</li>
+<li>Fuzz test harness initial</li>
+<li>Load test smoke (orders)</li>
+</ul>
+<h3 id="sprint-7">Sprint 7</h3>
+<ul>
+<li>Kafka Streams order revenue aggregation</li>
+<li>Feature store Redis skeleton</li>
+<li>Fraud scoring stub</li>
+<li>Cassandra projection (orders_by_customer)</li>
+<li>Data quality check pipeline</li>
+</ul>
+<h3 id="sprint-8">Sprint 8</h3>
+<ul>
+<li>West cluster provisioning</li>
+<li>MirrorMaker config</li>
+<li>Vault dev integration (secrets)</li>
+<li>DR runbook v1</li>
+<li>GraphQL schema diff automation</li>
+</ul>
+<h3 id="sprint-9">Sprint 9</h3>
+<ul>
+<li>Chat cross-region replication</li>
+<li>DR drill (simulate east outage)</li>
+<li>Audit logging integration</li>
+<li>Latency dashboards</li>
+</ul>
+<h3 id="sprint-10">Sprint 10</h3>
+<ul>
+<li>Deploy to AWS (EKS) via config switch</li>
+<li>Storage bucket migration test</li>
+<li>Cost metrics collection script</li>
+</ul>
+<h3 id="sprint-11">Sprint 11</h3>
+<ul>
+<li>Replay service MVP</li>
+<li>Circuit breaker tuning</li>
+<li>DLQ replay scenario test</li>
+<li>Policy version rollout</li>
+</ul>
+<h3 id="sprint-12">Sprint 12</h3>
+<ul>
+<li>Performance benchmark suite</li>
+<li>Security regression gating (ZAP)</li>
+<li>Chaos experiments (network latency)</li>
+<li>Documentation completeness review</li>
+</ul>
+<h2 id="3-story-sizing-template">3. Story Sizing Template</h2>
+<p>Each story: 4–8 hrs. If &gt;8, split vertical slice (feature + test + docs).</p>
+<h2 id="4-definition-of-ready-checklist">4. Definition of Ready Checklist</h2>
+<ul>
+<li>Clear acceptance criteria</li>
+<li>Event changes have contract stub</li>
+<li>Security impact considered</li>
+<li>Test approach outlined</li>
+</ul>
+<h2 id="5-definition-of-done">5. Definition of Done</h2>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Code + Tests</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Docs (README / API / Events)</td>
+<td>Updated</td>
+</tr>
+<tr>
+<td>Observability</td>
+<td>Metric or trace added</td>
+</tr>
+<tr>
+<td>Security</td>
+<td>Auth enforced or rationale noted</td>
+</tr>
+<tr>
+<td>CI</td>
+<td>Green pipeline</td>
+</tr>
+<tr>
+<td>Cost</td>
+<td>No unnecessary persistent resource</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-risk-review-every-sprint">6. Risk Review Every Sprint</h2>
+<ul>
+<li>Track technical debt categories: observability, security, resilience.</li>
+<li>Limit outstanding “unmitigated” items to &lt;= 5.</li>
+</ul>
+<h2 id="7-burndown-metrics">7. Burndown &amp; Metrics</h2>
+<p>Track:
+- Completed stories vs planned
+- Test coverage trend
+- Mean time from event schema proposal → merge
+- Defects found post-merge (should decline over sprints)</p>
+<h2 id="8-backlog-grooming-cadence">8. Backlog Grooming Cadence</h2>
+<ul>
+<li>Mid-sprint: next 2 sprints refinement</li>
+<li>Add learning spikes labeled (SPK) with explicit outcomes</li>
+</ul>
+<h2 id="9-exit-gates-milestone">9. Exit Gates (Milestone)</h2>
+<table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Validation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Realtime</td>
+<td>Trace from REST → gRPC → Kafka → WS</td>
+</tr>
+<tr>
+<td>Streaming</td>
+<td>Projection correctness test passes</td>
+</tr>
+<tr>
+<td>DR</td>
+<td>Failover script success &amp; metrics recorded</td>
+</tr>
+<tr>
+<td>Multi-Cloud</td>
+<td>Same commit deploys to second provider</td>
+</tr>
+<tr>
+<td>Security</td>
+<td>OPA &amp; ZAP gating merges</td>
+</tr>
+</tbody>
+</table></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../../img/favicon.ico">
+        <title>Domain Architecture – ML / AI Services - My Docs</title>
+        <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../../docs/README.md" class="nav-link">About</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#domain-architecture-ml-ai-services" class="nav-link">Domain Architecture – ML / AI Services</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1-purpose" class="nav-link">1. Purpose</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2-capabilities" class="nav-link">2. Capabilities</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3-data-sources" class="nav-link">3. Data Sources</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4-feature-store" class="nav-link">4. Feature Store</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5-inference-apis" class="nav-link">5. Inference APIs</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6-model-management" class="nav-link">6. Model Management</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7-events-produced" class="nav-link">7. Events Produced</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#8-testing" class="nav-link">8. Testing</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#9-observability" class="nav-link">9. Observability</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#10-security" class="nav-link">10. Security</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#11-implementation-order" class="nav-link">11. Implementation Order</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#12-interoperability-checklist" class="nav-link">12. Interoperability Checklist</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#13-exit-criteria" class="nav-link">13. Exit Criteria</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="domain-architecture-ml-ai-services">Domain Architecture – ML / AI Services</h1>
+<h2 id="1-purpose">1. Purpose</h2>
+<p>Centralize model serving, feature retrieval, experimentation, and inference APIs consumed by other domains.</p>
+<h2 id="2-capabilities">2. Capabilities</h2>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Feature Store API</td>
+<td>Retrieve feature vectors (Redis or Cassandra)</td>
+</tr>
+<tr>
+<td>Recommendation Service</td>
+<td>Given userId, return recommended products/posts</td>
+</tr>
+<tr>
+<td>Fraud Detection</td>
+<td>Score order events</td>
+</tr>
+<tr>
+<td>Anomaly Scoring</td>
+<td>Evaluate telemetry metrics</td>
+</tr>
+<tr>
+<td>Moderation (optional)</td>
+<td>Classify chat/social content</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-data-sources">3. Data Sources</h2>
+<ul>
+<li>Consumes domain events (orders, telemetry, posts, chat messages)</li>
+<li>Curated warehouse tables (fact_orders, dim_product)</li>
+<li>Feature registry YAML (versioned)</li>
+</ul>
+<h2 id="4-feature-store">4. Feature Store</h2>
+<ul>
+<li>Redis key pattern: feature:{featureGroup}:{entityId}</li>
+<li>TTL for volatile features (recent activity).</li>
+<li>Batch loader populates from warehouse nightly.</li>
+</ul>
+<h2 id="5-inference-apis">5. Inference APIs</h2>
+<p>REST:
+- GET /api/v1/recommendations/products?userId=U1
+- POST /api/v1/fraud/score { orderId }
+gRPC (optional future):</p>
+<pre><code>service Recommendations {
+  rpc GetProductRecommendations(UserId) returns (ProductList);
+}
+</code></pre>
+<h2 id="6-model-management">6. Model Management</h2>
+<p>Metadata store (Postgres):
+- models(id, name, version, status, created_at)
+- model_metrics(model_id, metric_name, value, recorded_at)</p>
+<p>Deployment Strategy:
+- Blue/Green via separate endpoint version
+- Model version header: X-Model-Version</p>
+<h2 id="7-events-produced">7. Events Produced</h2>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ml.fraud.order.scored.v1</td>
+<td>Downstream actions (manual review)</td>
+</tr>
+<tr>
+<td>ml.recommendation.served.v1</td>
+<td>Observability / A/B tracking</td>
+</tr>
+<tr>
+<td>ml.anomaly.detected.v1</td>
+<td>IoT / Inventory reaction</td>
+</tr>
+</tbody>
+</table>
+<h2 id="8-testing">8. Testing</h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Focus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unit</td>
+<td>Feature extraction logic</td>
+</tr>
+<tr>
+<td>Integration</td>
+<td>Event ingestion to feature store</td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>Recommendation latency p95</td>
+</tr>
+<tr>
+<td>Drift Monitoring (manual)</td>
+<td>Compare feature distributions over time</td>
+</tr>
+</tbody>
+</table>
+<h2 id="9-observability">9. Observability</h2>
+<p>Metrics:
+- inference_latency_ms
+- model_version_request_count
+- feature_cache_hit_ratio
+- fraud_score_distribution (histogram buckets)</p>
+<p>Tracing:
+- Inference call spans with model version attribute.</p>
+<h2 id="10-security">10. Security</h2>
+<ul>
+<li>Auth required for inference (JWT).</li>
+<li>Rate limiting per client key.</li>
+<li>Model artifacts stored in object storage with signed URLs (future).</li>
+</ul>
+<h2 id="11-implementation-order">11. Implementation Order</h2>
+<ol>
+<li>Feature store scaffold + Redis integration</li>
+<li>Simple rule-based recommendation (no ML yet)</li>
+<li>Fraud scoring stub (random score)</li>
+<li>Inference REST endpoints + tracing</li>
+<li>Event emission for consumption audit</li>
+<li>Replace stub with lightweight ML (e.g., collaborative filtering mock)</li>
+<li>Add gRPC service</li>
+<li>Introduce model metadata &amp; A/B version routing</li>
+</ol>
+<h2 id="12-interoperability-checklist">12. Interoperability Checklist</h2>
+<ul>
+<li>[ ] Consumes only public domain event types</li>
+<li>[ ] Does not introduce direct DB coupling to other domains</li>
+<li>[ ] Features versioned &amp; documented</li>
+<li>[ ] Recommendation response stable &amp; backward compatible</li>
+</ul>
+<h2 id="13-exit-criteria">13. Exit Criteria</h2>
+<ul>
+<li>Recommendation latency p95 &lt; 150ms (local)</li>
+<li>Fraud scoring event produced for each paid order</li>
+<li>Feature cache &gt; 80% hit rate after warmup</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../js/base.js"></script>
+        <script src="../../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

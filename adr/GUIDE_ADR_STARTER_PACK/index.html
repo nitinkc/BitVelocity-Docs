@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>ADR Starter Pack Overview - My Docs</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../docs/README.md" class="nav-link">About</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#adr-starter-pack-overview" class="nav-link">ADR Starter Pack Overview</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#included-adr-topics" class="nav-link">Included ADR Topics</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#how-to-create-a-new-adr" class="nav-link">How to Create a New ADR</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#adr-template-structure" class="nav-link">ADR Template Structure</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#adr-review-checklist" class="nav-link">ADR Review Checklist</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#adr-categories" class="nav-link">ADR Categories</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#adr-lifecycle-management" class="nav-link">ADR Lifecycle Management</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#quality-guidelines" class="nav-link">Quality Guidelines</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#integration-with-development" class="nav-link">Integration with Development</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#reference-materials" class="nav-link">Reference Materials</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="adr-starter-pack-overview">ADR Starter Pack Overview</h1>
+<p>This guide provides Architecture Decision Records (ADRs) templates and examples for the BitVelocity platform.</p>
+<h2 id="included-adr-topics">Included ADR Topics</h2>
+<ol>
+<li><strong>Multi-Repo vs Monorepo Strategy</strong></li>
+<li><strong>Domain Events + Change Data Capture (CDC) Strategy</strong></li>
+<li><strong>Protocol Introduction Order</strong> (REST → Events → gRPC → GraphQL)</li>
+<li><strong>OLTP→CDC→OLAP &amp; Data Serving Architecture</strong></li>
+<li><strong>Security Layering Strategy</strong> (Authentication, Authorization, Audit)</li>
+<li><strong>Retry &amp; Backoff Policy Matrix</strong></li>
+<li><strong>Observability Baseline</strong> (Metrics, Logging, Tracing)</li>
+<li><strong>Pulumi Cloud Provider Abstraction</strong></li>
+<li><strong>Event Sourcing vs Traditional CRUD</strong></li>
+<li><strong>Microservices Communication Patterns</strong></li>
+</ol>
+<h2 id="how-to-create-a-new-adr">How to Create a New ADR</h2>
+<h3 id="step-by-step-process">Step-by-Step Process</h3>
+<ol>
+<li><strong>Copy Template</strong>: Use <code>docs/adr/ADR-TEMPLATE.md</code> as starting point</li>
+<li><strong>Sequence Number</strong>: Increment from last ADR number (e.g., ADR-009-new-decision.md)</li>
+<li><strong>Status</strong>: Start with <code>Proposed</code> until reviewed and approved</li>
+<li><strong>Review Process</strong>: Minimum one technical reviewer before merge</li>
+<li><strong>Implementation</strong>: Track implementation progress in ADR</li>
+</ol>
+<h3 id="adr-naming-convention">ADR Naming Convention</h3>
+<pre><code>ADR-{number}-{short-title}.md
+</code></pre>
+<p>Examples:
+- <code>ADR-001-multi-repo-strategy.md</code>
+- <code>ADR-002-event-sourcing-adoption.md</code>
+- <code>ADR-003-cloud-provider-abstraction.md</code></p>
+<h2 id="adr-template-structure">ADR Template Structure</h2>
+<h3 id="required-sections">Required Sections</h3>
+<ul>
+<li><strong>Title</strong>: Clear, concise decision statement</li>
+<li><strong>Status</strong>: [Proposed | Accepted | Deprecated | Superseded]</li>
+<li><strong>Context</strong>: Why this decision is needed now</li>
+<li><strong>Decision</strong>: The actual decision (one clear sentence)</li>
+<li><strong>Rationale</strong>: Reasoning behind the decision</li>
+<li><strong>Alternatives Considered</strong>: Other options and why they were rejected</li>
+<li><strong>Consequences</strong>: Both positive and negative impacts</li>
+<li><strong>Implementation Plan</strong>: Concrete steps to implement</li>
+<li><strong>Success Metrics</strong>: How to measure success</li>
+</ul>
+<h3 id="optional-sections">Optional Sections</h3>
+<ul>
+<li><strong>Related ADRs</strong>: Links to related decisions</li>
+<li><strong>References</strong>: External resources, RFCs, articles</li>
+<li><strong>Timeline</strong>: Implementation milestones</li>
+<li><strong>Risks &amp; Mitigations</strong>: Potential issues and how to address them</li>
+</ul>
+<h2 id="adr-review-checklist">ADR Review Checklist</h2>
+<p>Before approving an ADR, ensure:
+- [ ] <strong>Context is clear</strong>: Problem statement is well-defined
+- [ ] <strong>Decision is specific</strong>: Not vague or ambiguous
+- [ ] <strong>Alternatives explored</strong>: Multiple options considered
+- [ ] <strong>Consequences documented</strong>: Both benefits and drawbacks listed
+- [ ] <strong>Implementation feasible</strong>: Practical steps outlined
+- [ ] <strong>Stakeholders consulted</strong>: Relevant teams provided input
+- [ ] <strong>Consistency maintained</strong>: Aligns with existing ADRs
+- [ ] <strong>Success criteria defined</strong>: Measurable outcomes specified</p>
+<h2 id="adr-categories">ADR Categories</h2>
+<h3 id="technical-architecture">Technical Architecture</h3>
+<ul>
+<li>System design patterns</li>
+<li>Technology choices</li>
+<li>Integration approaches</li>
+<li>Performance decisions</li>
+</ul>
+<h3 id="infrastructure">Infrastructure</h3>
+<ul>
+<li>Cloud provider strategies</li>
+<li>Deployment patterns</li>
+<li>Security implementations</li>
+<li>Monitoring approaches</li>
+</ul>
+<h3 id="process-governance">Process &amp; Governance</h3>
+<ul>
+<li>Development workflows</li>
+<li>Testing strategies</li>
+<li>Documentation standards</li>
+<li>Review processes</li>
+</ul>
+<h2 id="adr-lifecycle-management">ADR Lifecycle Management</h2>
+<h3 id="status-transitions">Status Transitions</h3>
+<pre><code>Proposed → Accepted → [Implemented] → [Deprecated] → Superseded
+</code></pre>
+<h3 id="updating-adrs">Updating ADRs</h3>
+<ul>
+<li><strong>Minor clarifications</strong>: Update in place with changelog</li>
+<li><strong>Major changes</strong>: Create new ADR that supersedes the old one</li>
+<li><strong>Deprecated decisions</strong>: Mark status and link to replacement</li>
+</ul>
+<h3 id="adr-dependencies">ADR Dependencies</h3>
+<p>Track relationships between ADRs:
+- <strong>Builds on</strong>: This ADR extends another decision
+- <strong>Conflicts with</strong>: Identifies incompatible decisions
+- <strong>Supersedes</strong>: Replaces a previous ADR
+- <strong>Related to</strong>: Connected but independent decisions</p>
+<h2 id="quality-guidelines">Quality Guidelines</h2>
+<h3 id="writing-quality-adrs">Writing Quality ADRs</h3>
+<ol>
+<li><strong>Be Specific</strong>: Avoid generic or obvious statements</li>
+<li><strong>Show Trade-offs</strong>: Acknowledge costs and benefits</li>
+<li><strong>Time-box Context</strong>: Focus on current constraints</li>
+<li><strong>Quantify Impact</strong>: Use metrics where possible</li>
+<li><strong>Link Resources</strong>: Reference supporting materials</li>
+</ol>
+<h3 id="common-anti-patterns">Common Anti-patterns</h3>
+<ul>
+<li><strong>Solution in search of problem</strong>: Don't create ADRs for non-issues</li>
+<li><strong>Analysis paralysis</strong>: Don't over-engineer simple decisions</li>
+<li><strong>Vendor lock-in without justification</strong>: Consider portability costs</li>
+<li><strong>Ignoring team expertise</strong>: Leverage existing knowledge</li>
+<li><strong>Documentation debt</strong>: Don't create ADRs you won't maintain</li>
+</ul>
+<h2 id="integration-with-development">Integration with Development</h2>
+<h3 id="adr-driven-development">ADR-Driven Development</h3>
+<ol>
+<li><strong>Architecture First</strong>: Create ADR before major implementation</li>
+<li><strong>Code Reviews</strong>: Reference relevant ADRs in pull requests</li>
+<li><strong>Documentation</strong>: Link ADRs in README files and API docs</li>
+<li><strong>Testing</strong>: Validate ADR assumptions with tests</li>
+<li><strong>Metrics</strong>: Monitor success criteria defined in ADRs</li>
+</ol>
+<h3 id="tooling-integration">Tooling Integration</h3>
+<ul>
+<li><strong>ADR Links</strong>: Reference ADRs in commit messages</li>
+<li><strong>PR Templates</strong>: Include ADR compliance checklist</li>
+<li><strong>Documentation</strong>: Auto-generate ADR index in docs</li>
+<li><strong>Alerts</strong>: Monitor ADR success metrics</li>
+</ul>
+<h2 id="reference-materials">Reference Materials</h2>
+<h3 id="templates-location">Templates Location</h3>
+<ul>
+<li>ADR Template: <code>docs/adr/ADR-TEMPLATE.md</code></li>
+<li>Decision Matrix: <code>docs/adr/decision-matrix-template.md</code></li>
+<li>Review Checklist: <code>docs/adr/review-checklist.md</code></li>
+</ul>
+<h3 id="related-documentation">Related Documentation</h3>
+<ul>
+<li><a href="../../CROSS_EVENT_CONTRACTS_AND_VERSIONING/">Cross-Cutting Architecture</a></li>
+<li><a href="../../05-PROJECT-MANAGEMENT/sprint-planning/">Sprint Planning</a></li>
+<li><a href="../CROSS_INFRA_PORTABILITY_AND_DEPLOYMENT.md">Infrastructure Portability</a></li>
+</ul>
+<p>This starter pack ensures consistent, high-quality architectural decision making across the BitVelocity platform.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

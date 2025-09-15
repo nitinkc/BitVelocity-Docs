@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>BitVelocity Project Charter - My Docs</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../docs/README.md" class="nav-link">About</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#bitvelocity-project-charter" class="nav-link">BitVelocity Project Charter</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#executive-summary" class="nav-link">Executive Summary</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#mission-statement" class="nav-link">Mission Statement</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#core-objectives" class="nav-link">Core Objectives</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#business-context-constraints" class="nav-link">Business Context &amp; Constraints</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#domain-architecture" class="nav-link">Domain Architecture</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#technology-stack" class="nav-link">Technology Stack</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#key-architectural-decisions" class="nav-link">Key Architectural Decisions</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#risk-management" class="nav-link">Risk Management</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#success-metrics" class="nav-link">Success Metrics</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="bitvelocity-project-charter">BitVelocity Project Charter</h1>
+<h2 id="executive-summary">Executive Summary</h2>
+<p>BitVelocity is a comprehensive multi-domain distributed learning platform designed to provide hands-on experience with modern backend systems, cloud technologies, and data engineering patterns. The project serves as a practical learning laboratory for mastering enterprise-grade architectural patterns while maintaining cost-effective implementation strategies.</p>
+<h2 id="mission-statement">Mission Statement</h2>
+<p>Build a production-ready, multi-domain distributed platform that enables comprehensive learning of backend development, cloud deployment, and data engineering using real-world patterns and protocols while minimizing operational costs.</p>
+<h2 id="core-objectives">Core Objectives</h2>
+<h3 id="technical-learning-goals">Technical Learning Goals</h3>
+<ol>
+<li><strong>End-to-End Development Mastery</strong>: Java/Spring Boot development from conception to cloud deployment</li>
+<li><strong>Multi-Protocol Implementation</strong>: REST, GraphQL, gRPC, WebSocket, SSE, MQTT, AMQP, Kafka, Webhooks, SOAP</li>
+<li><strong>Cloud Platform Agnostic</strong>: Pulumi-based infrastructure for seamless migration between GCP, AWS, and Azure</li>
+<li><strong>Security by Design</strong>: JWT, OAuth2, HashiCorp Vault, mTLS implementation</li>
+<li><strong>Production Observability</strong>: OpenTelemetry, distributed tracing, comprehensive monitoring</li>
+<li><strong>Data Engineering</strong>: OLTP to OLAP pipelines, real-time streaming, analytics</li>
+</ol>
+<h3 id="architectural-principles">Architectural Principles</h3>
+<ol>
+<li><strong>Learn Breadth with Sufficient Depth</strong>: Real patterns, not toy "hello world" implementations</li>
+<li><strong>Incremental Complexity</strong>: Master each protocol/technology before adding the next</li>
+<li><strong>Portability First</strong>: Cloud-agnostic abstractions to avoid vendor lock-in</li>
+<li><strong>Shift-Left Everything</strong>: Observability, security, cost control, data governance from day one</li>
+<li><strong>Cost-Conscious Learning</strong>: Maximize learning value while minimizing cloud expenses</li>
+</ol>
+<h2 id="business-context-constraints">Business Context &amp; Constraints</h2>
+<h3 id="team-composition">Team Composition</h3>
+<ul>
+<li><strong>Team Size</strong>: 2-3 developers</li>
+<li><strong>Time Commitment</strong>: 10-15 hours per week per developer</li>
+<li><strong>Sprint Duration</strong>: 2-week cycles</li>
+<li><strong>Project Duration</strong>: Ongoing learning platform (12+ months initial implementation)</li>
+</ul>
+<h3 id="budget-constraints">Budget Constraints</h3>
+<ul>
+<li><strong>Target Monthly Cost</strong>: &lt;$200 USD for infrastructure</li>
+<li><strong>Strategy</strong>: Leverage free tiers, pause/resume infrastructure as needed</li>
+<li><strong>Cost Optimization</strong>: Use local development, selective cloud deployment</li>
+</ul>
+<h3 id="success-criteria">Success Criteria</h3>
+<ul>
+<li><strong>Technical</strong>: Each protocol/pattern successfully implemented with observability</li>
+<li><strong>Learning</strong>: Comprehensive understanding demonstrated through working implementations</li>
+<li><strong>Portability</strong>: Ability to migrate between cloud providers with minimal effort</li>
+<li><strong>Cost</strong>: Stay within budget while achieving learning objectives</li>
+</ul>
+<h2 id="domain-architecture">Domain Architecture</h2>
+<h3 id="core-domains">Core Domains</h3>
+<ol>
+<li><strong>E-Commerce</strong> (Primary - Most Protocol Coverage)</li>
+<li>Product catalog, order management, payment processing</li>
+<li>
+<p>Primary protocols: REST, GraphQL, gRPC, SOAP, Webhooks</p>
+</li>
+<li>
+<p><strong>Chat/Messaging</strong> (Real-time Focus)</p>
+</li>
+<li>Real-time messaging, notifications</li>
+<li>
+<p>Primary protocols: WebSocket, SSE, MQTT</p>
+</li>
+<li>
+<p><strong>IoT Device Management</strong> (Telemetry &amp; Control)</p>
+</li>
+<li>Device registration, telemetry ingestion, control commands</li>
+<li>
+<p>Primary protocols: MQTT, gRPC, event streaming</p>
+</li>
+<li>
+<p><strong>Social Media</strong> (Event-Driven)</p>
+</li>
+<li>Posts, feeds, social graphs</li>
+<li>
+<p>Primary protocols: Event-driven architecture, pub/sub patterns</p>
+</li>
+<li>
+<p><strong>ML/AI Services</strong> (Advanced Integration)</p>
+</li>
+<li>Feature store, model serving, vector search</li>
+<li>Primary protocols: gRPC, streaming analytics</li>
+</ol>
+<h3 id="cross-cutting-services">Cross-Cutting Services</h3>
+<ul>
+<li><strong>Security Core</strong>: Authentication, authorization, secrets management</li>
+<li><strong>Infrastructure Services</strong>: Service discovery, configuration, monitoring</li>
+<li><strong>Data Platform</strong>: Analytics, data governance, lineage tracking</li>
+</ul>
+<h2 id="technology-stack">Technology Stack</h2>
+<h3 id="core-development">Core Development</h3>
+<ul>
+<li><strong>Language</strong>: Java 17+ with Spring Boot 3.x</li>
+<li><strong>Build</strong>: Maven with multi-module structure</li>
+<li><strong>Testing</strong>: JUnit 5, Testcontainers, Cucumber for BDD</li>
+<li><strong>Documentation</strong>: Architectural Decision Records (ADRs)</li>
+</ul>
+<h3 id="infrastructure-deployment">Infrastructure &amp; Deployment</h3>
+<ul>
+<li><strong>Infrastructure as Code</strong>: Pulumi with Java SDK</li>
+<li><strong>Containerization</strong>: Docker with multi-stage builds</li>
+<li><strong>Orchestration</strong>: Kubernetes (local and cloud)</li>
+<li><strong>Service Mesh</strong>: Istio for advanced networking patterns</li>
+</ul>
+<h3 id="data-persistence">Data &amp; Persistence</h3>
+<ul>
+<li><strong>OLTP</strong>: PostgreSQL with audit tables and transaction patterns</li>
+<li><strong>Scale-Out</strong>: Cassandra/MongoDB for high-volume domains</li>
+<li><strong>OLAP</strong>: Data warehouse/lakehouse patterns (Delta Lake, Iceberg)</li>
+<li><strong>Caching</strong>: Redis for session/application cache, CDN patterns</li>
+<li><strong>Search</strong>: Elasticsearch for full-text search and analytics</li>
+</ul>
+<h3 id="messaging-communication">Messaging &amp; Communication</h3>
+<ul>
+<li><strong>Event Streaming</strong>: Apache Kafka with Schema Registry</li>
+<li><strong>Message Queuing</strong>: RabbitMQ for reliable delivery patterns</li>
+<li><strong>Pub/Sub</strong>: NATS for lightweight messaging</li>
+<li><strong>API Gateway</strong>: Kong or Envoy for traffic management</li>
+</ul>
+<h3 id="security">Security</h3>
+<ul>
+<li><strong>Identity</strong>: JWT tokens with refresh patterns</li>
+<li><strong>Secrets</strong>: HashiCorp Vault for key/secret management</li>
+<li><strong>Transport</strong>: mTLS for service-to-service communication</li>
+<li><strong>API Security</strong>: OAuth2, rate limiting, API key management</li>
+</ul>
+<h3 id="observability">Observability</h3>
+<ul>
+<li><strong>Metrics</strong>: Prometheus with Grafana dashboards</li>
+<li><strong>Tracing</strong>: OpenTelemetry with Jaeger</li>
+<li><strong>Logging</strong>: ELK Stack (Elasticsearch, Logstash, Kibana)</li>
+<li><strong>APM</strong>: Application performance monitoring integration</li>
+</ul>
+<h2 id="key-architectural-decisions">Key Architectural Decisions</h2>
+<h3 id="oltp-to-olap-data-flow">OLTP to OLAP Data Flow</h3>
+<ul>
+<li><strong>Transaction Tables</strong>: Include audit columns (created_by, created_at, updated_by, updated_at)</li>
+<li><strong>Change Data Capture</strong>: Debezium for real-time data streaming</li>
+<li><strong>Data Pipeline</strong>: Bronze (raw) → Silver (cleaned) → Gold (business logic) architecture</li>
+<li><strong>Analytics</strong>: Real-time dashboards and batch analytics capabilities</li>
+</ul>
+<h3 id="audit-database-strategy">Audit Database Strategy</h3>
+<ul>
+<li><strong>Audit Tables</strong>: Mirror structure of transaction tables with audit metadata</li>
+<li><strong>Change Tracking</strong>: Track all CRUD operations with user context</li>
+<li><strong>Retention</strong>: Configurable retention policies for audit data</li>
+<li><strong>Compliance</strong>: Support for regulatory compliance requirements</li>
+</ul>
+<h3 id="multi-cloud-strategy">Multi-Cloud Strategy</h3>
+<ul>
+<li><strong>Abstraction Layer</strong>: Pulumi providers for GCP, AWS, Azure</li>
+<li><strong>Service Interfaces</strong>: Cloud-agnostic service definitions</li>
+<li><strong>Data Portability</strong>: Use open standards (Parquet, Iceberg) for data formats</li>
+<li><strong>Migration Strategy</strong>: Blue-green deployments across cloud providers</li>
+</ul>
+<h2 id="risk-management">Risk Management</h2>
+<h3 id="technical-risks">Technical Risks</h3>
+<ul>
+<li><strong>Complexity Overload</strong>: Mitigated by incremental introduction of patterns</li>
+<li><strong>Cost Overruns</strong>: Monitoring and automatic shutdown policies</li>
+<li><strong>Vendor Lock-in</strong>: Abstraction layers and open standards</li>
+</ul>
+<h3 id="learning-risks">Learning Risks</h3>
+<ul>
+<li><strong>Scope Creep</strong>: Disciplined adherence to sprint planning</li>
+<li><strong>Knowledge Retention</strong>: Comprehensive documentation and ADRs</li>
+<li><strong>Team Capacity</strong>: Realistic sprint planning with buffer time</li>
+</ul>
+<h2 id="success-metrics">Success Metrics</h2>
+<h3 id="technical-metrics">Technical Metrics</h3>
+<ul>
+<li><strong>System Availability</strong>: &gt;99% uptime for critical services</li>
+<li><strong>Performance</strong>: &lt;200ms API response times</li>
+<li><strong>Security</strong>: Zero critical vulnerabilities in production</li>
+<li><strong>Cost</strong>: Monthly infrastructure cost &lt;$200</li>
+</ul>
+<h3 id="learning-metrics">Learning Metrics</h3>
+<ul>
+<li><strong>Protocol Coverage</strong>: All planned protocols successfully implemented</li>
+<li><strong>Pattern Implementation</strong>: All architectural patterns documented and working</li>
+<li><strong>Knowledge Transfer</strong>: Comprehensive documentation enabling team knowledge sharing</li>
+<li><strong>Portability</strong>: Successful migration between at least two cloud providers</li>
+</ul>
+<hr />
+<p><em>This charter serves as the foundational agreement for the BitVelocity project and should be revisited quarterly to ensure alignment with learning objectives and constraints.</em></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

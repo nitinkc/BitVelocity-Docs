@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Cross-Cutting – Data Platform &amp; Analytics - My Docs</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../docs/README.md" class="nav-link">About</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#cross-cutting-data-platform-analytics" class="nav-link">Cross-Cutting – Data Platform &amp; Analytics</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1-layer-overview" class="nav-link">1. Layer Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2-cross-domain-projections" class="nav-link">2. Cross-Domain Projections</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3-governance" class="nav-link">3. Governance</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4-replay-framework" class="nav-link">4. Replay Framework</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5-retention-policy-baseline" class="nav-link">5. Retention Policy (Baseline)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6-data-quality-checks" class="nav-link">6. Data Quality Checks</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7-latency-targets" class="nav-link">7. Latency Targets</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#8-cost-optimization" class="nav-link">8. Cost Optimization</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#9-cross-domain-responsibilities" class="nav-link">9. Cross-Domain Responsibilities</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#10-exit-criteria" class="nav-link">10. Exit Criteria</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="cross-cutting-data-platform-analytics">Cross-Cutting – Data Platform &amp; Analytics</h1>
+<h2 id="1-layer-overview">1. Layer Overview</h2>
+<p>OLTP (Postgres) → Domain Events + CDC (Debezium) → Stream Processing (Kafka Streams/Flink) → Serving (Redis/Cassandra/OpenSearch) → OLAP (Parquet + ClickHouse/BigQuery) → Feature Store (Redis) → ML Inference.</p>
+<h2 id="2-cross-domain-projections">2. Cross-Domain Projections</h2>
+<table>
+<thead>
+<tr>
+<th>Projection</th>
+<th>Source Domains</th>
+<th>Store</th>
+<th>Consumer Domains</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>orders_by_customer</td>
+<td>E-Commerce</td>
+<td>Cassandra</td>
+<td>Analytics, ML</td>
+</tr>
+<tr>
+<td>inventory_snapshot</td>
+<td>E-Commerce + IoT</td>
+<td>Redis</td>
+<td>GraphQL, Recommendations</td>
+</tr>
+<tr>
+<td>global_feed</td>
+<td>Social</td>
+<td>Redis</td>
+<td>Clients</td>
+</tr>
+<tr>
+<td>chat_room_activity</td>
+<td>Chat</td>
+<td>Cassandra / Redis</td>
+<td>Analytics</td>
+</tr>
+<tr>
+<td>telemetry_anomalies</td>
+<td>IoT</td>
+<td>Kafka → ClickHouse</td>
+<td>E-Commerce (inventory adjust)</td>
+</tr>
+<tr>
+<td>recommendation_feature_vectors</td>
+<td>All (events)</td>
+<td>Redis</td>
+<td>ML inference service</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-governance">3. Governance</h2>
+<ul>
+<li>Schema registry enforces backward compatibility.</li>
+<li>Data contracts (YAML) per topic: includes retention, PII classification, owners.</li>
+<li>Great Expectations nightly run on curated warehouse dataset.</li>
+</ul>
+<h2 id="4-replay-framework">4. Replay Framework</h2>
+<p>Steps:
+1. Select projection &amp; date range
+2. Fetch event + CDC parquet sets
+3. Apply in chronological sequence
+4. Validate row counts &amp; checksums
+5. Emit replay completion event</p>
+<h2 id="5-retention-policy-baseline">5. Retention Policy (Baseline)</h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Hot</th>
+<th>Archive</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kafka domain events</td>
+<td>7–14d</td>
+<td>Parquet</td>
+</tr>
+<tr>
+<td>CDC topics</td>
+<td>3–7d</td>
+<td>Parquet</td>
+</tr>
+<tr>
+<td>Redis</td>
+<td>TTL</td>
+<td>Rebuild</td>
+</tr>
+<tr>
+<td>Cassandra</td>
+<td>6–12 mo</td>
+<td>Parquet</td>
+</tr>
+<tr>
+<td>Warehouse</td>
+<td>2–3 yrs</td>
+<td>Cloud cold storage</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-data-quality-checks">6. Data Quality Checks</h2>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Order total</td>
+<td>SUM(line_items) = total_amount</td>
+</tr>
+<tr>
+<td>Non-negative inventory</td>
+<td>available &gt;= 0</td>
+</tr>
+<tr>
+<td>Telemetry freshness</td>
+<td>ingest_ts - device_ts &lt; 5m</td>
+</tr>
+<tr>
+<td>Null ratio constraints</td>
+<td>&lt; threshold for key fields</td>
+</tr>
+<tr>
+<td>Feature presence</td>
+<td>Feature vector completeness &gt;= 95%</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-latency-targets">7. Latency Targets</h2>
+<table>
+<thead>
+<tr>
+<th>Flow</th>
+<th>Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Event → Projection update</td>
+<td>&lt; 5s</td>
+</tr>
+<tr>
+<td>Order created → Warehouse row</td>
+<td>&lt; 2m</td>
+</tr>
+<tr>
+<td>Telemetry anomaly detection</td>
+<td>&lt; 10s</td>
+</tr>
+<tr>
+<td>Hot feature update propagation</td>
+<td>&lt; 1s</td>
+</tr>
+</tbody>
+</table>
+<h2 id="8-cost-optimization">8. Cost Optimization</h2>
+<ul>
+<li>Postpone ClickHouse/BigQuery until Phase where streaming stable.</li>
+<li>Use DuckDB locally for early analytical queries.</li>
+<li>Downsample telemetry after initial ingestion for cold storage.</li>
+</ul>
+<h2 id="9-cross-domain-responsibilities">9. Cross-Domain Responsibilities</h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data Steward (you)</td>
+<td>Approve schema changes</td>
+</tr>
+<tr>
+<td>Domain Owner</td>
+<td>Provide data contract PR</td>
+</tr>
+<tr>
+<td>ML Owner</td>
+<td>Define feature survivability rules</td>
+</tr>
+<tr>
+<td>Infra Owner</td>
+<td>Maintain connectors &amp; storage pipelines</td>
+</tr>
+</tbody>
+</table>
+<h2 id="10-exit-criteria">10. Exit Criteria</h2>
+<ul>
+<li>At least 3 projections built via streams (not batch).</li>
+<li>Replay successful on sample dataset.</li>
+<li>Data quality run gating merges for schema changes.</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../../img/favicon.ico">
+        <title>Domain Architecture – E-Commerce - My Docs</title>
+        <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../../docs/README.md" class="nav-link">About</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#domain-architecture-e-commerce" class="nav-link">Domain Architecture – E-Commerce</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1-purpose" class="nav-link">1. Purpose</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2-bounded-contexts-services" class="nav-link">2. Bounded Contexts &amp; Services</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3-protocol-usage-matrix" class="nav-link">3. Protocol Usage Matrix</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4-external-interfaces-stable-contract-surfaces" class="nav-link">4. External Interfaces (Stable Contract Surfaces)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5-data-architecture-oltp-derived-olap" class="nav-link">5. Data Architecture (OLTP → Derived → OLAP)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6-events-authoritative" class="nav-link">6. Events (Authoritative)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7-caching-strategy" class="nav-link">7. Caching Strategy</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#8-resilience-retry-matrix" class="nav-link">8. Resilience &amp; Retry Matrix</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#9-security-domain-specific" class="nav-link">9. Security (Domain-Specific)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#10-observability-targets" class="nav-link">10. Observability Targets</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#11-testing-matrix" class="nav-link">11. Testing Matrix</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#12-implementation-phases" class="nav-link">12. Implementation Phases</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#13-interoperability-checklist-before-declaring-stable" class="nav-link">13. Interoperability Checklist (Before Declaring Stable)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#14-backlog-seed-chronological-by-complexity" class="nav-link">14. Backlog Seed (Chronological by Complexity)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#15-cost-controls" class="nav-link">15. Cost Controls</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#16-risks-mitigations" class="nav-link">16. Risks &amp; Mitigations</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#17-exit-criteria-for-domain-mvp-complete" class="nav-link">17. Exit Criteria for Domain “MVP Complete”</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="domain-architecture-e-commerce">Domain Architecture – E-Commerce</h1>
+<h2 id="1-purpose">1. Purpose</h2>
+<p>Primary backbone domain to exercise transactional integrity (OLTP), event propagation, multi-protocol interaction, and derived data patterns.</p>
+<h2 id="2-bounded-contexts-services">2. Bounded Contexts &amp; Services</h2>
+<table>
+<thead>
+<tr>
+<th>Context</th>
+<th>Service</th>
+<th>Responsibility</th>
+<th>Initial Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Catalog</td>
+<td>product-service</td>
+<td>Product CRUD, price versioning</td>
+<td>Phase 1</td>
+</tr>
+<tr>
+<td>Pricing</td>
+<td>pricing-service (optional merge into product early)</td>
+<td>Flash sales, dynamic overrides</td>
+<td>Phase 4</td>
+</tr>
+<tr>
+<td>Cart</td>
+<td>cart-service</td>
+<td>Manage session/user carts</td>
+<td>Phase 1</td>
+</tr>
+<tr>
+<td>Order Lifecycle</td>
+<td>order-service</td>
+<td>Create, pay, cancel, fulfill</td>
+<td>Phase 2</td>
+</tr>
+<tr>
+<td>Inventory</td>
+<td>inventory-service</td>
+<td>Reserve/release, stock adjustments, IoT feed</td>
+<td>Phase 2–3</td>
+</tr>
+<tr>
+<td>Payment Integration</td>
+<td>payment-adapter-service</td>
+<td>Simulated SOAP legacy + REST fallback</td>
+<td>Phase 4</td>
+</tr>
+<tr>
+<td>Notification</td>
+<td>notification-service</td>
+<td>WebSocket &amp; SSE push for order &amp; sale status</td>
+<td>Phase 3</td>
+</tr>
+<tr>
+<td>Partner Integrations</td>
+<td>partner-webhook-dispatcher</td>
+<td>Outbound webhooks + retry queue</td>
+<td>Phase 4</td>
+</tr>
+<tr>
+<td>Analytics Projection</td>
+<td>analytics-streaming-service</td>
+<td>Streams metrics &amp; aggregates</td>
+<td>Phase 5</td>
+</tr>
+<tr>
+<td>Replay (shared)</td>
+<td>replay-service (cross repo)</td>
+<td>Reconstruct projections/read models</td>
+<td>Phase ≥7</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-protocol-usage-matrix">3. Protocol Usage Matrix</h2>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Protocol</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Product CRUD</td>
+<td>REST</td>
+<td>Simplicity &amp; ubiquity</td>
+</tr>
+<tr>
+<td>Product + Inventory query</td>
+<td>GraphQL federation</td>
+<td>Aggregated read model</td>
+</tr>
+<tr>
+<td>Stock reservation</td>
+<td>gRPC</td>
+<td>Low-latency internal call</td>
+</tr>
+<tr>
+<td>Order lifecycle events</td>
+<td>Kafka events</td>
+<td>Decoupled downstream consumers</td>
+</tr>
+<tr>
+<td>Flash sale broadcast</td>
+<td>SSE</td>
+<td>One-way scalable updates</td>
+</tr>
+<tr>
+<td>Real-time order status</td>
+<td>WebSocket</td>
+<td>Bidirectional channel (future ack)</td>
+</tr>
+<tr>
+<td>Payment gateway</td>
+<td>SOAP + REST fallback</td>
+<td>Legacy simulation &amp; resilience</td>
+</tr>
+<tr>
+<td>Outbound partner updates</td>
+<td>Webhooks + RabbitMQ retry</td>
+<td>External integration reliability</td>
+</tr>
+<tr>
+<td>IoT stock adjustments</td>
+<td>MQTT ingest → Kafka</td>
+<td>Device realism</td>
+</tr>
+<tr>
+<td>Batch sales summary</td>
+<td>Batch job</td>
+<td>Deferred computation</td>
+</tr>
+<tr>
+<td>Streaming revenue metrics</td>
+<td>Kafka Streams</td>
+<td>Near real-time dashboard</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-external-interfaces-stable-contract-surfaces">4. External Interfaces (Stable Contract Surfaces)</h2>
+<p>REST (simplified):
+- POST /api/v1/products
+- GET /api/v1/products/{id}
+- POST /api/v1/orders  (Headers: Idempotency-Key, Correlation-Id)
+- POST /api/v1/orders/{id}/pay
+- POST /api/v1/orders/{id}/cancel
+- GET /api/v1/orders/{id}</p>
+<p>GraphQL (later):</p>
+<pre><code>type Query {
+  product(id: ID!): Product
+  products(filter: ProductFilter): [Product]
+  productInventory(id: ID!): InventoryInfo
+}
+</code></pre>
+<p>gRPC (inventory):</p>
+<pre><code>service Inventory {
+  rpc ReserveStock(ReserveRequest) returns (ReserveResponse);
+  rpc ReleaseStock(ReleaseRequest) returns (ReleaseResponse);
+  rpc QueryStock(StockQuery) returns (StockStatus);
+}
+</code></pre>
+<p>WebSocket Channels:
+- /ws/orders (subscribe {orderId} or personal channel)
+SSE:
+- /sse/flash-sales</p>
+<p>Outbound Webhooks:
+- HMAC-SHA256 signature header: X-BV-Signature
+- Retry schedule: 30s, 2m, 5m, 15m, 30m → DLQ event after max</p>
+<p>SOAP Payment (WSDL simulated):
+- Operation: ProcessPayment(orderId, amount, currency)</p>
+<p>MQTT Topics:
+- iot/inventory/{sku}/delta  (payload: { "delta": -2, "reason": "SENSOR" })</p>
+<h2 id="5-data-architecture-oltp-derived-olap">5. Data Architecture (OLTP → Derived → OLAP)</h2>
+<p>OLTP (Postgres):
+- products, product_price_history (SCD2)
+- orders, order_items, order_status_history
+- carts, cart_items
+- payments
+- inventory_stock, inventory_adjustment
+- webhook_subscriptions, webhook_delivery_attempts</p>
+<p>CDC: Debezium captures orders, inventory_adjustment, product changes.</p>
+<p>Derived Serving:
+| Projection | Store | Built From |
+|------------|-------|------------|
+| orders_by_customer | Cassandra | domain events + CDC status |
+| inventory_snapshot | Redis + Cassandra | inventory.adjusted events |
+| product_search_index | OpenSearch (later) | product.updated event |
+| flash_sale_price_map | Redis | pricing.* events |
+| daily_revenue | ClickHouse / Streams state | order.paid / order.canceled |</p>
+<p>OLAP / Warehouse:
+- fact_orders, fact_inventory_adjustments, dim_product, dim_date</p>
+<p>No Dual Write Rule: Application writes only to Postgres; all projections built via Kafka streams or connectors.</p>
+<h2 id="6-events-authoritative">6. Events (Authoritative)</h2>
+<table>
+<thead>
+<tr>
+<th>Event Type</th>
+<th>Purpose</th>
+<th>Partition Key</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ecommerce.order.order.created.v1</td>
+<td>Start lifecycle</td>
+<td>orderId</td>
+</tr>
+<tr>
+<td>ecommerce.order.order.paid.v1</td>
+<td>Payment success</td>
+<td>orderId</td>
+</tr>
+<tr>
+<td>ecommerce.order.order.canceled.v1</td>
+<td>Compensation</td>
+<td>orderId</td>
+</tr>
+<tr>
+<td>ecommerce.order.order.fulfilled.v1</td>
+<td>Completion</td>
+<td>orderId</td>
+</tr>
+<tr>
+<td>ecommerce.inventory.stock.adjusted.v1</td>
+<td>Stock delta broadcast</td>
+<td>productId</td>
+</tr>
+<tr>
+<td>ecommerce.product.product.updated.v1</td>
+<td>Cache/search invalidation</td>
+<td>productId</td>
+</tr>
+<tr>
+<td>ecommerce.pricing.flash_sale.started.v1</td>
+<td>Broadcast sale</td>
+<td>productId or saleId</td>
+</tr>
+<tr>
+<td>ecommerce.webhook.delivery.failed.v1</td>
+<td>Alert operations</td>
+<td>subscriptionId</td>
+</tr>
+</tbody>
+</table>
+<p>Canonical Payload (example order.created):</p>
+<pre><code>{
+  &quot;eventId&quot;: &quot;...&quot;,
+  &quot;eventType&quot;: &quot;ecommerce.order.order.created.v1&quot;,
+  &quot;occurredAt&quot;: &quot;...&quot;,
+  &quot;producer&quot;: &quot;order-service&quot;,
+  &quot;traceId&quot;: &quot;...&quot;,
+  &quot;correlationId&quot;: &quot;...&quot;,
+  &quot;schemaVersion&quot;: &quot;1.0&quot;,
+  &quot;partitionKey&quot;: &quot;ORDER-123&quot;,
+  &quot;payload&quot;: {
+    &quot;orderId&quot;: &quot;ORDER-123&quot;,
+    &quot;userId&quot;: &quot;USER-9&quot;,
+    &quot;totalAmount&quot;: 129.50,
+    &quot;currency&quot;: &quot;USD&quot;,
+    &quot;items&quot;: [{&quot;productId&quot;:&quot;P1&quot;,&quot;qty&quot;:2,&quot;price&quot;:25.00}]
+  }
+}
+</code></pre>
+<h2 id="7-caching-strategy">7. Caching Strategy</h2>
+<table>
+<thead>
+<tr>
+<th>Cache</th>
+<th>Key</th>
+<th>Policy</th>
+<th>Invalidation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Product read</td>
+<td>product:{id}</td>
+<td>Read-through</td>
+<td>product.updated</td>
+</tr>
+<tr>
+<td>Inventory</td>
+<td>inventory:{productId}</td>
+<td>Event-driven set</td>
+<td>inventory.stock.adjusted</td>
+</tr>
+<tr>
+<td>Order status ephemeral</td>
+<td>order_status:{orderId}</td>
+<td>Write-through on event</td>
+<td>fulfillment/cancel remove</td>
+</tr>
+<tr>
+<td>Flash sale price</td>
+<td>flash_price:{productId}</td>
+<td>Cache authority TTL</td>
+<td>sale end event/TTL</td>
+</tr>
+<tr>
+<td>GraphQL aggregated</td>
+<td>gql:product:{id}</td>
+<td>Short TTL (30s)</td>
+<td>Same as underlying components</td>
+</tr>
+</tbody>
+</table>
+<h2 id="8-resilience-retry-matrix">8. Resilience &amp; Retry Matrix</h2>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Pattern</th>
+<th>Limits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Payment SOAP</td>
+<td>Exponential w/ jitter + circuit breaker</td>
+<td>5 attempts</td>
+</tr>
+<tr>
+<td>Inventory Reserve gRPC</td>
+<td>Exponential (bounded)</td>
+<td>3 attempts</td>
+</tr>
+<tr>
+<td>Webhook dispatch</td>
+<td>Progressive schedule + DLQ</td>
+<td>5 attempts</td>
+</tr>
+<tr>
+<td>Event publish</td>
+<td>Async retry + DLQ fallback</td>
+<td>configurable</td>
+</tr>
+<tr>
+<td>Flash sale price update</td>
+<td>Fast fail (no retry)</td>
+<td>propagate error upward</td>
+</tr>
+<tr>
+<td>MQTT ingestion</td>
+<td>Buffer &amp; batch after reconnect</td>
+<td>device-level QoS simulation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="9-security-domain-specific">9. Security (Domain-Specific)</h2>
+<ul>
+<li>Auth: JWT required on all mutations.</li>
+<li>Authorization: Customer may cancel only PENDING orders they own; OPA policy.</li>
+<li>Sensitive actions (price override) require ADMIN role.</li>
+<li>Idempotency: Hash Idempotency-Key + payload; reject duplicates within 24h window.</li>
+<li>Payment tokenization future: integrate Vault transit for card token (learning optional).</li>
+</ul>
+<h2 id="10-observability-targets">10. Observability Targets</h2>
+<p>Metrics:
+- orders_created_total
+- order_creation_latency_ms (histogram)
+- inventory_reservation_failures_total
+- webhook_retry_attempts_total
+- product_cache_hit_ratio
+Traces:
+- POST /orders → gRPC ReserveStock → Kafka publish sequence
+Logs:
+- Correlation: orderId, traceId, userId, eventType</p>
+<h2 id="11-testing-matrix">11. Testing Matrix</h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Focus</th>
+<th>Tooling</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unit</td>
+<td>Validation (SKU uniqueness)</td>
+<td>JUnit</td>
+</tr>
+<tr>
+<td>Integration</td>
+<td>DB + Kafka + Redis</td>
+<td>Testcontainers</td>
+</tr>
+<tr>
+<td>Contract</td>
+<td>REST (product/order), gRPC (inventory)</td>
+<td>Pact / protobuf golden</td>
+</tr>
+<tr>
+<td>BDD</td>
+<td>Checkout flow</td>
+<td>Cucumber</td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>Order create p95 &lt; 200ms</td>
+<td>Gatling</td>
+</tr>
+<tr>
+<td>Security</td>
+<td>AuthZ tests (cancel path)</td>
+<td>Spring Test + OPA test harness</td>
+</tr>
+<tr>
+<td>Fuzz</td>
+<td>Order JSON parser</td>
+<td>Jazzer</td>
+</tr>
+<tr>
+<td>Chaos (later)</td>
+<td>Kill inventory pod mid-reserve</td>
+<td>Chaos Mesh</td>
+</tr>
+</tbody>
+</table>
+<h2 id="12-implementation-phases">12. Implementation Phases</h2>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Deliverables</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Product + Cart (REST + Postgres + basic tests)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Order + Inventory gRPC stub + Kafka events</td>
+</tr>
+<tr>
+<td>3</td>
+<td>WebSocket notifications + Redis caching</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Payment SOAP + Partner webhooks + flash sale SSE</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Pricing service + Kafka Streams metrics + CDC</td>
+</tr>
+<tr>
+<td>6</td>
+<td>IoT MQTT ingestion (inventory adjustments)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Cassandra projections + OpenSearch indexing</td>
+</tr>
+<tr>
+<td>8+</td>
+<td>DR replay + advanced resilience</td>
+</tr>
+</tbody>
+</table>
+<h2 id="13-interoperability-checklist-before-declaring-stable">13. Interoperability Checklist (Before Declaring Stable)</h2>
+<ul>
+<li>[ ] All events validated vs schema registry</li>
+<li>[ ] GraphQL fields do not leak internal table names</li>
+<li>[ ] gRPC proto version pinned &amp; published</li>
+<li>[ ] REST endpoints documented with status codes &amp; error model</li>
+<li>[ ] Cache invalidation tied to event consumption only (no side-channels)</li>
+<li>[ ] Idempotency semantics documented &amp; test present</li>
+<li>[ ] Replay procedure tested on sample dataset</li>
+<li>[ ] Security (OPA) denies invalid cancellation scenario</li>
+</ul>
+<h2 id="14-backlog-seed-chronological-by-complexity">14. Backlog Seed (Chronological by Complexity)</h2>
+<ol>
+<li>Product CRUD + migrations + unit tests</li>
+<li>Order creation + event envelope lib usage</li>
+<li>Inventory gRPC proto + in-memory stub</li>
+<li>Redis product cache + invalidation test</li>
+<li>WebSocket notification skeleton</li>
+<li>Payment adapter mock + SOAP client stub</li>
+<li>Webhook dispatcher + retry queue (RabbitMQ)</li>
+<li>Pricing flash sale event emission</li>
+<li>Kafka Streams order revenue aggregation</li>
+<li>Debezium CDC capture for orders/products</li>
+<li>Cassandra orders_by_customer projection</li>
+<li>Replay CLI skeleton</li>
+<li>OpenSearch indexing pipeline</li>
+</ol>
+<h2 id="15-cost-controls">15. Cost Controls</h2>
+<ul>
+<li>Defer Cassandra &amp; OpenSearch until after stable events (Phase 5+).</li>
+<li>Use single-broker Kafka or Redpanda early.</li>
+<li>Run SOAP + RabbitMQ only when working that phase (compose profile).</li>
+<li>Edge resources (ingress/gateway) consolidated early to one load balancer.</li>
+</ul>
+<h2 id="16-risks-mitigations">16. Risks &amp; Mitigations</h2>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Event schema churn</td>
+<td>Freeze MVP schema early; additive evolution only</td>
+</tr>
+<tr>
+<td>Cache staleness bugs</td>
+<td>Integration tests with consumer-driven expectations</td>
+</tr>
+<tr>
+<td>Payment circuit thrashing</td>
+<td>Configure conservative sliding window for breaker</td>
+</tr>
+<tr>
+<td>Webhook backlog growth</td>
+<td>DLQ monitoring &amp; alert threshold</td>
+</tr>
+</tbody>
+</table>
+<h2 id="17-exit-criteria-for-domain-mvp-complete">17. Exit Criteria for Domain “MVP Complete”</h2>
+<ul>
+<li>Order→Notification real-time path traced</li>
+<li>Stock adjustment via event updates inventory snapshot</li>
+<li>Payment failure path triggers retries &amp; circuit open</li>
+<li>Replay reconstructs orders_by_customer with parity</li>
+<li>GraphQL resolved aggregated product + inventory</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../js/base.js"></script>
+        <script src="../../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

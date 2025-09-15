@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../../img/favicon.ico">
+        <title>Domain Architecture – IoT Device Management - My Docs</title>
+        <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../../docs/README.md" class="nav-link">About</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#domain-architecture-iot-device-management" class="nav-link">Domain Architecture – IoT Device Management</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1-purpose" class="nav-link">1. Purpose</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2-services" class="nav-link">2. Services</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3-protocols" class="nav-link">3. Protocols</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4-telemetry-payload" class="nav-link">4. Telemetry Payload</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5-data-model" class="nav-link">5. Data Model</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6-firmware-grpc-simplified" class="nav-link">6. Firmware gRPC (simplified)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7-stream-processing" class="nav-link">7. Stream Processing</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#8-security" class="nav-link">8. Security</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#9-observability" class="nav-link">9. Observability</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#10-resilience" class="nav-link">10. Resilience</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#11-testing" class="nav-link">11. Testing</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#12-implementation-order" class="nav-link">12. Implementation Order</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#13-interoperability-checklist" class="nav-link">13. Interoperability Checklist</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#14-cost-controls" class="nav-link">14. Cost Controls</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#15-exit-criteria" class="nav-link">15. Exit Criteria</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="domain-architecture-iot-device-management">Domain Architecture – IoT Device Management</h1>
+<h2 id="1-purpose">1. Purpose</h2>
+<p>Simulate device telemetry ingestion, inventory or analytics adjustments, firmware orchestration, anomaly detection learning path.</p>
+<h2 id="2-services">2. Services</h2>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Responsibility</th>
+<th>Store</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>device-registry</td>
+<td>Device identity, metadata, credentials</td>
+<td>Postgres</td>
+</tr>
+<tr>
+<td>telemetry-service</td>
+<td>MQTT broker integration → Kafka</td>
+<td>Kafka raw topics</td>
+</tr>
+<tr>
+<td>firmware-service</td>
+<td>Firmware update coordination state machine</td>
+<td>Postgres</td>
+</tr>
+<tr>
+<td>telemetry-analytics (later)</td>
+<td>Stream processing, anomaly detection</td>
+<td>Streams state / ClickHouse</td>
+</tr>
+<tr>
+<td>edge-simulator (optional)</td>
+<td>Publish synthetic MQTT payloads</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-protocols">3. Protocols</h2>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Protocol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Device register/update</td>
+<td>REST</td>
+</tr>
+<tr>
+<td>Telemetry ingest</td>
+<td>MQTT</td>
+</tr>
+<tr>
+<td>Stream pipeline</td>
+<td>Kafka Streams</td>
+</tr>
+<tr>
+<td>Firmware orchestration</td>
+<td>gRPC</td>
+</tr>
+<tr>
+<td>Anomaly detection result</td>
+<td>Event + optional Webhook</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-telemetry-payload">4. Telemetry Payload</h2>
+<p>MQTT Topic: devices/{deviceId}/telemetry<br />
+Payload (JSON):</p>
+<pre><code>{
+  &quot;ts&quot;: &quot;...&quot;,
+  &quot;temperature&quot;: 24.1,
+  &quot;voltage&quot;: 3.7,
+  &quot;status&quot;: &quot;OK&quot;
+}
+</code></pre>
+<p>Transformed into event: iot.telemetry.raw.v1 (partition by deviceId).</p>
+<h2 id="5-data-model">5. Data Model</h2>
+<p>Postgres:
+- devices(id, serial, type, status, created_at)
+- device_credentials(device_id, api_key_hash, rotated_at)
+- firmware_artifacts(id, version, checksum, created_at)
+- firmware_rollouts(id, artifact_id, target_group, status)
+- firmware_rollout_device(rollout_id, device_id, status, updated_at)</p>
+<h2 id="6-firmware-grpc-simplified">6. Firmware gRPC (simplified)</h2>
+<pre><code>service Firmware {
+  rpc StartRollout(RolloutRequest) returns (RolloutAck);
+  rpc ReportStatus(StatusReport) returns (Ack);
+  rpc GetRollout(RolloutId) returns (RolloutState);
+}
+</code></pre>
+<h2 id="7-stream-processing">7. Stream Processing</h2>
+<p>Jobs:
+- TelemetryNormalizer → enrich + validate
+- AnomalyDetector (simple z-score or threshold)
+- InventoryAdjustmentForwarder (optionally triggers ecommerce.inventory.stock.adjusted.v1)</p>
+<h2 id="8-security">8. Security</h2>
+<ul>
+<li>Device credentials: hashed API key + optional rotation.</li>
+<li>MQTT authentication (username/apiKey).</li>
+<li>Rate-limit per device (broker plugin or ingress sidecar).</li>
+<li>Tokenless internal event pipeline.</li>
+</ul>
+<h2 id="9-observability">9. Observability</h2>
+<p>Metrics:
+- telemetry_ingest_rate
+- telemetry_mqtt_connect_failures
+- firmware_rollout_progress
+- anomaly_events_total
+Tracing:
+- Firmware RPC sequences
+- Telemetry transform pipeline stages</p>
+<h2 id="10-resilience">10. Resilience</h2>
+<table>
+<thead>
+<tr>
+<th>Concern</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Burst telemetry</td>
+<td>Backpressure via broker queue + streaming scaling (KEDA)</td>
+</tr>
+<tr>
+<td>Device misbehavior</td>
+<td>Quarantine list (deny subsequent messages)</td>
+</tr>
+<tr>
+<td>Firmware partial failure</td>
+<td>Retry policy per device with backoff</td>
+</tr>
+<tr>
+<td>Clock skew</td>
+<td>Normalize timestamps, warn on drift threshold</td>
+</tr>
+</tbody>
+</table>
+<h2 id="11-testing">11. Testing</h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unit</td>
+<td>Telemetry validation</td>
+</tr>
+<tr>
+<td>Integration</td>
+<td>MQTT → Kafka path</td>
+</tr>
+<tr>
+<td>Load</td>
+<td>Sustained ingest rate at configured target</td>
+</tr>
+<tr>
+<td>Simulation</td>
+<td>Edge emulator CLI</td>
+</tr>
+<tr>
+<td>Contract</td>
+<td>Firmware gRPC proto golden</td>
+</tr>
+<tr>
+<td>Security</td>
+<td>Device auth misuse attempts</td>
+</tr>
+</tbody>
+</table>
+<h2 id="12-implementation-order">12. Implementation Order</h2>
+<ol>
+<li>Device registry REST + Postgres</li>
+<li>MQTT broker (single) + telemetry ingestion to Kafka</li>
+<li>Simple telemetry log consumer</li>
+<li>Firmware gRPC scaffold</li>
+<li>Anomaly threshold job</li>
+<li>(Optional) Integration with E-Commerce inventory adjustments</li>
+<li>Firmware rollout workflow</li>
+<li>Advanced anomaly detection simulation</li>
+</ol>
+<h2 id="13-interoperability-checklist">13. Interoperability Checklist</h2>
+<ul>
+<li>[ ] Telemetry events conform to shared envelope</li>
+<li>[ ] Firmware events versioned</li>
+<li>[ ] Optional inventory adjustments use ecommerce event type spec</li>
+<li>[ ] Device identity not leaked in other domain logs (privacy)</li>
+<li>[ ] Anomaly events documented for ML/AI consumption</li>
+</ul>
+<h2 id="14-cost-controls">14. Cost Controls</h2>
+<ul>
+<li>Single MQTT broker container.</li>
+<li>Avoid ClickHouse early: store anomalies in Postgres or Redis.</li>
+<li>Synthetic telemetry scale gating (env var max devices).</li>
+</ul>
+<h2 id="15-exit-criteria">15. Exit Criteria</h2>
+<ul>
+<li>Telemetry ingest stable at target throughput (e.g., 1k msg/s dev environment).</li>
+<li>Firmware rollout success metrics logged.</li>
+<li>Anomaly events emitted &amp; visible in shared monitoring dashboard.</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../js/base.js"></script>
+        <script src="../../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

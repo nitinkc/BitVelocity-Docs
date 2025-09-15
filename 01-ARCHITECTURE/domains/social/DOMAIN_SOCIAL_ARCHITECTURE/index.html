@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../../img/favicon.ico">
+        <title>Domain Architecture – Social / Feed - My Docs</title>
+        <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../../docs/README.md" class="nav-link">About</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#domain-architecture-social-feed" class="nav-link">Domain Architecture – Social / Feed</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1-purpose" class="nav-link">1. Purpose</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2-services" class="nav-link">2. Services</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3-protocol-mapping" class="nav-link">3. Protocol Mapping</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4-events" class="nav-link">4. Events</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5-feed-materialization-options" class="nav-link">5. Feed Materialization Options</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6-caching" class="nav-link">6. Caching</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7-security" class="nav-link">7. Security</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#8-observability" class="nav-link">8. Observability</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#9-testing" class="nav-link">9. Testing</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#10-implementation-sequence" class="nav-link">10. Implementation Sequence</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#11-interoperability-checklist" class="nav-link">11. Interoperability Checklist</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#12-cost-controls" class="nav-link">12. Cost Controls</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#13-exit-criteria" class="nav-link">13. Exit Criteria</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="domain-architecture-social-feed">Domain Architecture – Social / Feed</h1>
+<h2 id="1-purpose">1. Purpose</h2>
+<p>Model post creation, comments, engagement, and feed dissemination with SSE for near real-time updates.</p>
+<h2 id="2-services">2. Services</h2>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Responsibility</th>
+<th>Store</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>post-service</td>
+<td>CRUD posts</td>
+<td>Postgres (early) → Mongo (optional)</td>
+</tr>
+<tr>
+<td>comment-service</td>
+<td>CRUD comments</td>
+<td>Postgres/Mongo</td>
+</tr>
+<tr>
+<td>feed-service</td>
+<td>Materialize feed &amp; SSE push</td>
+<td>Redis + Kafka</td>
+</tr>
+<tr>
+<td>integration-service</td>
+<td>Outbound webhooks for syndicated content</td>
+<td>Postgres</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-protocol-mapping">3. Protocol Mapping</h2>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Protocol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Post CRUD</td>
+<td>REST</td>
+</tr>
+<tr>
+<td>Feeds aggregated query</td>
+<td>GraphQL extension</td>
+</tr>
+<tr>
+<td>Feed streaming</td>
+<td>SSE</td>
+</tr>
+<tr>
+<td>Post events</td>
+<td>Kafka</td>
+</tr>
+<tr>
+<td>Outbound syndication</td>
+<td>Webhook</td>
+</tr>
+<tr>
+<td>Search (later)</td>
+<td>OpenSearch</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-events">4. Events</h2>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>social.post.created.v1</td>
+<td>Add to feed pipeline</td>
+</tr>
+<tr>
+<td>social.comment.created.v1</td>
+<td>Update engagement metrics</td>
+</tr>
+<tr>
+<td>social.feed.activity.v1</td>
+<td>Aggregated engagement fan-out</td>
+</tr>
+<tr>
+<td>social.post.promoted.v1</td>
+<td>Boost visibility (optional)</td>
+</tr>
+</tbody>
+</table>
+<p>Payload example:</p>
+<pre><code>{
+  &quot;eventType&quot;:&quot;social.post.created.v1&quot;,
+  &quot;payload&quot;:{
+     &quot;postId&quot;:&quot;P9&quot;,
+     &quot;authorId&quot;:&quot;U2&quot;,
+     &quot;tags&quot;:[&quot;sale&quot;,&quot;electronics&quot;],
+     &quot;createdAt&quot;:&quot;...&quot;
+  }
+}
+</code></pre>
+<h2 id="5-feed-materialization-options">5. Feed Materialization Options</h2>
+<p>Strategy: Hybrid push/pull
+- SSE stream for “latest posts” channel
+- User-personalized feed (future) built via Kafka Streams state store keyed by userId
+- Redis lists: feed:global (rolling N), feed:user:{id}</p>
+<h2 id="6-caching">6. Caching</h2>
+<ul>
+<li>Post read: post:{postId}</li>
+<li>Global feed: list operations</li>
+<li>Engagement counters: hash feed:engagement:{postId} (increment on comment/like)</li>
+</ul>
+<h2 id="7-security">7. Security</h2>
+<ul>
+<li>Auth required for posting/commenting.</li>
+<li>Content moderation pipeline optional; events flagged for ML/AI ingestion.</li>
+<li>Rate limiting (gateway): posts/min per user.</li>
+</ul>
+<h2 id="8-observability">8. Observability</h2>
+<p>Metrics:
+- posts_created_total
+- feed_sse_active_connections
+- feed_push_latency_ms
+- engagement_counter_update_failures
+Tracing:
+- REST create post -&gt; Kafka publish -&gt; SSE push chain</p>
+<h2 id="9-testing">9. Testing</h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Focus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unit</td>
+<td>Post validation (length, tags)</td>
+</tr>
+<tr>
+<td>Integration</td>
+<td>Event -&gt; feed list update</td>
+</tr>
+<tr>
+<td>SSE functional</td>
+<td>Client receives new post within latency SLO</td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>SSE connection scaling test</td>
+</tr>
+<tr>
+<td>Contract</td>
+<td>GraphQL schema diff gating</td>
+</tr>
+</tbody>
+</table>
+<h2 id="10-implementation-sequence">10. Implementation Sequence</h2>
+<ol>
+<li>Post CRUD (REST + Postgres)</li>
+<li>Event emission (post.created)</li>
+<li>Feed global list consumer + SSE endpoint</li>
+<li>Comment service + engagement counters</li>
+<li>GraphQL aggregator fields</li>
+<li>Webhook integration (syndicated posts)</li>
+<li>Personalized feed prototype (user-specific)</li>
+<li>OpenSearch indexing (optional later)</li>
+</ol>
+<h2 id="11-interoperability-checklist">11. Interoperability Checklist</h2>
+<ul>
+<li>[ ] Post events schematized &amp; validated</li>
+<li>[ ] SSE channels documented (naming &amp; reconnect strategy)</li>
+<li>[ ] GraphQL additions namespaced (no collisions)</li>
+<li>[ ] No direct dependency on e-commerce code</li>
+<li>[ ] Webhook format documented for consumers</li>
+</ul>
+<h2 id="12-cost-controls">12. Cost Controls</h2>
+<ul>
+<li>SSE only (skip WebSocket clustering overhead for this domain).</li>
+<li>Delay search infra until event pipeline stable.</li>
+</ul>
+<h2 id="13-exit-criteria">13. Exit Criteria</h2>
+<ul>
+<li>Post creation visible via SSE &lt; 500ms median</li>
+<li>Engagement counters accurate under concurrent updates</li>
+<li>GraphQL consolidation query returning post + engagement fields</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../js/base.js"></script>
+        <script src="../../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

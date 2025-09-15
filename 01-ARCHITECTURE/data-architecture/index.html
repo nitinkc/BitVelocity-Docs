@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Data Architecture Strategy - My Docs</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../docs/README.md" class="nav-link">About</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#data-architecture-strategy" class="nav-link">Data Architecture Strategy</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#purpose" class="nav-link">Purpose</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#architecture-overview" class="nav-link">Architecture Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#oltp-database-strategy" class="nav-link">OLTP Database Strategy</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#oltp-to-olap-data-flow" class="nav-link">OLTP to OLAP Data Flow</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#real-time-analytics" class="nav-link">Real-Time Analytics</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#data-governance-quality" class="nav-link">Data Governance &amp; Quality</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#caching-strategy" class="nav-link">Caching Strategy</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#performance-optimization" class="nav-link">Performance Optimization</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#disaster-recovery-backup" class="nav-link">Disaster Recovery &amp; Backup</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#monitoring-alerting" class="nav-link">Monitoring &amp; Alerting</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#cost-optimization" class="nav-link">Cost Optimization</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="data-architecture-strategy">Data Architecture Strategy</h1>
+<h2 id="purpose">Purpose</h2>
+<p>This document defines the comprehensive data architecture for BitVelocity, including OLTP to OLAP data flows, audit database strategy, data governance, and analytics patterns that address the gaps identified in the original design.</p>
+<h2 id="architecture-overview">Architecture Overview</h2>
+<h3 id="data-layer-strategy">Data Layer Strategy</h3>
+<pre><code>┌─────────────────────────────────────────────────────────────────┐
+│                        OLTP Layer                               │
+│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐│
+│  │ PostgreSQL  │ │  Cassandra  │ │   MongoDB   │ │    Redis    ││
+│  │(Transaction)│ │ (Scale-out) │ │ (Document)  │ │  (Cache)    ││
+│  └─────┬───────┘ └─────┬───────┘ └─────┬───────┘ └─────┬───────┘│
+└─────────┼───────────────┼───────────────┼───────────────┼────────┘
+          │               │               │               │
+          │          ┌────▼─────────────────▼─────────────▼───┐
+          │          │         Change Data Capture          │
+          │          │        (Debezium CDC)                │
+          │          └────┬─────────────────────────────────┘
+          │               │
+          ▼               ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                    Event Streaming Layer                        │
+│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐│
+│  │    Kafka    │ │    NATS     │ │  RabbitMQ   │ │ Schema Reg  ││
+│  │ (Streaming) │ │(Lightweight)│ │ (Reliable)  │ │ (Governance)││
+│  └─────┬───────┘ └─────────────┘ └─────────────┘ └─────────────┘│
+└─────────┼───────────────────────────────────────────────────────┘
+          │
+          ▼
+┌─────────────────────────────────────────────────────────────────┐
+│              OLAP Layer (Bronze → Silver → Gold)               │
+│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐│
+│  │   Bronze    │ │   Silver    │ │    Gold     │ │   Serving   ││
+│  │ (Raw Data)  │ │ (Cleaned)   │ │ (Business)  │ │   Layer     ││
+│  └─────────────┘ └─────────────┘ └─────────────┘ └─────────────┘│
+└─────────────────────────────────────────────────────────────────┘
+</code></pre>
+<h2 id="oltp-database-strategy">OLTP Database Strategy</h2>
+<h3 id="primary-transactional-database-postgresql">Primary Transactional Database: PostgreSQL</h3>
+<h4 id="table-design-with-audit-strategy">Table Design with Audit Strategy</h4>
+<p>Every business entity includes comprehensive audit columns:</p>
+<pre><code class="language-sql">-- Standard audit columns for all tables
+CREATE TABLE audit_base (
+    id BIGSERIAL PRIMARY KEY,
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+    created_by VARCHAR(255) NOT NULL,
+    updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+    updated_by VARCHAR(255) NOT NULL,
+    version INTEGER NOT NULL DEFAULT 1,
+    deleted_at TIMESTAMP WITH TIME ZONE NULL,
+    deleted_by VARCHAR(255) NULL
+);
+
+-- Example: Orders table with audit
+CREATE TABLE orders (
+    order_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    customer_id UUID NOT NULL,
+    status VARCHAR(50) NOT NULL DEFAULT 'PENDING',
+    total_amount DECIMAL(10,2) NOT NULL,
+    currency VARCHAR(3) NOT NULL DEFAULT 'USD',
+
+    -- Audit columns
+    LIKE audit_base INCLUDING ALL,
+
+    -- Partitioning key
+    created_date DATE GENERATED ALWAYS AS (created_at::DATE) STORED
+) PARTITION BY RANGE (created_date);
+
+-- Audit trail table for complete change history
+CREATE TABLE orders_audit (
+    audit_id BIGSERIAL PRIMARY KEY,
+    order_id UUID NOT NULL,
+    operation_type VARCHAR(10) NOT NULL, -- INSERT, UPDATE, DELETE
+    operation_timestamp TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+    operation_user VARCHAR(255) NOT NULL,
+    old_values JSONB,
+    new_values JSONB,
+    correlation_id UUID -- For tracing changes across services
+);
+</code></pre>
+<h4 id="partitioning-strategy">Partitioning Strategy</h4>
+<p><strong>Time-Based Partitioning</strong> for high-volume tables:</p>
+<pre><code class="language-sql">-- Monthly partitions for orders
+CREATE TABLE orders_y2024m01 PARTITION OF orders
+FOR VALUES FROM ('2024-01-01') TO ('2024-02-01');
+
+-- Automated partition management
+SELECT partman.create_parent(
+    p_parent_table =&gt; 'public.orders',
+    p_control =&gt; 'created_date',
+    p_type =&gt; 'range',
+    p_interval =&gt; 'monthly',
+    p_premake =&gt; 2
+);
+</code></pre>
+<h3 id="scale-out-databases">Scale-Out Databases</h3>
+<h4 id="cassandra-for-high-volume-event-data">Cassandra for High-Volume Event Data</h4>
+<pre><code class="language-cql">-- Chat messages with time-series pattern
+CREATE TABLE chat_messages (
+    room_id UUID,
+    message_time TIMEUUID,
+    user_id UUID,
+    message_text TEXT,
+    metadata MAP&lt;TEXT, TEXT&gt;,
+
+    -- Audit fields
+    created_by TEXT,
+    trace_id TEXT,
+
+    PRIMARY KEY (room_id, message_time)
+) WITH CLUSTERING ORDER BY (message_time DESC);
+
+-- IoT telemetry data
+CREATE TABLE device_telemetry (
+    device_id UUID,
+    timestamp TIMESTAMP,
+    sensor_type TEXT,
+    sensor_value DOUBLE,
+
+    -- Partitioning by device and time
+    PRIMARY KEY ((device_id, sensor_type), timestamp)
+) WITH CLUSTERING ORDER BY (timestamp DESC);
+</code></pre>
+<h4 id="mongodb-for-document-heavy-domains">MongoDB for Document-Heavy Domains</h4>
+<pre><code class="language-javascript">// Social media posts with flexible schema
+{
+  _id: ObjectId,
+  user_id: UUID,
+  content: {
+    text: String,
+    media: [{
+      type: String, // image, video, link
+      url: String,
+      metadata: Object
+    }],
+    hashtags: [String],
+    mentions: [UUID]
+  },
+  engagement: {
+    likes: Number,
+    shares: Number,
+    comments: Number
+  },
+  // Audit fields
+  created_at: ISODate,
+  created_by: String,
+  updated_at: ISODate,
+  updated_by: String,
+  version: Number,
+  trace_id: String
+}
+</code></pre>
+<h2 id="oltp-to-olap-data-flow">OLTP to OLAP Data Flow</h2>
+<h3 id="change-data-capture-cdc-strategy">Change Data Capture (CDC) Strategy</h3>
+<h4 id="debezium-configuration">Debezium Configuration</h4>
+<pre><code class="language-yaml"># Debezium connector for PostgreSQL
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaConnector
+metadata:
+  name: postgres-orders-connector
+spec:
+  class: io.debezium.connector.postgresql.PostgresConnector
+  tasksMax: 3
+  config:
+    database.hostname: postgres-primary
+    database.port: 5432
+    database.user: debezium
+    database.password: ${DEBEZIUM_PASSWORD}
+    database.dbname: bitvelocity
+    database.server.name: postgres-orders
+    table.include.list: public.orders,public.order_items,public.payments
+    plugin.name: pgoutput
+    transforms: unwrap
+    transforms.unwrap.type: io.debezium.transforms.ExtractNewRecordState
+    key.converter: org.apache.kafka.connect.json.JsonConverter
+    value.converter: org.apache.kafka.connect.json.JsonConverter
+</code></pre>
+<h4 id="event-schema-with-audit-context">Event Schema with Audit Context</h4>
+<pre><code class="language-json">{
+  &quot;schema&quot;: {
+    &quot;type&quot;: &quot;struct&quot;,
+    &quot;fields&quot;: [
+      {&quot;field&quot;: &quot;order_id&quot;, &quot;type&quot;: &quot;string&quot;},
+      {&quot;field&quot;: &quot;customer_id&quot;, &quot;type&quot;: &quot;string&quot;},
+      {&quot;field&quot;: &quot;status&quot;, &quot;type&quot;: &quot;string&quot;},
+      {&quot;field&quot;: &quot;total_amount&quot;, &quot;type&quot;: &quot;double&quot;},
+      {&quot;field&quot;: &quot;created_at&quot;, &quot;type&quot;: &quot;string&quot;},
+      {&quot;field&quot;: &quot;created_by&quot;, &quot;type&quot;: &quot;string&quot;},
+      {&quot;field&quot;: &quot;updated_at&quot;, &quot;type&quot;: &quot;string&quot;},
+      {&quot;field&quot;: &quot;updated_by&quot;, &quot;type&quot;: &quot;string&quot;},
+      {&quot;field&quot;: &quot;version&quot;, &quot;type&quot;: &quot;int32&quot;}
+    ]
+  },
+  &quot;payload&quot;: {
+    &quot;order_id&quot;: &quot;550e8400-e29b-41d4-a716-446655440000&quot;,
+    &quot;customer_id&quot;: &quot;123e4567-e89b-12d3-a456-426614174000&quot;,
+    &quot;status&quot;: &quot;CONFIRMED&quot;,
+    &quot;total_amount&quot;: 99.99,
+    &quot;created_at&quot;: &quot;2024-01-15T10:30:00Z&quot;,
+    &quot;created_by&quot;: &quot;customer-service&quot;,
+    &quot;updated_at&quot;: &quot;2024-01-15T10:35:00Z&quot;,
+    &quot;updated_by&quot;: &quot;payment-service&quot;,
+    &quot;version&quot;: 2
+  },
+  &quot;metadata&quot;: {
+    &quot;operation&quot;: &quot;UPDATE&quot;,
+    &quot;source&quot;: &quot;orders&quot;,
+    &quot;timestamp&quot;: &quot;2024-01-15T10:35:00Z&quot;,
+    &quot;transaction_id&quot;: &quot;txn_123456&quot;,
+    &quot;lsn&quot;: &quot;24/3F000140&quot;
+  }
+}
+</code></pre>
+<h3 id="medallion-architecture-bronze-silver-gold">Medallion Architecture: Bronze → Silver → Gold</h3>
+<h4 id="bronze-layer-raw-data-ingestion">Bronze Layer (Raw Data Ingestion)</h4>
+<pre><code class="language-sql">-- Raw events from Kafka stored in Delta Lake format
+CREATE TABLE bronze_orders (
+    event_id UUID DEFAULT gen_random_uuid(),
+    event_timestamp TIMESTAMP WITH TIME ZONE,
+    source_system VARCHAR(100),
+    operation_type VARCHAR(20),
+    table_name VARCHAR(100),
+    raw_payload JSONB,
+
+    -- Partitioning for efficient querying
+    ingestion_date DATE GENERATED ALWAYS AS (event_timestamp::DATE) STORED
+) PARTITION BY RANGE (ingestion_date);
+
+-- Example bronze record
+INSERT INTO bronze_orders (event_timestamp, source_system, operation_type, table_name, raw_payload)
+VALUES (
+    NOW(),
+    'postgres-orders',
+    'UPDATE',
+    'orders',
+    '{&quot;order_id&quot;: &quot;550e8400-e29b-41d4-a716-446655440000&quot;, &quot;status&quot;: &quot;CONFIRMED&quot;, ...}'
+);
+</code></pre>
+<h4 id="silver-layer-cleaned-and-standardized">Silver Layer (Cleaned and Standardized)</h4>
+<pre><code class="language-sql">-- Cleaned, typed, and standardized data
+CREATE TABLE silver_orders (
+    order_id UUID PRIMARY KEY,
+    customer_id UUID NOT NULL,
+    status order_status_enum NOT NULL,
+    total_amount DECIMAL(10,2) NOT NULL,
+    currency VARCHAR(3) NOT NULL,
+    order_date DATE NOT NULL,
+
+    -- Data quality indicators
+    data_quality_score DECIMAL(3,2),
+    quality_checks_passed TEXT[],
+    quality_issues TEXT[],
+
+    -- Lineage information
+    source_bronze_id UUID,
+    processed_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    processing_version VARCHAR(20)
+) PARTITION BY RANGE (order_date);
+
+-- ETL process to transform bronze to silver
+CREATE OR REPLACE FUNCTION bronze_to_silver_orders()
+RETURNS VOID AS $$
+BEGIN
+    INSERT INTO silver_orders (
+        order_id, customer_id, status, total_amount, currency, order_date,
+        data_quality_score, source_bronze_id
+    )
+    SELECT 
+        (raw_payload-&gt;&gt;'order_id')::UUID,
+        (raw_payload-&gt;&gt;'customer_id')::UUID,
+        (raw_payload-&gt;&gt;'status')::order_status_enum,
+        (raw_payload-&gt;&gt;'total_amount')::DECIMAL(10,2),
+        COALESCE(raw_payload-&gt;&gt;'currency', 'USD'),
+        (raw_payload-&gt;&gt;'created_at')::DATE,
+        calculate_quality_score(raw_payload),
+        event_id
+    FROM bronze_orders
+    WHERE operation_type = 'INSERT'
+    AND ingestion_date = CURRENT_DATE
+    ON CONFLICT (order_id) DO UPDATE SET
+        status = EXCLUDED.status,
+        total_amount = EXCLUDED.total_amount,
+        processed_at = NOW();
+END;
+$$ LANGUAGE plpgsql;
+</code></pre>
+<h4 id="gold-layer-business-logic-and-aggregations">Gold Layer (Business Logic and Aggregations)</h4>
+<pre><code class="language-sql">-- Business-ready dimensional model
+CREATE TABLE gold_order_facts (
+    fact_id BIGSERIAL PRIMARY KEY,
+    order_date_key INTEGER, -- Links to date dimension
+    customer_key INTEGER,   -- Links to customer dimension
+    product_key INTEGER,    -- Links to product dimension
+
+    -- Measures
+    order_count INTEGER DEFAULT 1,
+    total_amount DECIMAL(12,2),
+    discount_amount DECIMAL(12,2),
+    tax_amount DECIMAL(12,2),
+    shipping_amount DECIMAL(12,2),
+
+    -- Slowly Changing Dimension tracking
+    valid_from TIMESTAMP WITH TIME ZONE,
+    valid_to TIMESTAMP WITH TIME ZONE,
+    is_current BOOLEAN DEFAULT TRUE,
+
+    -- Lineage
+    source_silver_order_id UUID,
+    etl_batch_id UUID,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Daily sales aggregations
+CREATE MATERIALIZED VIEW gold_daily_sales AS
+SELECT 
+    order_date_key,
+    COUNT(*) as order_count,
+    SUM(total_amount) as total_revenue,
+    AVG(total_amount) as avg_order_value,
+    COUNT(DISTINCT customer_key) as unique_customers
+FROM gold_order_facts
+WHERE is_current = TRUE
+GROUP BY order_date_key;
+</code></pre>
+<h2 id="real-time-analytics">Real-Time Analytics</h2>
+<h3 id="kafka-streams-processing">Kafka Streams Processing</h3>
+<pre><code class="language-java">@Component
+public class OrderAnalyticsStream {
+
+    @Autowired
+    public void processOrderEvents(StreamsBuilder builder) {
+        KStream&lt;String, OrderEvent&gt; orderStream = builder
+            .stream(&quot;orders-topic&quot;, Consumed.with(Serdes.String(), orderEventSerde));
+
+        // Real-time revenue calculation
+        KTable&lt;Windowed&lt;String&gt;, Double&gt; revenueByHour = orderStream
+            .filter((key, order) -&gt; &quot;CONFIRMED&quot;.equals(order.getStatus()))
+            .groupByKey()
+            .windowedBy(TimeWindows.of(Duration.ofHours(1)))
+            .aggregate(
+                () -&gt; 0.0,
+                (key, order, aggregate) -&gt; aggregate + order.getTotalAmount(),
+                Materialized.with(Serdes.String(), Serdes.Double())
+            );
+
+        // Output to analytics topic
+        revenueByHour
+            .toStream()
+            .to(&quot;hourly-revenue-topic&quot;);
+    }
+}
+</code></pre>
+<h3 id="feature-store-integration">Feature Store Integration</h3>
+<pre><code class="language-java">@Entity
+@Table(name = &quot;customer_features&quot;)
+public class CustomerFeatures {
+    @Id
+    private UUID customerId;
+
+    // Real-time features
+    private Integer orderCountLast30Days;
+    private BigDecimal totalSpentLast30Days;
+    private Double avgOrderValue;
+    private String preferredCategory;
+
+    // Batch features
+    private String lifetimeSegment;
+    private Integer lifetimeOrderCount;
+    private BigDecimal lifetimeValue;
+
+    // Feature freshness tracking
+    @Column(name = &quot;features_updated_at&quot;)
+    private Instant featuresUpdatedAt;
+
+    @Column(name = &quot;feature_version&quot;)
+    private String featureVersion;
+}
+</code></pre>
+<h2 id="data-governance-quality">Data Governance &amp; Quality</h2>
+<h3 id="schema-registry-and-evolution">Schema Registry and Evolution</h3>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;record&quot;,
+  &quot;name&quot;: &quot;OrderEvent&quot;,
+  &quot;namespace&quot;: &quot;com.bitvelocity.events&quot;,
+  &quot;version&quot;: &quot;v2&quot;,
+  &quot;fields&quot;: [
+    {&quot;name&quot;: &quot;orderId&quot;, &quot;type&quot;: &quot;string&quot;},
+    {&quot;name&quot;: &quot;customerId&quot;, &quot;type&quot;: &quot;string&quot;},
+    {&quot;name&quot;: &quot;status&quot;, &quot;type&quot;: {&quot;type&quot;: &quot;enum&quot;, &quot;symbols&quot;: [&quot;PENDING&quot;, &quot;CONFIRMED&quot;, &quot;SHIPPED&quot;, &quot;DELIVERED&quot;, &quot;CANCELLED&quot;]}},
+    {&quot;name&quot;: &quot;totalAmount&quot;, &quot;type&quot;: &quot;double&quot;},
+    {&quot;name&quot;: &quot;currency&quot;, &quot;type&quot;: &quot;string&quot;, &quot;default&quot;: &quot;USD&quot;},
+    {
+      &quot;name&quot;: &quot;auditInfo&quot;, 
+      &quot;type&quot;: {
+        &quot;type&quot;: &quot;record&quot;,
+        &quot;name&quot;: &quot;AuditInfo&quot;,
+        &quot;fields&quot;: [
+          {&quot;name&quot;: &quot;createdAt&quot;, &quot;type&quot;: &quot;long&quot;},
+          {&quot;name&quot;: &quot;createdBy&quot;, &quot;type&quot;: &quot;string&quot;},
+          {&quot;name&quot;: &quot;traceId&quot;, &quot;type&quot;: [&quot;null&quot;, &quot;string&quot;], &quot;default&quot;: null}
+        ]
+      }
+    }
+  ]
+}
+</code></pre>
+<h3 id="data-quality-framework">Data Quality Framework</h3>
+<pre><code class="language-sql">-- Data quality rules table
+CREATE TABLE data_quality_rules (
+    rule_id UUID PRIMARY KEY,
+    table_name VARCHAR(100),
+    column_name VARCHAR(100),
+    rule_type VARCHAR(50), -- NOT_NULL, RANGE, PATTERN, REFERENCE
+    rule_config JSONB,
+    severity VARCHAR(20), -- ERROR, WARNING, INFO
+    is_active BOOLEAN DEFAULT TRUE
+);
+
+-- Example quality rules
+INSERT INTO data_quality_rules VALUES
+('rule-001', 'orders', 'total_amount', 'RANGE', '{&quot;min&quot;: 0, &quot;max&quot;: 10000}', 'ERROR', true),
+('rule-002', 'orders', 'email', 'PATTERN', '{&quot;regex&quot;: &quot;^[^@]+@[^@]+\\.[^@]+$&quot;}', 'ERROR', true),
+('rule-003', 'orders', 'customer_id', 'REFERENCE', '{&quot;table&quot;: &quot;customers&quot;, &quot;column&quot;: &quot;id&quot;}', 'ERROR', true);
+
+-- Quality check results
+CREATE TABLE data_quality_results (
+    check_id UUID PRIMARY KEY,
+    rule_id UUID REFERENCES data_quality_rules(rule_id),
+    checked_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    record_count INTEGER,
+    failed_count INTEGER,
+    success_rate DECIMAL(5,2),
+    sample_failures JSONB
+);
+</code></pre>
+<h3 id="data-lineage-tracking">Data Lineage Tracking</h3>
+<pre><code class="language-sql">-- Data lineage tracking
+CREATE TABLE data_lineage (
+    lineage_id UUID PRIMARY KEY,
+    source_dataset VARCHAR(200),
+    target_dataset VARCHAR(200),
+    transformation_type VARCHAR(100),
+    transformation_config JSONB,
+    dependency_level INTEGER, -- 1=direct, 2=indirect, etc.
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- OpenLineage integration
+INSERT INTO data_lineage VALUES
+('lineage-001', 'postgres.public.orders', 'bronze_orders', 'CDC_CAPTURE', '{&quot;connector&quot;: &quot;debezium&quot;}', 1, NOW()),
+('lineage-002', 'bronze_orders', 'silver_orders', 'ETL_TRANSFORM', '{&quot;job&quot;: &quot;bronze_to_silver_orders&quot;}', 2, NOW()),
+('lineage-003', 'silver_orders', 'gold_order_facts', 'DIMENSIONAL_MODEL', '{&quot;type&quot;: &quot;fact_table&quot;}', 3, NOW());
+</code></pre>
+<h2 id="caching-strategy">Caching Strategy</h2>
+<h3 id="multi-layer-caching-architecture">Multi-Layer Caching Architecture</h3>
+<pre><code class="language-java">@Component
+public class CacheStrategy {
+
+    // L1: Application-level cache
+    @Cacheable(value = &quot;products&quot;, key = &quot;#productId&quot;)
+    public Product getProduct(UUID productId) {
+        return productRepository.findById(productId);
+    }
+
+    // L2: Distributed cache
+    @Autowired
+    private RedisTemplate&lt;String, Object&gt; redisTemplate;
+
+    public CustomerProfile getCustomerProfile(UUID customerId) {
+        String cacheKey = &quot;customer:&quot; + customerId;
+        CustomerProfile cached = (CustomerProfile) redisTemplate.opsForValue().get(cacheKey);
+
+        if (cached == null) {
+            cached = buildCustomerProfile(customerId);
+            redisTemplate.opsForValue().set(cacheKey, cached, Duration.ofMinutes(30));
+        }
+
+        return cached;
+    }
+
+    // Cache warming strategy
+    @Scheduled(fixedRate = 300000) // Every 5 minutes
+    public void warmTopProducts() {
+        List&lt;UUID&gt; topProductIds = analyticsService.getTopSellingProducts(100);
+        topProductIds.forEach(this::getProduct);
+    }
+}
+</code></pre>
+<h3 id="cache-invalidation-patterns">Cache Invalidation Patterns</h3>
+<pre><code class="language-java">@EventListener
+public class CacheInvalidationHandler {
+
+    @Autowired
+    private CacheManager cacheManager;
+
+    @KafkaListener(topics = &quot;product-updates&quot;)
+    public void handleProductUpdate(ProductUpdateEvent event) {
+        Cache productCache = cacheManager.getCache(&quot;products&quot;);
+        productCache.evict(event.getProductId());
+
+        // Invalidate related caches
+        if (event.isCategoryChange()) {
+            Cache categoryCache = cacheManager.getCache(&quot;categories&quot;);
+            categoryCache.evict(event.getCategoryId());
+        }
+    }
+}
+</code></pre>
+<h2 id="performance-optimization">Performance Optimization</h2>
+<h3 id="database-optimization">Database Optimization</h3>
+<pre><code class="language-sql">-- Index strategies for common query patterns
+CREATE INDEX CONCURRENTLY idx_orders_customer_date 
+ON orders (customer_id, created_date DESC) 
+WHERE deleted_at IS NULL;
+
+-- Partial index for active orders
+CREATE INDEX CONCURRENTLY idx_orders_active_status 
+ON orders (status, created_date DESC) 
+WHERE status IN ('PENDING', 'CONFIRMED', 'PROCESSING');
+
+-- BRIN index for time-series data
+CREATE INDEX idx_telemetry_timestamp_brin 
+ON device_telemetry USING BRIN (timestamp);
+
+-- Query optimization monitoring
+CREATE OR REPLACE FUNCTION track_slow_queries() 
+RETURNS TRIGGER AS $$
+BEGIN
+    IF (EXTRACT(EPOCH FROM (clock_timestamp() - statement_timestamp())) &gt; 1.0) THEN
+        INSERT INTO slow_query_log (query, duration, executed_at)
+        VALUES (current_query(), EXTRACT(EPOCH FROM (clock_timestamp() - statement_timestamp())), NOW());
+    END IF;
+    RETURN NULL;
+END;
+$$ LANGUAGE plpgsql;
+</code></pre>
+<h2 id="disaster-recovery-backup">Disaster Recovery &amp; Backup</h2>
+<h3 id="backup-strategy">Backup Strategy</h3>
+<pre><code class="language-yaml"># Automated backup configuration
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backup-config
+data:
+  postgres-backup.sh: |
+    #!/bin/bash
+    DATE=$(date +%Y%m%d_%H%M%S)
+
+    # Full database backup
+    pg_dump -h $POSTGRES_HOST -U $POSTGRES_USER -d bitvelocity \
+      --format=custom --compress=9 \
+      --file=&quot;/backups/full_backup_${DATE}.dump&quot;
+
+    # Incremental WAL archiving
+    archive_command = 'cp %p /archive/%f'
+
+    # Upload to cloud storage
+    aws s3 cp &quot;/backups/full_backup_${DATE}.dump&quot; \
+      &quot;s3://bitvelocity-backups/postgres/${DATE}/&quot;
+</code></pre>
+<h3 id="cross-region-replication">Cross-Region Replication</h3>
+<pre><code class="language-sql">-- PostgreSQL streaming replication setup
+-- Primary server configuration
+wal_level = replica
+max_wal_senders = 3
+wal_keep_segments = 32
+archive_mode = on
+archive_command = 'cp %p /archive/%f'
+
+-- Create replication user
+CREATE USER replicator REPLICATION LOGIN PASSWORD 'secure_password';
+
+-- Replica server setup
+standby_mode = 'on'
+primary_conninfo = 'host=primary_host port=5432 user=replicator'
+restore_command = 'cp /archive/%f %p'
+</code></pre>
+<h2 id="monitoring-alerting">Monitoring &amp; Alerting</h2>
+<h3 id="data-pipeline-monitoring">Data Pipeline Monitoring</h3>
+<pre><code class="language-java">@Component
+public class DataPipelineMonitor {
+
+    @Autowired
+    private MeterRegistry meterRegistry;
+
+    @EventListener
+    public void handleDataProcessingEvent(DataProcessingEvent event) {
+        Timer.Sample sample = Timer.start(meterRegistry);
+
+        try {
+            // Process data
+            sample.stop(Timer.builder(&quot;data.processing.duration&quot;)
+                .tag(&quot;pipeline&quot;, event.getPipelineName())
+                .tag(&quot;status&quot;, &quot;success&quot;)
+                .register(meterRegistry));
+
+            meterRegistry.counter(&quot;data.records.processed&quot;,
+                &quot;pipeline&quot;, event.getPipelineName())
+                .increment(event.getRecordCount());
+
+        } catch (Exception e) {
+            sample.stop(Timer.builder(&quot;data.processing.duration&quot;)
+                .tag(&quot;pipeline&quot;, event.getPipelineName())
+                .tag(&quot;status&quot;, &quot;error&quot;)
+                .register(meterRegistry));
+
+            meterRegistry.counter(&quot;data.processing.errors&quot;,
+                &quot;pipeline&quot;, event.getPipelineName(),
+                &quot;error_type&quot;, e.getClass().getSimpleName())
+                .increment();
+        }
+    }
+}
+</code></pre>
+<h2 id="cost-optimization">Cost Optimization</h2>
+<h3 id="storage-cost-management">Storage Cost Management</h3>
+<ul>
+<li><strong>Data Lifecycle Policies</strong>: Automated archival of old partitions</li>
+<li><strong>Compression</strong>: Use appropriate compression for different data types</li>
+<li><strong>Tiered Storage</strong>: Hot, warm, and cold storage strategies</li>
+<li><strong>Query Optimization</strong>: Efficient queries to reduce compute costs</li>
+</ul>
+<h3 id="resource-scaling">Resource Scaling</h3>
+<ul>
+<li><strong>Auto-scaling</strong>: Scale compute resources based on workload</li>
+<li><strong>Spot Instances</strong>: Use spot instances for batch processing</li>
+<li><strong>Reserved Capacity</strong>: Reserve capacity for predictable workloads</li>
+<li><strong>Resource Monitoring</strong>: Track resource utilization and costs</li>
+</ul>
+<hr />
+<p>This data architecture provides a solid foundation for learning comprehensive data engineering patterns while maintaining production-ready standards and addressing all the gaps identified in the original design.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
