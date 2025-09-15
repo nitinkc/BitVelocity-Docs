@@ -8,7 +8,7 @@
         
         <link rel="canonical" href="https://nitinkc.github.io/BitVelocity-Docs/01-ARCHITECTURE/CROSS_OBSERVABILITY_AND_TESTING/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Cross-Observability and Testing - BitVelocity Documentation</title>
+        <title>Cross-Observability and Testing - BitVelocity Wiki</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -24,7 +24,7 @@
     <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href="../..">BitVelocity Documentation</a>
+                <a class="navbar-brand" href="../..">BitVelocity Wiki</a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -191,7 +191,7 @@
 </li>
                                     
 <li>
-    <a href="../../event-contracts/CHANGELOG/" class="dropdown-item">Changelog</a>
+    <a href="../../event-contracts/CHANGELOG.md" class="dropdown-item">Changelog</a>
 </li>
                                     
 <li>
@@ -341,30 +341,30 @@
 <table>
 <thead>
 <tr>
-<th>Aspect</th>
-<th>Tool</th>
+<th style="text-align: left;">Aspect</th>
+<th style="text-align: left;">Tool</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Traces</td>
-<td>OpenTelemetry SDK → Jaeger/Tempo</td>
+<td style="text-align: left;">Traces</td>
+<td style="text-align: left;">OpenTelemetry SDK → Jaeger/Tempo</td>
 </tr>
 <tr>
-<td>Metrics</td>
-<td>Prometheus + Grafana</td>
+<td style="text-align: left;">Metrics</td>
+<td style="text-align: left;">Prometheus + Grafana</td>
 </tr>
 <tr>
-<td>Logs</td>
-<td>Structured JSON → Loki / ELK</td>
+<td style="text-align: left;">Logs</td>
+<td style="text-align: left;">Structured JSON → Loki / ELK</td>
 </tr>
 <tr>
-<td>Alerting</td>
-<td>Alertmanager</td>
+<td style="text-align: left;">Alerting</td>
+<td style="text-align: left;">Alertmanager</td>
 </tr>
 <tr>
-<td>Profiling (optional)</td>
-<td>Continuous profiler (Async Profiler / Pyroscope)</td>
+<td style="text-align: left;">Profiling (optional)</td>
+<td style="text-align: left;">Continuous profiler (Async Profiler / Pyroscope)</td>
 </tr>
 </tbody>
 </table>
@@ -372,22 +372,22 @@
 <table>
 <thead>
 <tr>
-<th>Signal</th>
-<th>Labels</th>
+<th style="text-align: left;">Signal</th>
+<th style="text-align: left;">Labels</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Metrics</td>
-<td>service, domain, version, region</td>
+<td style="text-align: left;">Metrics</td>
+<td style="text-align: left;">service, domain, version, region</td>
 </tr>
 <tr>
-<td>Traces</td>
-<td>service.name, domain, environment</td>
+<td style="text-align: left;">Traces</td>
+<td style="text-align: left;">service.name, domain, environment</td>
 </tr>
 <tr>
-<td>Logs</td>
-<td>service, traceId, correlationId, userId, region</td>
+<td style="text-align: left;">Logs</td>
+<td style="text-align: left;">service, traceId, correlationId, userId, region</td>
 </tr>
 </tbody>
 </table>
@@ -395,38 +395,38 @@
 <table>
 <thead>
 <tr>
-<th>Category</th>
-<th>Metric</th>
+<th style="text-align: left;">Category</th>
+<th style="text-align: left;">Metric</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>HTTP</td>
-<td>http_server_duration_seconds</td>
+<td style="text-align: left;">HTTP</td>
+<td style="text-align: left;">http_server_duration_seconds</td>
 </tr>
 <tr>
-<td>gRPC</td>
-<td>grpc_server_duration_seconds</td>
+<td style="text-align: left;">gRPC</td>
+<td style="text-align: left;">grpc_server_duration_seconds</td>
 </tr>
 <tr>
-<td>Messaging</td>
-<td>kafka_consumer_lag, event_publish_failures_total</td>
+<td style="text-align: left;">Messaging</td>
+<td style="text-align: left;">kafka_consumer_lag, event_publish_failures_total</td>
 </tr>
 <tr>
-<td>Cache</td>
-<td>cache_hit_ratio, cache_evictions_total</td>
+<td style="text-align: left;">Cache</td>
+<td style="text-align: left;">cache_hit_ratio, cache_evictions_total</td>
 </tr>
 <tr>
-<td>DB</td>
-<td>db_query_duration_ms, db_connection_pool_in_use</td>
+<td style="text-align: left;">DB</td>
+<td style="text-align: left;">db_query_duration_ms, db_connection_pool_in_use</td>
 </tr>
 <tr>
-<td>Security</td>
-<td>auth_failed_total, opa_denied_total</td>
+<td style="text-align: left;">Security</td>
+<td style="text-align: left;">auth_failed_total, opa_denied_total</td>
 </tr>
 <tr>
-<td>Domain-specific</td>
-<td>orders_created_total, chat_messages_ingested_total</td>
+<td style="text-align: left;">Domain-specific</td>
+<td style="text-align: left;">orders_created_total, chat_messages_ingested_total</td>
 </tr>
 </tbody>
 </table>
@@ -440,30 +440,30 @@
 <table>
 <thead>
 <tr>
-<th>Alert</th>
-<th>Condition</th>
+<th style="text-align: left;">Alert</th>
+<th style="text-align: left;">Condition</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>High error rate</td>
-<td>5xx &gt; 2% over 5m</td>
+<td style="text-align: left;">High error rate</td>
+<td style="text-align: left;">5xx &gt; 2% over 5m</td>
 </tr>
 <tr>
-<td>Kafka lag</td>
-<td>consumer lag &gt; threshold for critical topics</td>
+<td style="text-align: left;">Kafka lag</td>
+<td style="text-align: left;">consumer lag &gt; threshold for critical topics</td>
 </tr>
 <tr>
-<td>Inventory freshness</td>
-<td>last inventory.adjusted &gt; 2m</td>
+<td style="text-align: left;">Inventory freshness</td>
+<td style="text-align: left;">last inventory.adjusted &gt; 2m</td>
 </tr>
 <tr>
-<td>Auth failures spike</td>
-<td>auth_failed_total increase &gt; X/min</td>
+<td style="text-align: left;">Auth failures spike</td>
+<td style="text-align: left;">auth_failed_total increase &gt; X/min</td>
 </tr>
 <tr>
-<td>Replay backlog</td>
-<td>replay_pending_jobs &gt; 0 for &gt; 30m</td>
+<td style="text-align: left;">Replay backlog</td>
+<td style="text-align: left;">replay_pending_jobs &gt; 0 for &gt; 30m</td>
 </tr>
 </tbody>
 </table>

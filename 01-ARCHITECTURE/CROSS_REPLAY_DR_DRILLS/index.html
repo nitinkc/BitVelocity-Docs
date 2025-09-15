@@ -8,7 +8,7 @@
         
         <link rel="canonical" href="https://nitinkc.github.io/BitVelocity-Docs/01-ARCHITECTURE/CROSS_REPLAY_DR_DRILLS/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Cross-Replay DR Drills - BitVelocity Documentation</title>
+        <title>Cross-Replay DR Drills - BitVelocity Wiki</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -24,7 +24,7 @@
     <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href="../..">BitVelocity Documentation</a>
+                <a class="navbar-brand" href="../..">BitVelocity Wiki</a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -191,7 +191,7 @@
 </li>
                                     
 <li>
-    <a href="../../event-contracts/CHANGELOG/" class="dropdown-item">Changelog</a>
+    <a href="../../event-contracts/CHANGELOG.md" class="dropdown-item">Changelog</a>
 </li>
                                     
 <li>
@@ -327,36 +327,36 @@
 <table>
 <thead>
 <tr>
-<th>Drill</th>
-<th>Scenario</th>
-<th>Goal</th>
+<th style="text-align: left;">Drill</th>
+<th style="text-align: left;">Scenario</th>
+<th style="text-align: left;">Goal</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Failover DB</td>
-<td>East Postgres down</td>
-<td>Promote replica</td>
+<td style="text-align: left;">Failover DB</td>
+<td style="text-align: left;">East Postgres down</td>
+<td style="text-align: left;">Promote replica</td>
 </tr>
 <tr>
-<td>Kafka Partition Loss</td>
-<td>Topic partial outage</td>
-<td>Replay missing partition events</td>
+<td style="text-align: left;">Kafka Partition Loss</td>
+<td style="text-align: left;">Topic partial outage</td>
+<td style="text-align: left;">Replay missing partition events</td>
 </tr>
 <tr>
-<td>Cache Flush</td>
-<td>Redis cleared</td>
-<td>Rehydrate via events</td>
+<td style="text-align: left;">Cache Flush</td>
+<td style="text-align: left;">Redis cleared</td>
+<td style="text-align: left;">Rehydrate via events</td>
 </tr>
 <tr>
-<td>Cross-Region Latency Spike</td>
-<td>Simulate 500ms RTT</td>
-<td>Validate fallbacks</td>
+<td style="text-align: left;">Cross-Region Latency Spike</td>
+<td style="text-align: left;">Simulate 500ms RTT</td>
+<td style="text-align: left;">Validate fallbacks</td>
 </tr>
 <tr>
-<td>Replay Integrity</td>
-<td>Random projection deletion</td>
-<td>Full rebuild parity</td>
+<td style="text-align: left;">Replay Integrity</td>
+<td style="text-align: left;">Random projection deletion</td>
+<td style="text-align: left;">Full rebuild parity</td>
 </tr>
 </tbody>
 </table>

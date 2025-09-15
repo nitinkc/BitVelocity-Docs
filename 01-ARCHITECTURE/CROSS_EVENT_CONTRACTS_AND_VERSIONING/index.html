@@ -8,7 +8,7 @@
         
         <link rel="canonical" href="https://nitinkc.github.io/BitVelocity-Docs/01-ARCHITECTURE/CROSS_EVENT_CONTRACTS_AND_VERSIONING/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Cross-Event Contracts and Versioning - BitVelocity Documentation</title>
+        <title>Cross-Event Contracts and Versioning - BitVelocity Wiki</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -24,7 +24,7 @@
     <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href="../..">BitVelocity Documentation</a>
+                <a class="navbar-brand" href="../..">BitVelocity Wiki</a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -191,7 +191,7 @@
 </li>
                                     
 <li>
-    <a href="../../event-contracts/CHANGELOG/" class="dropdown-item">Changelog</a>
+    <a href="../../event-contracts/CHANGELOG.md" class="dropdown-item">Changelog</a>
 </li>
                                     
 <li>
@@ -318,50 +318,50 @@
 <table>
 <thead>
 <tr>
-<th>Field</th>
-<th>Purpose</th>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Purpose</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>eventId</td>
-<td>Uniqueness</td>
+<td style="text-align: left;">eventId</td>
+<td style="text-align: left;">Uniqueness</td>
 </tr>
 <tr>
-<td>eventType</td>
-<td>Routing + version</td>
+<td style="text-align: left;">eventType</td>
+<td style="text-align: left;">Routing + version</td>
 </tr>
 <tr>
-<td>occurredAt</td>
-<td>Temporal ordering</td>
+<td style="text-align: left;">occurredAt</td>
+<td style="text-align: left;">Temporal ordering</td>
 </tr>
 <tr>
-<td>producer</td>
-<td>Source service</td>
+<td style="text-align: left;">producer</td>
+<td style="text-align: left;">Source service</td>
 </tr>
 <tr>
-<td>traceId</td>
-<td>Tracing correlation</td>
+<td style="text-align: left;">traceId</td>
+<td style="text-align: left;">Tracing correlation</td>
 </tr>
 <tr>
-<td>correlationId</td>
-<td>Business transaction</td>
+<td style="text-align: left;">correlationId</td>
+<td style="text-align: left;">Business transaction</td>
 </tr>
 <tr>
-<td>partitionKey</td>
-<td>Partition strategy</td>
+<td style="text-align: left;">partitionKey</td>
+<td style="text-align: left;">Partition strategy</td>
 </tr>
 <tr>
-<td>payload</td>
-<td>Business data</td>
+<td style="text-align: left;">payload</td>
+<td style="text-align: left;">Business data</td>
 </tr>
 <tr>
-<td>schemaVersion</td>
-<td>Envelope schema version</td>
+<td style="text-align: left;">schemaVersion</td>
+<td style="text-align: left;">Envelope schema version</td>
 </tr>
 <tr>
-<td>tenantId</td>
-<td>Multitenancy future</td>
+<td style="text-align: left;">tenantId</td>
+<td style="text-align: left;">Multitenancy future</td>
 </tr>
 </tbody>
 </table>
@@ -369,26 +369,26 @@
 <table>
 <thead>
 <tr>
-<th>Stage</th>
-<th>Description</th>
+<th style="text-align: left;">Stage</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Draft</td>
-<td>In PR with contract file</td>
+<td style="text-align: left;">Draft</td>
+<td style="text-align: left;">In PR with contract file</td>
 </tr>
 <tr>
-<td>Accepted</td>
-<td>Merged &amp; published</td>
+<td style="text-align: left;">Accepted</td>
+<td style="text-align: left;">Merged &amp; published</td>
 </tr>
 <tr>
-<td>Deprecated</td>
-<td>Replacement exists; warn consumers</td>
+<td style="text-align: left;">Deprecated</td>
+<td style="text-align: left;">Replacement exists; warn consumers</td>
 </tr>
 <tr>
-<td>Retired</td>
-<td>No longer emitted</td>
+<td style="text-align: left;">Retired</td>
+<td style="text-align: left;">No longer emitted</td>
 </tr>
 </tbody>
 </table>
@@ -427,26 +427,26 @@
 <table>
 <thead>
 <tr>
-<th>Anti-Pattern</th>
-<th>Alternative</th>
+<th style="text-align: left;">Anti-Pattern</th>
+<th style="text-align: left;">Alternative</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Overloading eventType meaning</td>
-<td>Different eventType per semantic outcome</td>
+<td style="text-align: left;">Overloading eventType meaning</td>
+<td style="text-align: left;">Different eventType per semantic outcome</td>
 </tr>
 <tr>
-<td>Embedding large blobs</td>
-<td>Store reference key &amp; fetch from store</td>
+<td style="text-align: left;">Embedding large blobs</td>
+<td style="text-align: left;">Store reference key &amp; fetch from store</td>
 </tr>
 <tr>
-<td>Using events for RPC</td>
-<td>Use gRPC or REST</td>
+<td style="text-align: left;">Using events for RPC</td>
+<td style="text-align: left;">Use gRPC or REST</td>
 </tr>
 <tr>
-<td>Emitting row-level churn as domain events</td>
-<td>Use CDC layer</td>
+<td style="text-align: left;">Emitting row-level churn as domain events</td>
+<td style="text-align: left;">Use CDC layer</td>
 </tr>
 </tbody>
 </table>
@@ -454,34 +454,34 @@
 <table>
 <thead>
 <tr>
-<th>Event</th>
-<th>Primary Projection(s)</th>
+<th style="text-align: left;">Event</th>
+<th style="text-align: left;">Primary Projection(s)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>order.created</td>
-<td>orders_by_customer</td>
+<td style="text-align: left;">order.created</td>
+<td style="text-align: left;">orders_by_customer</td>
 </tr>
 <tr>
-<td>inventory.stock.adjusted</td>
-<td>inventory_snapshot</td>
+<td style="text-align: left;">inventory.stock.adjusted</td>
+<td style="text-align: left;">inventory_snapshot</td>
 </tr>
 <tr>
-<td>post.created</td>
-<td>global_feed</td>
+<td style="text-align: left;">post.created</td>
+<td style="text-align: left;">global_feed</td>
 </tr>
 <tr>
-<td>chat.message.sent</td>
-<td>room_message_log</td>
+<td style="text-align: left;">chat.message.sent</td>
+<td style="text-align: left;">room_message_log</td>
 </tr>
 <tr>
-<td>telemetry.raw</td>
-<td>anomaly_stream</td>
+<td style="text-align: left;">telemetry.raw</td>
+<td style="text-align: left;">anomaly_stream</td>
 </tr>
 <tr>
-<td>fraud.order.scored</td>
-<td>review_queue (future)</td>
+<td style="text-align: left;">fraud.order.scored</td>
+<td style="text-align: left;">review_queue (future)</td>
 </tr>
 </tbody>
 </table>

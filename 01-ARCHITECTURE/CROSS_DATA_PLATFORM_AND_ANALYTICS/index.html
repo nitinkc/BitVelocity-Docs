@@ -8,7 +8,7 @@
         
         <link rel="canonical" href="https://nitinkc.github.io/BitVelocity-Docs/01-ARCHITECTURE/CROSS_DATA_PLATFORM_AND_ANALYTICS/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Cross-Data Platform and Analytics - BitVelocity Documentation</title>
+        <title>Cross-Data Platform and Analytics - BitVelocity Wiki</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -24,7 +24,7 @@
     <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href="../..">BitVelocity Documentation</a>
+                <a class="navbar-brand" href="../..">BitVelocity Wiki</a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -191,7 +191,7 @@
 </li>
                                     
 <li>
-    <a href="../../event-contracts/CHANGELOG/" class="dropdown-item">Changelog</a>
+    <a href="../../event-contracts/CHANGELOG.md" class="dropdown-item">Changelog</a>
 </li>
                                     
 <li>
@@ -311,48 +311,48 @@
 <table>
 <thead>
 <tr>
-<th>Projection</th>
-<th>Source Domains</th>
-<th>Store</th>
-<th>Consumer Domains</th>
+<th style="text-align: left;">Projection</th>
+<th style="text-align: left;">Source Domains</th>
+<th style="text-align: left;">Store</th>
+<th style="text-align: left;">Consumer Domains</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>orders_by_customer</td>
-<td>E-Commerce</td>
-<td>Cassandra</td>
-<td>Analytics, ML</td>
+<td style="text-align: left;">orders_by_customer</td>
+<td style="text-align: left;">E-Commerce</td>
+<td style="text-align: left;">Cassandra</td>
+<td style="text-align: left;">Analytics, ML</td>
 </tr>
 <tr>
-<td>inventory_snapshot</td>
-<td>E-Commerce + IoT</td>
-<td>Redis</td>
-<td>GraphQL, Recommendations</td>
+<td style="text-align: left;">inventory_snapshot</td>
+<td style="text-align: left;">E-Commerce + IoT</td>
+<td style="text-align: left;">Redis</td>
+<td style="text-align: left;">GraphQL, Recommendations</td>
 </tr>
 <tr>
-<td>global_feed</td>
-<td>Social</td>
-<td>Redis</td>
-<td>Clients</td>
+<td style="text-align: left;">global_feed</td>
+<td style="text-align: left;">Social</td>
+<td style="text-align: left;">Redis</td>
+<td style="text-align: left;">Clients</td>
 </tr>
 <tr>
-<td>chat_room_activity</td>
-<td>Chat</td>
-<td>Cassandra / Redis</td>
-<td>Analytics</td>
+<td style="text-align: left;">chat_room_activity</td>
+<td style="text-align: left;">Chat</td>
+<td style="text-align: left;">Cassandra / Redis</td>
+<td style="text-align: left;">Analytics</td>
 </tr>
 <tr>
-<td>telemetry_anomalies</td>
-<td>IoT</td>
-<td>Kafka → ClickHouse</td>
-<td>E-Commerce (inventory adjust)</td>
+<td style="text-align: left;">telemetry_anomalies</td>
+<td style="text-align: left;">IoT</td>
+<td style="text-align: left;">Kafka → ClickHouse</td>
+<td style="text-align: left;">E-Commerce (inventory adjust)</td>
 </tr>
 <tr>
-<td>recommendation_feature_vectors</td>
-<td>All (events)</td>
-<td>Redis</td>
-<td>ML inference service</td>
+<td style="text-align: left;">recommendation_feature_vectors</td>
+<td style="text-align: left;">All (events)</td>
+<td style="text-align: left;">Redis</td>
+<td style="text-align: left;">ML inference service</td>
 </tr>
 </tbody>
 </table>
@@ -373,36 +373,36 @@
 <table>
 <thead>
 <tr>
-<th>Layer</th>
-<th>Hot</th>
-<th>Archive</th>
+<th style="text-align: left;">Layer</th>
+<th style="text-align: left;">Hot</th>
+<th style="text-align: left;">Archive</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Kafka domain events</td>
-<td>7–14d</td>
-<td>Parquet</td>
+<td style="text-align: left;">Kafka domain events</td>
+<td style="text-align: left;">7–14d</td>
+<td style="text-align: left;">Parquet</td>
 </tr>
 <tr>
-<td>CDC topics</td>
-<td>3–7d</td>
-<td>Parquet</td>
+<td style="text-align: left;">CDC topics</td>
+<td style="text-align: left;">3–7d</td>
+<td style="text-align: left;">Parquet</td>
 </tr>
 <tr>
-<td>Redis</td>
-<td>TTL</td>
-<td>Rebuild</td>
+<td style="text-align: left;">Redis</td>
+<td style="text-align: left;">TTL</td>
+<td style="text-align: left;">Rebuild</td>
 </tr>
 <tr>
-<td>Cassandra</td>
-<td>6–12 mo</td>
-<td>Parquet</td>
+<td style="text-align: left;">Cassandra</td>
+<td style="text-align: left;">6–12 mo</td>
+<td style="text-align: left;">Parquet</td>
 </tr>
 <tr>
-<td>Warehouse</td>
-<td>2–3 yrs</td>
-<td>Cloud cold storage</td>
+<td style="text-align: left;">Warehouse</td>
+<td style="text-align: left;">2–3 yrs</td>
+<td style="text-align: left;">Cloud cold storage</td>
 </tr>
 </tbody>
 </table>
@@ -410,30 +410,30 @@
 <table>
 <thead>
 <tr>
-<th>Check</th>
-<th>Rule</th>
+<th style="text-align: left;">Check</th>
+<th style="text-align: left;">Rule</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Order total</td>
-<td>SUM(line_items) = total_amount</td>
+<td style="text-align: left;">Order total</td>
+<td style="text-align: left;">SUM(line_items) = total_amount</td>
 </tr>
 <tr>
-<td>Non-negative inventory</td>
-<td>available &gt;= 0</td>
+<td style="text-align: left;">Non-negative inventory</td>
+<td style="text-align: left;">available &gt;= 0</td>
 </tr>
 <tr>
-<td>Telemetry freshness</td>
-<td>ingest_ts - device_ts &lt; 5m</td>
+<td style="text-align: left;">Telemetry freshness</td>
+<td style="text-align: left;">ingest_ts - device_ts &lt; 5m</td>
 </tr>
 <tr>
-<td>Null ratio constraints</td>
-<td>&lt; threshold for key fields</td>
+<td style="text-align: left;">Null ratio constraints</td>
+<td style="text-align: left;">&lt; threshold for key fields</td>
 </tr>
 <tr>
-<td>Feature presence</td>
-<td>Feature vector completeness &gt;= 95%</td>
+<td style="text-align: left;">Feature presence</td>
+<td style="text-align: left;">Feature vector completeness &gt;= 95%</td>
 </tr>
 </tbody>
 </table>

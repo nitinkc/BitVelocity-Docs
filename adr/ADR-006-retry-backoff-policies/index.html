@@ -8,7 +8,7 @@
         
         <link rel="canonical" href="https://nitinkc.github.io/BitVelocity-Docs/adr/ADR-006-retry-backoff-policies/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>ADR-006 Retry Backoff Policies - BitVelocity Documentation</title>
+        <title>ADR-006 Retry Backoff Policies - BitVelocity Wiki</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -24,7 +24,7 @@
     <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href="../..">BitVelocity Documentation</a>
+                <a class="navbar-brand" href="../..">BitVelocity Wiki</a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -191,7 +191,7 @@
 </li>
                                     
 <li>
-    <a href="../../event-contracts/CHANGELOG/" class="dropdown-item">Changelog</a>
+    <a href="../../event-contracts/CHANGELOG.md" class="dropdown-item">Changelog</a>
 </li>
                                     
 <li>
@@ -268,36 +268,36 @@
 <table>
 <thead>
 <tr>
-<th>Use Case</th>
-<th>Policy</th>
-<th>Max Attempts</th>
+<th style="text-align: left;">Use Case</th>
+<th style="text-align: left;">Policy</th>
+<th style="text-align: left;">Max Attempts</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Payment SOAP</td>
-<td>Exponential + jitter</td>
-<td>5</td>
+<td style="text-align: left;">Payment SOAP</td>
+<td style="text-align: left;">Exponential + jitter</td>
+<td style="text-align: left;">5</td>
 </tr>
 <tr>
-<td>Inventory gRPC</td>
-<td>Exponential</td>
-<td>3</td>
+<td style="text-align: left;">Inventory gRPC</td>
+<td style="text-align: left;">Exponential</td>
+<td style="text-align: left;">3</td>
 </tr>
 <tr>
-<td>Webhook dispatch</td>
-<td>Linear escalating schedule</td>
-<td>5</td>
+<td style="text-align: left;">Webhook dispatch</td>
+<td style="text-align: left;">Linear escalating schedule</td>
+<td style="text-align: left;">5</td>
 </tr>
 <tr>
-<td>Kafka publish transient</td>
-<td>Exponential jitter</td>
-<td>configurable</td>
+<td style="text-align: left;">Kafka publish transient</td>
+<td style="text-align: left;">Exponential jitter</td>
+<td style="text-align: left;">configurable</td>
 </tr>
 <tr>
-<td>Cache refresh</td>
-<td>No retry (fail fast)</td>
-<td>0</td>
+<td style="text-align: left;">Cache refresh</td>
+<td style="text-align: left;">No retry (fail fast)</td>
+<td style="text-align: left;">0</td>
 </tr>
 </tbody>
 </table>
