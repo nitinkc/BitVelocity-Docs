@@ -4,33 +4,35 @@
 Primary backbone domain to exercise transactional integrity (OLTP), event propagation, multi-protocol interaction, and derived data patterns.
 
 ## 2. Bounded Contexts & Services
-| Context | Service | Responsibility | Initial Status |
-|---------|---------|---------------|---------------|
-| Catalog | product-service | Product CRUD, price versioning | Phase 1 |
-| Pricing | pricing-service (optional merge into product early) | Flash sales, dynamic overrides | Phase 4 |
-| Cart | cart-service | Manage session/user carts | Phase 1 |
-| Order Lifecycle | order-service | Create, pay, cancel, fulfill | Phase 2 |
-| Inventory | inventory-service | Reserve/release, stock adjustments, IoT feed | Phase 2–3 |
-| Payment Integration | payment-adapter-service | Simulated SOAP legacy + REST fallback | Phase 4 |
-| Notification | notification-service | WebSocket & SSE push for order & sale status | Phase 3 |
-| Partner Integrations | partner-webhook-dispatcher | Outbound webhooks + retry queue | Phase 4 |
-| Analytics Projection | analytics-streaming-service | Streams metrics & aggregates | Phase 5 |
-| Replay (shared) | replay-service (cross repo) | Reconstruct projections/read models | Phase ≥7 |
+
+| Context              | Service                                             | Responsibility                               | Initial Status |
+|:---------------------|:----------------------------------------------------|:---------------------------------------------|:---------------|
+| Catalog              | product-service                                     | Product CRUD, price versioning               | Phase 1        |
+| Pricing              | pricing-service (optional merge into product early) | Flash sales, dynamic overrides               | Phase 4        |
+| Cart                 | cart-service                                        | Manage session/user carts                    | Phase 1        |
+| Order Lifecycle      | order-service                                       | Create, pay, cancel, fulfill                 | Phase 2        |
+| Inventory            | inventory-service                                   | Reserve/release, stock adjustments, IoT feed | Phase 2–3      |
+| Payment Integration  | payment-adapter-service                             | Simulated SOAP legacy + REST fallback        | Phase 4        |
+| Notification         | notification-service                                | WebSocket & SSE push for order & sale status | Phase 3        |
+| Partner Integrations | partner-webhook-dispatcher                          | Outbound webhooks + retry queue              | Phase 4        |
+| Analytics Projection | analytics-streaming-service                         | Streams metrics & aggregates                 | Phase 5        |
+| Replay (shared)      | replay-service (cross repo)                         | Reconstruct projections/read models          | Phase ≥7       |
 
 ## 3. Protocol Usage Matrix
-| Use Case | Protocol | Rationale |
-|----------|----------|-----------|
-| Product CRUD | REST | Simplicity & ubiquity |
-| Product + Inventory query | GraphQL federation | Aggregated read model |
-| Stock reservation | gRPC | Low-latency internal call |
-| Order lifecycle events | Kafka events | Decoupled downstream consumers |
-| Flash sale broadcast | SSE | One-way scalable updates |
-| Real-time order status | WebSocket | Bidirectional channel (future ack) |
-| Payment gateway | SOAP + REST fallback | Legacy simulation & resilience |
-| Outbound partner updates | Webhooks + RabbitMQ retry | External integration reliability |
-| IoT stock adjustments | MQTT ingest → Kafka | Device realism |
-| Batch sales summary | Batch job | Deferred computation |
-| Streaming revenue metrics | Kafka Streams | Near real-time dashboard |
+
+| Use Case                  | Protocol                  | Rationale                          |
+|:--------------------------|:--------------------------|:-----------------------------------|
+| Product CRUD              | REST                      | Simplicity & ubiquity              |
+| Product + Inventory query | GraphQL federation        | Aggregated read model              |
+| Stock reservation         | gRPC                      | Low-latency internal call          |
+| Order lifecycle events    | Kafka events              | Decoupled downstream consumers     |
+| Flash sale broadcast      | SSE                       | One-way scalable updates           |
+| Real-time order status    | WebSocket                 | Bidirectional channel (future ack) |
+| Payment gateway           | SOAP + REST fallback      | Legacy simulation & resilience     |
+| Outbound partner updates  | Webhooks + RabbitMQ retry | External integration reliability   |
+| IoT stock adjustments     | MQTT ingest → Kafka       | Device realism                     |
+| Batch sales summary       | Batch job                 | Deferred computation               |
+| Streaming revenue metrics | Kafka Streams             | Near real-time dashboard           |
 
 ## 4. External Interfaces (Stable Contract Surfaces)
 REST (simplified):
@@ -86,13 +88,14 @@ OLTP (Postgres):
 CDC: Debezium captures orders, inventory_adjustment, product changes.
 
 Derived Serving:
-| Projection | Store | Built From |
-|------------|-------|------------|
-| orders_by_customer | Cassandra | domain events + CDC status |
-| inventory_snapshot | Redis + Cassandra | inventory.adjusted events |
-| product_search_index | OpenSearch (later) | product.updated event |
-| flash_sale_price_map | Redis | pricing.* events |
-| daily_revenue | ClickHouse / Streams state | order.paid / order.canceled |
+
+| Projection           | Store                      | Built From                  |
+|:---------------------|:---------------------------|:----------------------------|
+| orders_by_customer   | Cassandra                  | domain events + CDC status  |
+| inventory_snapshot   | Redis + Cassandra          | inventory.adjusted events   |
+| product_search_index | OpenSearch (later)         | product.updated event       |
+| flash_sale_price_map | Redis                      | pricing.* events            |
+| daily_revenue        | ClickHouse / Streams state | order.paid / order.canceled |
 
 OLAP / Warehouse:
 - fact_orders, fact_inventory_adjustments, dim_product, dim_date
@@ -100,16 +103,16 @@ OLAP / Warehouse:
 No Dual Write Rule: Application writes only to Postgres; all projections built via Kafka streams or connectors.
 
 ## 6. Events (Authoritative)
-| Event Type | Purpose | Partition Key |
-|------------|---------|---------------|
-| ecommerce.order.order.created.v1 | Start lifecycle | orderId |
-| ecommerce.order.order.paid.v1 | Payment success | orderId |
-| ecommerce.order.order.canceled.v1 | Compensation | orderId |
-| ecommerce.order.order.fulfilled.v1 | Completion | orderId |
-| ecommerce.inventory.stock.adjusted.v1 | Stock delta broadcast | productId |
-| ecommerce.product.product.updated.v1 | Cache/search invalidation | productId |
-| ecommerce.pricing.flash_sale.started.v1 | Broadcast sale | productId or saleId |
-| ecommerce.webhook.delivery.failed.v1 | Alert operations | subscriptionId |
+| Event Type                              | Purpose                   | Partition Key       |
+|:----------------------------------------|:--------------------------|:--------------------|
+| ecommerce.order.order.created.v1        | Start lifecycle           | orderId             |
+| ecommerce.order.order.paid.v1           | Payment success           | orderId             |
+| ecommerce.order.order.canceled.v1       | Compensation              | orderId             |
+| ecommerce.order.order.fulfilled.v1      | Completion                | orderId             |
+| ecommerce.inventory.stock.adjusted.v1   | Stock delta broadcast     | productId           |
+| ecommerce.product.product.updated.v1    | Cache/search invalidation | productId           |
+| ecommerce.pricing.flash_sale.started.v1 | Broadcast sale            | productId or saleId |
+| ecommerce.webhook.delivery.failed.v1    | Alert operations          | subscriptionId      |
 
 Canonical Payload (example order.created):
 ```
@@ -133,23 +136,23 @@ Canonical Payload (example order.created):
 ```
 
 ## 7. Caching Strategy
-| Cache | Key | Policy | Invalidation |
-|-------|-----|--------|--------------|
-| Product read | product:{id} | Read-through | product.updated |
-| Inventory | inventory:{productId} | Event-driven set | inventory.stock.adjusted |
-| Order status ephemeral | order_status:{orderId} | Write-through on event | fulfillment/cancel remove |
-| Flash sale price | flash_price:{productId} | Cache authority TTL | sale end event/TTL |
-| GraphQL aggregated | gql:product:{id} | Short TTL (30s) | Same as underlying components |
+| Cache                  | Key                     | Policy                 | Invalidation                  |
+|:-----------------------|:------------------------|:-----------------------|:------------------------------|
+| Product read           | product:{id}            | Read-through           | product.updated               |
+| Inventory              | inventory:{productId}   | Event-driven set       | inventory.stock.adjusted      |
+| Order status ephemeral | order_status:{orderId}  | Write-through on event | fulfillment/cancel remove     |
+| Flash sale price       | flash_price:{productId} | Cache authority TTL    | sale end event/TTL            |
+| GraphQL aggregated     | gql:product:{id}        | Short TTL (30s)        | Same as underlying components |
 
 ## 8. Resilience & Retry Matrix
-| Operation | Pattern | Limits |
-|-----------|---------|--------|
-| Payment SOAP | Exponential w/ jitter + circuit breaker | 5 attempts |
-| Inventory Reserve gRPC | Exponential (bounded) | 3 attempts |
-| Webhook dispatch | Progressive schedule + DLQ | 5 attempts |
-| Event publish | Async retry + DLQ fallback | configurable |
-| Flash sale price update | Fast fail (no retry) | propagate error upward |
-| MQTT ingestion | Buffer & batch after reconnect | device-level QoS simulation |
+| Operation               | Pattern                                 | Limits                      |
+|:------------------------|:----------------------------------------|:----------------------------|
+| Payment SOAP            | Exponential w/ jitter + circuit breaker | 5 attempts                  |
+| Inventory Reserve gRPC  | Exponential (bounded)                   | 3 attempts                  |
+| Webhook dispatch        | Progressive schedule + DLQ              | 5 attempts                  |
+| Event publish           | Async retry + DLQ fallback              | configurable                |
+| Flash sale price update | Fast fail (no retry)                    | propagate error upward      |
+| MQTT ingestion          | Buffer & batch after reconnect          | device-level QoS simulation |
 
 ## 9. Security (Domain-Specific)
 - Auth: JWT required on all mutations.
@@ -171,28 +174,28 @@ Logs:
 - Correlation: orderId, traceId, userId, eventType
 
 ## 11. Testing Matrix
-| Layer | Focus | Tooling |
-|-------|-------|---------|
-| Unit | Validation (SKU uniqueness) | JUnit |
-| Integration | DB + Kafka + Redis | Testcontainers |
-| Contract | REST (product/order), gRPC (inventory) | Pact / protobuf golden |
-| BDD | Checkout flow | Cucumber |
-| Performance | Order create p95 < 200ms | Gatling |
-| Security | AuthZ tests (cancel path) | Spring Test + OPA test harness |
-| Fuzz | Order JSON parser | Jazzer |
-| Chaos (later) | Kill inventory pod mid-reserve | Chaos Mesh |
+| Layer         | Focus                                  | Tooling                        |
+|:--------------|:---------------------------------------|:-------------------------------|
+| Unit          | Validation (SKU uniqueness)            | JUnit                          |
+| Integration   | DB + Kafka + Redis                     | Testcontainers                 |
+| Contract      | REST (product/order), gRPC (inventory) | Pact / protobuf golden         |
+| BDD           | Checkout flow                          | Cucumber                       |
+| Performance   | Order create p95 < 200ms               | Gatling                        |
+| Security      | AuthZ tests (cancel path)              | Spring Test + OPA test harness |
+| Fuzz          | Order JSON parser                      | Jazzer                         |
+| Chaos (later) | Kill inventory pod mid-reserve         | Chaos Mesh                     |
 
 ## 12. Implementation Phases
-| Phase | Deliverables |
-|-------|--------------|
-| 1 | Product + Cart (REST + Postgres + basic tests) |
-| 2 | Order + Inventory gRPC stub + Kafka events |
-| 3 | WebSocket notifications + Redis caching |
-| 4 | Payment SOAP + Partner webhooks + flash sale SSE |
-| 5 | Pricing service + Kafka Streams metrics + CDC |
-| 6 | IoT MQTT ingestion (inventory adjustments) |
-| 7 | Cassandra projections + OpenSearch indexing |
-| 8+ | DR replay + advanced resilience |
+| Phase  | Deliverables                                     |
+|:-------|:-------------------------------------------------|
+| 1      | Product + Cart (REST + Postgres + basic tests)   |
+| 2      | Order + Inventory gRPC stub + Kafka events       |
+| 3      | WebSocket notifications + Redis caching          |
+| 4      | Payment SOAP + Partner webhooks + flash sale SSE |
+| 5      | Pricing service + Kafka Streams metrics + CDC    |
+| 6      | IoT MQTT ingestion (inventory adjustments)       |
+| 7      | Cassandra projections + OpenSearch indexing      |
+| 8+     | DR replay + advanced resilience                  |
 
 ## 13. Interoperability Checklist (Before Declaring Stable)
 - [ ] All events validated vs schema registry
@@ -226,12 +229,12 @@ Logs:
 - Edge resources (ingress/gateway) consolidated early to one load balancer.
 
 ## 16. Risks & Mitigations
-| Risk | Mitigation |
-|------|------------|
-| Event schema churn | Freeze MVP schema early; additive evolution only |
-| Cache staleness bugs | Integration tests with consumer-driven expectations |
-| Payment circuit thrashing | Configure conservative sliding window for breaker |
-| Webhook backlog growth | DLQ monitoring & alert threshold |
+| Risk                      | Mitigation                                          |
+|:--------------------------|:----------------------------------------------------|
+| Event schema churn        | Freeze MVP schema early; additive evolution only    |
+| Cache staleness bugs      | Integration tests with consumer-driven expectations |
+| Payment circuit thrashing | Configure conservative sliding window for breaker   |
+| Webhook backlog growth    | DLQ monitoring & alert threshold                    |
 
 ## 17. Exit Criteria for Domain “MVP Complete”
 - Order→Notification real-time path traced
