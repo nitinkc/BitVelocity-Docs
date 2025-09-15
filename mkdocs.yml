@@ -1,8 +1,7 @@
 site_name: BitVelocity Wiki
 site_url: https://nitinkc.github.io/BitVelocity-Docs/
 nav:
-  - Home: README.md
-  - Index Domain Designs: INDEX_DOMAIN_DESIGNS.md
+  - Home: index.md
   - Overview:
       - Project Charter: 00-OVERVIEW/project-charter.md
       - Stakeholder Guide: 00-OVERVIEW/stakeholder-guide.md

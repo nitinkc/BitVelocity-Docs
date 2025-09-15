@@ -154,13 +154,6 @@ graph LR
 - **Cloud Platforms**: GCP ⏳, AWS ⏳, Azure ⏳
 - **Patterns**: CQRS ⏳, Event Sourcing ⏳, Saga ⏳, Circuit Breaker ⏳
 
-## 🔄 Documentation Maintenance
-
-### Recent Changes
-- **2024-01**: Complete reorganization and consolidation
-- **2024-01**: Added comprehensive data architecture with OLTP→OLAP flows
-- **2024-01**: Enhanced budget planning and cost optimization
-- **2024-01**: Consolidated microservices patterns documentation
 
 ### Contributing Guidelines
 1. Follow the existing document structure and naming conventions
@@ -186,8 +179,11 @@ graph LR
 
 ---
 
-**Last Updated**: January 2024  
-**Version**: 2.0 (Post-reorganization)  
-**Maintainers**: BitVelocity Architecture Team
+## Layered Dependency Contract (Do Not Violate)
+Shared Libs ← (used by) All Domains  
+Security Platform ← (used by) All Domains  
+E-Commerce Events → consumed by others (but Order svc never imports Chat code etc.)  
+Cross-cutting docs define invariants; domain docs must not redefine them.
+
 
 *This documentation is a living resource that evolves with the project. Feedback and improvements are always welcome.*
