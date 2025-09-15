@@ -1,5 +1,5 @@
-site_name: BitVelocity Documentation
-site_url: https://docs.bitvelocity.io
+site_name: BitVelocity Wiki
+site_url: https://nitinkc.github.io/BitVelocity-Docs/
 nav:
   - Home: README.md
   - Index Domain Designs: INDEX_DOMAIN_DESIGNS.md

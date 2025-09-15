@@ -63,25 +63,5 @@ BitVelocity is a comprehensive distributed learning platform designed for hands-
 3. Follow the [Execution Roadmap](../05-PROJECT-MANAGEMENT/execution-roadmap.md) for implementation sequence
 4. Start with the foundational [System Architecture](../01-ARCHITECTURE/system-overview.md)
 
-## Repository Structure
-```
-BitVelocity/
-├── docs/                          # All documentation (this folder)
-│   ├── 00-OVERVIEW/              # Project overview and navigation
-│   ├── 01-ARCHITECTURE/          # System and domain architecture
-│   ├── 02-INFRASTRUCTURE/        # Cloud and deployment strategy
-│   ├── 03-DEVELOPMENT/           # Development patterns and practices
-│   ├── 04-OPERATIONS/            # Operational excellence
-│   ├── 05-PROJECT-MANAGEMENT/    # Planning and execution
-│   └── adr/                      # Architectural Decision Records
-├── bv-eCommerce-core/            # E-commerce domain implementation
-├── bv-chat-stream/               # Chat and messaging domain
-├── bv-iot-control-hub/           # IoT device management
-├── bv-social-pulse/              # Social media domain
-├── bv-security-core/             # Cross-cutting security services
-├── bv-infra-service/             # Infrastructure automation
-└── event-contracts/              # Shared event schemas and contracts
-```
 
----
 *This documentation is designed to be living and evolving. Contributions and feedback are welcome as we build this comprehensive learning platform.*

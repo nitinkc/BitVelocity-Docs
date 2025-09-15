@@ -5,14 +5,15 @@ This document provides comprehensive budget planning for the BitVelocity learnin
 
 ## Budget Overview
 
+
 ### Total Monthly Budget Target: $200 USD
 
-| Category | Monthly Budget | Percentage | Notes |
-|----------|----------------|------------|-------|
-| Cloud Infrastructure | $120 | 60% | Compute, storage, networking |
-| Data & Analytics | $40 | 20% | Databases, data processing |
-| Monitoring & Security | $25 | 12.5% | Observability, security tools |
-| Development Tools | $15 | 7.5% | CI/CD, development utilities |
+| Category              | Monthly Budget | Percentage | Notes                         |
+|:----------------------|:---------------|:-----------|:------------------------------|
+| Cloud Infrastructure  | $120           | 60%        | Compute, storage, networking  |
+| Data & Analytics      | $40            | 20%        | Databases, data processing    |
+| Monitoring & Security | $25            | 12.5%      | Observability, security tools |
+| Development Tools     | $15            | 7.5%       | CI/CD, development utilities  |
 
 ### Annual Budget Projection: $2,400 USD
 - **Learning ROI**: Comprehensive hands-on experience with enterprise-grade technologies

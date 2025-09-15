@@ -1,8 +1,9 @@
 # Cross-Cutting – Observability & Testing Strategy
 
 ## 1. Observability Stack
+
 | Aspect | Tool |
-|--------|------|
+|:---|:---|
 | Traces | OpenTelemetry SDK → Jaeger/Tempo |
 | Metrics | Prometheus + Grafana |
 | Logs | Structured JSON → Loki / ELK |
@@ -10,15 +11,17 @@
 | Profiling (optional) | Continuous profiler (Async Profiler / Pyroscope) |
 
 ## 2. Standard Labels / Tags
+
 | Signal | Labels |
-|--------|--------|
+|:---|:---|
 | Metrics | service, domain, version, region |
 | Traces | service.name, domain, environment |
 | Logs | service, traceId, correlationId, userId, region |
 
 ## 3. Core Metrics Baseline
+
 | Category | Metric |
-|----------|--------|
+|:---|:---|
 | HTTP | http_server_duration_seconds |
 | gRPC | grpc_server_duration_seconds |
 | Messaging | kafka_consumer_lag, event_publish_failures_total |
@@ -33,8 +36,9 @@
 - Event consumption span attribute: eventType, partition, offset.
 
 ## 5. Alert Examples
+
 | Alert | Condition |
-|-------|-----------|
+|:---|:---|
 | High error rate | 5xx > 2% over 5m |
 | Kafka lag | consumer lag > threshold for critical topics |
 | Inventory freshness | last inventory.adjusted > 2m |

@@ -4,8 +4,9 @@
 OLTP (Postgres) → Domain Events + CDC (Debezium) → Stream Processing (Kafka Streams/Flink) → Serving (Redis/Cassandra/OpenSearch) → OLAP (Parquet + ClickHouse/BigQuery) → Feature Store (Redis) → ML Inference.
 
 ## 2. Cross-Domain Projections
+
 | Projection | Source Domains | Store | Consumer Domains |
-|------------|----------------|-------|------------------|
+|:---|:---|:---|:---|
 | orders_by_customer | E-Commerce | Cassandra | Analytics, ML |
 | inventory_snapshot | E-Commerce + IoT | Redis | GraphQL, Recommendations |
 | global_feed | Social | Redis | Clients |
@@ -27,8 +28,9 @@ Steps:
 5. Emit replay completion event
 
 ## 5. Retention Policy (Baseline)
+
 | Layer | Hot | Archive |
-|-------|-----|---------|
+|:---|:---|:---|
 | Kafka domain events | 7–14d | Parquet |
 | CDC topics | 3–7d | Parquet |
 | Redis | TTL | Rebuild |
@@ -36,8 +38,9 @@ Steps:
 | Warehouse | 2–3 yrs | Cloud cold storage |
 
 ## 6. Data Quality Checks
+
 | Check | Rule |
-|-------|------|
+|:---|:---|
 | Order total | SUM(line_items) = total_amount |
 | Non-negative inventory | available >= 0 |
 | Telemetry freshness | ingest_ts - device_ts < 5m |

@@ -10,8 +10,9 @@
 - All events include traceId, correlationId.
 
 ## 3. Contract Fields (Minimum)
+
 | Field | Purpose |
-|-------|---------|
+|:---|:---|
 | eventId | Uniqueness |
 | eventType | Routing + version |
 | occurredAt | Temporal ordering |
@@ -24,8 +25,9 @@
 | tenantId | Multitenancy future |
 
 ## 4. Version Lifecycle
+
 | Stage | Description |
-|-------|-------------|
+|:---|:---|
 | Draft | In PR with contract file |
 | Accepted | Merged & published |
 | Deprecated | Replacement exists; warn consumers |
@@ -63,16 +65,18 @@ event-contracts/
 4. After consumer migration, retire.
 
 ## 8. Event Evolution Anti-Patterns
+
 | Anti-Pattern | Alternative |
-|--------------|------------|
+|:---|:---|
 | Overloading eventType meaning | Different eventType per semantic outcome |
 | Embedding large blobs | Store reference key & fetch from store |
 | Using events for RPC | Use gRPC or REST |
 | Emitting row-level churn as domain events | Use CDC layer |
 
 ## 9. Event to Projection Mapping Table
+
 | Event | Primary Projection(s) |
-|-------|-----------------------|
+|:---|:---|
 | order.created | orders_by_customer |
 | inventory.stock.adjusted | inventory_snapshot |
 | post.created | global_feed |

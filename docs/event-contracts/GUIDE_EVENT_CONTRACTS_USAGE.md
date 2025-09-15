@@ -43,9 +43,11 @@ event-contracts/
     envelope.schema.json
 ```
 
+
 ## Required Fields (Minimum)
+
 | Field | Purpose |
-|-------|---------|
+|:---|:---|
 | eventId | Uniqueness |
 | eventType | Routing + version |
 | occurredAt | Temporal ordering |

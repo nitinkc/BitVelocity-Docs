@@ -28,8 +28,9 @@ replay \
 ```
 
 ## 5. DR Drill Types
+
 | Drill | Scenario | Goal |
-|-------|----------|------|
+|:---|:---|:---|
 | Failover DB | East Postgres down | Promote replica |
 | Kafka Partition Loss | Topic partial outage | Replay missing partition events |
 | Cache Flush | Redis cleared | Rehydrate via events |

@@ -52,9 +52,11 @@ The CI pipeline automatically validates:
 4. Submit PR - validation pipeline runs automatically
 5. After merge, update consuming services
 
+
 ## Event to Projection Mapping
+
 | Event | Primary Projection(s) |
-|-------|-----------------------|
+|:---|:---|
 | order.created | orders_by_customer |
 | inventory.stock.adjusted | inventory_snapshot |
 | post.created | global_feed |

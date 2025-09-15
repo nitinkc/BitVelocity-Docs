@@ -3,8 +3,9 @@
 Assumptions: 2–3 devs, 10–15 hrs/week each, 2-week sprints.
 
 ## 1. Sprint Themes (Refined)
+
 | Sprint | Theme | Domains Touched |
-|--------|-------|-----------------|
+|:---|:---|:---|
 | 1 | Core bootstrap (Auth, Product) | Security, E-Com |
 | 2 | Orders + Events + Basic Inventory | E-Com |
 | 3 | Realtime (WS) + Inventory gRPC | E-Com |

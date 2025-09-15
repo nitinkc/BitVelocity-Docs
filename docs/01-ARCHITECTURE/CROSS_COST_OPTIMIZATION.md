@@ -4,8 +4,9 @@
 Spend only when a concept requires real infra; default to local containers & ephemeral clusters.
 
 ## 2. Cost Levers
+
 | Lever | Tactic |
-|-------|--------|
+|:---|:---|
 | Runtime | Destroy non-active stacks (Pulumi TTL tags) |
 | Storage | Compact logs, short retention early |
 | Observability | Reduce scrape interval in dev |
@@ -14,16 +15,18 @@ Spend only when a concept requires real infra; default to local containers & eph
 | Multi-Region | Activate only during drills |
 
 ## 3. Baseline Monthly (If Always On – Avoid)
+
 | Stack | Est. Cost (USD) |
-|-------|-----------------|
+|:---|:---|
 | Single region dev cluster small | 20–40 |
 | Add Kafka + Postgres managed | +40–60 |
 | Multi-region active | +80–120 |
 | Full analytics + search | +100–150 |
 
 ## 4. Recommended Practice
+
 | Phase | Practice |
-|-------|---------|
+|:---|:---|
 | 1–4 | Local only (kind + Docker compose) |
 | 5–7 | Short GCP windows (<6h/week) |
 | 8–10 | Add AWS migration windows (destroy same day) |

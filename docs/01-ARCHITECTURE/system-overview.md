@@ -114,9 +114,11 @@ BitVelocity is designed as a multi-domain, protocol-rich distributed platform th
 
 ## Communication Protocols
 
+
 ### Protocol Usage Matrix
+
 | Protocol | Primary Use Case | Domains | Implementation Priority |
-|----------|------------------|---------|------------------------|
+|:---|:---|:---|:---|
 | REST | CRUD operations, public APIs | All | Phase 1 |
 | GraphQL | Aggregated queries, federated data | E-Commerce, Social | Phase 3 |
 | gRPC | Internal service communication | All | Phase 2 |

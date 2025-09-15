@@ -11,10 +11,11 @@ This document provides detailed sprint planning for the BitVelocity platform, or
 - **Sprint Duration**: 2 weeks (80-90 total hours available per sprint)
 - **Sprint Ceremonies**: Planning (2h), Daily standups (30min), Review (1h), Retrospective (1h)
 
+
 ### Sprint Themes & Learning Progression
 
 | Sprint | Theme | Primary Focus | Domains Touched | Key Patterns |
-|--------|-------|---------------|-----------------|--------------|
+|:---|:---|:---|:---|:---|
 | 1 | Foundation Bootstrap | Auth + Basic CRUD | Security, E-Commerce | REST, JWT, Audit |
 | 2 | Event-Driven Core | Orders + Events | E-Commerce | Event Sourcing, Kafka |
 | 3 | Real-time Patterns | WebSocket + gRPC | E-Commerce, Chat | WebSocket, gRPC, Caching |

@@ -10,12 +10,12 @@ This index points to modular design documents so you can focus on one domain at 
 5. [ML/AI Domain](01-ARCHITECTURE/domains/ml-ai/DOMAIN_ML_AI_ARCHITECTURE.md) (enabler, optional early)
 
 ## Cross-Cutting & Shared
-1. `CROSS_DATA_PLATFORM_AND_ANALYTICS.md`
-2. `CROSS_EVENT_CONTRACTS_AND_VERSIONING.md`
-3. `CROSS_OBSERVABILITY_AND_TESTING.md`
-4. `CROSS_EXECUTION_BACKLOG_AND_SPRINT_PLAN.md`
-5. `CROSS_REPLAY_DR_DRILLS.md`
-6. `CROSS_COST_OPTIMIZATION.md`
+1. [Data Platform & Analytics](../01-ARCHITECTURE/CROSS_DATA_PLATFORM_AND_ANALYTICS.md)
+2. [Event Contracts & Versioning](../01-ARCHITECTURE/CROSS_EVENT_CONTRACTS_AND_VERSIONING.md)
+3. [Observability & Testing](../01-ARCHITECTURE/CROSS_OBSERVABILITY_AND_TESTING.md)
+4. [Execution Backlog & Sprint Plan](../01-ARCHITECTURE/CROSS_EXECUTION_BACKLOG_AND_SPRINT_PLAN.md)
+5. [Replay & DR Drills](../01-ARCHITECTURE/CROSS_REPLAY_DR_DRILLS.md)
+6. [Cost Optimization](../01-ARCHITECTURE/CROSS_COST_OPTIMIZATION.md)
 7. [Security Strategy](adr/ADR-005-security-layering.md) (Architecture Decision Record)
 
 ## Usage Guidance
