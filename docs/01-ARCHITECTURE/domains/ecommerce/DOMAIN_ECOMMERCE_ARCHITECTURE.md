@@ -198,6 +198,7 @@ Logs:
 | 8+     | DR replay + advanced resilience                  |
 
 ## 13. Interoperability Checklist (Before Declaring Stable)
+
 - [ ] All events validated vs schema registry
 - [ ] GraphQL fields do not leak internal table names
 - [ ] gRPC proto version pinned & published

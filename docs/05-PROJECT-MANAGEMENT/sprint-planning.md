@@ -14,20 +14,20 @@ This document provides detailed sprint planning for the BitVelocity platform, or
 
 ### Sprint Themes & Learning Progression
 
-| Sprint | Theme | Primary Focus | Domains Touched | Key Patterns |
-|:---|:---|:---|:---|:---|
-| 1 | Foundation Bootstrap | Auth + Basic CRUD | Security, E-Commerce | REST, JWT, Audit |
-| 2 | Event-Driven Core | Orders + Events | E-Commerce | Event Sourcing, Kafka |
-| 3 | Real-time Patterns | WebSocket + gRPC | E-Commerce, Chat | WebSocket, gRPC, Caching |
-| 4 | Query Aggregation | GraphQL + Federation | E-Commerce, Social | GraphQL, BFF Pattern |
-| 5 | External Integration | SOAP + Webhooks | E-Commerce, Social | ACL, Strangler Fig |
-| 6 | IoT & Messaging | MQTT + Reliable Queues | IoT, E-Commerce | MQTT, RabbitMQ, Bulkhead |
-| 7 | Stream Processing | Analytics + ML Prep | E-Commerce, ML/AI | Stream Processing, Feature Store |
-| 8 | Multi-Region Infrastructure | Cloud Migration + Vault | Infrastructure, Security | Multi-cloud, Secrets Management |
-| 9 | Advanced Messaging | Active-Active Chat + DR | Chat, Infrastructure | CQRS, Disaster Recovery |
-| 10 | Cloud Portability | AWS Migration | Infrastructure | Pulumi Abstractions |
-| 11 | Resilience & Recovery | Replay + Chaos Engineering | All Domains | Saga, Circuit Breaker |
-| 12 | Production Hardening | Security + Performance | All Domains | Security Scanning, Load Testing |
+| Sprint | Theme                       | Primary Focus              | Domains Touched          | Key Patterns                     |
+|:-------|:----------------------------|:---------------------------|:-------------------------|:---------------------------------|
+| 1      | Foundation Bootstrap        | Auth + Basic CRUD          | Security, E-Commerce     | REST, JWT, Audit                 |
+| 2      | Event-Driven Core           | Orders + Events            | E-Commerce               | Event Sourcing, Kafka            |
+| 3      | Real-time Patterns          | WebSocket + gRPC           | E-Commerce, Chat         | WebSocket, gRPC, Caching         |
+| 4      | Query Aggregation           | GraphQL + Federation       | E-Commerce, Social       | GraphQL, BFF Pattern             |
+| 5      | External Integration        | SOAP + Webhooks            | E-Commerce, Social       | ACL, Strangler Fig               |
+| 6      | IoT & Messaging             | MQTT + Reliable Queues     | IoT, E-Commerce          | MQTT, RabbitMQ, Bulkhead         |
+| 7      | Stream Processing           | Analytics + ML Prep        | E-Commerce, ML/AI        | Stream Processing, Feature Store |
+| 8      | Multi-Region Infrastructure | Cloud Migration + Vault    | Infrastructure, Security | Multi-cloud, Secrets Management  |
+| 9      | Advanced Messaging          | Active-Active Chat + DR    | Chat, Infrastructure     | CQRS, Disaster Recovery          |
+| 10     | Cloud Portability           | AWS Migration              | Infrastructure           | Pulumi Abstractions              |
+| 11     | Resilience & Recovery       | Replay + Chaos Engineering | All Domains              | Saga, Circuit Breaker            |
+| 12     | Production Hardening        | Security + Performance     | All Domains              | Security Scanning, Load Testing  |
 
 ## Detailed Sprint Breakdown
 
@@ -35,6 +35,7 @@ This document provides detailed sprint planning for the BitVelocity platform, or
 **Objective**: Establish foundational infrastructure and authentication
 
 #### Sprint Goals
+
 - [ ] Monorepo structure with shared libraries
 - [ ] Local development environment (Kind + Docker Compose)
 - [ ] Authentication service with JWT
@@ -45,6 +46,7 @@ This document provides detailed sprint planning for the BitVelocity platform, or
 #### User Stories & Tasks
 
 **Epic: Infrastructure Foundation**
+
 - **Story 1**: As a developer, I want a consistent development environment
   - [ ] Set up monorepo structure with Maven parent POM
   - [ ] Configure shared libraries (common, events, security)
@@ -53,6 +55,7 @@ This document provides detailed sprint planning for the BitVelocity platform, or
   - [ ] Document local development setup
 
 **Epic: Authentication Service**
+
 - **Story 2**: As a system, I need secure authentication for all services
   - [ ] Implement JWT token generation and validation
   - [ ] Create user management endpoints (register, login, refresh)
@@ -61,6 +64,7 @@ This document provides detailed sprint planning for the BitVelocity platform, or
   - [ ] Add comprehensive unit and integration tests
 
 **Epic: Product Service**
+
 - **Story 3**: As a user, I want to manage product catalog
   - [ ] Design Product entity with audit fields
   - [ ] Implement REST endpoints (CRUD operations)
@@ -69,6 +73,7 @@ This document provides detailed sprint planning for the BitVelocity platform, or
   - [ ] Add repository and service layer tests
 
 **Epic: Observability Foundation**
+
 - **Story 4**: As an operator, I need visibility into system health
   - [ ] Configure Prometheus metrics collection
   - [ ] Set up structured logging with Logback
@@ -77,6 +82,7 @@ This document provides detailed sprint planning for the BitVelocity platform, or
   - [ ] Configure alerting for critical failures
 
 #### Definition of Done
+
 - [ ] All services start successfully in local environment
 - [ ] Authentication flow works end-to-end
 - [ ] Product CRUD operations functional with tests passing
@@ -105,6 +111,7 @@ This document provides detailed sprint planning for the BitVelocity platform, or
 #### User Stories & Tasks
 
 **Epic: Event Store Infrastructure**
+
 - **Story 1**: As a system, I need reliable event storage and replay
   - [ ] Design event store schema with versioning
   - [ ] Implement event serialization/deserialization
@@ -121,6 +128,7 @@ This document provides detailed sprint planning for the BitVelocity platform, or
   - [ ] Implement order status queries (CQRS read model)
 
 **Epic: Inventory Service**
+
 - **Story 3**: As a system, I need inventory tracking and reservation
   - [ ] Create inventory aggregate
   - [ ] Implement stock reservation logic
@@ -129,6 +137,7 @@ This document provides detailed sprint planning for the BitVelocity platform, or
   - [ ] Create inventory query projections
 
 **Epic: Event Integration**
+
 - **Story 4**: As services, we need reliable event communication
   - [ ] Configure Kafka topics and partitions
   - [ ] Implement event consumers with error handling
@@ -159,6 +168,7 @@ This document provides detailed sprint planning for the BitVelocity platform, or
 #### User Stories & Tasks
 
 **Epic: Real-time Notifications**
+
 - **Story 1**: As a customer, I want real-time order updates
   - [ ] Implement WebSocket connection management
   - [ ] Create notification service
@@ -167,6 +177,7 @@ This document provides detailed sprint planning for the BitVelocity platform, or
   - [ ] Add WebSocket authentication and authorization
 
 **Epic: Internal Service Communication**
+
 - **Story 2**: As services, we need efficient internal communication
   - [ ] Define gRPC service contracts
   - [ ] Implement gRPC order service endpoints
@@ -175,6 +186,7 @@ This document provides detailed sprint planning for the BitVelocity platform, or
   - [ ] Implement service discovery for gRPC
 
 **Epic: Caching Strategy**
+
 - **Story 3**: As a system, I need fast data access
   - [ ] Implement Redis caching for product data
   - [ ] Add cache-aside pattern for frequently accessed data
@@ -183,6 +195,7 @@ This document provides detailed sprint planning for the BitVelocity platform, or
   - [ ] Implement cache warming for popular products
 
 **Epic: Chat Service Foundation**
+
 - **Story 4**: As users, we want to communicate in real-time
   - [ ] Design chat room and message entities
   - [ ] Implement basic WebSocket chat functionality
