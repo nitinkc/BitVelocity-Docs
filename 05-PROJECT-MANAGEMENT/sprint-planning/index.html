@@ -407,34 +407,42 @@
 <li>[ ] CI/CD pipeline setup</li>
 </ul>
 <h4 id="user-stories-tasks">User Stories &amp; Tasks</h4>
-<p><strong>Epic: Infrastructure Foundation</strong>
-- <strong>Story 1</strong>: As a developer, I want a consistent development environment
-  - [ ] Set up monorepo structure with Maven parent POM
-  - [ ] Configure shared libraries (common, events, security)
-  - [ ] Set up Docker Compose for local services (PostgreSQL, Redis, Kafka)
-  - [ ] Configure Kind cluster for Kubernetes development
-  - [ ] Document local development setup</p>
-<p><strong>Epic: Authentication Service</strong>
-- <strong>Story 2</strong>: As a system, I need secure authentication for all services
-  - [ ] Implement JWT token generation and validation
-  - [ ] Create user management endpoints (register, login, refresh)
-  - [ ] Add password hashing and validation
-  - [ ] Implement role-based access control (RBAC)
-  - [ ] Add comprehensive unit and integration tests</p>
-<p><strong>Epic: Product Service</strong>
-- <strong>Story 3</strong>: As a user, I want to manage product catalog
-  - [ ] Design Product entity with audit fields
-  - [ ] Implement REST endpoints (CRUD operations)
-  - [ ] Add database migration scripts (Flyway)
-  - [ ] Implement validation and error handling
-  - [ ] Add repository and service layer tests</p>
-<p><strong>Epic: Observability Foundation</strong>
-- <strong>Story 4</strong>: As an operator, I need visibility into system health
-  - [ ] Configure Prometheus metrics collection
-  - [ ] Set up structured logging with Logback
-  - [ ] Add health check endpoints
-  - [ ] Create basic Grafana dashboards
-  - [ ] Configure alerting for critical failures</p>
+<p><strong>Epic: Infrastructure Foundation</strong></p>
+<ul>
+<li><strong>Story 1</strong>: As a developer, I want a consistent development environment</li>
+<li>[ ] Set up monorepo structure with Maven parent POM</li>
+<li>[ ] Configure shared libraries (common, events, security)</li>
+<li>[ ] Set up Docker Compose for local services (PostgreSQL, Redis, Kafka)</li>
+<li>[ ] Configure Kind cluster for Kubernetes development</li>
+<li>[ ] Document local development setup</li>
+</ul>
+<p><strong>Epic: Authentication Service</strong></p>
+<ul>
+<li><strong>Story 2</strong>: As a system, I need secure authentication for all services</li>
+<li>[ ] Implement JWT token generation and validation</li>
+<li>[ ] Create user management endpoints (register, login, refresh)</li>
+<li>[ ] Add password hashing and validation</li>
+<li>[ ] Implement role-based access control (RBAC)</li>
+<li>[ ] Add comprehensive unit and integration tests</li>
+</ul>
+<p><strong>Epic: Product Service</strong></p>
+<ul>
+<li><strong>Story 3</strong>: As a user, I want to manage product catalog</li>
+<li>[ ] Design Product entity with audit fields</li>
+<li>[ ] Implement REST endpoints (CRUD operations)</li>
+<li>[ ] Add database migration scripts (Flyway)</li>
+<li>[ ] Implement validation and error handling</li>
+<li>[ ] Add repository and service layer tests</li>
+</ul>
+<p><strong>Epic: Observability Foundation</strong></p>
+<ul>
+<li><strong>Story 4</strong>: As an operator, I need visibility into system health</li>
+<li>[ ] Configure Prometheus metrics collection</li>
+<li>[ ] Set up structured logging with Logback</li>
+<li>[ ] Add health check endpoints</li>
+<li>[ ] Create basic Grafana dashboards</li>
+<li>[ ] Configure alerting for critical failures</li>
+</ul>
 <h4 id="definition-of-done">Definition of Done</h4>
 <ul>
 <li>[ ] All services start successfully in local environment</li>
@@ -463,13 +471,15 @@
 <li>[ ] Order lifecycle management (create, confirm, cancel)</li>
 </ul>
 <h4 id="user-stories-tasks_1">User Stories &amp; Tasks</h4>
-<p><strong>Epic: Event Store Infrastructure</strong>
-- <strong>Story 1</strong>: As a system, I need reliable event storage and replay
-  - [ ] Design event store schema with versioning
-  - [ ] Implement event serialization/deserialization
-  - [ ] Create event repository with optimistic locking
-  - [ ] Add event replay capability
-  - [ ] Implement event publishing to Kafka</p>
+<p><strong>Epic: Event Store Infrastructure</strong></p>
+<ul>
+<li><strong>Story 1</strong>: As a system, I need reliable event storage and replay</li>
+<li>[ ] Design event store schema with versioning</li>
+<li>[ ] Implement event serialization/deserialization</li>
+<li>[ ] Create event repository with optimistic locking</li>
+<li>[ ] Add event replay capability</li>
+<li>[ ] Implement event publishing to Kafka</li>
+</ul>
 <p><strong>Epic: Order Service</strong>
 - <strong>Story 2</strong>: As a customer, I want to create and manage orders
   - [ ] Design Order aggregate with event sourcing
@@ -477,20 +487,24 @@
   - [ ] Add order confirmation workflow
   - [ ] Create order cancellation capability
   - [ ] Implement order status queries (CQRS read model)</p>
-<p><strong>Epic: Inventory Service</strong>
-- <strong>Story 3</strong>: As a system, I need inventory tracking and reservation
-  - [ ] Create inventory aggregate
-  - [ ] Implement stock reservation logic
-  - [ ] Handle inventory events from orders
-  - [ ] Add stock adjustment endpoints
-  - [ ] Create inventory query projections</p>
-<p><strong>Epic: Event Integration</strong>
-- <strong>Story 4</strong>: As services, we need reliable event communication
-  - [ ] Configure Kafka topics and partitions
-  - [ ] Implement event consumers with error handling
-  - [ ] Add dead letter queue for failed events
-  - [ ] Create event schema registry
-  - [ ] Add integration tests for event flows</p>
+<p><strong>Epic: Inventory Service</strong></p>
+<ul>
+<li><strong>Story 3</strong>: As a system, I need inventory tracking and reservation</li>
+<li>[ ] Create inventory aggregate</li>
+<li>[ ] Implement stock reservation logic</li>
+<li>[ ] Handle inventory events from orders</li>
+<li>[ ] Add stock adjustment endpoints</li>
+<li>[ ] Create inventory query projections</li>
+</ul>
+<p><strong>Epic: Event Integration</strong></p>
+<ul>
+<li><strong>Story 4</strong>: As services, we need reliable event communication</li>
+<li>[ ] Configure Kafka topics and partitions</li>
+<li>[ ] Implement event consumers with error handling</li>
+<li>[ ] Add dead letter queue for failed events</li>
+<li>[ ] Create event schema registry</li>
+<li>[ ] Add integration tests for event flows</li>
+</ul>
 <h4 id="definition-of-done_1">Definition of Done</h4>
 <ul>
 <li>[ ] Order creation publishes events to Kafka</li>
@@ -512,34 +526,42 @@
 <li>[ ] Chat service foundation</li>
 </ul>
 <h4 id="user-stories-tasks_2">User Stories &amp; Tasks</h4>
-<p><strong>Epic: Real-time Notifications</strong>
-- <strong>Story 1</strong>: As a customer, I want real-time order updates
-  - [ ] Implement WebSocket connection management
-  - [ ] Create notification service
-  - [ ] Add real-time order status broadcasting
-  - [ ] Implement user session management
-  - [ ] Add WebSocket authentication and authorization</p>
-<p><strong>Epic: Internal Service Communication</strong>
-- <strong>Story 2</strong>: As services, we need efficient internal communication
-  - [ ] Define gRPC service contracts
-  - [ ] Implement gRPC order service endpoints
-  - [ ] Create gRPC inventory service interface
-  - [ ] Add gRPC client configuration and load balancing
-  - [ ] Implement service discovery for gRPC</p>
-<p><strong>Epic: Caching Strategy</strong>
-- <strong>Story 3</strong>: As a system, I need fast data access
-  - [ ] Implement Redis caching for product data
-  - [ ] Add cache-aside pattern for frequently accessed data
-  - [ ] Create cache invalidation strategies
-  - [ ] Add cache metrics and monitoring
-  - [ ] Implement cache warming for popular products</p>
-<p><strong>Epic: Chat Service Foundation</strong>
-- <strong>Story 4</strong>: As users, we want to communicate in real-time
-  - [ ] Design chat room and message entities
-  - [ ] Implement basic WebSocket chat functionality
-  - [ ] Add message persistence to database
-  - [ ] Create chat room management
-  - [ ] Add user presence tracking</p>
+<p><strong>Epic: Real-time Notifications</strong></p>
+<ul>
+<li><strong>Story 1</strong>: As a customer, I want real-time order updates</li>
+<li>[ ] Implement WebSocket connection management</li>
+<li>[ ] Create notification service</li>
+<li>[ ] Add real-time order status broadcasting</li>
+<li>[ ] Implement user session management</li>
+<li>[ ] Add WebSocket authentication and authorization</li>
+</ul>
+<p><strong>Epic: Internal Service Communication</strong></p>
+<ul>
+<li><strong>Story 2</strong>: As services, we need efficient internal communication</li>
+<li>[ ] Define gRPC service contracts</li>
+<li>[ ] Implement gRPC order service endpoints</li>
+<li>[ ] Create gRPC inventory service interface</li>
+<li>[ ] Add gRPC client configuration and load balancing</li>
+<li>[ ] Implement service discovery for gRPC</li>
+</ul>
+<p><strong>Epic: Caching Strategy</strong></p>
+<ul>
+<li><strong>Story 3</strong>: As a system, I need fast data access</li>
+<li>[ ] Implement Redis caching for product data</li>
+<li>[ ] Add cache-aside pattern for frequently accessed data</li>
+<li>[ ] Create cache invalidation strategies</li>
+<li>[ ] Add cache metrics and monitoring</li>
+<li>[ ] Implement cache warming for popular products</li>
+</ul>
+<p><strong>Epic: Chat Service Foundation</strong></p>
+<ul>
+<li><strong>Story 4</strong>: As users, we want to communicate in real-time</li>
+<li>[ ] Design chat room and message entities</li>
+<li>[ ] Implement basic WebSocket chat functionality</li>
+<li>[ ] Add message persistence to database</li>
+<li>[ ] Create chat room management</li>
+<li>[ ] Add user presence tracking</li>
+</ul>
 <h4 id="definition-of-done_2">Definition of Done</h4>
 <ul>
 <li>[ ] WebSocket connections handle order status updates</li>
