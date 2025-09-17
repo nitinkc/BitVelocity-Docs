@@ -48,11 +48,5 @@ nav:
 
 plugins:
     - search
-    - mermaid2
-    
-markdown_extensions:
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
+    - mermaid2:
+        javascript: https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs

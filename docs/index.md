@@ -62,6 +62,7 @@ Welcome to the BitVelocity documentation! This comprehensive learning platform i
 ## 🎯 Learning Paths by Role
 
 ### Software Architects & Technical Leaders
+
 ```mermaid
 graph LR
     A[Project Charter] --> B[System Overview]
@@ -77,6 +78,7 @@ graph LR
 5. [Architectural Decision Records](adr/)
 
 ### Backend Developers
+
 ```mermaid
 graph LR
     A[System Overview] --> B[Microservices Patterns]
@@ -92,6 +94,7 @@ graph LR
 5. [Testing Strategy](03-DEVELOPMENT/testing-strategy.md)
 
 ### Platform Engineers & DevOps
+
 ```mermaid
 graph LR
     A[Cloud Strategy] --> B[Deployment Architecture]
@@ -107,7 +110,9 @@ graph LR
 5. [Cost Optimization](02-INFRASTRUCTURE/cost-optimization.md)
 
 ### Data Engineers
+
 ```mermaid
+
 graph LR
     A[Data Architecture] --> B[Data Governance]
     B --> C[Microservices Patterns]
@@ -120,6 +125,7 @@ graph LR
 4. [Observability Strategy](04-OPERATIONS/observability.md) (Data monitoring)
 
 ### Project Managers
+
 ```mermaid
 graph LR
     A[Project Charter] --> B[Sprint Planning]
