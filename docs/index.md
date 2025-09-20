@@ -5,10 +5,11 @@ Welcome to the BitVelocity documentation! This comprehensive learning platform i
 ## 🚀 Quick Start
 
 **New to the project?** Start here:
-1. [Project Charter](00-OVERVIEW/project-charter.md) - Understand the mission and objectives
-2. [Stakeholder Guide](00-OVERVIEW/stakeholder-guide.md) - Find your role and relevant documentation
-3. [System Overview](01-ARCHITECTURE/system-overview.md) - Understand the overall architecture
-4. [Sprint Planning](05-PROJECT-MANAGEMENT/sprint-planning.md) - See the implementation roadmap
+
+- [Project Charter](00-OVERVIEW/project-charter.md) - Understand the mission and objectives
+- [Stakeholder Guide](00-OVERVIEW/stakeholder-guide.md) - Find your role and relevant documentation
+- [System Overview](01-ARCHITECTURE/system-overview.md) - Understand the overall architecture
+- [Sprint Planning](05-PROJECT-MANAGEMENT/sprint-planning.md) - See the implementation roadmap
 
 ## 📁 Documentation Structure
 
