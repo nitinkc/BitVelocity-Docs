@@ -1,10 +1,16 @@
-# ADR-005: Security Layering Strategy
+# ADR-005: Security Layering with UserContext
 
-## Layers
-Gateway (JWT/OAuth2, rate limits) → Service (Spring Security RBAC) → OPA (fine-grain) → mTLS mesh → Vault secrets.
+This document describes the security layering approach for BitVelocity, focusing on the use of UserContext and best practices for authentication and authorization.
 
-## Evolution
-JWT HS256 → RS256 via Vault → mTLS → dynamic DB creds → key rotation automation.
+- UserContext propagation
+- Role-based access control
+- JWT integration (planned)
+# BitVelocity Architecture Overview
 
-## Rationale
-Progressive hardening aligned with learning milestones.
+This document provides an overview of the BitVelocity architecture, including module structure, service boundaries, and technology choices.
+
+- Core modules: entities, events, security, exceptions
+- Authentication service: user management, JWT, roles
+- Infrastructure: PostgreSQL, Redis, Redpanda
+- Security patterns: see ADR-005
+

@@ -1,7 +1,7 @@
 # ADR-001_1: Github Package vs JitPack
 
 ## Status
-Accepted
+Accepted Jitpack
 
 ## Context
 Easier package management and dissemination within team
