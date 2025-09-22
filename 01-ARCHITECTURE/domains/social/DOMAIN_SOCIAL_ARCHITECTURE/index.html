@@ -400,16 +400,17 @@
 </tr>
 </tbody>
 </table>
-<p>Payload example:
-<pre class="highlight"><code>{
-  "eventType":"social.post.created.v1",
-  "payload":{
-     "postId":"P9",
-     "authorId":"U2",
-     "tags":["sale","electronics"],
-     "createdAt":"..."
+<p>Payload example:</p>
+<pre><code>{
+  &quot;eventType&quot;:&quot;social.post.created.v1&quot;,
+  &quot;payload&quot;:{
+     &quot;postId&quot;:&quot;P9&quot;,
+     &quot;authorId&quot;:&quot;U2&quot;,
+     &quot;tags&quot;:[&quot;sale&quot;,&quot;electronics&quot;],
+     &quot;createdAt&quot;:&quot;...&quot;
   }
-}</code></pre></p>
+}
+</code></pre>
 <h2 id="5-feed-materialization-options">5. Feed Materialization Options</h2>
 <p>Strategy: Hybrid push/pull
 - SSE stream for “latest posts” channel

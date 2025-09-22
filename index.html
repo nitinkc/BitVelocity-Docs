@@ -244,11 +244,13 @@
 <h1 id="documentation-navigation-index">Documentation Navigation Index</h1>
 <p>Welcome to the BitVelocity documentation! This comprehensive learning platform is designed for hands-on mastery of modern backend systems, cloud technologies, and data engineering patterns.</p>
 <h2 id="quick-start">🚀 Quick Start</h2>
-<p><strong>New to the project?</strong> Start here:
-1. <a href="00-OVERVIEW/project-charter/">Project Charter</a> - Understand the mission and objectives
-2. <a href="00-OVERVIEW/stakeholder-guide/">Stakeholder Guide</a> - Find your role and relevant documentation
-3. <a href="01-ARCHITECTURE/system-overview/">System Overview</a> - Understand the overall architecture
-4. <a href="05-PROJECT-MANAGEMENT/sprint-planning/">Sprint Planning</a> - See the implementation roadmap</p>
+<p><strong>New to the project?</strong> Start here:</p>
+<ul>
+<li><a href="00-OVERVIEW/project-charter/">Project Charter</a> - Understand the mission and objectives</li>
+<li><a href="00-OVERVIEW/stakeholder-guide/">Stakeholder Guide</a> - Find your role and relevant documentation</li>
+<li><a href="01-ARCHITECTURE/system-overview/">System Overview</a> - Understand the overall architecture</li>
+<li><a href="05-PROJECT-MANAGEMENT/sprint-planning/">Sprint Planning</a> - See the implementation roadmap</li>
+</ul>
 <h2 id="documentation-structure">📁 Documentation Structure</h2>
 <h3 id="00-overview-project-foundation">00-OVERVIEW - Project Foundation</h3>
 <ul>
@@ -307,11 +309,12 @@
 </ul>
 <h2 id="learning-paths-by-role">🎯 Learning Paths by Role</h2>
 <h3 id="software-architects-technical-leaders">Software Architects &amp; Technical Leaders</h3>
-<pre class="mermaid"><code>graph LR
+<div class="mermaid">graph LR
     A[Project Charter] --&gt; B[System Overview]
     B --&gt; C[Data Architecture]
     C --&gt; D[Domain Architectures]
-    D --&gt; E[ADR Reviews]</code></pre>
+    D --&gt; E[ADR Reviews]
+</div>
 <ol>
 <li><a href="00-OVERVIEW/project-charter/">Project Charter</a></li>
 <li><a href="01-ARCHITECTURE/system-overview/">System Overview</a></li>
@@ -320,11 +323,12 @@
 <li><a href="adr/">Architectural Decision Records</a></li>
 </ol>
 <h3 id="backend-developers">Backend Developers</h3>
-<pre class="mermaid"><code>graph LR
+<div class="mermaid">graph LR
     A[System Overview] --&gt; B[Microservices Patterns]
     B --&gt; C[API Protocols]
     C --&gt; D[Domain Implementation]
-    D --&gt; E[Testing Strategy]</code></pre>
+    D --&gt; E[Testing Strategy]
+</div>
 <ol>
 <li><a href="01-ARCHITECTURE/system-overview/">System Overview</a></li>
 <li><a href="03-DEVELOPMENT/microservices-patterns/">Microservices Patterns</a></li>
@@ -333,11 +337,12 @@
 <li><a href="03-DEVELOPMENT/testing-strategy.md">Testing Strategy</a></li>
 </ol>
 <h3 id="platform-engineers-devops">Platform Engineers &amp; DevOps</h3>
-<pre class="mermaid"><code>graph LR
+<div class="mermaid">graph LR
     A[Cloud Strategy] --&gt; B[Deployment Architecture]
     B --&gt; C[Observability]
     C --&gt; D[Disaster Recovery]
-    D --&gt; E[Cost Optimization]</code></pre>
+    D --&gt; E[Cost Optimization]
+</div>
 <ol>
 <li><a href="02-INFRASTRUCTURE/cloud-strategy/">Cloud Strategy</a></li>
 <li><a href="02-INFRASTRUCTURE/deployment-architecture.md">Deployment Architecture</a></li>
@@ -346,10 +351,12 @@
 <li><a href="02-INFRASTRUCTURE/cost-optimization.md">Cost Optimization</a></li>
 </ol>
 <h3 id="data-engineers">Data Engineers</h3>
-<pre class="mermaid"><code>graph LR
+<div class="mermaid">
+graph LR
     A[Data Architecture] --&gt; B[Data Governance]
     B --&gt; C[Microservices Patterns]
-    C --&gt; D[Observability]</code></pre>
+    C --&gt; D[Observability]
+</div>
 <ol>
 <li><a href="01-ARCHITECTURE/data-architecture/">Data Architecture</a></li>
 <li><a href="04-OPERATIONS/data-governance.md">Data Governance</a></li>
@@ -357,10 +364,11 @@
 <li><a href="04-OPERATIONS/observability.md">Observability Strategy</a> (Data monitoring)</li>
 </ol>
 <h3 id="project-managers">Project Managers</h3>
-<pre class="mermaid"><code>graph LR
+<div class="mermaid">graph LR
     A[Project Charter] --&gt; B[Sprint Planning]
     B --&gt; C[Execution Roadmap]
-    C --&gt; D[Budget Planning]</code></pre>
+    C --&gt; D[Budget Planning]
+</div>
 <ol>
 <li><a href="00-OVERVIEW/project-charter/">Project Charter</a></li>
 <li><a href="05-PROJECT-MANAGEMENT/sprint-planning/">Sprint Planning</a></li>
@@ -494,9 +502,10 @@ Cross-cutting docs define invariants; domain docs must not redefine them.</p>
 </div>
 </div>
 </div>
-</body>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
+mermaid.initialize({});</script></body>
 </html>
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-09-16 04:43:14.425156+00:00
+Build Date UTC : 2025-09-22 03:15:26.128972+00:00
 -->

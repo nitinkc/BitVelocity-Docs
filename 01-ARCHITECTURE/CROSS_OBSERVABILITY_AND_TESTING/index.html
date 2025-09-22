@@ -586,7 +586,7 @@
 <li>CI gating for contract &amp; schema changes operational.</li>
 <li>At least one chaos experiment validated.</li>
 </ul>
-<p><pre class="highlight"><code>
+<pre><code>
 ````markdown name=CROSS_INFRA_PORTABILITY_AND_DEPLOYMENT.md
 # Cross-Cutting – Infrastructure Portability &amp; Deployment
 
@@ -596,8 +596,9 @@
 - Minimal early footprint; scale features when needed.
 - Repeatable ephemeral environments (feature branches).
 
-## 2. Abstraction Interfaces</code></pre>
-interface CloudProvider {
+## 2. Abstraction Interfaces
+</code></pre>
+<p>interface CloudProvider {
   Network createNetwork(...);
   K8sCluster createKubernetesCluster(...);
   PostgresCluster createPostgres(...);
@@ -605,10 +606,11 @@ interface CloudProvider {
   KafkaCluster createKafka(...);
   VaultInstance createVault(...);
   ObservabilityStack createMonitoring(...);
-}
-<pre class="highlight"><code>
-## 3. Directory Layout (Infra Repo)</code></pre>
-infra/
+}</p>
+<pre><code>
+## 3. Directory Layout (Infra Repo)
+</code></pre>
+<p>infra/
   common/
   networking/
   kubernetes/

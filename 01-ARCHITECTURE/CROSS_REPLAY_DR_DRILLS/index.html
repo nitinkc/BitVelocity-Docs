@@ -312,13 +312,14 @@
 <li>Emit system.replay.completed.v1 event</li>
 </ol>
 <h2 id="4-cli-conceptual">4. CLI (Conceptual)</h2>
-<pre class="highlight"><code>replay \
+<pre><code>replay \
   --projection orders_by_customer \
   --from 2025-02-01T00:00Z \
   --to 2025-02-02T00:00Z \
   --events s3://archive/events/ecommerce.order/2025/02/01 \
   --cdc s3://archive/cdc/orders/2025/02/01 \
-  --dry-run</code></pre>
+  --dry-run
+</code></pre>
 <h2 id="5-dr-drill-types">5. DR Drill Types</h2>
 <table>
 <thead>

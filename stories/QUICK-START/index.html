@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="https://nitinkc.github.io/BitVelocity-Docs/adr/ADR-001_1-github%20Packages-vs-JitPack/">
+        <link rel="canonical" href="https://nitinkc.github.io/BitVelocity-Docs/stories/QUICK-START/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>ADR-001 Github Packages vs JitPack - BitVelocity Wiki</title>
+        <title>BitVelocity Development Quick Start - BitVelocity Wiki</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -131,51 +131,51 @@
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">ADRs</a>
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">ADRs</a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="../ADR-TEMPLATE/" class="dropdown-item">Template</a>
+    <a href="../../adr/ADR-TEMPLATE/" class="dropdown-item">Template</a>
 </li>
                                     
 <li>
-    <a href="../GUIDE_ADR_STARTER_PACK/" class="dropdown-item">Starter Pack</a>
+    <a href="../../adr/GUIDE_ADR_STARTER_PACK/" class="dropdown-item">Starter Pack</a>
 </li>
                                     
 <li>
-    <a href="../ADR-001-multi-repo-vs-monorepo/" class="dropdown-item">ADR-001 Multi-repo vs Monorepo</a>
+    <a href="../../adr/ADR-001-multi-repo-vs-monorepo/" class="dropdown-item">ADR-001 Multi-repo vs Monorepo</a>
 </li>
                                     
 <li>
-    <a href="./" class="dropdown-item active" aria-current="page">ADR-001 Github Packages vs JitPack</a>
+    <a href="../../adr/ADR-001_1-github%20Packages-vs-JitPack/" class="dropdown-item">ADR-001 Github Packages vs JitPack</a>
 </li>
                                     
 <li>
-    <a href="../ADR-002-event-vs-cdc-strategy/" class="dropdown-item">ADR-002 Event vs CDC Strategy</a>
+    <a href="../../adr/ADR-002-event-vs-cdc-strategy/" class="dropdown-item">ADR-002 Event vs CDC Strategy</a>
 </li>
                                     
 <li>
-    <a href="../ADR-003-protocol-introduction-order/" class="dropdown-item">ADR-003 Protocol Introduction Order</a>
+    <a href="../../adr/ADR-003-protocol-introduction-order/" class="dropdown-item">ADR-003 Protocol Introduction Order</a>
 </li>
                                     
 <li>
-    <a href="../ADR-004-oltp-cdc-olap-architecture/" class="dropdown-item">ADR-004 OLTP CDC OLAP Architecture</a>
+    <a href="../../adr/ADR-004-oltp-cdc-olap-architecture/" class="dropdown-item">ADR-004 OLTP CDC OLAP Architecture</a>
 </li>
                                     
 <li>
-    <a href="../ADR-005-security-layering/" class="dropdown-item">ADR-005 Security Layering</a>
+    <a href="../../adr/ADR-005-security-layering/" class="dropdown-item">ADR-005 Security Layering</a>
 </li>
                                     
 <li>
-    <a href="../ADR-006-retry-backoff-policies/" class="dropdown-item">ADR-006 Retry Backoff Policies</a>
+    <a href="../../adr/ADR-006-retry-backoff-policies/" class="dropdown-item">ADR-006 Retry Backoff Policies</a>
 </li>
                                     
 <li>
-    <a href="../ADR-007-observability-baseline/" class="dropdown-item">ADR-007 Observability Baseline</a>
+    <a href="../../adr/ADR-007-observability-baseline/" class="dropdown-item">ADR-007 Observability Baseline</a>
 </li>
                                     
 <li>
-    <a href="../ADR-008-pulumi-cloud-provider-abstraction/" class="dropdown-item">ADR-008 Pulumi Cloud Provider Abstraction</a>
+    <a href="../../adr/ADR-008-pulumi-cloud-provider-abstraction/" class="dropdown-item">ADR-008 Pulumi Cloud Provider Abstraction</a>
 </li>
                                 </ul>
                             </li>
@@ -224,16 +224,6 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
-                            <li class="nav-item">
-                                <a rel="prev" href="../ADR-001-multi-repo-vs-monorepo/" class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="../ADR-002-event-vs-cdc-strategy/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
                     </ul>
                 </div>
             </div>
@@ -252,21 +242,29 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#adr-001_1-github-package-vs-jitpack" class="nav-link">ADR-001_1: Github Package vs JitPack</a>
+            <li class="nav-item" data-bs-level="1"><a href="#bitvelocity-development-quick-start" class="nav-link">BitVelocity Development Quick Start</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#status" class="nav-link">Status</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#context" class="nav-link">Context</a>
+            <li class="nav-item" data-bs-level="2"><a href="#quick-setup" class="nav-link">🚀 Quick Setup</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#decision" class="nav-link">Decision</a>
+            <li class="nav-item" data-bs-level="2"><a href="#what-you-get" class="nav-link">📋 What You Get</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#consequences" class="nav-link">Consequences</a>
+            <li class="nav-item" data-bs-level="2"><a href="#next-steps-following-us-001" class="nav-link">🎯 Next Steps (Following US-001)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#architecture-alignment" class="nav-link">📁 Architecture Alignment</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#verification" class="nav-link">🔍 Verification</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#documentation-references" class="nav-link">📚 Documentation References</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -277,21 +275,109 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="adr-001_1-github-package-vs-jitpack">ADR-001_1: Github Package vs JitPack</h1>
-<h2 id="status">Status</h2>
-<p>Accepted Jitpack</p>
-<h2 id="context">Context</h2>
-<p>Easier package management and dissemination within team</p>
-<h2 id="decision">Decision</h2>
+<h1 id="bitvelocity-development-quick-start">BitVelocity Development Quick Start</h1>
+<p>This is your <strong>Infrastructure Foundation</strong> module - the starting point for BitVelocity development following EPIC-001.</p>
+<h2 id="quick-setup">🚀 Quick Setup</h2>
+<h3 id="prerequisites">Prerequisites</h3>
 <ul>
-<li>Avoid Github packages as PAT requirement and github treats packages of public repo as private</li>
-<li>Avoid maven due to few set up steps</li>
-<li>Go with <a href="https://jitpack.io/">Jitpack</a>. Have at least a release in github.</li>
+<li>Java 17+</li>
+<li>Maven 3.8+</li>
+<li>Docker &amp; Docker Compose</li>
+<li>Git</li>
 </ul>
-<h2 id="consequences">Consequences</h2>
+<h3 id="1-start-infrastructure-services">1. Start Infrastructure Services</h3>
+<pre><code class="language-powershell"># Start database, cache, and messaging services
+cd scripts/dev
+docker-compose -f docker-compose.infra.yml up -d
+
+# Verify services are running
+docker-compose -f docker-compose.infra.yml ps
+</code></pre>
+<h3 id="2-build-shared-libraries">2. Build Shared Libraries</h3>
+<pre><code class="language-powershell"># Build core shared libraries first
+cd bv-core-common
+./mvnw clean install
+
+# This creates:
+# - bv-common-entities (BaseEntity with audit fields)
+# - bv-common-events (EventEnvelope for event-driven architecture)  
+# - bv-common-security (UserContext and SecurityContextHolder)
+# - bv-common-exceptions (BitVelocityException for error handling)
+</code></pre>
+<h3 id="3-start-authentication-service">3. Start Authentication Service</h3>
+<pre><code class="language-powershell">cd bv-eCommerce-core/services/auth-service
+./mvnw spring-boot:run
+
+# Service will be available at http://localhost:8081
+# Health check: http://localhost:8081/actuator/health
+</code></pre>
+<h2 id="what-you-get">📋 What You Get</h2>
+<h3 id="shared-libraries-bv-core-common">Shared Libraries (<code>bv-core-common</code>)</h3>
 <ul>
-<li>Easy distribution of packages </li>
-<li>Locking with Jitpack and in case the project is abandoned, maven has to be used </li>
+<li><strong>BaseEntity</strong>: Audit fields (created_at, updated_at, created_by, etc.)</li>
+<li><strong>EventEnvelope</strong>: Standard event wrapper following naming convention</li>
+<li><strong>UserContext</strong>: Security context for authentication/authorization</li>
+<li><strong>BitVelocityException</strong>: Structured error handling</li>
+</ul>
+<h3 id="authentication-service-auth-service">Authentication Service (<code>auth-service</code>)</h3>
+<ul>
+<li>Spring Boot application with security</li>
+<li>User entity with roles (USER, ADMIN, PRODUCT_MANAGER)</li>
+<li>JWT token foundation (ready for implementation)</li>
+<li>PostgreSQL integration with JPA auditing</li>
+</ul>
+<h3 id="infrastructure-services">Infrastructure Services</h3>
+<ul>
+<li><strong>PostgreSQL</strong>: Main database on port 5432</li>
+<li><strong>Redis</strong>: Cache service on port 6379  </li>
+<li><strong>Redpanda</strong>: Kafka-compatible messaging on port 9092</li>
+</ul>
+<h2 id="next-steps-following-us-001">🎯 Next Steps (Following US-001)</h2>
+<h3 id="task-1-complete-maven-parent-setup">Task 1: Complete Maven Parent Setup</h3>
+<pre><code class="language-powershell"># Review and enhance bv-core-parent/pom.xml
+# Ensure BOM manages all dependency versions
+</code></pre>
+<h3 id="task-2-add-shared-library-features">Task 2: Add Shared Library Features</h3>
+<pre><code class="language-powershell"># Add to bv-common-events:
+# - Event publisher implementations
+# - Event listener annotations
+# - Event contract validation
+</code></pre>
+<h3 id="task-3-enhance-authentication-service">Task 3: Enhance Authentication Service</h3>
+<pre><code class="language-powershell"># Implement JWT service (TASK-006)
+# Add user registration endpoint (TASK-007)
+# Create login endpoint (TASK-008)
+</code></pre>
+<h3 id="task-4-setup-kubernetes-development">Task 4: Setup Kubernetes Development</h3>
+<pre><code class="language-powershell"># Install Kind: https://kind.sigs.k8s.io/docs/user/quick-start/
+# Create cluster configuration
+# Deploy services to local cluster
+</code></pre>
+<h2 id="architecture-alignment">📁 Architecture Alignment</h2>
+<p>This starter follows the patterns defined in:
+- <strong>EPIC-001</strong>: Infrastructure Foundation
+- <strong>US-001</strong>: Consistent Development Environment Setup<br />
+- <strong>ADR-005</strong>: Security layering with UserContext
+- <strong>Event Contracts</strong>: Domain.context.entity.eventType.vN naming</p>
+<h2 id="verification">🔍 Verification</h2>
+<p>Run these commands to verify your setup:</p>
+<pre><code class="language-powershell"># Check database connection
+psql -h localhost -p 5432 -U postgres -d bitvelocity -c &quot;SELECT version();&quot;
+
+# Check Redis
+docker exec -it $(docker ps -q -f &quot;ancestor=redis:7-alpine&quot;) redis-cli ping
+
+# Check Kafka/Redpanda
+docker exec -it $(docker ps -q -f &quot;ancestor=redpandadata/redpanda:v24.1.3&quot;) rpk topic list
+
+# Build and test shared libraries
+cd bv-core-common &amp;&amp; ./mvnw clean test
+</code></pre>
+<h2 id="documentation-references">📚 Documentation References</h2>
+<ul>
+<li>Epic Details: <code>stories/epics/01-infrastructure-foundation.md</code></li>
+<li>Architecture: <code>BitVelocity-Docs/docs/00-OVERVIEW/README.md</code></li>
+<li>Security Patterns: <code>BitVelocity-Docs/adr/ADR-005-security-layering.md</code></li>
 </ul></div>
             </div>
         </div>

@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="https://nitinkc.github.io/BitVelocity-Docs/adr/ADR-001_1-github%20Packages-vs-JitPack/">
+        <link rel="canonical" href="https://nitinkc.github.io/BitVelocity-Docs/stories/project-configuration/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>ADR-001 Github Packages vs JitPack - BitVelocity Wiki</title>
+        <title>BitVelocity Sprint 1 Project Configuration - BitVelocity Wiki</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -131,51 +131,51 @@
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">ADRs</a>
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">ADRs</a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="../ADR-TEMPLATE/" class="dropdown-item">Template</a>
+    <a href="../../adr/ADR-TEMPLATE/" class="dropdown-item">Template</a>
 </li>
                                     
 <li>
-    <a href="../GUIDE_ADR_STARTER_PACK/" class="dropdown-item">Starter Pack</a>
+    <a href="../../adr/GUIDE_ADR_STARTER_PACK/" class="dropdown-item">Starter Pack</a>
 </li>
                                     
 <li>
-    <a href="../ADR-001-multi-repo-vs-monorepo/" class="dropdown-item">ADR-001 Multi-repo vs Monorepo</a>
+    <a href="../../adr/ADR-001-multi-repo-vs-monorepo/" class="dropdown-item">ADR-001 Multi-repo vs Monorepo</a>
 </li>
                                     
 <li>
-    <a href="./" class="dropdown-item active" aria-current="page">ADR-001 Github Packages vs JitPack</a>
+    <a href="../../adr/ADR-001_1-github%20Packages-vs-JitPack/" class="dropdown-item">ADR-001 Github Packages vs JitPack</a>
 </li>
                                     
 <li>
-    <a href="../ADR-002-event-vs-cdc-strategy/" class="dropdown-item">ADR-002 Event vs CDC Strategy</a>
+    <a href="../../adr/ADR-002-event-vs-cdc-strategy/" class="dropdown-item">ADR-002 Event vs CDC Strategy</a>
 </li>
                                     
 <li>
-    <a href="../ADR-003-protocol-introduction-order/" class="dropdown-item">ADR-003 Protocol Introduction Order</a>
+    <a href="../../adr/ADR-003-protocol-introduction-order/" class="dropdown-item">ADR-003 Protocol Introduction Order</a>
 </li>
                                     
 <li>
-    <a href="../ADR-004-oltp-cdc-olap-architecture/" class="dropdown-item">ADR-004 OLTP CDC OLAP Architecture</a>
+    <a href="../../adr/ADR-004-oltp-cdc-olap-architecture/" class="dropdown-item">ADR-004 OLTP CDC OLAP Architecture</a>
 </li>
                                     
 <li>
-    <a href="../ADR-005-security-layering/" class="dropdown-item">ADR-005 Security Layering</a>
+    <a href="../../adr/ADR-005-security-layering/" class="dropdown-item">ADR-005 Security Layering</a>
 </li>
                                     
 <li>
-    <a href="../ADR-006-retry-backoff-policies/" class="dropdown-item">ADR-006 Retry Backoff Policies</a>
+    <a href="../../adr/ADR-006-retry-backoff-policies/" class="dropdown-item">ADR-006 Retry Backoff Policies</a>
 </li>
                                     
 <li>
-    <a href="../ADR-007-observability-baseline/" class="dropdown-item">ADR-007 Observability Baseline</a>
+    <a href="../../adr/ADR-007-observability-baseline/" class="dropdown-item">ADR-007 Observability Baseline</a>
 </li>
                                     
 <li>
-    <a href="../ADR-008-pulumi-cloud-provider-abstraction/" class="dropdown-item">ADR-008 Pulumi Cloud Provider Abstraction</a>
+    <a href="../../adr/ADR-008-pulumi-cloud-provider-abstraction/" class="dropdown-item">ADR-008 Pulumi Cloud Provider Abstraction</a>
 </li>
                                 </ul>
                             </li>
@@ -224,16 +224,6 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
-                            <li class="nav-item">
-                                <a rel="prev" href="../ADR-001-multi-repo-vs-monorepo/" class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="../ADR-002-event-vs-cdc-strategy/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
                     </ul>
                 </div>
             </div>
@@ -252,21 +242,33 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#adr-001_1-github-package-vs-jitpack" class="nav-link">ADR-001_1: Github Package vs JitPack</a>
+            <li class="nav-item" data-bs-level="1"><a href="#bitvelocity-sprint-1-project-configuration" class="nav-link">BitVelocity Sprint 1 Project Configuration</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#status" class="nav-link">Status</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#context" class="nav-link">Context</a>
+            <li class="nav-item" data-bs-level="2"><a href="#project-details" class="nav-link">Project Details</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#decision" class="nav-link">Decision</a>
+            <li class="nav-item" data-bs-level="2"><a href="#columnsstatus-fields" class="nav-link">Columns/Status Fields</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#consequences" class="nav-link">Consequences</a>
+            <li class="nav-item" data-bs-level="2"><a href="#labels" class="nav-link">Labels</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#custom-fields" class="nav-link">Custom Fields</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#automation-rules" class="nav-link">Automation Rules</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#initial-issues-to-create" class="nav-link">Initial Issues to Create</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#sprint-planning-notes" class="nav-link">Sprint Planning Notes</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -277,21 +279,230 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="adr-001_1-github-package-vs-jitpack">ADR-001_1: Github Package vs JitPack</h1>
-<h2 id="status">Status</h2>
-<p>Accepted Jitpack</p>
-<h2 id="context">Context</h2>
-<p>Easier package management and dissemination within team</p>
-<h2 id="decision">Decision</h2>
+<h1 id="bitvelocity-sprint-1-project-configuration">BitVelocity Sprint 1 Project Configuration</h1>
+<p>This configuration can be used to set up a GitHub Project for tracking Sprint 1 progress.</p>
+<h2 id="project-details">Project Details</h2>
 <ul>
-<li>Avoid Github packages as PAT requirement and github treats packages of public repo as private</li>
-<li>Avoid maven due to few set up steps</li>
-<li>Go with <a href="https://jitpack.io/">Jitpack</a>. Have at least a release in github.</li>
+<li><strong>Name:</strong> BitVelocity Sprint 1 - Foundation Infrastructure</li>
+<li><strong>Description:</strong> Foundational infrastructure and authentication sprint for BitVelocity platform</li>
+<li><strong>Template:</strong> Team planning</li>
 </ul>
-<h2 id="consequences">Consequences</h2>
+<h2 id="columnsstatus-fields">Columns/Status Fields</h2>
+<ol>
+<li><strong>Backlog</strong> </li>
+<li>Description: New issues awaiting triage and planning</li>
+<li>
+<p>Automation: New issues automatically added here</p>
+</li>
+<li>
+<p><strong>Ready</strong></p>
+</li>
+<li>Description: Issues that are refined and ready to be worked on</li>
+<li>
+<p>Automation: Issues moved here when assigned and estimated</p>
+</li>
+<li>
+<p><strong>In Progress</strong></p>
+</li>
+<li>Description: Issues currently being worked on</li>
+<li>
+<p>Automation: Issues moved here when status changed to "In Progress"</p>
+</li>
+<li>
+<p><strong>Review</strong></p>
+</li>
+<li>Description: Completed work awaiting code review and testing</li>
+<li>
+<p>Automation: Issues moved here when PR is opened</p>
+</li>
+<li>
+<p><strong>Done</strong></p>
+</li>
+<li>Description: Completed and merged work</li>
+<li>Automation: Issues moved here when PR is merged</li>
+</ol>
+<h2 id="labels">Labels</h2>
+<pre><code class="language-yaml">labels:
+  # Type labels
+  - name: &quot;type:epic&quot;
+    color: &quot;0052CC&quot;
+    description: &quot;Epic-level issue grouping multiple stories&quot;
+
+  - name: &quot;type:story&quot;
+    color: &quot;0E8A16&quot;
+    description: &quot;User story describing a feature from user perspective&quot;
+
+  - name: &quot;type:task&quot;
+    color: &quot;1D76DB&quot;
+    description: &quot;Specific development task&quot;
+
+  # Priority labels
+  - name: &quot;priority:high&quot;
+    color: &quot;D93F0B&quot;
+    description: &quot;High priority item&quot;
+
+  - name: &quot;priority:medium&quot;
+    color: &quot;FBCA04&quot;
+    description: &quot;Medium priority item&quot;
+
+  - name: &quot;priority:low&quot;
+    color: &quot;0E8A16&quot;
+    description: &quot;Low priority item&quot;
+
+  # Epic labels
+  - name: &quot;epic:infrastructure-foundation&quot;
+    color: &quot;5319E7&quot;
+    description: &quot;Infrastructure Foundation epic&quot;
+
+  - name: &quot;epic:authentication-service&quot;
+    color: &quot;B60205&quot;
+    description: &quot;Authentication Service epic&quot;
+
+  - name: &quot;epic:product-service&quot;
+    color: &quot;0052CC&quot;
+    description: &quot;Product Service epic&quot;
+
+  - name: &quot;epic:observability-foundation&quot;
+    color: &quot;0E8A16&quot;
+    description: &quot;Observability Foundation epic&quot;
+
+  # Status labels
+  - name: &quot;status:blocked&quot;
+    color: &quot;D93F0B&quot;
+    description: &quot;Issue is blocked by dependencies&quot;
+
+  - name: &quot;status:needs-review&quot;
+    color: &quot;FBCA04&quot;
+    description: &quot;Ready for review&quot;
+
+  # Area labels
+  - name: &quot;area:backend&quot;
+    color: &quot;C2E0C6&quot;
+    description: &quot;Backend development&quot;
+
+  - name: &quot;area:infrastructure&quot;
+    color: &quot;F9D0C4&quot;
+    description: &quot;Infrastructure and DevOps&quot;
+
+  - name: &quot;area:security&quot;
+    color: &quot;D4C5F9&quot;
+    description: &quot;Security-related work&quot;
+
+  - name: &quot;area:monitoring&quot;
+    color: &quot;FEF2C0&quot;
+    description: &quot;Monitoring and observability&quot;
+</code></pre>
+<h2 id="custom-fields">Custom Fields</h2>
+<pre><code class="language-yaml">custom_fields:
+  - name: &quot;Story Points&quot;
+    type: &quot;number&quot;
+    description: &quot;Estimation in story points&quot;
+
+  - name: &quot;Epic&quot;
+    type: &quot;single_select&quot;
+    options:
+      - &quot;Infrastructure Foundation&quot;
+      - &quot;Authentication Service&quot;
+      - &quot;Product Service&quot;
+      - &quot;Observability Foundation&quot;
+
+  - name: &quot;Sprint&quot;
+    type: &quot;single_select&quot;
+    options:
+      - &quot;Sprint 1&quot;
+      - &quot;Sprint 2&quot;
+      - &quot;Sprint 3&quot;
+      - &quot;Future&quot;
+</code></pre>
+<h2 id="automation-rules">Automation Rules</h2>
+<pre><code class="language-yaml">automation:
+  - name: &quot;Auto-assign to backlog&quot;
+    trigger: &quot;Issue created&quot;
+    action: &quot;Move to Backlog column&quot;
+
+  - name: &quot;Move to In Progress&quot;
+    trigger: &quot;Issue assigned&quot;
+    action: &quot;Move to In Progress column&quot;
+
+  - name: &quot;Move to Review&quot;
+    trigger: &quot;Pull request opened&quot;
+    action: &quot;Move to Review column&quot;
+
+  - name: &quot;Move to Done&quot;
+    trigger: &quot;Pull request merged&quot;
+    action: &quot;Move to Done column&quot;
+</code></pre>
+<h2 id="initial-issues-to-create">Initial Issues to Create</h2>
+<p>Based on the documentation, create these GitHub issues:</p>
+<h3 id="epic-issues">Epic Issues</h3>
+<ol>
+<li><strong>Epic: Infrastructure Foundation</strong></li>
+<li>Use epic template</li>
+<li>Copy content from <code>docs/epics/01-infrastructure-foundation.md</code></li>
+<li>
+<p>Labels: <code>type:epic</code>, <code>epic:infrastructure-foundation</code>, <code>priority:high</code></p>
+</li>
+<li>
+<p><strong>Epic: Authentication Service</strong></p>
+</li>
+<li>Use epic template</li>
+<li>Copy content from <code>docs/epics/02-authentication-service.md</code></li>
+<li>
+<p>Labels: <code>type:epic</code>, <code>epic:authentication-service</code>, <code>priority:high</code></p>
+</li>
+<li>
+<p><strong>Epic: Product Service</strong></p>
+</li>
+<li>Use epic template</li>
+<li>Copy content from <code>docs/epics/03-product-service.md</code></li>
+<li>
+<p>Labels: <code>type:epic</code>, <code>epic:product-service</code>, <code>priority:high</code></p>
+</li>
+<li>
+<p><strong>Epic: Observability Foundation</strong></p>
+</li>
+<li>Use epic template</li>
+<li>Copy content from <code>docs/epics/04-observability-foundation.md</code></li>
+<li>Labels: <code>type:epic</code>, <code>epic:observability-foundation</code>, <code>priority:medium</code></li>
+</ol>
+<h3 id="story-issues">Story Issues</h3>
+<ol>
+<li><strong>Story: Consistent Development Environment</strong></li>
+<li>Use user story template</li>
+<li>Copy content from <code>docs/issues/001-consistent-development-environment.md</code></li>
+<li>
+<p>Labels: <code>type:story</code>, <code>epic:infrastructure-foundation</code>, <code>priority:high</code></p>
+</li>
+<li>
+<p><strong>Story: Secure Authentication System</strong></p>
+</li>
+<li>Use user story template</li>
+<li>Copy content from <code>docs/issues/002-secure-authentication-system.md</code></li>
+<li>
+<p>Labels: <code>type:story</code>, <code>epic:authentication-service</code>, <code>priority:high</code></p>
+</li>
+<li>
+<p><strong>Story: Product Catalog Management</strong></p>
+</li>
+<li>Use user story template</li>
+<li>Copy content from <code>docs/issues/003-product-catalog-management.md</code></li>
+<li>
+<p>Labels: <code>type:story</code>, <code>epic:product-service</code>, <code>priority:high</code></p>
+</li>
+<li>
+<p><strong>Story: System Health Visibility</strong></p>
+</li>
+<li>Use user story template</li>
+<li>Copy content from <code>docs/issues/004-system-health-visibility.md</code></li>
+<li>Labels: <code>type:story</code>, <code>epic:observability-foundation</code>, <code>priority:medium</code></li>
+</ol>
+<h2 id="sprint-planning-notes">Sprint Planning Notes</h2>
 <ul>
-<li>Easy distribution of packages </li>
-<li>Locking with Jitpack and in case the project is abandoned, maven has to be used </li>
+<li>Total story points: 68</li>
+<li>Recommended team velocity: 15-25 points per week</li>
+<li>Estimated sprint duration: 3-4 weeks</li>
+<li>Critical path: Infrastructure Foundation → Authentication Service → Product Service</li>
+<li>Observability can be developed in parallel after week 2</li>
 </ul></div>
             </div>
         </div>

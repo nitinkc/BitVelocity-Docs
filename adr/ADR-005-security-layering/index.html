@@ -252,20 +252,13 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#adr-005-security-layering-strategy" class="nav-link">ADR-005: Security Layering Strategy</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#layers" class="nav-link">Layers</a>
+            <li class="nav-item" data-bs-level="1"><a href="#adr-005-security-layering-with-usercontext" class="nav-link">ADR-005: Security Layering with UserContext</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#evolution" class="nav-link">Evolution</a>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#bitvelocity-architecture-overview" class="nav-link">BitVelocity Architecture Overview</a>
               <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#rationale" class="nav-link">Rationale</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
               </ul>
             </li>
         </ul>
@@ -273,13 +266,21 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="adr-005-security-layering-strategy">ADR-005: Security Layering Strategy</h1>
-<h2 id="layers">Layers</h2>
-<p>Gateway (JWT/OAuth2, rate limits) → Service (Spring Security RBAC) → OPA (fine-grain) → mTLS mesh → Vault secrets.</p>
-<h2 id="evolution">Evolution</h2>
-<p>JWT HS256 → RS256 via Vault → mTLS → dynamic DB creds → key rotation automation.</p>
-<h2 id="rationale">Rationale</h2>
-<p>Progressive hardening aligned with learning milestones.</p></div>
+<h1 id="adr-005-security-layering-with-usercontext">ADR-005: Security Layering with UserContext</h1>
+<p>This document describes the security layering approach for BitVelocity, focusing on the use of UserContext and best practices for authentication and authorization.</p>
+<ul>
+<li>UserContext propagation</li>
+<li>Role-based access control</li>
+<li>JWT integration (planned)</li>
+</ul>
+<h1 id="bitvelocity-architecture-overview">BitVelocity Architecture Overview</h1>
+<p>This document provides an overview of the BitVelocity architecture, including module structure, service boundaries, and technology choices.</p>
+<ul>
+<li>Core modules: entities, events, security, exceptions</li>
+<li>Authentication service: user management, JWT, roles</li>
+<li>Infrastructure: PostgreSQL, Redis, Redpanda</li>
+<li>Security patterns: see ADR-005</li>
+</ul></div>
             </div>
         </div>
 

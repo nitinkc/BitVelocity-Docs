@@ -364,41 +364,42 @@
 <li><strong>BigQuery</strong>: 1 TB queries, 10 GB storage monthly</li>
 </ul>
 <h4 id="paid-resources-budget-80month">Paid Resources (Budget: $80/month)</h4>
-<pre class="highlight"><code class="language-yaml">gcp_resources:
+<pre><code class="language-yaml">gcp_resources:
   compute:
     - type: e2-standard-2
       count: 2
       cost_monthly: $35
-      usage: "Development cluster nodes"
+      usage: &quot;Development cluster nodes&quot;
 
     - type: e2-small
       count: 1
       cost_monthly: $12
-      usage: "Bastion host"
+      usage: &quot;Bastion host&quot;
 
   storage:
     - type: regional_ssd
       size_gb: 100
       cost_monthly: $17
-      usage: "Database storage"
+      usage: &quot;Database storage&quot;
 
     - type: standard_storage
       size_gb: 50
       cost_monthly: $1
-      usage: "Backup storage"
+      usage: &quot;Backup storage&quot;
 
   networking:
     - type: nat_gateway
       cost_monthly: $10
-      usage: "Outbound internet access"
+      usage: &quot;Outbound internet access&quot;
 
   database:
     - type: cloud_sql_mysql
       instance: db-custom-1-3840
       cost_monthly: $15
-      usage: "Managed database"
+      usage: &quot;Managed database&quot;
 
-total_gcp_monthly: $90</code></pre>
+total_gcp_monthly: $90
+</code></pre>
 <h3 id="aws-secondary-migration-learning">AWS (Secondary - Migration Learning)</h3>
 <h4 id="free-tier-resources-12-months">Free Tier Resources (12 months)</h4>
 <ul>
@@ -409,24 +410,25 @@ total_gcp_monthly: $90</code></pre>
 <li><strong>CloudWatch</strong>: 10 custom metrics</li>
 </ul>
 <h4 id="paid-resources-during-migration-budget-40month">Paid Resources During Migration (Budget: $40/month)</h4>
-<pre class="highlight"><code class="language-yaml">aws_resources:
+<pre><code class="language-yaml">aws_resources:
   compute:
     - type: t3.small
       count: 2
       cost_monthly: $30
-      usage: "Migration test cluster"
+      usage: &quot;Migration test cluster&quot;
 
   storage:
     - type: gp3
       size_gb: 50
       cost_monthly: $5
-      usage: "Application storage"
+      usage: &quot;Application storage&quot;
 
   data_transfer:
     cost_monthly: $5
-    usage: "Cross-region replication"
+    usage: &quot;Cross-region replication&quot;
 
-total_aws_monthly: $40  # Only during migration sprints</code></pre>
+total_aws_monthly: $40  # Only during migration sprints
+</code></pre>
 <h3 id="azure-tertiary-learning-only">Azure (Tertiary - Learning Only)</h3>
 <h4 id="free-tier-resources">Free Tier Resources</h4>
 <ul>
@@ -436,111 +438,115 @@ total_aws_monthly: $40  # Only during migration sprints</code></pre>
 <li><strong>App Service</strong>: 10 web apps</li>
 </ul>
 <h4 id="minimal-usage-budget-20month-during-learning">Minimal Usage (Budget: $20/month during learning)</h4>
-<pre class="highlight"><code class="language-yaml">azure_resources:
+<pre><code class="language-yaml">azure_resources:
   compute:
     - type: B1s
       count: 1
       cost_monthly: $15
-      usage: "Learning environment"
+      usage: &quot;Learning environment&quot;
 
   storage:
     - type: standard_lrs
       size_gb: 32
       cost_monthly: $5
-      usage: "Development storage"
+      usage: &quot;Development storage&quot;
 
-total_azure_monthly: $20  # Only during Azure learning sprint</code></pre>
+total_azure_monthly: $20  # Only during Azure learning sprint
+</code></pre>
 <h2 id="cost-optimization-strategies">Cost Optimization Strategies</h2>
 <h3 id="1-time-based-scaling">1. Time-Based Scaling</h3>
 <h4 id="development-hours-schedule">Development Hours Schedule</h4>
-<pre class="highlight"><code class="language-yaml">working_hours:
+<pre><code class="language-yaml">working_hours:
   weekdays:
-    start: "08:00"
-    end: "20:00"
-    timezone: "UTC"
+    start: &quot;08:00&quot;
+    end: &quot;20:00&quot;
+    timezone: &quot;UTC&quot;
 
   weekends:
-    start: "10:00"
-    end: "18:00"
-    timezone: "UTC"
+    start: &quot;10:00&quot;
+    end: &quot;18:00&quot;
+    timezone: &quot;UTC&quot;
 
 shutdown_schedule:
-  weekday_nights: "20:00 - 08:00"  # 12 hours savings
-  weekends_off: "18:00 Sat - 10:00 Mon"  # 40 hours savings
-  total_savings: "52 hours/week = 74% cost reduction"</code></pre>
+  weekday_nights: &quot;20:00 - 08:00&quot;  # 12 hours savings
+  weekends_off: &quot;18:00 Sat - 10:00 Mon&quot;  # 40 hours savings
+  total_savings: &quot;52 hours/week = 74% cost reduction&quot;
+</code></pre>
 <h4 id="automated-scaling-implementation">Automated Scaling Implementation</h4>
-<pre class="highlight"><code class="language-java">@Component
+<pre><code class="language-java">@Component
 public class CostOptimizedScheduler {
 
-    @Scheduled(cron = "0 0 20 * * MON-FRI") // 8 PM weekdays
+    @Scheduled(cron = &quot;0 0 20 * * MON-FRI&quot;) // 8 PM weekdays
     public void scaleDownForNight() {
-        log.info("Scaling down for night time cost savings");
+        log.info(&quot;Scaling down for night time cost savings&quot;);
 
         // Scale Kubernetes deployments to 0
         kubernetesService.scaleAllDeployments(0);
 
         // Stop non-critical compute instances
-        cloudService.stopInstances(List.of("development", "testing"));
+        cloudService.stopInstances(List.of(&quot;development&quot;, &quot;testing&quot;));
 
         // Reduce database instance sizes
-        databaseService.scaleDown("db-instance", "db-f1-micro");
+        databaseService.scaleDown(&quot;db-instance&quot;, &quot;db-f1-micro&quot;);
 
-        recordCostSaving("night_shutdown", calculateSavings());
+        recordCostSaving(&quot;night_shutdown&quot;, calculateSavings());
     }
 
-    @Scheduled(cron = "0 0 8 * * MON-FRI") // 8 AM weekdays
+    @Scheduled(cron = &quot;0 0 8 * * MON-FRI&quot;) // 8 AM weekdays
     public void scaleUpForWork() {
-        log.info("Scaling up for development work");
+        log.info(&quot;Scaling up for development work&quot;);
 
         // Start compute instances
-        cloudService.startInstances(List.of("development", "testing"));
+        cloudService.startInstances(List.of(&quot;development&quot;, &quot;testing&quot;));
 
         // Scale up database if needed
-        databaseService.scaleUp("db-instance", "db-custom-1-3840");
+        databaseService.scaleUp(&quot;db-instance&quot;, &quot;db-custom-1-3840&quot;);
 
         // Scale Kubernetes deployments back to normal
         kubernetesService.scaleAllDeployments(2);
     }
 
-    @Scheduled(cron = "0 0 18 * * SAT") // 6 PM Saturday
+    @Scheduled(cron = &quot;0 0 18 * * SAT&quot;) // 6 PM Saturday
     public void weekendShutdown() {
-        log.info("Weekend shutdown for maximum cost savings");
+        log.info(&quot;Weekend shutdown for maximum cost savings&quot;);
 
         // Complete shutdown except monitoring
         cloudService.stopAllNonCriticalServices();
 
         // Keep only minimal monitoring and security services
         kubernetesService.keepOnlyEssentialServices(
-            List.of("monitoring", "security", "vault")
+            List.of(&quot;monitoring&quot;, &quot;security&quot;, &quot;vault&quot;)
         );
     }
-}</code></pre>
+}
+</code></pre>
 <h3 id="2-resource-right-sizing">2. Resource Right-Sizing</h3>
 <h4 id="dynamic-resource-allocation">Dynamic Resource Allocation</h4>
-<pre class="highlight"><code class="language-yaml">resource_profiles:
+<pre><code class="language-yaml">resource_profiles:
   development:
-    cpu_request: "100m"
-    cpu_limit: "500m"
-    memory_request: "128Mi"
-    memory_limit: "512Mi"
+    cpu_request: &quot;100m&quot;
+    cpu_limit: &quot;500m&quot;
+    memory_request: &quot;128Mi&quot;
+    memory_limit: &quot;512Mi&quot;
     replicas: 1
 
   load_testing:
-    cpu_request: "500m"
-    cpu_limit: "2000m"
-    memory_request: "512Mi"
-    memory_limit: "2Gi"
+    cpu_request: &quot;500m&quot;
+    cpu_limit: &quot;2000m&quot;
+    memory_request: &quot;512Mi&quot;
+    memory_limit: &quot;2Gi&quot;
     replicas: 3
-    duration: "2 hours max"
+    duration: &quot;2 hours max&quot;
 
   minimal:
-    cpu_request: "50m"
-    cpu_limit: "200m"
-    memory_request: "64Mi"
-    memory_limit: "256Mi"
-    replicas: 1</code></pre>
+    cpu_request: &quot;50m&quot;
+    cpu_limit: &quot;200m&quot;
+    memory_request: &quot;64Mi&quot;
+    memory_limit: &quot;256Mi&quot;
+    replicas: 1
+</code></pre>
 <h4 id="storage-optimization">Storage Optimization</h4>
-<pre class="highlight"><code class="language-java">@Service
+<pre><code class="language-java">@Service
 public class StorageOptimizationService {
 
     @Scheduled(fixedRate = 86400000) // Daily
@@ -564,25 +570,26 @@ public class StorageOptimizationService {
 
         oldLogs.forEach(log -&gt; {
             storageService.changeStorageClass(log.getPath(), storageClass);
-            log.info("Archived log {} to {}", log.getPath(), storageClass);
+            log.info(&quot;Archived log {} to {}&quot;, log.getPath(), storageClass);
         });
     }
-}</code></pre>
+}
+</code></pre>
 <h3 id="3-spot-instance-strategy">3. Spot Instance Strategy</h3>
 <h4 id="spot-instance-configuration">Spot Instance Configuration</h4>
-<pre class="highlight"><code class="language-java">public class SpotInstanceManager {
+<pre><code class="language-java">public class SpotInstanceManager {
 
     private static final Map&lt;String, SpotInstanceConfig&gt; SPOT_CONFIGS = Map.of(
-        "batch-processing", SpotInstanceConfig.builder()
-            .maxPrice("0.02")
-            .instanceTypes(List.of("n1-standard-2", "n1-standard-4"))
+        &quot;batch-processing&quot;, SpotInstanceConfig.builder()
+            .maxPrice(&quot;0.02&quot;)
+            .instanceTypes(List.of(&quot;n1-standard-2&quot;, &quot;n1-standard-4&quot;))
             .interruptionHandling(InterruptionHandling.GRACEFUL_SHUTDOWN)
             .checkpointInterval(Duration.ofMinutes(5))
             .build(),
 
-        "development", SpotInstanceConfig.builder()
-            .maxPrice("0.01")
-            .instanceTypes(List.of("e2-small", "e2-medium"))
+        &quot;development&quot;, SpotInstanceConfig.builder()
+            .maxPrice(&quot;0.01&quot;)
+            .instanceTypes(List.of(&quot;e2-small&quot;, &quot;e2-medium&quot;))
             .interruptionHandling(InterruptionHandling.SAVE_STATE)
             .build()
     );
@@ -594,14 +601,15 @@ public class StorageOptimizationService {
             var spotRequest = cloudService.requestSpotInstance(config);
             monitorSpotInstance(spotRequest);
         } catch (SpotPriceExceededException e) {
-            log.warn("Spot price too high, falling back to on-demand");
+            log.warn(&quot;Spot price too high, falling back to on-demand&quot;);
             cloudService.requestOnDemandInstance(config.toOnDemandConfig());
         }
     }
-}</code></pre>
+}
+</code></pre>
 <h2 id="data-analytics-cost-management">Data &amp; Analytics Cost Management</h2>
 <h3 id="database-optimization">Database Optimization</h3>
-<pre class="highlight"><code class="language-sql">-- Partition large tables by date
+<pre><code class="language-sql">-- Partition large tables by date
 CREATE TABLE order_events_y2024 PARTITION OF order_events
 FOR VALUES FROM ('2024-01-01') TO ('2025-01-01');
 
@@ -620,9 +628,10 @@ SELECT partman.run_maintenance(
     p_parent_table =&gt; 'public.order_events',
     p_analyze =&gt; true,
     p_jobmon =&gt; true
-);</code></pre>
+);
+</code></pre>
 <h3 id="analytics-cost-control">Analytics Cost Control</h3>
-<pre class="highlight"><code class="language-java">@Component
+<pre><code class="language-java">@Component
 public class AnalyticsCostControl {
 
     private static final int DAILY_QUERY_LIMIT_GB = 30; // Stay under BigQuery free tier
@@ -633,7 +642,7 @@ public class AnalyticsCostControl {
         int estimatedDataProcessedGB = estimateQuerySize(event.getQuery());
 
         if (dailyQueryUsage.get() + estimatedDataProcessedGB &gt; DAILY_QUERY_LIMIT_GB) {
-            log.warn("Daily query limit would be exceeded, deferring query");
+            log.warn(&quot;Daily query limit would be exceeded, deferring query&quot;);
             deferQuery(event.getQuery());
             return;
         }
@@ -642,60 +651,62 @@ public class AnalyticsCostControl {
         dailyQueryUsage.addAndGet(estimatedDataProcessedGB);
     }
 
-    @Scheduled(cron = "0 0 0 * * *") // Reset daily at midnight
+    @Scheduled(cron = &quot;0 0 0 * * *&quot;) // Reset daily at midnight
     public void resetDailyUsage() {
         dailyQueryUsage.set(0);
         processDeferredQueries();
     }
-}</code></pre>
+}
+</code></pre>
 <h2 id="monitoring-alerting-cost-management">Monitoring &amp; Alerting Cost Management</h2>
 <h3 id="cost-aware-monitoring">Cost-Aware Monitoring</h3>
-<pre class="highlight"><code class="language-yaml">monitoring_strategy:
+<pre><code class="language-yaml">monitoring_strategy:
   metrics_retention:
-    high_frequency: "24 hours"    # 1-second resolution
-    medium_frequency: "7 days"    # 1-minute resolution
-    low_frequency: "30 days"      # 5-minute resolution
+    high_frequency: &quot;24 hours&quot;    # 1-second resolution
+    medium_frequency: &quot;7 days&quot;    # 1-minute resolution
+    low_frequency: &quot;30 days&quot;      # 5-minute resolution
 
   log_retention:
-    error_logs: "30 days"
-    info_logs: "7 days"
-    debug_logs: "24 hours"
+    error_logs: &quot;30 days&quot;
+    info_logs: &quot;7 days&quot;
+    debug_logs: &quot;24 hours&quot;
 
   alerting_rules:
-    - name: "cost_threshold_warning"
-      expr: "monthly_spend &gt; 150"
-      severity: "warning"
+    - name: &quot;cost_threshold_warning&quot;
+      expr: &quot;monthly_spend &gt; 150&quot;
+      severity: &quot;warning&quot;
 
-    - name: "cost_threshold_critical"
-      expr: "monthly_spend &gt; 180"
-      severity: "critical"
-      actions: ["scale_down_non_critical"]</code></pre>
+    - name: &quot;cost_threshold_critical&quot;
+      expr: &quot;monthly_spend &gt; 180&quot;
+      severity: &quot;critical&quot;
+      actions: [&quot;scale_down_non_critical&quot;]
+</code></pre>
 <h3 id="alert-configuration">Alert Configuration</h3>
-<pre class="highlight"><code class="language-java">@Component
+<pre><code class="language-java">@Component
 public class CostAlertingService {
 
     @EventListener
     public void handleCostThresholdExceeded(CostThresholdEvent event) {
         if (event.getThreshold() == CostThreshold.WARNING) {
-            log.warn("Cost threshold warning: ${} spent of ${} budget", 
+            log.warn(&quot;Cost threshold warning: ${} spent of ${} budget&quot;, 
                     event.getCurrentSpend(), event.getBudgetLimit());
 
             // Send notification to team
             notificationService.sendSlackMessage(
-                "💰 Cost Alert: {}% of monthly budget used", 
+                &quot;💰 Cost Alert: {}% of monthly budget used&quot;, 
                 event.getPercentageUsed()
             );
         }
 
         if (event.getThreshold() == CostThreshold.CRITICAL) {
-            log.error("Critical cost threshold exceeded!");
+            log.error(&quot;Critical cost threshold exceeded!&quot;);
 
             // Automatic cost reduction measures
             emergencyScaleDown();
 
             // Immediate notification
             notificationService.sendEmail(
-                "URGENT: Cloud cost budget exceeded", 
+                &quot;URGENT: Cloud cost budget exceeded&quot;, 
                 buildCostReport(event)
             );
         }
@@ -703,8 +714,8 @@ public class CostAlertingService {
 
     private void emergencyScaleDown() {
         // Scale down non-critical services
-        kubernetesService.scaleDown("analytics", 0);
-        kubernetesService.scaleDown("batch-processing", 0);
+        kubernetesService.scaleDown(&quot;analytics&quot;, 0);
+        kubernetesService.scaleDown(&quot;batch-processing&quot;, 0);
 
         // Reduce database instances
         databaseService.scaleToMinimum();
@@ -712,45 +723,47 @@ public class CostAlertingService {
         // Stop expensive compute instances
         cloudService.stopNonCriticalInstances();
     }
-}</code></pre>
+}
+</code></pre>
 <h2 id="development-tools-budget">Development Tools Budget</h2>
 <h3 id="free-and-open-source-tools-priority">Free and Open Source Tools Priority</h3>
-<pre class="highlight"><code class="language-yaml">development_tools:
+<pre><code class="language-yaml">development_tools:
   free_tools:
-    - name: "GitHub"
-      cost: "$0"
-      usage: "Source code repository, CI/CD"
+    - name: &quot;GitHub&quot;
+      cost: &quot;$0&quot;
+      usage: &quot;Source code repository, CI/CD&quot;
 
-    - name: "Docker"
-      cost: "$0"
-      usage: "Containerization"
+    - name: &quot;Docker&quot;
+      cost: &quot;$0&quot;
+      usage: &quot;Containerization&quot;
 
-    - name: "Kubernetes (Kind)"
-      cost: "$0"
-      usage: "Local orchestration"
+    - name: &quot;Kubernetes (Kind)&quot;
+      cost: &quot;$0&quot;
+      usage: &quot;Local orchestration&quot;
 
-    - name: "Prometheus + Grafana"
-      cost: "$0"
-      usage: "Monitoring and visualization"
+    - name: &quot;Prometheus + Grafana&quot;
+      cost: &quot;$0&quot;
+      usage: &quot;Monitoring and visualization&quot;
 
-    - name: "ELK Stack"
-      cost: "$0"
-      usage: "Logging and search"
+    - name: &quot;ELK Stack&quot;
+      cost: &quot;$0&quot;
+      usage: &quot;Logging and search&quot;
 
   paid_tools:
-    - name: "JetBrains IntelliJ IDEA"
-      cost: "$15/month"
-      justification: "Productivity boost for Java development"
+    - name: &quot;JetBrains IntelliJ IDEA&quot;
+      cost: &quot;$15/month&quot;
+      justification: &quot;Productivity boost for Java development&quot;
 
-    - name: "Datadog (trial/free tier)"
-      cost: "$0"
-      usage: "Advanced APM during performance testing"</code></pre>
+    - name: &quot;Datadog (trial/free tier)&quot;
+      cost: &quot;$0&quot;
+      usage: &quot;Advanced APM during performance testing&quot;
+</code></pre>
 <h2 id="cost-tracking-and-reporting">Cost Tracking and Reporting</h2>
 <h3 id="automated-cost-reporting">Automated Cost Reporting</h3>
-<pre class="highlight"><code class="language-java">@Service
+<pre><code class="language-java">@Service
 public class CostReportingService {
 
-    @Scheduled(cron = "0 0 9 * * MON") // Monday 9 AM
+    @Scheduled(cron = &quot;0 0 9 * * MON&quot;) // Monday 9 AM
     public void generateWeeklyCostReport() {
         var report = CostReport.builder()
             .reportPeriod(getLastWeek())
@@ -770,9 +783,9 @@ public class CostReportingService {
         // Check for underutilized resources
         if (getCpuUtilization() &lt; 20) {
             recommendations.add(CostRecommendation.builder()
-                .type("right_sizing")
-                .description("Consider reducing instance sizes")
-                .potentialSavings("$20/month")
+                .type(&quot;right_sizing&quot;)
+                .description(&quot;Consider reducing instance sizes&quot;)
+                .potentialSavings(&quot;$20/month&quot;)
                 .build());
         }
 
@@ -780,15 +793,16 @@ public class CostReportingService {
         var unattachedVolumes = storageService.getUnattachedVolumes();
         if (!unattachedVolumes.isEmpty()) {
             recommendations.add(CostRecommendation.builder()
-                .type("storage_cleanup")
-                .description("Delete {} unattached volumes", unattachedVolumes.size())
-                .potentialSavings("$5/month")
+                .type(&quot;storage_cleanup&quot;)
+                .description(&quot;Delete {} unattached volumes&quot;, unattachedVolumes.size())
+                .potentialSavings(&quot;$5/month&quot;)
                 .build());
         }
 
         return recommendations;
     }
-}</code></pre>
+}
+</code></pre>
 <h3 id="budget-allocation-by-sprint">Budget Allocation by Sprint</h3>
 <table>
 <thead>
@@ -863,40 +877,42 @@ public class CostReportingService {
 <li>Reassess learning priorities</li>
 </ol>
 <h3 id="contingency-plans">Contingency Plans</h3>
-<pre class="highlight"><code class="language-yaml">contingency_actions:
+<pre><code class="language-yaml">contingency_actions:
   budget_exceeded_by_10_percent:
-    - action: "Enable more aggressive auto-scaling"
-    - action: "Reduce log retention periods"
-    - action: "Increase use of spot instances"
+    - action: &quot;Enable more aggressive auto-scaling&quot;
+    - action: &quot;Reduce log retention periods&quot;
+    - action: &quot;Increase use of spot instances&quot;
 
   budget_exceeded_by_25_percent:
-    - action: "Pause analytics workloads"
-    - action: "Reduce multi-region deployments"
-    - action: "Move to smaller database instances"
+    - action: &quot;Pause analytics workloads&quot;
+    - action: &quot;Reduce multi-region deployments&quot;
+    - action: &quot;Move to smaller database instances&quot;
 
   budget_exceeded_by_50_percent:
-    - action: "Emergency shutdown of all non-critical services"
-    - action: "Migrate to local development environment"
-    - action: "Suspend cloud-based learning activities"</code></pre>
+    - action: &quot;Emergency shutdown of all non-critical services&quot;
+    - action: &quot;Migrate to local development environment&quot;
+    - action: &quot;Suspend cloud-based learning activities&quot;
+</code></pre>
 <h2 id="return-on-investment-roi-analysis">Return on Investment (ROI) Analysis</h2>
 <h3 id="learning-value-metrics">Learning Value Metrics</h3>
-<pre class="highlight"><code class="language-yaml">roi_calculation:
-  total_annual_investment: "$2,400"
+<pre><code class="language-yaml">roi_calculation:
+  total_annual_investment: &quot;$2,400&quot;
 
   skills_acquired:
-    - "Cloud Architecture (GCP, AWS, Azure)"
-    - "Microservices Patterns"
-    - "Data Engineering"
-    - "DevOps and Infrastructure as Code"
-    - "Security and Compliance"
+    - &quot;Cloud Architecture (GCP, AWS, Azure)&quot;
+    - &quot;Microservices Patterns&quot;
+    - &quot;Data Engineering&quot;
+    - &quot;DevOps and Infrastructure as Code&quot;
+    - &quot;Security and Compliance&quot;
 
   career_value:
-    salary_increase_potential: "$15,000 - $25,000"
-    certification_equivalents: "5-7 cloud certifications"
-    project_portfolio_value: "Production-ready reference implementation"
+    salary_increase_potential: &quot;$15,000 - $25,000&quot;
+    certification_equivalents: &quot;5-7 cloud certifications&quot;
+    project_portfolio_value: &quot;Production-ready reference implementation&quot;
 
-  roi_multiple: "6.25x - 10.4x"
-  payback_period: "2-3 months"</code></pre>
+  roi_multiple: &quot;6.25x - 10.4x&quot;
+  payback_period: &quot;2-3 months&quot;
+</code></pre>
 <h3 id="cost-per-learning-outcome">Cost per Learning Outcome</h3>
 <ul>
 <li><strong>Cost per Technology Mastered</strong>: $48 (50 technologies)</li>

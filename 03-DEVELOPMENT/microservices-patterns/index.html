@@ -301,9 +301,9 @@
 <h3 id="1-service-decomposition-patterns">1. Service Decomposition Patterns</h3>
 <h4 id="database-per-service">Database per Service</h4>
 <p><strong>Intent</strong>: Each microservice owns its data and database schema.</p>
-<pre class="highlight"><code class="language-java">// Order Service - owns order data
+<pre><code class="language-java">// Order Service - owns order data
 @Entity
-@Table(name = "orders")
+@Table(name = &quot;orders&quot;)
 public class Order {
     @Id
     private UUID orderId;
@@ -318,21 +318,22 @@ public class Order {
 
 // Customer Service - owns customer data  
 @Entity
-@Table(name = "customers")
+@Table(name = &quot;customers&quot;)
 public class Customer {
     @Id
     private UUID customerId;
     private String email;
     private String name;
     private CustomerStatus status;
-}</code></pre>
+}
+</code></pre>
 <p><strong>Implementation Strategy</strong>:
 - Start with logical separation in same database
 - Migrate to physical separation as services stabilize
 - Use shared libraries for common patterns</p>
 <h4 id="shared-libraries-pattern">Shared Libraries Pattern</h4>
 <p><strong>Intent</strong>: Share common code while maintaining service autonomy.</p>
-<pre class="highlight"><code class="language-java">// Shared event library
+<pre><code class="language-java">// Shared event library
 @AllArgsConstructor
 @Getter
 public abstract class DomainEvent {
@@ -351,17 +352,18 @@ public class OrderCreatedEvent extends DomainEvent {
     private final List&lt;OrderItem&gt; items;
 
     public OrderCreatedEvent(UUID orderId, UUID customerId, BigDecimal amount, List&lt;OrderItem&gt; items) {
-        super("OrderCreated", orderId, MDC.get("correlationId"), getEventMetadata());
+        super(&quot;OrderCreated&quot;, orderId, MDC.get(&quot;correlationId&quot;), getEventMetadata());
         this.customerId = customerId;
         this.amount = amount;
         this.items = items;
     }
-}</code></pre>
+}
+</code></pre>
 <h3 id="2-communication-patterns">2. Communication Patterns</h3>
 <h4 id="api-gateway-pattern">API Gateway Pattern</h4>
 <p><strong>Intent</strong>: Single entry point for all client requests with cross-cutting concerns.</p>
-<pre class="highlight"><code class="language-java">@RestController
-@RequestMapping("/api/gateway")
+<pre><code class="language-java">@RestController
+@RequestMapping(&quot;/api/gateway&quot;)
 public class ApiGatewayController {
 
     @Autowired
@@ -370,10 +372,10 @@ public class ApiGatewayController {
     @Autowired
     private LoadBalancer loadBalancer;
 
-    @PostMapping("/orders")
+    @PostMapping(&quot;/orders&quot;)
     public ResponseEntity&lt;OrderResponse&gt; createOrder(
             @RequestBody CreateOrderRequest request,
-            @RequestHeader("Authorization") String authToken) {
+            @RequestHeader(&quot;Authorization&quot;) String authToken) {
 
         // Authentication &amp; Authorization
         var user = authService.validateToken(authToken);
@@ -382,7 +384,7 @@ public class ApiGatewayController {
         rateLimiter.checkLimit(user.getId());
 
         // Request routing
-        var orderService = serviceRegistry.getService("order-service");
+        var orderService = serviceRegistry.getService(&quot;order-service&quot;);
         var endpoint = loadBalancer.selectEndpoint(orderService);
 
         // Request transformation
@@ -393,10 +395,11 @@ public class ApiGatewayController {
             orderServiceClient.createOrder(endpoint, internalRequest)
         );
     }
-}</code></pre>
+}
+</code></pre>
 <h4 id="service-discovery-pattern">Service Discovery Pattern</h4>
 <p><strong>Intent</strong>: Services register themselves and discover other services dynamically.</p>
-<pre class="highlight"><code class="language-java">@Component
+<pre><code class="language-java">@Component
 public class ServiceRegistry {
 
     private final Map&lt;String, List&lt;ServiceInstance&gt;&gt; services = new ConcurrentHashMap&lt;&gt;();
@@ -406,7 +409,7 @@ public class ServiceRegistry {
         services.computeIfAbsent(event.getServiceName(), k -&gt; new ArrayList&lt;&gt;())
                 .add(event.getServiceInstance());
 
-        log.info("Service registered: {} at {}", 
+        log.info(&quot;Service registered: {} at {}&quot;, 
                 event.getServiceName(), 
                 event.getServiceInstance().getEndpoint());
     }
@@ -435,10 +438,11 @@ public class ServiceRegistrar implements ApplicationListener&lt;ContextRefreshed
 
         serviceRegistry.register(instance);
     }
-}</code></pre>
+}
+</code></pre>
 <h4 id="circuit-breaker-pattern">Circuit Breaker Pattern</h4>
 <p><strong>Intent</strong>: Prevent cascading failures by failing fast when downstream services are unhealthy.</p>
-<pre class="highlight"><code class="language-java">@Component
+<pre><code class="language-java">@Component
 public class CircuitBreaker {
 
     private final Map&lt;String, CircuitBreakerState&gt; circuitStates = new ConcurrentHashMap&lt;&gt;();
@@ -474,18 +478,19 @@ public class OrderService {
 
     public Order getOrderDetails(UUID orderId) {
         return circuitBreaker.execute(
-            "customer-service",
+            &quot;customer-service&quot;,
             () -&gt; customerServiceClient.getCustomer(order.getCustomerId()),
             () -&gt; CustomerSummary.unavailable(order.getCustomerId())
         );
     }
-}</code></pre>
+}
+</code></pre>
 <h3 id="3-data-management-patterns">3. Data Management Patterns</h3>
 <h4 id="command-query-responsibility-segregation-cqrs">Command Query Responsibility Segregation (CQRS)</h4>
 <p><strong>Intent</strong>: Separate read and write models for better scalability and maintainability.</p>
-<pre class="highlight"><code class="language-java">// Command side - optimized for writes
+<pre><code class="language-java">// Command side - optimized for writes
 @Entity
-@Table(name = "orders")
+@Table(name = &quot;orders&quot;)
 public class OrderAggregate {
     @Id
     private UUID orderId;
@@ -501,7 +506,7 @@ public class OrderAggregate {
 
     public void confirm() {
         if (status != OrderStatus.PENDING) {
-            throw new InvalidOrderStateException("Order must be pending to confirm");
+            throw new InvalidOrderStateException(&quot;Order must be pending to confirm&quot;);
         }
         this.status = OrderStatus.CONFIRMED;
         applyEvent(new OrderConfirmedEvent(orderId, Instant.now()));
@@ -509,7 +514,7 @@ public class OrderAggregate {
 }
 
 // Query side - optimized for reads
-@Document(collection = "order_views")
+@Document(collection = &quot;order_views&quot;)
 public class OrderView {
     @Id
     private UUID orderId;
@@ -530,12 +535,12 @@ public class OrderViewProjectionHandler {
     @Autowired
     private OrderViewRepository orderViewRepository;
 
-    @KafkaListener(topics = "order-events")
+    @KafkaListener(topics = &quot;order-events&quot;)
     public void handleOrderEvent(DomainEvent event) {
         switch (event.getEventType()) {
-            case "OrderCreated" -&gt; handleOrderCreated((OrderCreatedEvent) event);
-            case "OrderConfirmed" -&gt; handleOrderConfirmed((OrderConfirmedEvent) event);
-            case "OrderItemAdded" -&gt; handleOrderItemAdded((OrderItemAddedEvent) event);
+            case &quot;OrderCreated&quot; -&gt; handleOrderCreated((OrderCreatedEvent) event);
+            case &quot;OrderConfirmed&quot; -&gt; handleOrderConfirmed((OrderConfirmedEvent) event);
+            case &quot;OrderItemAdded&quot; -&gt; handleOrderItemAdded((OrderItemAddedEvent) event);
         }
     }
 
@@ -544,17 +549,18 @@ public class OrderViewProjectionHandler {
                 .orderId(event.getAggregateId())
                 .customerId(event.getCustomerId())
                 .totalAmount(event.getTotalAmount())
-                .status("PENDING")
+                .status(&quot;PENDING&quot;)
                 .createdAt(event.getTimestamp())
                 .build();
 
         orderViewRepository.save(orderView);
     }
-}</code></pre>
+}
+</code></pre>
 <h4 id="event-sourcing-pattern">Event Sourcing Pattern</h4>
 <p><strong>Intent</strong>: Store domain events as the primary source of truth.</p>
-<pre class="highlight"><code class="language-java">@Entity
-@Table(name = "event_store")
+<pre><code class="language-java">@Entity
+@Table(name = &quot;event_store&quot;)
 public class EventStore {
     @Id
     private UUID eventId;
@@ -578,7 +584,7 @@ public class EventStoreRepository {
         var currentVersion = getLatestVersion(aggregateId);
 
         if (!currentVersion.equals(expectedVersion)) {
-            throw new ConcurrencyException("Aggregate has been modified");
+            throw new ConcurrencyException(&quot;Aggregate has been modified&quot;);
         }
 
         for (int i = 0; i &lt; events.size(); i++) {
@@ -632,10 +638,11 @@ public class AggregateRepository&lt;T extends AggregateRoot&gt; {
 
         aggregate.markEventsAsCommitted();
     }
-}</code></pre>
+}
+</code></pre>
 <h4 id="saga-pattern-orchestration">Saga Pattern (Orchestration)</h4>
 <p><strong>Intent</strong>: Manage distributed transactions across multiple services.</p>
-<pre class="highlight"><code class="language-java">@Component
+<pre><code class="language-java">@Component
 public class OrderSaga {
 
     private enum SagaState {
@@ -644,7 +651,7 @@ public class OrderSaga {
     }
 
     @Entity
-    @Table(name = "saga_instances")
+    @Table(name = &quot;saga_instances&quot;)
     public static class SagaInstance {
         @Id
         private UUID sagaId;
@@ -677,7 +684,7 @@ public class OrderSaga {
         // Step 2: Process payment
         commandGateway.send(new ProcessPaymentCommand(
             event.getOrderId(),
-            saga.getSagaData().get("paymentAmount")
+            saga.getSagaData().get(&quot;paymentAmount&quot;)
         ));
     }
 
@@ -710,19 +717,20 @@ public class OrderSaga {
         // Compensate: Release inventory
         commandGateway.send(new ReleaseInventoryCommand(
             event.getOrderId(),
-            saga.getSagaData().get("reservedItems")
+            saga.getSagaData().get(&quot;reservedItems&quot;)
         ));
     }
-}</code></pre>
+}
+</code></pre>
 <h3 id="4-integration-patterns">4. Integration Patterns</h3>
 <h4 id="backend-for-frontend-bff">Backend for Frontend (BFF)</h4>
 <p><strong>Intent</strong>: Create service layers tailored to specific frontend needs.</p>
-<pre class="highlight"><code class="language-java">// Mobile BFF
+<pre><code class="language-java">// Mobile BFF
 @RestController
-@RequestMapping("/mobile/api")
+@RequestMapping(&quot;/mobile/api&quot;)
 public class MobileBffController {
 
-    @GetMapping("/dashboard")
+    @GetMapping(&quot;/dashboard&quot;)
     public MobileDashboardResponse getDashboard(@AuthenticationPrincipal User user) {
         // Optimized for mobile - minimal data
         var orders = orderService.getRecentOrders(user.getId(), 5);
@@ -748,10 +756,10 @@ public class MobileBffController {
 
 // Web BFF
 @RestController
-@RequestMapping("/web/api")
+@RequestMapping(&quot;/web/api&quot;)
 public class WebBffController {
 
-    @GetMapping("/dashboard")
+    @GetMapping(&quot;/dashboard&quot;)
     public WebDashboardResponse getDashboard(@AuthenticationPrincipal User user) {
         // Rich data for web interface
         var orders = orderService.getRecentOrdersWithDetails(user.getId(), 10);
@@ -764,10 +772,11 @@ public class WebBffController {
                 .recommendations(recommendations)
                 .build();
     }
-}</code></pre>
+}
+</code></pre>
 <h4 id="anti-corruption-layer-acl">Anti-Corruption Layer (ACL)</h4>
 <p><strong>Intent</strong>: Protect domain model from external system dependencies.</p>
-<pre class="highlight"><code class="language-java">// Legacy payment gateway adapter
+<pre><code class="language-java">// Legacy payment gateway adapter
 @Component
 public class LegacyPaymentGatewayAdapter implements PaymentGateway {
 
@@ -781,7 +790,7 @@ public class LegacyPaymentGatewayAdapter implements PaymentGateway {
                 .amount(request.getAmount().multiply(BigDecimal.valueOf(100))) // Convert to cents
                 .currency(request.getCurrency().getCurrencyCode())
                 .cardNumber(request.getCardDetails().getNumber())
-                .expiryMonth(String.format("%02d", request.getCardDetails().getExpiryMonth()))
+                .expiryMonth(String.format(&quot;%02d&quot;, request.getCardDetails().getExpiryMonth()))
                 .expiryYear(String.valueOf(request.getCardDetails().getExpiryYear()))
                 .build();
 
@@ -797,23 +806,24 @@ public class LegacyPaymentGatewayAdapter implements PaymentGateway {
                     .build();
 
         } catch (LegacyPaymentException e) {
-            throw new PaymentProcessingException("Payment failed", e);
+            throw new PaymentProcessingException(&quot;Payment failed&quot;, e);
         }
     }
 
     private PaymentStatus mapLegacyStatus(String legacyStatus) {
         return switch (legacyStatus) {
-            case "SUCCESS" -&gt; PaymentStatus.COMPLETED;
-            case "PENDING" -&gt; PaymentStatus.PROCESSING;
-            case "DECLINED" -&gt; PaymentStatus.DECLINED;
-            case "ERROR" -&gt; PaymentStatus.FAILED;
-            default -&gt; throw new IllegalArgumentException("Unknown legacy status: " + legacyStatus);
+            case &quot;SUCCESS&quot; -&gt; PaymentStatus.COMPLETED;
+            case &quot;PENDING&quot; -&gt; PaymentStatus.PROCESSING;
+            case &quot;DECLINED&quot; -&gt; PaymentStatus.DECLINED;
+            case &quot;ERROR&quot; -&gt; PaymentStatus.FAILED;
+            default -&gt; throw new IllegalArgumentException(&quot;Unknown legacy status: &quot; + legacyStatus);
         };
     }
-}</code></pre>
+}
+</code></pre>
 <h4 id="strangler-fig-pattern">Strangler Fig Pattern</h4>
 <p><strong>Intent</strong>: Gradually replace legacy systems by intercepting and redirecting calls.</p>
-<pre class="highlight"><code class="language-java">@Component
+<pre><code class="language-java">@Component
 public class OrderServiceStranglerFig {
 
     @Autowired
@@ -840,7 +850,7 @@ public class OrderServiceStranglerFig {
         var order = modernOrderService.createOrder(request);
 
         // Optionally sync to legacy system for compatibility
-        if (featureToggleService.isEnabled("sync-to-legacy")) {
+        if (featureToggleService.isEnabled(&quot;sync-to-legacy&quot;)) {
             legacyOrderService.syncOrder(adaptModernOrder(order));
         }
 
@@ -854,50 +864,51 @@ public class OrderServiceStranglerFig {
         }
 
         // Check feature toggle for gradual migration
-        var migrationPercentage = featureToggleService.getPercentage("modern-order-service");
+        var migrationPercentage = featureToggleService.getPercentage(&quot;modern-order-service&quot;);
         var hash = orderId.hashCode() % 100;
 
         return hash &gt;= migrationPercentage;
     }
-}</code></pre>
+}
+</code></pre>
 <h3 id="5-resilience-patterns">5. Resilience Patterns</h3>
 <h4 id="bulkhead-pattern">Bulkhead Pattern</h4>
 <p><strong>Intent</strong>: Isolate resources to prevent cascading failures.</p>
-<pre class="highlight"><code class="language-java">@Configuration
+<pre><code class="language-java">@Configuration
 public class BulkheadConfiguration {
 
     @Bean
-    @Qualifier("orderProcessing")
+    @Qualifier(&quot;orderProcessing&quot;)
     public Executor orderProcessingExecutor() {
         return new ThreadPoolTaskExecutor() {{
             setCorePoolSize(5);
             setMaxPoolSize(10);
             setQueueCapacity(25);
-            setThreadNamePrefix("order-processing-");
+            setThreadNamePrefix(&quot;order-processing-&quot;);
             setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
         }};
     }
 
     @Bean
-    @Qualifier("notifications")
+    @Qualifier(&quot;notifications&quot;)
     public Executor notificationExecutor() {
         return new ThreadPoolTaskExecutor() {{
             setCorePoolSize(2);
             setMaxPoolSize(5);
             setQueueCapacity(50);
-            setThreadNamePrefix("notifications-");
+            setThreadNamePrefix(&quot;notifications-&quot;);
             setRejectedExecutionHandler(new ThreadPoolExecutor.DiscardOldestPolicy());
         }};
     }
 
     @Bean
-    @Qualifier("analytics")
+    @Qualifier(&quot;analytics&quot;)
     public Executor analyticsExecutor() {
         return new ThreadPoolTaskExecutor() {{
             setCorePoolSize(1);
             setMaxPoolSize(3);
             setQueueCapacity(100);
-            setThreadNamePrefix("analytics-");
+            setThreadNamePrefix(&quot;analytics-&quot;);
             setRejectedExecutionHandler(new ThreadPoolExecutor.DiscardPolicy());
         }};
     }
@@ -906,27 +917,28 @@ public class BulkheadConfiguration {
 @Service
 public class OrderService {
 
-    @Async("orderProcessing")
+    @Async(&quot;orderProcessing&quot;)
     public CompletableFuture&lt;Order&gt; processOrder(CreateOrderRequest request) {
         // Critical order processing in dedicated thread pool
         return CompletableFuture.completedFuture(createOrder(request));
     }
 
-    @Async("notifications")
+    @Async(&quot;notifications&quot;)
     public void sendOrderNotification(Order order) {
         // Non-critical notifications in separate thread pool
         notificationService.sendOrderConfirmation(order);
     }
 
-    @Async("analytics")
+    @Async(&quot;analytics&quot;)
     public void recordOrderAnalytics(Order order) {
         // Analytics processing in lowest priority thread pool
         analyticsService.recordOrderEvent(order);
     }
-}</code></pre>
+}
+</code></pre>
 <h4 id="timeout-pattern">Timeout Pattern</h4>
 <p><strong>Intent</strong>: Prevent resource exhaustion by setting maximum wait times.</p>
-<pre class="highlight"><code class="language-java">@Component
+<pre><code class="language-java">@Component
 public class TimeoutConfiguration {
 
     @Bean
@@ -961,10 +973,10 @@ public class ExternalApiService {
     @Retryable(value = {TimeoutException.class}, maxAttempts = 3)
     public ApiResponse callExternalApi(ApiRequest request) {
         try {
-            return restTemplate.postForObject("/api/external", request, ApiResponse.class);
+            return restTemplate.postForObject(&quot;/api/external&quot;, request, ApiResponse.class);
         } catch (ResourceAccessException e) {
             if (e.getCause() instanceof SocketTimeoutException) {
-                throw new TimeoutException("External API call timed out", e);
+                throw new TimeoutException(&quot;External API call timed out&quot;, e);
             }
             throw e;
         }
@@ -972,18 +984,19 @@ public class ExternalApiService {
 
     @Recover
     public ApiResponse recoverFromTimeout(TimeoutException ex, ApiRequest request) {
-        log.warn("External API call failed after retries, using fallback response");
+        log.warn(&quot;External API call failed after retries, using fallback response&quot;);
         return ApiResponse.fallback();
     }
-}</code></pre>
+}
+</code></pre>
 <h4 id="retry-pattern-with-backoff">Retry Pattern with Backoff</h4>
 <p><strong>Intent</strong>: Handle transient failures with intelligent retry strategies.</p>
-<pre class="highlight"><code class="language-java">@Component
+<pre><code class="language-java">@Component
 public class RetryConfiguration {
 
     // Linear backoff
     @Bean
-    @Qualifier("linearRetry")
+    @Qualifier(&quot;linearRetry&quot;)
     public RetryTemplate linearRetryTemplate() {
         return RetryTemplate.builder()
             .maxAttempts(3)
@@ -994,7 +1007,7 @@ public class RetryConfiguration {
 
     // Exponential backoff
     @Bean
-    @Qualifier("exponentialRetry")
+    @Qualifier(&quot;exponentialRetry&quot;)
     public RetryTemplate exponentialRetryTemplate() {
         return RetryTemplate.builder()
             .maxAttempts(5)
@@ -1005,7 +1018,7 @@ public class RetryConfiguration {
 
     // Exponential backoff with jitter
     @Bean
-    @Qualifier("jitterRetry")
+    @Qualifier(&quot;jitterRetry&quot;)
     public RetryTemplate jitterRetryTemplate() {
         var backoffPolicy = new ExponentialBackOffPolicy();
         backoffPolicy.setInitialInterval(1000);
@@ -1034,25 +1047,26 @@ public class RetryConfiguration {
 public class PaymentService {
 
     @Autowired
-    @Qualifier("jitterRetry")
+    @Qualifier(&quot;jitterRetry&quot;)
     private RetryTemplate retryTemplate;
 
     public PaymentResult processPayment(PaymentRequest request) {
         return retryTemplate.execute(context -&gt; {
-            log.info("Processing payment, attempt {}", context.getRetryCount() + 1);
+            log.info(&quot;Processing payment, attempt {}&quot;, context.getRetryCount() + 1);
 
             try {
                 return paymentGateway.processPayment(request);
             } catch (PaymentGatewayException e) {
                 if (e.isRetryable()) {
-                    throw new TransientException("Payment gateway temporarily unavailable", e);
+                    throw new TransientException(&quot;Payment gateway temporarily unavailable&quot;, e);
                 } else {
-                    throw new PermanentException("Payment failed permanently", e);
+                    throw new PermanentException(&quot;Payment failed permanently&quot;, e);
                 }
             }
         });
     }
-}</code></pre>
+}
+</code></pre>
 <h2 id="implementation-roadmap">Implementation Roadmap</h2>
 <h3 id="week-1-2-foundation">Week 1-2: Foundation</h3>
 <ul>
@@ -1098,7 +1112,7 @@ public class PaymentService {
 </ul>
 <h2 id="testing-strategy">Testing Strategy</h2>
 <h3 id="pattern-specific-testing">Pattern-Specific Testing</h3>
-<pre class="highlight"><code class="language-java">// Test CQRS command/query separation
+<pre><code class="language-java">// Test CQRS command/query separation
 @Test
 public void testCqrsSeparation() {
     // Given
@@ -1114,7 +1128,7 @@ public void testCqrsSeparation() {
     // And verify query side (eventually consistent)
     await().atMost(5, SECONDS).until(() -&gt; {
         var orderView = queryService.getOrderView(orderId);
-        return orderView.getStatus().equals("PENDING");
+        return orderView.getStatus().equals(&quot;PENDING&quot;);
     });
 }
 
@@ -1144,46 +1158,48 @@ public void testCircuitBreakerTrip() {
         var duration = System.currentTimeMillis() - start;
         assertThat(duration).isLessThan(100); // Failed fast
     }
-}</code></pre>
+}
+</code></pre>
 <h2 id="monitoring-and-observability">Monitoring and Observability</h2>
 <h3 id="pattern-specific-metrics">Pattern-Specific Metrics</h3>
-<pre class="highlight"><code class="language-java">@Component
+<pre><code class="language-java">@Component
 public class MicroservicesMetrics {
 
     private final MeterRegistry meterRegistry;
 
     // Circuit breaker metrics
     public void recordCircuitBreakerState(String circuitName, String state) {
-        Gauge.builder("circuit_breaker.state")
-            .tag("circuit", circuitName)
-            .tag("state", state)
-            .register(meterRegistry, this, value -&gt; state.equals("OPEN") ? 1 : 0);
+        Gauge.builder(&quot;circuit_breaker.state&quot;)
+            .tag(&quot;circuit&quot;, circuitName)
+            .tag(&quot;state&quot;, state)
+            .register(meterRegistry, this, value -&gt; state.equals(&quot;OPEN&quot;) ? 1 : 0);
     }
 
     // Saga metrics
     public void recordSagaCompletion(String sagaType, String outcome, Duration duration) {
-        Timer.builder("saga.duration")
-            .tag("saga_type", sagaType)
-            .tag("outcome", outcome)
+        Timer.builder(&quot;saga.duration&quot;)
+            .tag(&quot;saga_type&quot;, sagaType)
+            .tag(&quot;outcome&quot;, outcome)
             .register(meterRegistry)
             .record(duration);
     }
 
     // CQRS metrics
     public void recordCommandProcessing(String commandType, Duration duration) {
-        Timer.builder("command.processing.duration")
-            .tag("command_type", commandType)
+        Timer.builder(&quot;command.processing.duration&quot;)
+            .tag(&quot;command_type&quot;, commandType)
             .register(meterRegistry)
             .record(duration);
     }
 
     public void recordQueryExecution(String queryType, Duration duration) {
-        Timer.builder("query.execution.duration")
-            .tag("query_type", queryType)
+        Timer.builder(&quot;query.execution.duration&quot;)
+            .tag(&quot;query_type&quot;, queryType)
             .register(meterRegistry)
             .record(duration);
     }
-}</code></pre>
+}
+</code></pre>
 <hr />
 <p>This comprehensive guide provides a structured approach to implementing microservices patterns in the BitVelocity platform, ensuring gradual complexity introduction while maintaining production-ready standards.</p></div>
             </div>
