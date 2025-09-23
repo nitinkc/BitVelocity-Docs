@@ -23,6 +23,7 @@ nav:
       - Microservices Patterns: 03-DEVELOPMENT/microservices-patterns.md
   - Learning:
       - Developer Learning Plan: stories/DEVELOPER-LEARNING-PLAN.md
+      - Protocol Curriculum: stories/PROTOCOL-CURRICULUM.md
       - API Styles Track: stories/API-STYLES-TRACK.md
       - Java Concurrency Track: stories/JAVA-CONCURRENCY-TRACK.md
   - Project Management:

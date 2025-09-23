@@ -212,5 +212,6 @@ Quick links
 
 Getting started
 - Developer Learning Plan: stories/DEVELOPER-LEARNING-PLAN.md
+- Protocol Curriculum (12-sprint protocol-first labs): stories/PROTOCOL-CURRICULUM.md
 - API Styles Track (9 types with mini-labs): stories/API-STYLES-TRACK.md
 - Java Concurrency Track (Reactive & Virtual Threads): stories/JAVA-CONCURRENCY-TRACK.md
