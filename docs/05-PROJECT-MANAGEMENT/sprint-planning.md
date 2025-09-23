@@ -31,6 +31,19 @@ This document provides detailed sprint planning for the BitVelocity platform, or
 
 ## Detailed Sprint Breakdown
 
+### Learning and Build Capacity
+To avoid confusion and ensure steady skills growth, reserve capacity each sprint for protocol learning and practical application.
+
+Recommended split per sprint:
+- 70% Build (features, tests, docs)
+- 20% Protocol learning (pick 1 protocol from API Styles or Concurrency Tracks; do a mini-lab)
+- 10% Reflection (write notes/ADRs/diagrams)
+
+Definition of Done additions:
+- A short note in `docs/stories/` summarizing what you learned, the protocol used, and links to PRs.
+
+---
+
 ### Sprint 1: Foundation Bootstrap (Weeks 1-2)
 **Objective**: Establish foundational infrastructure and authentication
 
@@ -89,6 +102,7 @@ This document provides detailed sprint planning for the BitVelocity platform, or
 - [ ] Metrics and logs are visible in monitoring tools
 - [ ] CI pipeline builds and tests all components
 - [ ] Documentation updated with setup instructions
+- [ ] A short note in `docs/stories/` summarizing what you learned, the protocol used, and links to PRs.
 
 #### Sprint Risks & Mitigations
 - **Risk**: Docker/Kubernetes setup complexity
@@ -152,6 +166,7 @@ This document provides detailed sprint planning for the BitVelocity platform, or
 - [ ] Order queries return current state from projections
 - [ ] Event replay reconstructs correct aggregate state
 - [ ] All event flows have integration tests
+- [ ] A short note in `docs/stories/` summarizing what you learned, the protocol used, and links to PRs.
 
 ---
 
@@ -209,6 +224,7 @@ This document provides detailed sprint planning for the BitVelocity platform, or
 - [ ] Redis cache improves response times measurably
 - [ ] Chat messages are sent and received in real-time
 - [ ] All real-time features are monitored and logged
+- [ ] A short note in `docs/stories/` summarizing what you learned, the protocol used, and links to PRs.
 
 ---
 
@@ -262,6 +278,7 @@ This document provides detailed sprint planning for the BitVelocity platform, or
 - [ ] Social posts can be created and retrieved
 - [ ] Query performance meets response time requirements
 - [ ] GraphQL subscriptions work for real-time updates
+- [ ] A short note in `docs/stories/` summarizing what you learned, the protocol used, and links to PRs.
 
 ---
 
@@ -315,6 +332,7 @@ This document provides detailed sprint planning for the BitVelocity platform, or
 - [ ] SSE provides real-time feed updates
 - [ ] Legacy system integration works transparently
 - [ ] All external integrations have monitoring and alerting
+- [ ] A short note in `docs/stories/` summarizing what you learned, the protocol used, and links to PRs.
 
 ---
 
@@ -368,6 +386,7 @@ This document provides detailed sprint planning for the BitVelocity platform, or
 - [ ] RabbitMQ ensures message delivery even during failures
 - [ ] System maintains functionality during service failures
 - [ ] Resilience patterns are tested with chaos engineering
+- [ ] A short note in `docs/stories/` summarizing what you learned, the protocol used, and links to PRs.
 
 ---
 
@@ -421,6 +440,7 @@ This document provides detailed sprint planning for the BitVelocity platform, or
 - [ ] Stream processing handles high-volume data reliably
 - [ ] Analytics dashboards provide business insights
 - [ ] ML infrastructure is ready for model deployment
+- [ ] A short note in `docs/stories/` summarizing what you learned, the protocol used, and links to PRs.
 
 ---
 
@@ -440,6 +460,7 @@ This document provides detailed sprint planning for the BitVelocity platform, or
 - [ ] Data replication maintains consistency
 - [ ] Network latency between regions is monitored
 - [ ] Infrastructure scales automatically based on load
+- [ ] A short note in `docs/stories/` summarizing what you learned, the protocol used, and links to PRs.
 
 ---
 

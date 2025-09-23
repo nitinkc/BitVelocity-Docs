@@ -194,3 +194,23 @@ Cross-cutting docs define invariants; domain docs must not redefine them.
 
 
 *This documentation is a living resource that evolves with the project. Feedback and improvements are always welcome.*
+
+# BitVelocity Docs
+
+Welcome! This site houses architecture overviews, ADRs, event contracts, and stories that guide implementation.
+
+Quick links
+- Overview: 00-OVERVIEW/
+- Architecture: 01-ARCHITECTURE/
+- Infrastructure: 02-INFRASTRUCTURE/
+- Development: 03-DEVELOPMENT/
+- Project Management: 05-PROJECT-MANAGEMENT/
+- ADRs: adr/
+- Event Contracts: event-contracts/
+- Stories: stories/
+- Projects & Modules Overview: 00-OVERVIEW/projects-and-modules.md
+
+Getting started
+- Developer Learning Plan: stories/DEVELOPER-LEARNING-PLAN.md
+- API Styles Track (9 types with mini-labs): stories/API-STYLES-TRACK.md
+- Java Concurrency Track (Reactive & Virtual Threads): stories/JAVA-CONCURRENCY-TRACK.md

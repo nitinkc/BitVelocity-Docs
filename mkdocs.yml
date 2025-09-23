@@ -6,6 +6,7 @@ nav:
       - Project Charter: 00-OVERVIEW/project-charter.md
       - Stakeholder Guide: 00-OVERVIEW/stakeholder-guide.md
       - README: 00-OVERVIEW/README.md
+      - Projects & Modules: 00-OVERVIEW/projects-and-modules.md
   - Architecture:
       - Data Architecture: 01-ARCHITECTURE/data-architecture.md
       - System Overview: 01-ARCHITECTURE/system-overview.md
@@ -20,6 +21,10 @@ nav:
       - Cloud Strategy: 02-INFRASTRUCTURE/cloud-strategy.md
   - Development:
       - Microservices Patterns: 03-DEVELOPMENT/microservices-patterns.md
+  - Learning:
+      - Developer Learning Plan: stories/DEVELOPER-LEARNING-PLAN.md
+      - API Styles Track: stories/API-STYLES-TRACK.md
+      - Java Concurrency Track: stories/JAVA-CONCURRENCY-TRACK.md
   - Project Management:
       - Budget Planning: 05-PROJECT-MANAGEMENT/budget-planning.md
       - Sprint 1 Daily Execution Plan: 05-PROJECT-MANAGEMENT/sprint-1-daily-execution-plan.md

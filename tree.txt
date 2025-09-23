@@ -1,0 +1,317 @@
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/20/2025 12:58 AM                .github
+d----           9/21/2025 11:27 AM                .idea
+d----           9/21/2025  8:15 PM                BitVelocity-Docs
+d----           9/21/2025 11:30 AM                bv-auth-service
+d----           9/14/2025 11:59 PM                bv-chat-stream
+d----           9/21/2025 10:42 AM                bv-core-common
+d----           9/21/2025  8:18 AM                bv-core-parent
+d----           9/20/2025  8:10 PM                bv-core-platform-bom
+d----           9/21/2025 12:18 PM                bv-eCommerce-core
+d----           9/20/2025 12:58 AM                bv-infra-service
+d----           9/20/2025 12:06 AM                bv-iot-control-hub
+d----           9/20/2025 12:06 AM                bv-security-core
+d----           9/20/2025 12:06 AM                bv-social-pulse
+d----           9/14/2025 11:59 PM                config
+d----           9/21/2025  1:53 AM                k8s
+d----           9/20/2025  1:45 AM                scripts
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\.github
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/20/2025 12:49 AM                ISSUE_TEMPLATE
+d----           9/14/2025 11:59 PM                workflows
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\BitVelocity-Docs
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/21/2025  8:15 PM                .idea
+d----           9/20/2025 10:50 PM                docs
+d----           9/21/2025  8:15 PM                site
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\BitVelocity-Docs\docs
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/16/2025  9:22 PM                00-OVERVIEW
+d----           9/16/2025  9:22 PM                01-ARCHITECTURE
+d----           9/16/2025  9:22 PM                02-INFRASTRUCTURE
+d----           9/16/2025  9:22 PM                03-DEVELOPMENT
+d----           9/16/2025  9:22 PM                05-PROJECT-MANAGEMENT
+d----           9/21/2025 11:45 AM                adr
+d----           9/16/2025  9:22 PM                event-contracts
+d----           9/22/2025 11:01 PM                stories
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\BitVelocity-Docs\site
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/21/2025  8:15 PM                00-OVERVIEW
+d----           9/21/2025  8:15 PM                01-ARCHITECTURE
+d----           9/21/2025  8:15 PM                02-INFRASTRUCTURE
+d----           9/21/2025  8:15 PM                03-DEVELOPMENT
+d----           9/21/2025  8:15 PM                05-PROJECT-MANAGEMENT
+d----           9/21/2025  8:15 PM                adr
+d----           9/21/2025  8:15 PM                css
+d----           9/21/2025  8:15 PM                event-contracts
+d----           9/21/2025  8:15 PM                img
+d----           9/21/2025  8:15 PM                js
+d----           9/21/2025  8:15 PM                search
+d----           9/21/2025  8:15 PM                stories
+d----           9/21/2025  8:15 PM                webfonts
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-auth-service
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/21/2025  3:45 PM                .idea
+d----           9/21/2025 11:08 AM                src
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-auth-service\src
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/21/2025 11:08 AM                main
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-core-common
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/16/2025  9:36 PM                .github
+d----           9/21/2025 11:25 AM                .idea
+d----           9/18/2025  1:18 AM                .mvn
+d----           9/17/2025 12:33 AM                .vscode
+d----           9/21/2025 10:56 AM                bv-common-auth
+d----           9/21/2025 10:56 AM                bv-common-entities
+d----           9/21/2025 10:56 AM                bv-common-events
+d----           9/21/2025 10:56 AM                bv-common-exceptions
+d----           9/21/2025 10:56 AM                bv-common-logging
+d----           9/21/2025 10:56 AM                bv-common-security
+d----           9/21/2025  8:18 AM                k8s
+d----           9/21/2025  2:09 AM                scripts
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-core-common\.github
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/21/2025 10:51 AM                workflows
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-core-common\.mvn
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/18/2025  1:18 AM                wrapper
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-core-common\bv-common-auth
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/21/2025 10:51 AM                src
+d----           9/21/2025 10:56 AM                target
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-core-common\bv-common-entities
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/20/2025  1:42 AM                src
+d----           9/21/2025 10:56 AM                target
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-core-common\bv-common-events
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/20/2025  1:42 AM                src
+d----           9/21/2025 10:56 AM                target
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-core-common\bv-common-exceptions
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/20/2025  1:43 AM                src
+d----           9/21/2025 10:56 AM                target
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-core-common\bv-common-logging
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/21/2025 10:56 AM                target
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-core-common\bv-common-security
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/17/2025 12:57 AM                src
+d----           9/21/2025 10:56 AM                target
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-core-common\scripts
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/21/2025  8:18 AM                dev
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-core-parent
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/16/2025 10:59 PM                .github
+d----           9/21/2025  3:45 PM                .idea
+d----           9/18/2025  8:55 PM                .mvn
+d----           9/16/2025 10:41 PM                src
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-core-parent\.github
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/19/2025 11:31 PM                workflows
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-core-parent\.mvn
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/19/2025  9:55 PM                wrapper
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-core-parent\src
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/16/2025 10:41 PM                main
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-core-platform-bom
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/16/2025  9:23 PM                .github
+d----           9/20/2025  8:14 PM                .idea
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-core-platform-bom\.github
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/20/2025  7:59 PM                workflows
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-eCommerce-core
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/21/2025 12:13 PM                .github
+d----           9/21/2025  2:10 PM                .idea
+d----           9/21/2025 12:15 PM                analytics-streaming-service
+d----           9/21/2025 12:15 PM                cart-service
+d----           9/21/2025 12:15 PM                inventory-service
+d----           9/21/2025 12:15 PM                notification-service
+d----           9/21/2025 12:15 PM                order-service
+d----           9/21/2025 12:15 PM                partner-webhook-dispatcher
+d----           9/21/2025 12:15 PM                payment-adapter-service
+d----           9/21/2025 12:23 PM                pricing-service
+d----           9/21/2025 12:23 PM                product-service
+d----           9/21/2025 12:23 PM                replay-service
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-eCommerce-core\analytics-streaming-service
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/21/2025 12:14 PM                src
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-eCommerce-core\cart-service
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/21/2025 12:14 PM                src
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-eCommerce-core\inventory-service
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/21/2025 12:14 PM                src
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-eCommerce-core\notification-service
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/21/2025 12:14 PM                src
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-eCommerce-core\order-service
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/21/2025 12:14 PM                src
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-eCommerce-core\partner-webhook-dispatcher
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/21/2025 12:14 PM                src
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-eCommerce-core\payment-adapter-service
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/21/2025 12:14 PM                src
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-eCommerce-core\pricing-service
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/21/2025 12:14 PM                src
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-eCommerce-core\product-service
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/21/2025 12:14 PM                src
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-eCommerce-core\replay-service
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/21/2025 12:14 PM                src
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-infra-service
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/20/2025 12:57 AM                .gradle
+d----           9/20/2025 12:58 AM                build
+d----           9/14/2025 11:59 PM                src
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-infra-service\.gradle
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/20/2025 12:57 AM                9.0.0
+d----           9/20/2025 12:57 AM                buildOutputCleanup
+d----           9/20/2025 12:57 AM                vcs-1
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-infra-service\build
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/20/2025 12:58 AM                classes
+d----           9/20/2025 12:58 AM                resources
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\bv-infra-service\src
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/14/2025 11:59 PM                main
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\scripts
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/14/2025 11:59 PM                cost
+d----           9/20/2025  1:45 AM                db
+d----           9/21/2025  1:53 AM                dev
+
+    Directory: C:\Users\nchauras\Documents\Programming\BitVelocity\scripts\db
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           9/20/2025  1:45 AM                init
+
