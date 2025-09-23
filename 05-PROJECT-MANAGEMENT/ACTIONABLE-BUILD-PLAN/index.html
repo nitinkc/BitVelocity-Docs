@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://nitinkc.github.io/BitVelocity-Docs/05-PROJECT-MANAGEMENT/ACTIONABLE-BUILD-PLAN/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Actionable Build Plan - BitVelocity Wiki</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">BitVelocity Wiki</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Overview</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../00-OVERVIEW/project-charter/" class="dropdown-item">Project Charter</a>
+</li>
+                                    
+<li>
+    <a href="../../00-OVERVIEW/stakeholder-guide/" class="dropdown-item">Stakeholder Guide</a>
+</li>
+                                    
+<li>
+    <a href="../../00-OVERVIEW/" class="dropdown-item">README</a>
+</li>
+                                    
+<li>
+    <a href="../../00-OVERVIEW/projects-and-modules/" class="dropdown-item">Projects & Modules</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Project Management</a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Phases</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../phases/" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="../phases/PHASE-0/" class="dropdown-item">Phase 0 — Groundwork</a>
+</li>
+            
+<li>
+    <a href="../phases/PHASE-1/" class="dropdown-item">Phase 1 — Foundations</a>
+</li>
+            
+<li>
+    <a href="../phases/PHASE-2/" class="dropdown-item">Phase 2 — Contracts & Scaffolding</a>
+</li>
+            
+<li>
+    <a href="../phases/PHASE-3/" class="dropdown-item">Phase 3 — Core Protocols</a>
+</li>
+            
+<li>
+    <a href="../phases/PHASE-4/" class="dropdown-item">Phase 4 — Data & State</a>
+</li>
+            
+<li>
+    <a href="../phases/PHASE-5/" class="dropdown-item">Phase 5 — Real-Time & Observability</a>
+</li>
+            
+<li>
+    <a href="../phases/PHASE-6/" class="dropdown-item">Phase 6 — Resilience & Replay</a>
+</li>
+            
+<li>
+    <a href="../phases/PHASE-7/" class="dropdown-item">Phase 7 — Integrations & Edge</a>
+</li>
+            
+<li>
+    <a href="../phases/PHASE-8/" class="dropdown-item">Phase 8 — UAT & Release Prep</a>
+</li>
+            
+<li>
+    <a href="../phases/PHASE-9/" class="dropdown-item">Phase 9 — Hardening & Polish</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Actionable Build Plan</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">ADRs</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../adr/ADR-TEMPLATE/" class="dropdown-item">Template</a>
+</li>
+                                    
+<li>
+    <a href="../../adr/GUIDE_ADR_STARTER_PACK/" class="dropdown-item">Starter Pack</a>
+</li>
+                                    
+<li>
+    <a href="../../adr/ADR-001-multi-repo-vs-monorepo/" class="dropdown-item">ADR-001 Multi-repo vs Monorepo</a>
+</li>
+                                    
+<li>
+    <a href="../../adr/ADR-001_1-github%20Packages-vs-JitPack/" class="dropdown-item">ADR-001 Github Packages vs JitPack</a>
+</li>
+                                    
+<li>
+    <a href="../../adr/ADR-002-event-vs-cdc-strategy/" class="dropdown-item">ADR-002 Event vs CDC Strategy</a>
+</li>
+                                    
+<li>
+    <a href="../../adr/ADR-003-protocol-introduction-order/" class="dropdown-item">ADR-003 Protocol Introduction Order</a>
+</li>
+                                    
+<li>
+    <a href="../../adr/ADR-004-oltp-cdc-olap-architecture/" class="dropdown-item">ADR-004 OLTP CDC OLAP Architecture</a>
+</li>
+                                    
+<li>
+    <a href="../../adr/ADR-005-security-layering/" class="dropdown-item">ADR-005 Security Layering</a>
+</li>
+                                    
+<li>
+    <a href="../../adr/ADR-006-retry-backoff-policies/" class="dropdown-item">ADR-006 Retry Backoff Policies</a>
+</li>
+                                    
+<li>
+    <a href="../../adr/ADR-007-observability-baseline/" class="dropdown-item">ADR-007 Observability Baseline</a>
+</li>
+                                    
+<li>
+    <a href="../../adr/ADR-008-pulumi-cloud-provider-abstraction/" class="dropdown-item">ADR-008 Pulumi Cloud Provider Abstraction</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Event Contracts</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../event-contracts/GUIDE_EVENT_CONTRACTS_USAGE/" class="dropdown-item">Guide</a>
+</li>
+                                    
+<li>
+    <a href="../../event-contracts/CHANGELOG.md" class="dropdown-item">Changelog</a>
+</li>
+                                    
+<li>
+    <a href="../../event-contracts/" class="dropdown-item">Readme</a>
+</li>
+                                    
+<li>
+    <a href="../../event-contracts/chat/README.md" class="dropdown-item">Chat</a>
+</li>
+                                    
+<li>
+    <a href="../../event-contracts/ecommerce/README.md" class="dropdown-item">Ecommerce</a>
+</li>
+                                    
+<li>
+    <a href="../../event-contracts/iot/README.md" class="dropdown-item">IoT</a>
+</li>
+                                    
+<li>
+    <a href="../../event-contracts/ml/README.md" class="dropdown-item">ML</a>
+</li>
+                                    
+<li>
+    <a href="../../event-contracts/schema/README.md" class="dropdown-item">Schema</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../ARCHIVE/" class="nav-link">Archive (superseded)</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../phases/PHASE-9/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../../adr/ADR-TEMPLATE/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#actionable-build-plan-start-to-finish" class="nav-link">Actionable Build Plan — Start to Finish</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#phase-0-repo-docs-groundwork-051-day" class="nav-link">Phase 0 — Repo &amp; Docs Groundwork (0.5–1 day)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#phase-1-build-system-shared-foundations-23-days" class="nav-link">Phase 1 — Build System &amp; Shared Foundations (2–3 days)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#phase-2-local-infrastructure-12-days" class="nav-link">Phase 2 — Local Infrastructure (1–2 days)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#phase-3-auth-service-24-days" class="nav-link">Phase 3 — Auth Service (2–4 days)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#phase-4-product-service-24-days" class="nav-link">Phase 4 — Product Service (2–4 days)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#phase-5-observability-baseline-12-days" class="nav-link">Phase 5 — Observability Baseline (1–2 days)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#phase-6-messaging-event-contracts-24-days" class="nav-link">Phase 6 — Messaging &amp; Event Contracts (2–4 days)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#phase-7-reactive-vs-virtual-threads-scenarios-35-days" class="nav-link">Phase 7 — Reactive vs Virtual Threads Scenarios (3–5 days)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#phase-8-cicd-and-k8s-24-days" class="nav-link">Phase 8 — CI/CD and K8s (2–4 days)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#phase-9-hardening-polish-23-days" class="nav-link">Phase 9 — Hardening &amp; Polish (2–3 days)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#traceability-labels" class="nav-link">Traceability &amp; Labels</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#daily-execution-pattern" class="nav-link">Daily Execution Pattern</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#appendix-pointers" class="nav-link">Appendix — Pointers</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="actionable-build-plan-start-to-finish">Actionable Build Plan — Start to Finish</h1>
+<p>Purpose: Provide a concrete, low-level, start-to-finish build sequence you can pick up and execute. Each task has a clear outcome, acceptance checks, and the exact repo areas to touch. Use this as the backbone for Sprint Planning and daily/hourly breakdowns.</p>
+<p>Assumptions
+- Monorepo with Java services (Maven), Spring Boot/WebFlux, and supporting infra (Postgres, Redis, Kafka)
+- Local dev on Docker Desktop; docs site in this repo
+- Protocol-first: every change starts with a contract and ends with documentation and traceability</p>
+<p>How to use
+- Work top-to-bottom in order; stop at each gate and validate acceptance
+- Each task can be split into sub-tasks day-by-day; keep PRs small and focused
+- Label issues/PRs using the provided labels to maintain traceability</p>
+<hr />
+<h2 id="phase-0-repo-docs-groundwork-051-day">Phase 0 — Repo &amp; Docs Groundwork (0.5–1 day)</h2>
+<p>1) Create “bootstrap” docs entrypoint
+   - Files: <code>docs/stories/QUICK-START.md</code> (if missing), update <code>docs/index.md</code>
+   - Acceptance:
+     - [ ] Quick Start page exists and links to this plan, Developer Plan, Protocol Curriculum
+     - [ ] mkdocs nav includes Quick Start
+   - Notes: Helps new contributors orient fast</p>
+<p>2) Verify docs navigation &amp; site deploy
+   - Files: <code>mkdocs.yml</code>, <code>docs/index.md</code>
+   - Acceptance:
+     - [ ] <code>mkdocs serve</code> runs locally without errors
+     - [ ] <code>mkdocs gh-deploy</code> completes (CI or local)</p>
+<hr />
+<h2 id="phase-1-build-system-shared-foundations-23-days">Phase 1 — Build System &amp; Shared Foundations (2–3 days)</h2>
+<p>1) Parent POM and BOM
+   - Modules: <code>bv-core-parent</code>, <code>bv-core-platform-bom</code>
+   - Acceptance:
+     - [ ] Parent POM defines plugin mgmt and shared config
+     - [ ] BOM pins dependency versions
+     - [ ] At least one service builds off parent with BOM imported</p>
+<p>2) Shared libraries skeleton
+   - Modules: <code>bv-core-common</code> (+ submodules listed in Projects &amp; Modules)
+   - Acceptance:
+     - [ ] <code>bv-common-entities</code>, <code>bv-common-events</code>, <code>bv-common-exceptions</code>, <code>bv-common-logging</code>, <code>bv-common-auth</code>, <code>bv-common-security</code> compile
+     - [ ] Basic unit test per module (one assertion)
+     - [ ] README in each module documents purpose and usage</p>
+<p>3) CI sanity pipeline
+   - Files: <code>.github/workflows/build.yml</code>
+   - Acceptance:
+     - [ ] Build on PR for changed modules
+     - [ ] Fails on test or style errors</p>
+<hr />
+<h2 id="phase-2-local-infrastructure-12-days">Phase 2 — Local Infrastructure (1–2 days)</h2>
+<p>1) Docker Compose stack
+   - Files: <code>docker-compose.yml</code>
+   - Services: Postgres, Redis, Kafka+ZK, Schema Registry (optional)
+   - Acceptance:
+     - [ ] <code>docker compose up -d</code> brings stack up
+     - [ ] Health checks for each service pass</p>
+<p>2) Kind (optional initial) or K8s manifests scaffold
+   - Path: <code>k8s/</code>
+   - Acceptance:
+     - [ ] Base namespace and shared secrets examples
+     - [ ] Service template manifests checked in (deployment, svc, configmap)</p>
+<hr />
+<h2 id="phase-3-auth-service-24-days">Phase 3 — Auth Service (2–4 days)</h2>
+<p>1) Contract-first API for auth
+   - Files: <code>auth-service/openapi/auth.yaml</code>
+   - Acceptance:
+     - [ ] OpenAPI describes register/login/refresh/me endpoints
+     - [ ] Error model aligns with <code>bv-common-exceptions</code></p>
+<p>2) Implement bv-auth-service
+   - Module: <code>bv-auth-service</code>
+   - Acceptance:
+     - [ ] Register, login, JWT issuance/validation
+     - [ ] BCrypt hashing, basic RBAC, rate limit on login
+     - [ ] Unit + integration tests (containerized Postgres)
+     - [ ] Observability basics: traces, metrics, structured logs</p>
+<p>3) Docs &amp; examples
+   - Files: <code>docs/03-DEVELOPMENT/microservices-patterns.md</code> (Auth section), <code>docs/stories/</code>
+   - Acceptance:
+     - [ ] Endpoint examples and curl snippets documented
+     - [ ] Link from Protocol Curriculum where relevant</p>
+<hr />
+<h2 id="phase-4-product-service-24-days">Phase 4 — Product Service (2–4 days)</h2>
+<p>1) Contract-first API for products
+   - Files: <code>product-service/openapi/product.yaml</code>
+   - Acceptance:
+     - [ ] CRUD operations, validation, error model</p>
+<p>2) Implement product-service
+   - Module: <code>bv-eCommerce-core/product-service</code>
+   - Acceptance:
+     - [ ] Entities, migrations, repository, service, controller
+     - [ ] Request validation; consistent error responses
+     - [ ] Unit + integration tests (containerized Postgres)</p>
+<p>3) Docs &amp; Postman/Insomnia collection
+   - Files: <code>docs/03-DEVELOPMENT/microservices-patterns.md</code> (REST), <code>docs/stories/</code>
+   - Acceptance:
+     - [ ] REST usage examples; collection committed</p>
+<hr />
+<h2 id="phase-5-observability-baseline-12-days">Phase 5 — Observability Baseline (1–2 days)</h2>
+<p>1) Wire OpenTelemetry and Micrometer
+   - Modules: auth, product (as exemplars)
+   - Acceptance:
+     - [ ] Trace IDs flow through incoming/outgoing calls
+     - [ ] Metrics endpoint exposes default + custom counters</p>
+<p>2) Grafana dashboards and alerting (basic)
+   - Files: <code>grafana/</code> dashboards JSON; <code>docs/04-OPERATIONS/observability.md</code>
+   - Acceptance:
+     - [ ] Dashboards for latency, error rate, throughput
+     - [ ] Basic alerts on error spikes</p>
+<hr />
+<h2 id="phase-6-messaging-event-contracts-24-days">Phase 6 — Messaging &amp; Event Contracts (2–4 days)</h2>
+<p>1) Define event envelope &amp; contracts
+   - Files: <code>docs/event-contracts/schema/</code>, <code>docs/event-contracts/ecommerce/</code>
+   - Acceptance:
+     - [ ] Envelope fields set (id, type, version, ts, traceId)
+     - [ ] Key ecommerce events (OrderCreated, InventoryAdjusted) defined
+     - [ ] CHANGELOG updated</p>
+<p>2) Publish/consume in services
+   - Modules: <code>order-service</code>, <code>inventory-service</code>
+   - Acceptance:
+     - [ ] OrderCreated published; Inventory service consumes and updates stock
+     - [ ] Idempotency and retries per ADR-006
+     - [ ] Integration tests with Kafka</p>
+<p>3) Docs
+   - Files: <code>docs/stories/API-STYLES-TRACK.md</code> (Messaging section updates)
+   - Acceptance:
+     - [ ] Sequence diagrams and usage documented</p>
+<hr />
+<h2 id="phase-7-reactive-vs-virtual-threads-scenarios-35-days">Phase 7 — Reactive vs Virtual Threads Scenarios (3–5 days)</h2>
+<p>1) Reactive Checkout (A)
+   - Modules: <code>order-service</code>, <code>payment-adapter-service</code>
+   - Acceptance:
+     - [ ] Non-blocking REST calls, R2DBC, backpressure
+     - [ ] Resilience config (timeouts, retries, circuit breakers)
+     - [ ] Reactor test for backpressure</p>
+<p>2) Streaming Inventory (B)
+   - Modules: <code>inventory-service</code>, <code>notification-service</code>
+   - Acceptance:
+     - [ ] SSE from inventory; WebSocket notifications
+     - [ ] Load test basic scenario</p>
+<p>3) Virtual Threads Webhooks (C)
+   - Module: <code>partner-webhook-dispatcher</code>
+   - Acceptance:
+     - [ ] VT executor; bounded concurrency; tracing</p>
+<p>4) Virtual Threads Replay (D)
+   - Module: <code>replay-service</code>
+   - Acceptance:
+     - [ ] Batch replay with VT; backoff and checkpoints</p>
+<p>5) Docs
+   - Files: <code>docs/stories/JAVA-CONCURRENCY-TRACK.md</code>
+   - Acceptance:
+     - [ ] A/B comparison and lessons learned captured</p>
+<hr />
+<h2 id="phase-8-cicd-and-k8s-24-days">Phase 8 — CI/CD and K8s (2–4 days)</h2>
+<p>1) Build and test pipelines
+   - Files: <code>.github/workflows/build.yml</code>, <code>.github/workflows/test.yml</code>
+   - Acceptance:
+     - [ ] On PR, build touched modules, run tests, generate site</p>
+<p>2) Container images &amp; SBOM
+   - Files: <code>Dockerfile</code> per service, SBOM generation step
+   - Acceptance:
+     - [ ] Images build; SBOM attached/artifacts uploaded</p>
+<p>3) K8s deploy
+   - Path: <code>k8s/</code>
+   - Acceptance:
+     - [ ] Dev namespace deploy job; smoke tests</p>
+<hr />
+<h2 id="phase-9-hardening-polish-23-days">Phase 9 — Hardening &amp; Polish (2–3 days)</h2>
+<p>1) Security
+   - Acceptance:
+     - [ ] Secrets management, TLS (local/dev via mkcert)
+     - [ ] Basic authZ policies enforced</p>
+<p>2) Performance &amp; cost
+   - Acceptance:
+     - [ ] Baseline load tests; simple cost estimates</p>
+<p>3) Docs &amp; ADRs
+   - Acceptance:
+     - [ ] ADRs updated; docs reflect final state</p>
+<hr />
+<h2 id="traceability-labels">Traceability &amp; Labels</h2>
+<ul>
+<li>Open an issue per task using “Protocol Lab” or a new “Build Task” template</li>
+<li>Apply labels:</li>
+<li>Area (<code>area:docs</code>, <code>area:site</code>, <code>area:event-contracts</code>, service area when added)</li>
+<li>Protocol (if relevant)</li>
+<li>Sprint (<code>sprint:1</code>..<code>sprint:12</code>)</li>
+<li>Track (<code>track:curriculum</code>, etc.)</li>
+<li>Type (<code>type:lab</code>, <code>type:enhancement</code>)</li>
+</ul>
+<hr />
+<h2 id="daily-execution-pattern">Daily Execution Pattern</h2>
+<ul>
+<li>Morning: pick the next task, confirm acceptance, define a tiny PR scope</li>
+<li>Midday: implement + tests; draft docs updates alongside</li>
+<li>Afternoon: run tests and local validations; open PR with checklists</li>
+<li>End of day: update issue with notes, blockers, next steps</li>
+</ul>
+<hr />
+<h2 id="appendix-pointers">Appendix — Pointers</h2>
+<ul>
+<li>Projects &amp; Modules: <code>../00-OVERVIEW/projects-and-modules.md</code></li>
+<li>Protocol Curriculum: <code>../stories/PROTOCOL-CURRICULUM.md</code></li>
+<li>Learning Stories (protocol/concurrency-focused): <code>../stories/LEARNING-STORIES.md</code></li>
+<li>API Styles Track: <code>../stories/API-STYLES-TRACK.md</code></li>
+<li>Java Concurrency Track: <code>../stories/JAVA-CONCURRENCY-TRACK.md</code></li>
+<li>Developer Learning Plan: <code>../stories/DEVELOPER-LEARNING-PLAN.md</code></li>
+<li>ADRs: <code>../adr/</code></li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
