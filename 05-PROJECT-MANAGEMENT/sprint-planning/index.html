@@ -52,6 +52,10 @@
 <li>
     <a href="../../00-OVERVIEW/" class="dropdown-item">README</a>
 </li>
+                                    
+<li>
+    <a href="../../00-OVERVIEW/projects-and-modules/" class="dropdown-item">Projects & Modules</a>
+</li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
@@ -110,6 +114,27 @@
                                     
 <li>
     <a href="../../03-DEVELOPMENT/microservices-patterns/" class="dropdown-item">Microservices Patterns</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Learning</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../stories/DEVELOPER-LEARNING-PLAN/" class="dropdown-item">Developer Learning Plan</a>
+</li>
+                                    
+<li>
+    <a href="../../stories/PROTOCOL-CURRICULUM/" class="dropdown-item">Protocol Curriculum</a>
+</li>
+                                    
+<li>
+    <a href="../../stories/API-STYLES-TRACK/" class="dropdown-item">API Styles Track</a>
+</li>
+                                    
+<li>
+    <a href="../../stories/JAVA-CONCURRENCY-TRACK/" class="dropdown-item">Java Concurrency Track</a>
 </li>
                                 </ul>
                             </li>
@@ -395,6 +420,15 @@
 </tbody>
 </table>
 <h2 id="detailed-sprint-breakdown">Detailed Sprint Breakdown</h2>
+<h3 id="learning-and-build-capacity">Learning and Build Capacity</h3>
+<p>To avoid confusion and ensure steady skills growth, reserve capacity each sprint for protocol learning and practical application.</p>
+<p>Recommended split per sprint:
+- 70% Build (features, tests, docs)
+- 20% Protocol learning (pick 1 protocol from API Styles or Concurrency Tracks; do a mini-lab)
+- 10% Reflection (write notes/ADRs/diagrams)</p>
+<p>Definition of Done additions:
+- A short note in <code>docs/stories/</code> summarizing what you learned, the protocol used, and links to PRs.</p>
+<hr />
 <h3 id="sprint-1-foundation-bootstrap-weeks-1-2">Sprint 1: Foundation Bootstrap (Weeks 1-2)</h3>
 <p><strong>Objective</strong>: Establish foundational infrastructure and authentication</p>
 <h4 id="sprint-goals">Sprint Goals</h4>
@@ -451,6 +485,7 @@
 <li>[ ] Metrics and logs are visible in monitoring tools</li>
 <li>[ ] CI pipeline builds and tests all components</li>
 <li>[ ] Documentation updated with setup instructions</li>
+<li>[ ] A short note in <code>docs/stories/</code> summarizing what you learned, the protocol used, and links to PRs.</li>
 </ul>
 <h4 id="sprint-risks-mitigations">Sprint Risks &amp; Mitigations</h4>
 <ul>
@@ -513,6 +548,7 @@
 <li>[ ] Order queries return current state from projections</li>
 <li>[ ] Event replay reconstructs correct aggregate state</li>
 <li>[ ] All event flows have integration tests</li>
+<li>[ ] A short note in <code>docs/stories/</code> summarizing what you learned, the protocol used, and links to PRs.</li>
 </ul>
 <hr />
 <h3 id="sprint-3-real-time-patterns-weeks-5-6">Sprint 3: Real-time Patterns (Weeks 5-6)</h3>
@@ -569,6 +605,7 @@
 <li>[ ] Redis cache improves response times measurably</li>
 <li>[ ] Chat messages are sent and received in real-time</li>
 <li>[ ] All real-time features are monitored and logged</li>
+<li>[ ] A short note in <code>docs/stories/</code> summarizing what you learned, the protocol used, and links to PRs.</li>
 </ul>
 <hr />
 <h3 id="sprint-4-query-aggregation-weeks-7-8">Sprint 4: Query Aggregation (Weeks 7-8)</h3>
@@ -617,6 +654,7 @@
 <li>[ ] Social posts can be created and retrieved</li>
 <li>[ ] Query performance meets response time requirements</li>
 <li>[ ] GraphQL subscriptions work for real-time updates</li>
+<li>[ ] A short note in <code>docs/stories/</code> summarizing what you learned, the protocol used, and links to PRs.</li>
 </ul>
 <hr />
 <h3 id="sprint-5-external-integration-weeks-9-10">Sprint 5: External Integration (Weeks 9-10)</h3>
@@ -665,6 +703,7 @@
 <li>[ ] SSE provides real-time feed updates</li>
 <li>[ ] Legacy system integration works transparently</li>
 <li>[ ] All external integrations have monitoring and alerting</li>
+<li>[ ] A short note in <code>docs/stories/</code> summarizing what you learned, the protocol used, and links to PRs.</li>
 </ul>
 <hr />
 <h3 id="sprint-6-iot-messaging-weeks-11-12">Sprint 6: IoT &amp; Messaging (Weeks 11-12)</h3>
@@ -713,6 +752,7 @@
 <li>[ ] RabbitMQ ensures message delivery even during failures</li>
 <li>[ ] System maintains functionality during service failures</li>
 <li>[ ] Resilience patterns are tested with chaos engineering</li>
+<li>[ ] A short note in <code>docs/stories/</code> summarizing what you learned, the protocol used, and links to PRs.</li>
 </ul>
 <hr />
 <h3 id="sprint-7-stream-processing-weeks-13-14">Sprint 7: Stream Processing (Weeks 13-14)</h3>
@@ -761,6 +801,7 @@
 <li>[ ] Stream processing handles high-volume data reliably</li>
 <li>[ ] Analytics dashboards provide business insights</li>
 <li>[ ] ML infrastructure is ready for model deployment</li>
+<li>[ ] A short note in <code>docs/stories/</code> summarizing what you learned, the protocol used, and links to PRs.</li>
 </ul>
 <hr />
 <h3 id="sprint-8-multi-region-infrastructure-weeks-15-16">Sprint 8: Multi-Region Infrastructure (Weeks 15-16)</h3>
@@ -780,6 +821,7 @@
 <li>[ ] Data replication maintains consistency</li>
 <li>[ ] Network latency between regions is monitored</li>
 <li>[ ] Infrastructure scales automatically based on load</li>
+<li>[ ] A short note in <code>docs/stories/</code> summarizing what you learned, the protocol used, and links to PRs.</li>
 </ul>
 <hr />
 <h2 id="sprint-execution-framework">Sprint Execution Framework</h2>

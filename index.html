@@ -47,6 +47,9 @@
 <li>
 <a class="dropdown-item" href="00-OVERVIEW/">README</a>
 </li>
+<li>
+<a class="dropdown-item" href="00-OVERVIEW/projects-and-modules/">Projects &amp; Modules</a>
+</li>
 </ul>
 </li>
 <li class="nav-item dropdown">
@@ -94,6 +97,23 @@
 <ul class="dropdown-menu">
 <li>
 <a class="dropdown-item" href="03-DEVELOPMENT/microservices-patterns/">Microservices Patterns</a>
+</li>
+</ul>
+</li>
+<li class="nav-item dropdown">
+<a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">Learning</a>
+<ul class="dropdown-menu">
+<li>
+<a class="dropdown-item" href="stories/DEVELOPER-LEARNING-PLAN/">Developer Learning Plan</a>
+</li>
+<li>
+<a class="dropdown-item" href="stories/PROTOCOL-CURRICULUM/">Protocol Curriculum</a>
+</li>
+<li>
+<a class="dropdown-item" href="stories/API-STYLES-TRACK/">API Styles Track</a>
+</li>
+<li>
+<a class="dropdown-item" href="stories/JAVA-CONCURRENCY-TRACK/">Java Concurrency Track</a>
 </li>
 </ul>
 </li>
@@ -235,6 +255,10 @@
 <ul class="nav flex-column">
 </ul>
 </li>
+</ul>
+</li>
+<li class="nav-item" data-bs-level="1"><a class="nav-link" href="#bitvelocity-docs">BitVelocity Docs</a>
+<ul class="nav flex-column">
 </ul>
 </li>
 </ul>
@@ -428,7 +452,24 @@ graph LR
 Security Platform ← (used by) All Domains<br/>
 E-Commerce Events → consumed by others (but Order svc never imports Chat code etc.)<br/>
 Cross-cutting docs define invariants; domain docs must not redefine them.</p>
-<p><em>This documentation is a living resource that evolves with the project. Feedback and improvements are always welcome.</em></p></div>
+<p><em>This documentation is a living resource that evolves with the project. Feedback and improvements are always welcome.</em></p>
+<h1 id="bitvelocity-docs">BitVelocity Docs</h1>
+<p>Welcome! This site houses architecture overviews, ADRs, event contracts, and stories that guide implementation.</p>
+<p>Quick links
+- Overview: 00-OVERVIEW/
+- Architecture: 01-ARCHITECTURE/
+- Infrastructure: 02-INFRASTRUCTURE/
+- Development: 03-DEVELOPMENT/
+- Project Management: 05-PROJECT-MANAGEMENT/
+- ADRs: adr/
+- Event Contracts: event-contracts/
+- Stories: stories/
+- Projects &amp; Modules Overview: 00-OVERVIEW/projects-and-modules.md</p>
+<p>Getting started
+- Developer Learning Plan: stories/DEVELOPER-LEARNING-PLAN.md
+- Protocol Curriculum (12-sprint protocol-first labs): stories/PROTOCOL-CURRICULUM.md
+- API Styles Track (9 types with mini-labs): stories/API-STYLES-TRACK.md
+- Java Concurrency Track (Reactive &amp; Virtual Threads): stories/JAVA-CONCURRENCY-TRACK.md</p></div>
 </div>
 </div>
 <footer class="col-md-12">
@@ -507,5 +548,5 @@ mermaid.initialize({});</script></body>
 </html>
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-09-22 03:15:26.128972+00:00
+Build Date UTC : 2025-09-23 12:08:44.140134+00:00
 -->
