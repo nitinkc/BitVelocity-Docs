@@ -67,7 +67,7 @@
     <ul class="dropdown-menu">
             
 <li>
-    <a href="../" class="dropdown-item">Overview</a>
+    <a href="../README.md" class="dropdown-item">Overview</a>
 </li>
             
 <li>
@@ -180,7 +180,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a href="../../../ARCHIVE/" class="nav-link">Archive (superseded)</a>
+                                <a href="../../../ARCHIVE.md" class="nav-link">Archive (superseded)</a>
                             </li>
                         </ul>
 
@@ -218,8 +218,16 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#phase-1-build-system-shared-foundationslearning-references" class="nav-link">Phase 1 — Build System &amp; Shared FoundationsLearning &amp; References</a>
+            <li class="nav-item" data-bs-level="1"><a href="#phase-1-build-system-shared-foundations" class="nav-link">Phase 1 — Build System &amp; Shared Foundations</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#domain-focus" class="nav-link">🏷️ Domain Focus</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#objectives" class="nav-link">Objectives</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
             <li class="nav-item" data-bs-level="2"><a href="#deliverables" class="nav-link">Deliverables</a>
               <ul class="nav flex-column">
               </ul>
@@ -235,15 +243,16 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="phase-1-build-system-shared-foundationslearning-references">Phase 1 — Build System &amp; Shared FoundationsLearning &amp; References</h1>
+<h1 id="phase-1-build-system-shared-foundations">Phase 1 — Build System &amp; Shared Foundations</h1>
+<h2 id="domain-focus">🏷️ Domain Focus</h2>
+<p><strong>Primary</strong>: 🔧 <strong>Infrastructure</strong> - Build system and shared libraries<br />
+<strong>Secondary</strong>: 🏪 <strong>eCommerce</strong>, 💬 <strong>Chat</strong>, 🏭 <strong>IoT</strong>, 📱 <strong>Social</strong>, 🧠 <strong>ML/AI</strong> - Multi-domain foundation setup</p>
+<h2 id="objectives">Objectives</h2>
 <ul>
-<li>Reference Topics (Protocols &amp; Concurrency): <code>../REFERENCE-TOPICS.md</code></li>
-<li>Phases Overview: <code>./README.md</code> (if exists)</li>
+<li>Establish parent POM, BOM, and shared libs skeletons to standardize builds</li>
+<li>Create protocol-agnostic shared libraries for multi-protocol support</li>
+<li>Implement foundation for reactive and virtual threads concurrency</li>
 </ul>
-<p>Next Phase: <a href="../PHASE-2/">Phase 2</a> Objectives
-- Establish parent POM, BOM, and shared libs skeletons to standardize builds
-- Create protocol-agnostic shared libraries for multi-protocol support
-- Implement foundation for reactive and virtual threads concurrency</p>
 <h2 id="deliverables">Deliverables</h2>
 <ul>
 <li><code>bv-core-parent</code> and <code>bv-core-platform-bom</code></li>

@@ -67,7 +67,7 @@
     <ul class="dropdown-menu">
             
 <li>
-    <a href="../" class="dropdown-item">Overview</a>
+    <a href="../README.md" class="dropdown-item">Overview</a>
 </li>
             
 <li>
@@ -180,7 +180,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a href="../../../ARCHIVE/" class="nav-link">Archive (superseded)</a>
+                                <a href="../../../ARCHIVE.md" class="nav-link">Archive (superseded)</a>
                             </li>
                         </ul>
 
@@ -220,6 +220,10 @@
             
             <li class="nav-item" data-bs-level="1"><a href="#phase-6-messaging-event-contracts" class="nav-link">Phase 6 — Messaging &amp; Event Contracts</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#domain-focus" class="nav-link">🏷️ Domain Focus</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
             <li class="nav-item" data-bs-level="2"><a href="#epic-integration-multi-domain-foundation-22-story-points-event-driven-architecture" class="nav-link">Epic Integration: Multi-Domain Foundation (22 Story Points - Event-Driven Architecture)</a>
               <ul class="nav flex-column">
               </ul>
@@ -232,6 +236,10 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-bs-level="2"><a href="#tasks-acceptance" class="nav-link">Tasks (acceptance)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -240,6 +248,11 @@
                     <div class="col-md-9" role="main">
 
 <h1 id="phase-6-messaging-event-contracts">Phase 6 — Messaging &amp; Event Contracts</h1>
+<h2 id="domain-focus">🏷️ Domain Focus</h2>
+<p><strong>Primary</strong>: 🏪 <strong>eCommerce</strong> - Order and inventory messaging<br />
+<strong>Multi-Domain Foundation</strong>: 💬 <strong>Chat</strong>, 🏭 <strong>IoT</strong>, 📱 <strong>Social</strong>, 🧠 <strong>ML/AI</strong><br />
+<strong>Architecture Reference</strong>: Multiple domain architectures for event contracts<br />
+<strong>Protocol Focus</strong>: 📨 <strong>Kafka Events</strong> and async messaging</p>
 <h2 id="epic-integration-multi-domain-foundation-22-story-points-event-driven-architecture">Epic Integration: Multi-Domain Foundation (22 Story Points - Event-Driven Architecture)</h2>
 <p><strong>Epic Objective</strong>: Establish multi-domain architecture foundation for Chat, IoT, Social Pulse, and ML/AI domains<br />
 <strong>Success Criteria</strong>: Event-driven architecture with Kafka messaging, domain-specific service templates, event contracts following naming conventions, cross-domain communication patterns, data governance framework</p>
@@ -254,18 +267,23 @@
 <li>Order→Inventory messaging flow with idempotency</li>
 <li>Multi-domain service templates and communication patterns</li>
 </ul>
-<p>Tasks (acceptance)
-1) Event Contracts &amp; Messaging Protocol Lab
+<h2 id="tasks-acceptance">Tasks (acceptance)</h2>
+<p>1) <strong>Event Contracts &amp; Messaging Protocol Lab</strong>
    - [ ] Envelope fields (id, type, version, ts, traceId)
    - [ ] Events (OrderCreated, InventoryAdjusted); CHANGELOG updated
    - [ ] Practice event versioning and backward compatibility
    - [ ] Implement event schema validation
-2) Publish/consume implementation
+   - [ ] <strong>🏪 eCommerce Events</strong>: <code>event-contracts/ecommerce/order/</code> and <code>event-contracts/ecommerce/inventory/</code>
+   - [ ] <strong>💬 Chat Events Setup</strong>: <code>event-contracts/chat/message/</code> (message.sent.v1.json)
+   - [ ] <strong>🏭 IoT Events Setup</strong>: <code>event-contracts/iot/telemetry/</code> (telemetry.raw.v1.json)
+   - [ ] <strong>🧠 ML/AI Events Setup</strong>: <code>event-contracts/ml/fraud/</code> (order.scored.v1.json)</p>
+<p>2) <strong>Publish/consume implementation</strong>
    - [ ] OrderCreated published; Inventory consumes &amp; adjusts stock
    - [ ] Retries/backoff per ADR-006; DLQ path tested
    - [ ] Implement exactly-once processing with idempotency keys
    - [ ] Add consumer group management and rebalancing handling
-3) Messaging Lab Extensions
+   - [ ] <strong>🏪 eCommerce Services</strong>: order-service → inventory-service messaging</p>
+<p>3) <strong>Messaging Lab Extensions</strong>
    - [ ] Test different partition strategies (round-robin vs key-based)
    - [ ] Implement poison message handling
    - [ ] Add monitoring for lag and throughput metrics

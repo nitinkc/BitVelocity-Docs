@@ -67,7 +67,7 @@
     <ul class="dropdown-menu">
             
 <li>
-    <a href="../" class="dropdown-item">Overview</a>
+    <a href="../README.md" class="dropdown-item">Overview</a>
 </li>
             
 <li>
@@ -180,7 +180,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a href="../../../ARCHIVE/" class="nav-link">Archive (superseded)</a>
+                                <a href="../../../ARCHIVE.md" class="nav-link">Archive (superseded)</a>
                             </li>
                         </ul>
 
@@ -220,6 +220,18 @@
             
             <li class="nav-item" data-bs-level="1"><a href="#phase-7-concurrency-scenarios-reactive-virtual-threads" class="nav-link">Phase 7 — Concurrency Scenarios (Reactive &amp; Virtual Threads)</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#domain-focus" class="nav-link">🏷️ Domain Focus</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#objectives" class="nav-link">Objectives</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#tasks-acceptance" class="nav-link">Tasks (acceptance)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -228,32 +240,46 @@
                     <div class="col-md-9" role="main">
 
 <h1 id="phase-7-concurrency-scenarios-reactive-virtual-threads">Phase 7 — Concurrency Scenarios (Reactive &amp; Virtual Threads)</h1>
-<p>Objectives
-- Implement A/B concurrency scenarios for learning and selection.
-- <strong>Learning Focus</strong>: Modern Java concurrency - Reactive Programming vs Virtual Threads, WebSockets/SSE, Webhooks.</p>
+<h2 id="domain-focus">🏷️ Domain Focus</h2>
+<p><strong>Primary</strong>: 🏪 <strong>eCommerce</strong> - Checkout and inventory streaming<br />
+<strong>Secondary</strong>: 💬 <strong>Chat</strong> (SSE/WebSocket), 📱 <strong>Social</strong> (Feed streaming), 🏭 <strong>IoT</strong> (Batch processing)<br />
+<strong>Architecture Reference</strong>: <code>01-ARCHITECTURE/domains/ecommerce/DOMAIN_ECOMMERCE_ARCHITECTURE.md</code><br />
+<strong>Protocol Focus</strong>: 🔄 <strong>SSE/WebSocket</strong> streaming, 🔗 <strong>Webhooks</strong>, ⚡ <strong>Concurrency patterns</strong></p>
+<h2 id="objectives">Objectives</h2>
+<ul>
+<li>Implement A/B concurrency scenarios for learning and selection.</li>
+<li><strong>Learning Focus</strong>: Modern Java concurrency - Reactive Programming vs Virtual Threads, WebSockets/SSE, Webhooks.</li>
+</ul>
 <p>Deliverables
 - Reactive checkout; streaming inventory; VT webhooks; VT replay
 - A/B comparison notes and architectural decision</p>
-<p>Tasks (acceptance)
-1) Reactive Checkout (Scenario A - Reactive Learning)
+<h2 id="tasks-acceptance">Tasks (acceptance)</h2>
+<p>1) <strong>Reactive Checkout (Scenario A - Reactive Learning)</strong>
    - [ ] Non-blocking REST calls; R2DBC; resilience configured
    - [ ] Practice Reactor operators: flatMap, zip, timeout, retryBackoff
    - [ ] Use StepVerifier for testing reactive flows
    - [ ] Implement backpressure handling
-2) Streaming Inventory (Protocol Labs - SSE/WebSockets)
+   - [ ] <strong>🏪 eCommerce Focus</strong>: order-service + payment-adapter-service</p>
+<p>2) <strong>Streaming Inventory (Protocol Labs - SSE/WebSockets)</strong>
    - [ ] SSE + WebSocket notifications; basic load test
    - [ ] Practice fan-out patterns with Flux.share()
    - [ ] Implement heartbeat and reconnection strategies
    - [ ] Add authentication and authorization for streams
-3) VT Webhooks (Scenario C - Virtual Threads Learning)
+   - [ ] <strong>🏪 eCommerce</strong>: inventory-service stock updates
+   - [ ] <strong>💬 Chat</strong>: Real-time message delivery patterns
+   - [ ] <strong>📱 Social</strong>: Live feed updates with SSE</p>
+<p>3) <strong>VT Webhooks (Scenario C - Virtual Threads Learning)</strong>
    - [ ] VT executor; bounded concurrency; tracing
    - [ ] Practice structured concurrency patterns
    - [ ] Implement HMAC signature verification
    - [ ] Add per-partner rate limiting and bulkheads
-4) VT Replay (Scenario D - Batch Processing)
+   - [ ] <strong>🏪 eCommerce</strong>: partner-webhook-dispatcher service</p>
+<p>4) <strong>VT Replay (Scenario D - Batch Processing)</strong>
    - [ ] Batch replay with backoff and checkpoints
    - [ ] Practice file processing with virtual threads
    - [ ] Implement resumable processing with state management
+   - [ ] <strong>🏭 IoT</strong>: Batch telemetry processing
+   - [ ] <strong>🧠 ML/AI</strong>: Feature batch processing
 5) Protocol Integration
    - [ ] Webhook protocol lab: implement retry policies
    - [ ] WebSocket protocol lab: handle connection lifecycle
