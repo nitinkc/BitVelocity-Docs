@@ -1,3 +1,5 @@
+> Archived — refer to current milestone scope and Phases for expected effort and resources.
+
 # Budget Planning & Cost Optimization
 
 ## Purpose

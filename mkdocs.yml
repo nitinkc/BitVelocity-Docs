@@ -7,29 +7,20 @@ nav:
       - Stakeholder Guide: 00-OVERVIEW/stakeholder-guide.md
       - README: 00-OVERVIEW/README.md
       - Projects & Modules: 00-OVERVIEW/projects-and-modules.md
-  - Architecture:
-      - Data Architecture: 01-ARCHITECTURE/data-architecture.md
-      - System Overview: 01-ARCHITECTURE/system-overview.md
-      - Cross-Cost Optimization: 01-ARCHITECTURE/CROSS_COST_OPTIMIZATION.md
-      - Cross-Data Platform and Analytics: 01-ARCHITECTURE/CROSS_DATA_PLATFORM_AND_ANALYTICS.md
-      - Cross-Event Contracts and Versioning: 01-ARCHITECTURE/CROSS_EVENT_CONTRACTS_AND_VERSIONING.md
-      - Cross-Execution Backlog and Sprint Plan: 01-ARCHITECTURE/CROSS_EXECUTION_BACKLOG_AND_SPRINT_PLAN.md
-      - Cross-Observability and Testing: 01-ARCHITECTURE/CROSS_OBSERVABILITY_AND_TESTING.md
-      - Cross-Replay DR Drills: 01-ARCHITECTURE/CROSS_REPLAY_DR_DRILLS.md
-      - Domains: 01-ARCHITECTURE/domains/
-  - Infrastructure:
-      - Cloud Strategy: 02-INFRASTRUCTURE/cloud-strategy.md
-  - Development:
-      - Microservices Patterns: 03-DEVELOPMENT/microservices-patterns.md
-  - Learning:
-      - Developer Learning Plan: stories/DEVELOPER-LEARNING-PLAN.md
-      - Protocol Curriculum: stories/PROTOCOL-CURRICULUM.md
-      - API Styles Track: stories/API-STYLES-TRACK.md
-      - Java Concurrency Track: stories/JAVA-CONCURRENCY-TRACK.md
   - Project Management:
-      - Budget Planning: 05-PROJECT-MANAGEMENT/budget-planning.md
-      - Sprint 1 Daily Execution Plan: 05-PROJECT-MANAGEMENT/sprint-1-daily-execution-plan.md
-      - Sprint Planning: 05-PROJECT-MANAGEMENT/sprint-planning.md
+      - Phases:
+          - Overview: stories/phases/README.md
+          - Phase 0 — Groundwork: stories/phases/PHASE-0.md
+          - Phase 1 — Foundations: stories/phases/PHASE-1.md
+          - Phase 2 — Contracts & Scaffolding: stories/phases/PHASE-2.md
+          - Phase 3 — Core Protocols: stories/phases/PHASE-3.md
+          - Phase 4 — Data & State: stories/phases/PHASE-4.md
+          - Phase 5 — Real-Time & Observability: stories/phases/PHASE-5.md
+          - Phase 6 — Resilience & Replay: stories/phases/PHASE-6.md
+          - Phase 7 — Integrations & Edge: stories/phases/PHASE-7.md
+          - Phase 8 — UAT & Release Prep: stories/phases/PHASE-8.md
+          - Phase 9 — Hardening & Polish: stories/phases/PHASE-9.md
+      - Actionable Build Plan: 05-PROJECT-MANAGEMENT/ACTIONABLE-BUILD-PLAN.md
   - ADRs:
       - Template: adr/ADR-TEMPLATE.md
       - Starter Pack: adr/GUIDE_ADR_STARTER_PACK.md
@@ -44,13 +35,8 @@ nav:
       - ADR-008 Pulumi Cloud Provider Abstraction: adr/ADR-008-pulumi-cloud-provider-abstraction.md
   - Event Contracts:
       - Guide: event-contracts/GUIDE_EVENT_CONTRACTS_USAGE.md
-      - Changelog: event-contracts/CHANGELOG.md
       - Readme: event-contracts/README.md
-      - Chat: event-contracts/chat/README.md
-      - Ecommerce: event-contracts/ecommerce/README.md
-      - IoT: event-contracts/iot/README.md
-      - ML: event-contracts/ml/README.md
-      - Schema: event-contracts/schema/README.md
+  - Archive (superseded): ARCHIVE.md
 
 plugins:
     - search

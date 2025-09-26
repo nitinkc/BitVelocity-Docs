@@ -98,8 +98,8 @@ Suggested mappings to learning tracks:
 
 ## Learn-by-Doing Entry Points
 
-- Developer Learning Plan: `../stories/DEVELOPER-LEARNING-PLAN.md`
-- API Styles Track (9 types): `../stories/API-STYLES-TRACK.md`
-- Java Concurrency Track (Reactive & Virtual Threads): `../stories/JAVA-CONCURRENCY-TRACK.md`
+- Execution Phases: `../stories/phases/` (Phase 0-9 with integrated learning)
+- Protocol & Concurrency Reference: `../stories/REFERENCE-TOPICS.md` (9 API protocols + concurrency patterns)
+- Quick Start Guide: `../stories/QUICK-START.md`
 
-Tip: For each lab, note which service you used and link the branch/PR in a short note under `docs/stories/`.
+Tip: For each phase, follow the protocol labs embedded within execution tasks and document your progress with PRs linked to phase checklists.

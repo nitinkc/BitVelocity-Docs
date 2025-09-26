@@ -1,0 +1,645 @@
+{
+  "project": "BitVelocity Platform",
+  "total_story_points": 127,
+  "total_phases": 10,
+  "epics": [
+    {
+      "id": 1,
+      "name": "Foundation Infrastructure",
+      "description": "Platform setup, protocol learning framework, CI/CD foundation",
+      "duration_weeks": 3,
+      "story_points": 25,
+      "phases": [0, 1, 2],
+      "team": "Infrastructure",
+      "labels": ["epic:foundation", "domain:infrastructure", "priority:critical"]
+    },
+    {
+      "id": 2,
+      "name": "Security & Core Services",
+      "description": "Authentication service and product catalog with REST patterns",
+      "duration_weeks": 3,
+      "story_points": 39,
+      "phases": [3, 4],
+      "team": "Infrastructure + eCommerce",
+      "labels": ["epic:core-services", "domain:security", "domain:ecommerce", "priority:high"]
+    },
+    {
+      "id": 3,
+      "name": "Observability & Events",
+      "description": "Monitoring platform and multi-domain event architecture",
+      "duration_weeks": 4,
+      "story_points": 38,
+      "phases": [5, 6],
+      "team": "Infrastructure + Multi-Domain",
+      "labels": ["epic:observability-events", "domain:infrastructure", "protocol:grpc", "protocol:kafka"]
+    },
+    {
+      "id": 4,
+      "name": "Advanced Patterns",
+      "description": "Concurrency patterns and real-time communication protocols",
+      "duration_weeks": 4,
+      "story_points": 30,
+      "phases": [7],
+      "team": "Multi-Domain Specialists",
+      "labels": ["epic:advanced-patterns", "protocol:websocket", "protocol:sse", "protocol:webhooks"]
+    },
+    {
+      "id": 5,
+      "name": "Production Ready",
+      "description": "CI/CD pipeline, GraphQL federation, security hardening",
+      "duration_weeks": 3,
+      "story_points": 25,
+      "phases": [8, 9],
+      "team": "Infrastructure + Security",
+      "labels": ["epic:production-ready", "protocol:graphql", "protocol:json-rpc", "priority:high"]
+    }
+  ],
+  "phases": [
+    {
+      "id": 0,
+      "title": "Repository & Documentation Foundation",
+      "epic_id": 1,
+      "story_points": 5,
+      "domain": ["infrastructure", "learning"],
+      "protocols": ["foundation"],
+      "team": "Infrastructure",
+      "duration_days": 3,
+      "issues": [
+        {
+          "title": "Phase 0: Add Quick Start page and link",
+          "description": "Create docs/stories/QUICK-START.md (or update if exists) and link it from index and mkdocs nav. Acceptance: Quick Start page exists and links to Actionable Build Plan, Developer Learning Plan, and Protocol Curriculum.",
+          "story_points": 2,
+          "labels": ["area:docs", "area:site", "sprint:1", "type:enhancement", "phase:0", "domain:infrastructure", "protocol:foundation"],
+          "acceptance_criteria": [
+            "Quick Start page exists and links to Actionable Build Plan",
+            "Links to Developer Learning Plan and Protocol Curriculum",
+            "Quick Start links to protocol roadmap",
+            "Map each phase to specific protocol learning outcomes",
+            "Link protocol labs to practical implementation tasks",
+            "Files: docs/stories/QUICK-START.md, update docs/index.md"
+          ]
+        },
+        {
+          "title": "Phase 0: Verify docs serve and deploy",
+          "description": "Run mkdocs serve locally; fix any nav or link errors; verify gh-deploy completes. Acceptance: mkdocs serve OK, gh-deploy runs successfully.",
+          "story_points": 3,
+          "labels": ["area:site", "sprint:1", "type:docs", "phase:0", "domain:infrastructure", "protocol:foundation"],
+          "acceptance_criteria": [
+            "mkdocs serve runs without errors locally",
+            "gh-deploy completes successfully",
+            "REFERENCE-TOPICS.md properly integrated in navigation",
+            "All phase cross-references work correctly",
+            "Fix any nav or link errors"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "title": "Build System & Shared Libraries",
+      "epic_id": 1,
+      "story_points": 10,
+      "domain": ["infrastructure", "multi-domain"],
+      "protocols": ["rest", "grpc", "graphql", "websocket", "sse", "kafka", "webhooks", "json-rpc", "batch"],
+      "team": "Infrastructure",
+      "duration_days": 5,
+      "issues": [
+        {
+          "title": "Phase 1: Create bv-core-parent and bv-core-platform-bom",
+          "description": "Add parent POM with plugin management, BOM with pinned versions; wire at least one service module to use them. Acceptance: parent + BOM compile; service builds off them.",
+          "story_points": 5,
+          "labels": ["sprint:1", "type:enhancement", "phase:1", "domain:infrastructure", "protocol:foundation"],
+          "acceptance_criteria": [
+            "Parent POM with plugin management and shared config",
+            "BOM pins dependencies for all 9 protocols",
+            "Include Spring WebFlux, gRPC starters, GraphQL, Kafka libraries",
+            "At least one service builds with BOM imported",
+            "Parent + BOM compile successfully",
+            "Service builds off them"
+          ]
+        },
+        {
+          "title": "Phase 1: Skeleton shared libraries (bv-core-common/*)",
+          "description": "Create modules: bv-common-entities, bv-common-events, bv-common-exceptions, bv-common-logging, bv-common-auth, bv-common-security. Acceptance: each compiles, has a minimal unit test, and README.",
+          "story_points": 3,
+          "labels": ["sprint:1", "type:enhancement", "phase:1", "domain:infrastructure", "protocol:foundation"],
+          "acceptance_criteria": [
+            "Modules compile: bv-common-entities, events, exceptions, logging, auth, security",
+            "Create bv-common-protocols with abstract handler interfaces",
+            "Protocol-specific error handling and tracing abstractions",
+            "Each has a minimal unit test and README"
+          ]
+        },
+        {
+          "title": "Phase 1: CI sanity pipeline for builds",
+          "description": "Add .github/workflows/build.yml to build changed modules on PR; fail on tests or style errors. Acceptance: workflow passes for a sample PR.",
+          "story_points": 2,
+          "labels": ["area:site", "sprint:1", "type:enhancement", "phase:1", "domain:infrastructure", "protocol:foundation"],
+          "acceptance_criteria": [
+            ".github/workflows/build.yml builds changed modules on PR",
+            "Protocol compatibility matrix test framework setup",
+            "Fail on tests or style errors",
+            "Workflow passes for a sample PR"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Local Development Infrastructure",
+      "epic_id": 1,
+      "story_points": 10,
+      "domain": ["infrastructure", "chat", "social", "iot"],
+      "protocols": ["websocket", "sse", "batch"],
+      "team": "Infrastructure",
+      "duration_days": 5,
+      "issues": [
+        {
+          "title": "Docker compose stack with protocol support",
+          "description": "Containerized infrastructure supporting WebSocket and SSE",
+          "story_points": 5,
+          "labels": ["phase:2", "domain:infrastructure", "protocol:websocket", "protocol:sse"],
+          "acceptance_criteria": [
+            "docker compose up -d brings services up with health checks",
+            "Services: Postgres, Redis, Kafka+ZK, Schema Registry",
+            "WebSocket test server with echo functionality",
+            "SSE event stream endpoints with CORS headers"
+          ]
+        },
+        {
+          "title": "Kubernetes manifests scaffold with batch processing",
+          "description": "K8s templates with file processing pipeline mockup",
+          "story_points": 3,
+          "labels": ["phase:2", "domain:infrastructure", "protocol:batch"],
+          "acceptance_criteria": [
+            "Namespace, deployment/service/configmap templates",
+            "Simple batch job definition for file processing",
+            "Volume mounts configured for batch operations"
+          ]
+        },
+        {
+          "title": "Protocol testing infrastructure setup",
+          "description": "Testing utilities for WebSocket, SSE, and batch protocols",
+          "story_points": 2,
+          "labels": ["phase:2", "domain:infrastructure", "protocol:websocket", "protocol:sse", "protocol:batch"],
+          "acceptance_criteria": [
+            "WebSocket client testing utilities",
+            "nginx proxy for WebSocket upgrade headers",
+            "File upload/download endpoints for batch testing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Authentication Service",
+      "epic_id": 2,
+      "story_points": 21,
+      "domain": ["security", "ecommerce"],
+      "protocols": ["rest"],
+      "team": "Infrastructure + eCommerce",
+      "duration_days": 8,
+      "issues": [
+        {
+          "title": "Design contract-first authentication API",
+          "description": "OpenAPI specification for authentication endpoints",
+          "story_points": 4,
+          "labels": ["phase:3", "domain:security", "protocol:rest"],
+          "acceptance_criteria": [
+            "OpenAPI covers register/login/refresh/me endpoints",
+            "Error model aligns with bv-common-exceptions",
+            "Proper HTTP status codes (201, 200, 401, 422)",
+            "API documented and testable with curl/Postman"
+          ]
+        },
+        {
+          "title": "Implement JWT authentication service",
+          "description": "Core authentication with JWT issuance and validation",
+          "story_points": 8,
+          "labels": ["phase:3", "domain:security", "protocol:rest"],
+          "acceptance_criteria": [
+            "User registration and login endpoints",
+            "JWT token generation and validation",
+            "BCrypt password hashing",
+            "Simple RBAC implementation",
+            "100 requests/second performance target"
+          ]
+        },
+        {
+          "title": "Add security features and rate limiting",
+          "description": "Login rate limiting and security hardening",
+          "story_points": 5,
+          "labels": ["phase:3", "domain:security", "protocol:rest"],
+          "acceptance_criteria": [
+            "Login rate limiting per IP/user",
+            "Security audit compliance",
+            "Unit + integration tests with containerized Postgres",
+            "Observability basics (traces/metrics/logs)"
+          ]
+        },
+        {
+          "title": "Create REST protocol learning materials",
+          "description": "Document REST patterns and create API collection",
+          "story_points": 4,
+          "labels": ["phase:3", "domain:security", "protocol:rest"],
+          "acceptance_criteria": [
+            "Idempotency demonstration for registration",
+            "Rate limiting examples",
+            "Postman/Insomnia collection",
+            "Update microservices-patterns.md with REST examples"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Product Catalog Service",
+      "epic_id": 2,
+      "story_points": 18,
+      "domain": ["ecommerce"],
+      "protocols": ["rest"],
+      "team": "eCommerce",
+      "duration_days": 7,
+      "issues": [
+        {
+          "title": "Design product entity with audit fields",
+          "description": "Product data model and OpenAPI specification",
+          "story_points": 4,
+          "labels": ["phase:4", "domain:ecommerce", "protocol:rest"],
+          "acceptance_criteria": [
+            "Product entity with comprehensive audit fields",
+            "CRUD paths with validation and error model",
+            "Pagination (page, size, sort) and filtering",
+            "HATEOAS principles in API design"
+          ]
+        },
+        {
+          "title": "Build REST API controllers with CRUD",
+          "description": "Full CRUD operations for product management",
+          "story_points": 4,
+          "labels": ["phase:4", "domain:ecommerce", "protocol:rest"],
+          "acceptance_criteria": [
+            "Product CRUD endpoints implemented",
+            "Request validation and consistent errors",
+            "ETags for optimistic locking",
+            "Advanced REST patterns demonstrated"
+          ]
+        },
+        {
+          "title": "Implement data validation and error handling",
+          "description": "Comprehensive validation and error response handling",
+          "story_points": 3,
+          "labels": ["phase:4", "domain:ecommerce", "protocol:rest"],
+          "acceptance_criteria": [
+            "Input validation with proper error messages",
+            "Consistent error response format",
+            "Error handling examples documented"
+          ]
+        },
+        {
+          "title": "Setup database integration and migrations",
+          "description": "Database layer with performance requirements",
+          "story_points": 4,
+          "labels": ["phase:4", "domain:ecommerce", "protocol:rest"],
+          "acceptance_criteria": [
+            "Database migrations for product schema",
+            "1000 products searchable in <500ms",
+            "Containerized Postgres integration tests"
+          ]
+        },
+        {
+          "title": "Build repository and service layers",
+          "description": "Clean architecture with repository pattern",
+          "story_points": 3,
+          "labels": ["phase:4", "domain:ecommerce", "protocol:rest"],
+          "acceptance_criteria": [
+            "Repository pattern implementation",
+            "Service layer with business logic",
+            "Unit tests for all layers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Observability Foundation",
+      "epic_id": 3,
+      "story_points": 16,
+      "domain": ["infrastructure", "ecommerce", "security"],
+      "protocols": ["grpc"],
+      "team": "Infrastructure",
+      "duration_days": 6,
+      "issues": [
+        {
+          "title": "Implement Prometheus metrics with Micrometer",
+          "description": "Custom business metrics and performance tracking",
+          "story_points": 4,
+          "labels": ["phase:5", "domain:infrastructure", "protocol:grpc"],
+          "acceptance_criteria": [
+            "Custom business metrics exposed",
+            "Trace IDs flow across service calls",
+            "Performance metrics for auth and product services"
+          ]
+        },
+        {
+          "title": "Configure structured logging with correlation IDs",
+          "description": "Centralized logging with request tracing",
+          "story_points": 3,
+          "labels": ["phase:5", "domain:infrastructure", "protocol:grpc"],
+          "acceptance_criteria": [
+            "Structured JSON logging with Logback",
+            "Correlation IDs across distributed calls",
+            "Log aggregation ready configuration"
+          ]
+        },
+        {
+          "title": "Add health check endpoints",
+          "description": "Service health monitoring and readiness probes",
+          "story_points": 3,
+          "labels": ["phase:5", "domain:infrastructure", "protocol:grpc"],
+          "acceptance_criteria": [
+            "Health check endpoints for all services",
+            "Kubernetes readiness and liveness probes",
+            "Database connectivity health checks"
+          ]
+        },
+        {
+          "title": "Create Grafana dashboards",
+          "description": "Monitoring dashboards for system and business metrics",
+          "story_points": 3,
+          "labels": ["phase:5", "domain:infrastructure", "protocol:grpc"],
+          "acceptance_criteria": [
+            "Dashboards for latency, error rate, throughput",
+            "Protocol-specific metrics (gRPC vs REST performance)",
+            "Business metrics dashboards"
+          ]
+        },
+        {
+          "title": "Setup alerting rules and notifications",
+          "description": "Automated alerting on system anomalies",
+          "story_points": 3,
+          "labels": ["phase:5", "domain:infrastructure", "protocol:grpc"],
+          "acceptance_criteria": [
+            "Alert rules for error spikes and performance degradation",
+            "Protocol-aware thresholds",
+            "Basic notification channels configured"
+          ]
+        },
+        {
+          "title": "Implement gRPC bidirectional streaming",
+          "description": "Service-to-service communication with gRPC",
+          "story_points": 7,
+          "labels": ["phase:5", "domain:infrastructure", "protocol:grpc"],
+          "acceptance_criteria": [
+            ".proto files with service definitions",
+            "Client/server streaming for real-time data feeds",
+            "gRPC interceptors for tracing and metrics",
+            "Performance comparison vs REST endpoints",
+            "Service mesh integration with load balancing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Multi-Domain Event Foundation",
+      "epic_id": 3,
+      "story_points": 22,
+      "domain": ["ecommerce", "chat", "iot", "social", "ml-ai"],
+      "protocols": ["kafka"],
+      "team": "Multi-Domain",
+      "duration_days": 8,
+      "issues": [
+        {
+          "title": "Design event contracts and schema validation",
+          "description": "Event envelope schema and domain-specific events",
+          "story_points": 5,
+          "labels": ["phase:6", "domain:multi", "protocol:kafka"],
+          "acceptance_criteria": [
+            "Event envelope (id, type, version, ts, traceId)",
+            "eCommerce events: OrderCreated, InventoryAdjusted",
+            "Chat events: message.sent.v1.json",
+            "IoT events: telemetry.raw.v1.json",
+            "ML/AI events: order.scored.v1.json",
+            "Event schema validation implemented"
+          ]
+        },
+        {
+          "title": "Implement publish/consume with idempotency",
+          "description": "Order-to-inventory messaging flow with exactly-once processing",
+          "story_points": 8,
+          "labels": ["phase:6", "domain:ecommerce", "protocol:kafka"],
+          "acceptance_criteria": [
+            "OrderCreated published by order-service",
+            "Inventory service consumes and adjusts stock",
+            "Exactly-once processing with idempotency keys",
+            "Retries/backoff per ADR-006 patterns"
+          ]
+        },
+        {
+          "title": "Add consumer group management and DLQ",
+          "description": "Advanced Kafka patterns for reliability",
+          "story_points": 4,
+          "labels": ["phase:6", "domain:infrastructure", "protocol:kafka"],
+          "acceptance_criteria": [
+            "Consumer group rebalancing handling",
+            "Dead letter queue path tested",
+            "Poison message handling"
+          ]
+        },
+        {
+          "title": "Implement messaging monitoring and partitioning",
+          "description": "Kafka performance optimization and monitoring",
+          "story_points": 3,
+          "labels": ["phase:6", "domain:infrastructure", "protocol:kafka"],
+          "acceptance_criteria": [
+            "Different partition strategies (round-robin vs key-based)",
+            "Monitoring for lag and throughput metrics",
+            "Performance testing with 1000+ events/second"
+          ]
+        },
+        {
+          "title": "Create event contract governance process",
+          "description": "Documentation and governance for event evolution",
+          "story_points": 2,
+          "labels": ["phase:6", "domain:infrastructure", "protocol:kafka"],
+          "acceptance_criteria": [
+            "Sequence diagrams for message flows",
+            "Event versioning and backward compatibility",
+            "CHANGELOG process for event contracts"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Advanced Concurrency & Real-Time Protocols",
+      "epic_id": 4,
+      "story_points": 30,
+      "domain": ["ecommerce", "chat", "social", "iot", "ml-ai"],
+      "protocols": ["websocket", "sse", "webhooks"],
+      "team": "Multi-Domain",
+      "duration_days": 12,
+      "issues": [
+        {
+          "title": "Build reactive checkout with R2DBC",
+          "description": "Non-blocking eCommerce order processing",
+          "story_points": 8,
+          "labels": ["phase:7", "domain:ecommerce", "protocol:reactive"],
+          "acceptance_criteria": [
+            "Non-blocking REST calls with WebFlux",
+            "R2DBC for reactive database access",
+            "Circuit breaker and retry patterns",
+            "StepVerifier for testing reactive flows",
+            "Backpressure handling implemented",
+            "500+ orders/second with sub-100ms p99 latency"
+          ]
+        },
+        {
+          "title": "Implement streaming inventory and social feeds",
+          "description": "Real-time updates with SSE and WebSocket",
+          "story_points": 8,
+          "labels": ["phase:7", "domain:ecommerce", "domain:chat", "domain:social", "protocol:sse", "protocol:websocket"],
+          "acceptance_criteria": [
+            "SSE streaming for inventory updates (eCommerce)",
+            "WebSocket real-time message delivery (Chat)",
+            "Live feed updates with SSE (Social)",
+            "Fan-out patterns with Flux.share()",
+            "Heartbeat and reconnection strategies",
+            "Authentication and authorization for streams",
+            "1000+ concurrent WebSocket connections supported"
+          ]
+        },
+        {
+          "title": "Build virtual threads webhook dispatcher",
+          "description": "Partner webhook processing with structured concurrency",
+          "story_points": 7,
+          "labels": ["phase:7", "domain:ecommerce", "protocol:webhooks"],
+          "acceptance_criteria": [
+            "Virtual threads executor with bounded concurrency",
+            "Structured concurrency patterns",
+            "HMAC signature verification",
+            "Per-partner rate limiting and bulkheads",
+            "Webhook retry policies implemented",
+            "100+ concurrent webhook deliveries"
+          ]
+        },
+        {
+          "title": "Optimize batch processing with virtual threads",
+          "description": "IoT telemetry and ML feature processing",
+          "story_points": 7,
+          "labels": ["phase:7", "domain:iot", "domain:ml-ai", "protocol:batch"],
+          "acceptance_criteria": [
+            "Batch replay with backoff and checkpoints (IoT)",
+            "Feature batch processing (ML/AI)",
+            "Resumable processing with state management",
+            "File processing with virtual threads",
+            "90% CPU utilization without blocking"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "CI/CD Pipeline & Advanced APIs",
+      "epic_id": 5,
+      "story_points": 15,
+      "domain": ["infrastructure", "multi-domain"],
+      "protocols": ["graphql", "json-rpc"],
+      "team": "Infrastructure",
+      "duration_days": 6,
+      "issues": [
+        {
+          "title": "Build automated CI/CD pipeline",
+          "description": "Complete build, test, and deployment automation",
+          "story_points": 8,
+          "labels": ["phase:8", "domain:infrastructure", "protocol:foundation"],
+          "acceptance_criteria": [
+            "GitHub Actions workflow for automated builds",
+            "Automated testing (unit, integration, security)",
+            "Container image building and publishing",
+            "SBOM generation for compliance",
+            "Deployment automation to Kubernetes",
+            "Pipeline completes in <15 minutes"
+          ]
+        },
+        {
+          "title": "Implement GraphQL federation gateway",
+          "description": "Federated schema aggregating multiple microservices",
+          "story_points": 4,
+          "labels": ["phase:8", "domain:multi", "protocol:graphql"],
+          "acceptance_criteria": [
+            "GraphQL schemas with federation directives",
+            "Gateway aggregating auth, product, and other services",
+            "Subscription support for real-time updates",
+            "Performance testing vs REST equivalents"
+          ]
+        },
+        {
+          "title": "Build JSON-RPC service with batch operations",
+          "description": "JSON-RPC 2.0 compliant service with WebSocket transport",
+          "story_points": 3,
+          "labels": ["phase:8", "domain:infrastructure", "protocol:json-rpc"],
+          "acceptance_criteria": [
+            "JSON-RPC 2.0 compliant endpoints",
+            "Batch request processing",
+            "WebSocket transport for persistent connections",
+            "Performance comparison with GraphQL for bulk operations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Security Hardening & Performance Validation",
+      "epic_id": 5,
+      "story_points": 10,
+      "domain": ["security", "infrastructure", "multi-domain"],
+      "protocols": ["all"],
+      "team": "Infrastructure + Security",
+      "duration_days": 4,
+      "issues": [
+        {
+          "title": "Implement multi-protocol security hardening",
+          "description": "Security audit and fixes across all communication channels",
+          "story_points": 5,
+          "labels": ["phase:9", "domain:security", "protocol:all"],
+          "acceptance_criteria": [
+            "TLS/mTLS configuration for all services",
+            "WebSocket authentication and rate limiting",
+            "gRPC mutual authentication",
+            "GraphQL query depth limiting and introspection disable",
+            "Kafka ACLs and SSL encryption",
+            "Webhook signature verification",
+            "Secrets management implemented"
+          ]
+        },
+        {
+          "title": "Establish protocol performance baselines",
+          "description": "Comprehensive performance benchmarking across all protocols",
+          "story_points": 3,
+          "labels": ["phase:9", "domain:infrastructure", "protocol:all"],
+          "acceptance_criteria": [
+            "Performance matrix: REST vs gRPC vs GraphQL",
+            "Latency analysis: sync vs async vs streaming",
+            "Resource utilization: Reactive vs Virtual Threads",
+            "Cost analysis per protocol type",
+            "<100ms p95 latency for critical paths"
+          ]
+        },
+        {
+          "title": "Complete learning documentation and decision matrix",
+          "description": "Protocol learning summary and implementation guidance",
+          "story_points": 2,
+          "labels": ["phase:9", "domain:infrastructure", "protocol:all"],
+          "acceptance_criteria": [
+            "Protocol decision matrix (when to use each)",
+            "Performance characteristics and trade-offs documented",
+            "Real-world usage examples and anti-patterns",
+            "ADRs updated with final architectural decisions"
+          ]
+        }
+      ]
+    }
+  ]
+}

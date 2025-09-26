@@ -1,0 +1,18 @@
+# Project configuration for automation
+# Update projectUrl to your GitHub Projects v2 board URL if it changes.
+projectUrl: https://github.com/users/nitinkc/projects/8
+
+# Optional: Field mappings (fill in to enable future auto-field-setting)
+# Example structure (not yet used by workflows):
+# fields:
+#   sprint:
+#     type: iteration   # or single-select
+#     name: Sprint      # Project field display name
+#     # For iteration fields, the workflow will match iteration titles by name (e.g., "Sprint 1")
+#   epic:
+#     type: single-select
+#     name: Epic
+#     options:
+#       EPIC-001: Infrastructure
+#       EPIC-002: Authentication
+#       EPIC-003: Product

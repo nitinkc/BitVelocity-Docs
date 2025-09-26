@@ -8,7 +8,7 @@ python -m mkdocs serve
 python -m  mkdocs gh-deploy
 ```
 
-MErmaid plugin for diagrams
+Mermaid plugin for diagrams
 
 ```
 python -m pip install mkdocs-mermaid2-plugin

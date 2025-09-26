@@ -1,0 +1,94 @@
+name: Create Seed Issues
+
+on:
+  workflow_dispatch:
+    inputs:
+      seedFile:
+        description: 'Seed issues file path under .github/seed-issues (e.g., all-phases.json, phases.json, phase0-phase1.json, phase3-5.json, phase6-9.json)'
+        required: true
+        default: 'phases.json'
+      projectUrl:
+        description: 'Optional GitHub Projects (v2) URL to auto-add created issues (e.g., https://github.com/orgs/<ORG>/projects/<NUM> or https://github.com/users/<USER>/projects/<NUM>)'
+        required: false
+        default: 'https://github.com/users/nitinkc/projects/8'
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  create:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Read seed issues file
+        id: read
+        run: |
+          echo "JSON<<EOF" >> $GITHUB_OUTPUT
+          cat .github/seed-issues/${{ github.event.inputs.seedFile }} >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Create issues
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          echo "Creating issues on $REPO"
+          : > created_issues.txt
+          
+          # Check if input is structured phases.json (with nested issues) or simple all-phases.json (flat array)
+          FILE_CONTENT='${{ steps.read.outputs.JSON }}'
+          
+          if echo "$FILE_CONTENT" | jq -e '.phases' > /dev/null 2>&1; then
+            echo "Processing structured phases.json format"
+            # Handle structured format with phases containing issues arrays
+            echo "$FILE_CONTENT" | jq -c '.phases[].issues[]' | while read -r issue; do
+              title=$(echo "$issue" | jq -r '.title')
+              body=$(echo "$issue" | jq -r '.description')
+              labels=$(echo "$issue" | jq -r '.labels | join(",")')
+              number=$(gh issue create --repo "$REPO" --title "$title" --body "$body" --label "$labels" --json number --jq '.number')
+              echo "$number" >> created_issues.txt
+            done
+          else
+            echo "Processing simple all-phases.json format (flat array)"
+            # Handle simple flat array format
+            echo "$FILE_CONTENT" | jq -c '.[]' | while read -r issue; do
+              title=$(echo "$issue" | jq -r '.title')
+              body=$(echo "$issue" | jq -r '.body')
+              labels=$(echo "$issue" | jq -r '.labels | join(",")')
+              number=$(gh issue create --repo "$REPO" --title "$title" --body "$body" --label "$labels" --json number --jq '.number')
+              echo "$number" >> created_issues.txt
+            done
+          fi
+        shell: bash
+
+      - name: Add created issues to project (optional)
+        if: ${{ github.event.inputs.projectUrl != '' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PROJECT_URL: ${{ github.event.inputs.projectUrl }}
+        run: |
+          echo "Adding issues to project: $PROJECT_URL"
+          if echo "$PROJECT_URL" | grep -q "/orgs/"; then
+            ORG=$(echo "$PROJECT_URL" | sed -E 's|.*/orgs/([^/]+)/projects/([0-9]+).*|\1|')
+            NUM=$(echo "$PROJECT_URL" | sed -E 's|.*/orgs/([^/]+)/projects/([0-9]+).*|\2|')
+            PROJECT_ID=$(gh api graphql -f query='query($org:String!,$number:Int!){organization(login:$org){projectV2(number:$number){id}}}' -F org="$ORG" -F number="$NUM" --jq '.data.organization.projectV2.id')
+          else
+            USER=$(echo "$PROJECT_URL" | sed -E 's|.*/users/([^/]+)/projects/([0-9]+).*|\1|')
+            NUM=$(echo "$PROJECT_URL" | sed -E 's|.*/users/([^/]+)/projects/([0-9]+).*|\2|')
+            PROJECT_ID=$(gh api graphql -f query='query($user:String!,$number:Int!){user(login:$user){projectV2(number:$number){id}}}' -F user="$USER" -F number="$NUM" --jq '.data.user.projectV2.id')
+          fi
+          echo "Project ID: $PROJECT_ID"
+
+          while read -r issueNumber; do
+            [ -z "$issueNumber" ] && continue
+            CONTENT_ID=$(gh api repos/$REPO/issues/$issueNumber --jq '.node_id')
+            gh api graphql -f query='mutation($project:ID!,$content:ID!){addProjectV2ItemById(input:{projectId:$project, contentId:$content}){item{id}}}' -F project="$PROJECT_ID" -F content="$CONTENT_ID"
+            echo "Added issue #$issueNumber to project"
+          done < created_issues.txt
+
+      - name: Summary
+        run: echo "Seed issues created."

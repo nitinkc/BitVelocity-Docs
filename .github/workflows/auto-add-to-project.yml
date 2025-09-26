@@ -1,0 +1,59 @@
+name: Auto-add to Project
+
+on:
+  issues:
+    types: [opened, reopened]
+  pull_request_target:
+    types: [opened, reopened, synchronize]
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  add:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Resolve Project URL
+        id: proj
+        shell: bash
+        run: |
+          URL=$(grep '^projectUrl:' .github/project-config.yml | awk '{print $2}')
+          if [ -z "$URL" ]; then
+            URL="https://github.com/users/nitinkc/projects/8"
+          fi
+          echo "project_url=$URL" >> $GITHUB_OUTPUT
+
+      - name: Add item to GitHub Project
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PROJECT_URL: ${{ steps.proj.outputs.project_url }}
+          REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -e
+          echo "Project URL: $PROJECT_URL"
+
+          if echo "$PROJECT_URL" | grep -q "/orgs/"; then
+            ORG=$(echo "$PROJECT_URL" | sed -E 's|.*/orgs/([^/]+)/projects/([0-9]+).*|\1|')
+            NUM=$(echo "$PROJECT_URL" | sed -E 's|.*/orgs/([^/]+)/projects/([0-9]+).*|\2|')
+            PROJECT_ID=$(gh api graphql -f query='query($org:String!,$number:Int!){organization(login:$org){projectV2(number:$number){id}}}' -F org="$ORG" -F number="$NUM" --jq '.data.organization.projectV2.id')
+          else
+            USER=$(echo "$PROJECT_URL" | sed -E 's|.*/users/([^/]+)/projects/([0-9]+).*|\1|')
+            NUM=$(echo "$PROJECT_URL" | sed -E 's|.*/users/([^/]+)/projects/([0-9]+).*|\2|')
+            PROJECT_ID=$(gh api graphql -f query='query($user:String!,$number:Int!){user(login:$user){projectV2(number:$number){id}}}' -F user="$USER" -F number="$NUM" --jq '.data.user.projectV2.id')
+          fi
+          echo "Project ID: $PROJECT_ID"
+
+          CONTENT_ID=$(jq -r '.issue.node_id // .pull_request.node_id' < "$GITHUB_EVENT_PATH")
+          if [ -z "$CONTENT_ID" ] || [ "$CONTENT_ID" = "null" ]; then
+            echo "No content id found in event payload";
+            exit 0
+          fi
+
+          gh api graphql -f query='mutation($project:ID!,$content:ID!){addProjectV2ItemById(input:{projectId:$project, contentId:$content}){item{id}}}' -F project="$PROJECT_ID" -F content="$CONTENT_ID"
+          echo "Added to project"

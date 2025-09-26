@@ -4,12 +4,11 @@ Welcome to the BitVelocity documentation! This comprehensive learning platform i
 
 ## 🚀 Quick Start
 
-**New to the project?** Start here:
+New to the project? Start with Phases:
 
-- [Project Charter](00-OVERVIEW/project-charter.md) - Understand the mission and objectives
-- [Stakeholder Guide](00-OVERVIEW/stakeholder-guide.md) - Find your role and relevant documentation
-- [System Overview](01-ARCHITECTURE/system-overview.md) - Understand the overall architecture
-- [Sprint Planning](05-PROJECT-MANAGEMENT/sprint-planning.md) - See the implementation roadmap
+- Project Management → [Phases Overview](05-PROJECT-MANAGEMENT/phases/README.md)
+- Then pick your current phase (0–9)  
+- For reference topics, see [Protocols & Concurrency Reference](stories/REFERENCE-TOPICS.md)
 
 ## 📁 Documentation Structure
 
@@ -18,37 +17,10 @@ Welcome to the BitVelocity documentation! This comprehensive learning platform i
 - [**Project Charter**](00-OVERVIEW/project-charter.md) - Mission, objectives, and constraints
 - [**Stakeholder Guide**](00-OVERVIEW/stakeholder-guide.md) - Role-based navigation guide
 
-### 01-ARCHITECTURE - System Design
-- [**System Overview**](01-ARCHITECTURE/system-overview.md) - High-level architecture and principles
-- [**Data Architecture**](01-ARCHITECTURE/data-architecture.md) - OLTP→OLAP, audit strategy, data governance
-- [**Security Architecture**](01-ARCHITECTURE/security-architecture.md) - End-to-end security strategy
-
-#### Domain-Specific Architecture
-- [**E-Commerce Domain**](01-ARCHITECTURE/domains/ecommerce/DOMAIN_ECOMMERCE_ARCHITECTURE.md) - Product, orders, inventory, payments
-- [**Chat Domain**](01-ARCHITECTURE/domains/chat/DOMAIN_CHAT_ARCHITECTURE.md) - Real-time messaging and notifications
-- [**IoT Domain**](01-ARCHITECTURE/domains/iot/DOMAIN_IOT_ARCHITECTURE.md) - Device management and telemetry
-- [**Social Domain**](01-ARCHITECTURE/domains/social/DOMAIN_SOCIAL_ARCHITECTURE.md) - Social features and feeds
-- [**ML/AI Domain**](01-ARCHITECTURE/domains/ml-ai/DOMAIN_ML_AI_ARCHITECTURE.md) - Machine learning and analytics
-
-### 02-INFRASTRUCTURE - Cloud & Deployment
-- [**Cloud Strategy**](02-INFRASTRUCTURE/cloud-strategy.md) - Multi-cloud approach with Pulumi
-- [**Deployment Architecture**](02-INFRASTRUCTURE/deployment-architecture.md) - CI/CD and deployment patterns
-- [**Cost Optimization**](02-INFRASTRUCTURE/cost-optimization.md) - Budget management and resource optimization
-
-### 03-DEVELOPMENT - Implementation Patterns
-- [**Microservices Patterns**](03-DEVELOPMENT/microservices-patterns.md) - Comprehensive pattern implementations
-- [**API Protocols Guide**](03-DEVELOPMENT/api-protocols.md) - REST, GraphQL, gRPC, WebSocket, MQTT, etc.
-- [**Testing Strategy**](03-DEVELOPMENT/testing-strategy.md) - Testing approaches and automation
-
-### 04-OPERATIONS - Operational Excellence
-- [**Observability Strategy**](04-OPERATIONS/observability.md) - Monitoring, logging, tracing
-- [**Disaster Recovery**](04-OPERATIONS/disaster-recovery.md) - DR procedures and backup strategies
-- [**Data Governance**](04-OPERATIONS/data-governance.md) - Data quality, lineage, compliance
-
-### 05-PROJECT-MANAGEMENT - Execution & Planning
-- [**Sprint Planning**](05-PROJECT-MANAGEMENT/sprint-planning.md) - Detailed 2-week sprint cycles
-- [**Execution Roadmap**](05-PROJECT-MANAGEMENT/execution-roadmap.md) - Overall implementation timeline
-- [**Budget Planning**](05-PROJECT-MANAGEMENT/budget-planning.md) - Cost management and optimization
+### Stories - Execution & Learning
+- [Phases](stories/phases/) — Execution phases with integrated learning (0-9)
+- [Reference Topics](stories/REFERENCE-TOPICS.md) — Protocol & concurrency reference
+- [Quick Start Guide](stories/QUICK-START.md) — Entry point for contributors
 
 ### ADR - Architectural Decision Records
 - [**ADR-001**](adr/ADR-001-multi-repo-vs-monorepo.md) - Repository structure decision
@@ -88,11 +60,9 @@ graph LR
     D --> E[Testing Strategy]
 ```
 
-1. [System Overview](01-ARCHITECTURE/system-overview.md)
-2. [Microservices Patterns](03-DEVELOPMENT/microservices-patterns.md)
-3. [API Protocols Guide](03-DEVELOPMENT/api-protocols.md)
-4. [Domain-Specific Architecture](01-ARCHITECTURE/domains/)
-5. [Testing Strategy](03-DEVELOPMENT/testing-strategy.md)
+1. Phases → pick your current phase
+2. Actionable Build Plan
+3. Event Contracts → Guide/README
 
 ### Platform Engineers & DevOps
 
@@ -134,10 +104,9 @@ graph LR
     C --> D[Budget Planning]
 ```
 
-1. [Project Charter](00-OVERVIEW/project-charter.md)
-2. [Sprint Planning](05-PROJECT-MANAGEMENT/sprint-planning.md)
-3. [Execution Roadmap](05-PROJECT-MANAGEMENT/execution-roadmap.md)
-4. [Budget Planning](05-PROJECT-MANAGEMENT/budget-planning.md)
+1. Project Charter
+2. Phases → Overview and current phase
+3. Actionable Build Plan
 
 ## 📊 Implementation Progress Tracking
 
@@ -174,7 +143,7 @@ graph LR
 ### Common Questions
 - **"Where do I start?"** → Begin with the [Stakeholder Guide](00-OVERVIEW/stakeholder-guide.md)
 - **"What's the budget?"** → See [Budget Planning](05-PROJECT-MANAGEMENT/budget-planning.md)
-- **"How are sprints organized?"** → Check [Sprint Planning](05-PROJECT-MANAGEMENT/sprint-planning.md)
+- **"How are phases organized?"** → Check [Phases Overview](stories/phases/)
 - **"What about security?"** → Review [Security Architecture](01-ARCHITECTURE/security-architecture.md)
 - **"Where's the data strategy?"** → See [Data Architecture](01-ARCHITECTURE/data-architecture.md)
 
@@ -200,18 +169,7 @@ Cross-cutting docs define invariants; domain docs must not redefine them.
 Welcome! This site houses architecture overviews, ADRs, event contracts, and stories that guide implementation.
 
 Quick links
-- Overview: 00-OVERVIEW/
-- Architecture: 01-ARCHITECTURE/
-- Infrastructure: 02-INFRASTRUCTURE/
-- Development: 03-DEVELOPMENT/
-- Project Management: 05-PROJECT-MANAGEMENT/
+- Phases: stories/phases/
+- Reference Topics: stories/REFERENCE-TOPICS.md
 - ADRs: adr/
 - Event Contracts: event-contracts/
-- Stories: stories/
-- Projects & Modules Overview: 00-OVERVIEW/projects-and-modules.md
-
-Getting started
-- Developer Learning Plan: stories/DEVELOPER-LEARNING-PLAN.md
-- Protocol Curriculum (12-sprint protocol-first labs): stories/PROTOCOL-CURRICULUM.md
-- API Styles Track (9 types with mini-labs): stories/API-STYLES-TRACK.md
-- Java Concurrency Track (Reactive & Virtual Threads): stories/JAVA-CONCURRENCY-TRACK.md
