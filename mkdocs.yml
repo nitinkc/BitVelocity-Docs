@@ -33,10 +33,15 @@ nav:
       - ADR-006 Retry Backoff Policies: adr/ADR-006-retry-backoff-policies.md
       - ADR-007 Observability Baseline: adr/ADR-007-observability-baseline.md
       - ADR-008 Pulumi Cloud Provider Abstraction: adr/ADR-008-pulumi-cloud-provider-abstraction.md
+    - ADR-009 E-Commerce Domain Architecture: adr/ADR-009-ecommerce-domain-architecture.md
+    - ADR-010 Chat Domain Realtime Architecture: adr/ADR-010-chat-domain-realtime-architecture.md
+    - ADR-011 IoT Domain High Volume Architecture: adr/ADR-011-iot-domain-high-volume-architecture.md
+    - ADR-012 Social Domain Architecture: adr/ADR-012-social-domain-architecture.md
+    - ADR-013 ML/AI Platform Architecture: adr/ADR-013-ml-ai-platform-architecture.md
+    - ADR-014 Cross-Domain Integration: adr/ADR-014-cross-domain-integration.md
   - Event Contracts:
       - Guide: event-contracts/GUIDE_EVENT_CONTRACTS_USAGE.md
       - Readme: event-contracts/README.md
-  - Archive (superseded): ARCHIVE.md
 
 plugins:
     - search
