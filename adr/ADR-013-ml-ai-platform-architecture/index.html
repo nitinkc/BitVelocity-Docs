@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="https://nitinkc.github.io/BitVelocity-Docs/adr/ADR-006-retry-backoff-policies/">
+        <link rel="canonical" href="https://nitinkc.github.io/BitVelocity-Docs/adr/ADR-013-ml-ai-platform-architecture/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>ADR-006 Retry Backoff Policies - BitVelocity Wiki</title>
+        <title>ADR-013 ML/AI Platform Architecture - BitVelocity Wiki</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -154,7 +154,7 @@
 </li>
                                     
 <li>
-    <a href="./" class="dropdown-item active" aria-current="page">ADR-006 Retry Backoff Policies</a>
+    <a href="../ADR-006-retry-backoff-policies/" class="dropdown-item">ADR-006 Retry Backoff Policies</a>
 </li>
                                     
 <li>
@@ -182,7 +182,7 @@
 </li>
                                     
 <li>
-    <a href="../ADR-013-ml-ai-platform-architecture/" class="dropdown-item">ADR-013 ML/AI Platform Architecture</a>
+    <a href="./" class="dropdown-item active" aria-current="page">ADR-013 ML/AI Platform Architecture</a>
 </li>
                                     
 <li>
@@ -212,12 +212,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../ADR-005-security-layering/" class="nav-link">
+                                <a rel="prev" href="../ADR-012-social-domain-architecture/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../ADR-007-observability-baseline/" class="nav-link">
+                                <a rel="next" href="../ADR-014-cross-domain-integration/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -239,8 +239,24 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#adr-006-retry-backoff-policies" class="nav-link">ADR-006: Retry &amp; Backoff Policies</a>
+            <li class="nav-item" data-bs-level="1"><a href="#adr-013-mlai-platform-architecture" class="nav-link">ADR-013: ML/AI Platform Architecture</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#status" class="nav-link">Status</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#context" class="nav-link">Context</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#decision" class="nav-link">Decision</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#consequences" class="nav-link">Consequences</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -248,44 +264,26 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="adr-006-retry-backoff-policies">ADR-006: Retry &amp; Backoff Policies</h1>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Use Case</th>
-<th style="text-align: left;">Policy</th>
-<th style="text-align: left;">Max Attempts</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">Payment SOAP</td>
-<td style="text-align: left;">Exponential + jitter</td>
-<td style="text-align: left;">5</td>
-</tr>
-<tr>
-<td style="text-align: left;">Inventory gRPC</td>
-<td style="text-align: left;">Exponential</td>
-<td style="text-align: left;">3</td>
-</tr>
-<tr>
-<td style="text-align: left;">Webhook dispatch</td>
-<td style="text-align: left;">Linear escalating schedule</td>
-<td style="text-align: left;">5</td>
-</tr>
-<tr>
-<td style="text-align: left;">Kafka publish transient</td>
-<td style="text-align: left;">Exponential jitter</td>
-<td style="text-align: left;">configurable</td>
-</tr>
-<tr>
-<td style="text-align: left;">Cache refresh</td>
-<td style="text-align: left;">No retry (fail fast)</td>
-<td style="text-align: left;">0</td>
-</tr>
-</tbody>
-</table>
-<p>Central config: YAML in each service; enforced by shared library utilities.</p></div>
+<h1 id="adr-013-mlai-platform-architecture">ADR-013: ML/AI Platform Architecture</h1>
+<h2 id="status">Status</h2>
+<p>Proposed</p>
+<h2 id="context">Context</h2>
+<p>The ML/AI Platform domain provides feature store, model serving, vector search, and analytics. It must support scalable, protocol-agnostic integration and data lineage.</p>
+<h2 id="decision">Decision</h2>
+<ul>
+<li>Use a dedicated Feature Store for ML feature management and sharing across domains.</li>
+<li>Model serving exposed via gRPC and REST endpoints for real-time and batch inference.</li>
+<li>Vector database (e.g., Pinecone, Milvus) for similarity search and recommendations.</li>
+<li>Analytics pipeline leverages streaming (Kafka) and batch (OLAP warehouse).</li>
+<li>All ML/AI services support event-driven and API-first integration.</li>
+<li>Data lineage and auditability are mandatory for all ML/AI outputs.</li>
+</ul>
+<h2 id="consequences">Consequences</h2>
+<ul>
+<li>Enables modular, scalable ML/AI capabilities.</li>
+<li>Ensures compliance and traceability for all analytics and model outputs.</li>
+<li>Supports future extensibility for new ML/AI features.</li>
+</ul></div>
             </div>
         </div>
 
