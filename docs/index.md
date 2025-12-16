@@ -1,6 +1,6 @@
 # Documentation Navigation Index
 
-Welcome to the BitVelocity documentation! This comprehensive learning platform is designed for hands-on mastery of modern backend systems, cloud technologies, and data engineering patterns.
+Welcome! This site houses architecture overviews, ADRs, event contracts, and stories that guide implementation.
 
 ## 🚀 Quick Start
 
@@ -160,13 +160,6 @@ Shared Libs ← (used by) All Domains
 Security Platform ← (used by) All Domains  
 E-Commerce Events → consumed by others (but Order svc never imports Chat code etc.)  
 Cross-cutting docs define invariants; domain docs must not redefine them.
-
-
-*This documentation is a living resource that evolves with the project. Feedback and improvements are always welcome.*
-
-# BitVelocity Docs
-
-Welcome! This site houses architecture overviews, ADRs, event contracts, and stories that guide implementation.
 
 Quick links
 - Phases: stories/phases/
