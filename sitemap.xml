@@ -2,210 +2,206 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/</loc>
-         <lastmod>2025-09-26</lastmod>
-    </url>
-    <url>
-         <loc>https://nitinkc.github.io/BitVelocity-Docs/00-OVERVIEW/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/00-OVERVIEW/project-charter/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/00-OVERVIEW/projects-and-modules/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/00-OVERVIEW/stakeholder-guide/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/01-ARCHITECTURE/CROSS_COST_OPTIMIZATION/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/01-ARCHITECTURE/CROSS_DATA_PLATFORM_AND_ANALYTICS/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/01-ARCHITECTURE/CROSS_EVENT_CONTRACTS_AND_VERSIONING/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/01-ARCHITECTURE/CROSS_EXECUTION_BACKLOG_AND_SPRINT_PLAN/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/01-ARCHITECTURE/CROSS_OBSERVABILITY_AND_TESTING/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/01-ARCHITECTURE/CROSS_REPLAY_DR_DRILLS/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/01-ARCHITECTURE/data-architecture/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/01-ARCHITECTURE/system-overview/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/01-ARCHITECTURE/domains/chat/DOMAIN_CHAT_ARCHITECTURE/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/01-ARCHITECTURE/domains/ecommerce/DOMAIN_ECOMMERCE_ARCHITECTURE/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/01-ARCHITECTURE/domains/iot/DOMAIN_IOT_ARCHITECTURE/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/01-ARCHITECTURE/domains/ml-ai/DOMAIN_ML_AI_ARCHITECTURE/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/01-ARCHITECTURE/domains/social/DOMAIN_SOCIAL_ARCHITECTURE/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/02-INFRASTRUCTURE/cloud-strategy/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/03-DEVELOPMENT/microservices-patterns/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/05-PROJECT-MANAGEMENT/budget-planning/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/adr/ADR-001-multi-repo-vs-monorepo/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/adr/ADR-001_1-github%20Packages-vs-JitPack/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/adr/ADR-002-event-vs-cdc-strategy/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/adr/ADR-003-protocol-introduction-order/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/adr/ADR-004-oltp-cdc-olap-architecture/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/adr/ADR-005-security-layering/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/adr/ADR-006-retry-backoff-policies/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/adr/ADR-007-observability-baseline/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/adr/ADR-008-pulumi-cloud-provider-abstraction/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/adr/ADR-009-ecommerce-domain-architecture/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/adr/ADR-010-chat-domain-realtime-architecture/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/adr/ADR-011-iot-domain-high-volume-architecture/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/adr/ADR-012-social-domain-architecture/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/adr/ADR-013-ml-ai-platform-architecture/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/adr/ADR-014-cross-domain-integration/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/adr/ADR-TEMPLATE/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/adr/GUIDE_ADR_STARTER_PACK/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/event-contracts/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/event-contracts/GUIDE_EVENT_CONTRACTS_USAGE/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/stories/QUICK-START/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/stories/REFERENCE-TOPICS/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/stories/phases/PHASE-0/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/stories/phases/PHASE-1/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/stories/phases/PHASE-2/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/stories/phases/PHASE-3/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/stories/phases/PHASE-4/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/stories/phases/PHASE-5/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/stories/phases/PHASE-6/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/stories/phases/PHASE-7/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/stories/phases/PHASE-8/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
     <url>
          <loc>https://nitinkc.github.io/BitVelocity-Docs/stories/phases/PHASE-9/</loc>
-         <lastmod>2025-09-26</lastmod>
+         <lastmod>2025-12-17</lastmod>
     </url>
 </urlset>

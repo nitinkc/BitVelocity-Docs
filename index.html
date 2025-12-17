@@ -45,7 +45,7 @@
 <a class="dropdown-item" href="00-OVERVIEW/stakeholder-guide/">Stakeholder Guide</a>
 </li>
 <li>
-<a class="dropdown-item" href="00-OVERVIEW/">README</a>
+<a class="dropdown-item" href="00-OVERVIEW/README.md">README</a>
 </li>
 <li>
 <a class="dropdown-item" href="00-OVERVIEW/projects-and-modules/">Projects &amp; Modules</a>
@@ -224,16 +224,12 @@
 </li>
 </ul>
 </li>
-<li class="nav-item" data-bs-level="1"><a class="nav-link" href="#bitvelocity-docs">BitVelocity Docs</a>
-<ul class="nav flex-column">
-</ul>
-</li>
 </ul>
 </div>
 </div></div>
 <div class="col-md-9" role="main">
 <h1 id="documentation-navigation-index">Documentation Navigation Index</h1>
-<p>Welcome to the BitVelocity documentation! This comprehensive learning platform is designed for hands-on mastery of modern backend systems, cloud technologies, and data engineering patterns.</p>
+<p>Welcome! This site houses architecture overviews, ADRs, event contracts, and stories that guide implementation.</p>
 <h2 id="quick-start">🚀 Quick Start</h2>
 <p>New to the project? Start with Phases:</p>
 <ul>
@@ -243,11 +239,14 @@
 </ul>
 <h2 id="documentation-structure">📁 Documentation Structure</h2>
 <h3 id="00-overview-project-foundation">00-OVERVIEW - Project Foundation</h3>
-<ul>
-<li><a href="00-OVERVIEW/"><strong>README.md</strong></a> - Main project overview and navigation</li>
-<li><a href="00-OVERVIEW/project-charter/"><strong>Project Charter</strong></a> - Mission, objectives, and constraints</li>
+<ol>
+<li><a href="00-OVERVIEW/project-charter/">Project Charter</a> - Mission, objectives, and constraints</li>
+<li><a href="01-ARCHITECTURE/system-overview/">System Overview</a></li>
+<li><a href="01-ARCHITECTURE/data-architecture/">Data Architecture</a></li>
+<li><a href="01-ARCHITECTURE/domains/">Domain Architectures</a></li>
+<li><a href="adr/">Architectural Decision Records</a></li>
 <li><a href="00-OVERVIEW/stakeholder-guide/"><strong>Stakeholder Guide</strong></a> - Role-based navigation guide</li>
-</ul>
+</ol>
 <h3 id="stories-execution-learning">Stories - Execution &amp; Learning</h3>
 <ul>
 <li><a href="stories/phases/">Phases</a> — Execution phases with integrated learning (0-9)</li>
@@ -273,13 +272,6 @@
     C --&gt; D[Domain Architectures]
     D --&gt; E[ADR Reviews]
 </div>
-<ol>
-<li><a href="00-OVERVIEW/project-charter/">Project Charter</a></li>
-<li><a href="01-ARCHITECTURE/system-overview/">System Overview</a></li>
-<li><a href="01-ARCHITECTURE/data-architecture/">Data Architecture</a></li>
-<li><a href="01-ARCHITECTURE/domains/">Domain Architectures</a></li>
-<li><a href="adr/">Architectural Decision Records</a></li>
-</ol>
 <h3 id="backend-developers">Backend Developers</h3>
 <div class="mermaid">graph LR
     A[System Overview] --&gt; B[Microservices Patterns]
@@ -383,9 +375,6 @@ graph LR
 Security Platform ← (used by) All Domains<br/>
 E-Commerce Events → consumed by others (but Order svc never imports Chat code etc.)<br/>
 Cross-cutting docs define invariants; domain docs must not redefine them.</p>
-<p><em>This documentation is a living resource that evolves with the project. Feedback and improvements are always welcome.</em></p>
-<h1 id="bitvelocity-docs">BitVelocity Docs</h1>
-<p>Welcome! This site houses architecture overviews, ADRs, event contracts, and stories that guide implementation.</p>
 <p>Quick links
 - Phases: stories/phases/
 - Reference Topics: stories/REFERENCE-TOPICS.md
@@ -469,5 +458,5 @@ mermaid.initialize({});</script></body>
 </html>
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-09-26 05:59:21.061854+00:00
+Build Date UTC : 2025-12-17 01:46:27.635316+00:00
 -->
