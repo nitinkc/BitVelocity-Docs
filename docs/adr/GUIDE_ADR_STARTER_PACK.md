@@ -142,8 +142,8 @@ Track relationships between ADRs:
 - Review Checklist: `docs/adr/review-checklist.md`
 
 ### Related Documentation
-- [Cross-Cutting Architecture](../CROSS_EVENT_CONTRACTS_AND_VERSIONING.md)
+- [Cross-Cutting Architecture](../01-ARCHITECTURE/CROSS_EVENT_CONTRACTS_AND_VERSIONING.md)
 - [Sprint Planning](../05-PROJECT-MANAGEMENT/sprint-planning.md)
-- [Infrastructure Portability](../CROSS_INFRA_PORTABILITY_AND_DEPLOYMENT.md)
+- [Infrastructure Portability](../01-ARCHITECTURE/CROSS_OBSERVABILITY_AND_TESTING.md)
 
 This starter pack ensures consistent, high-quality architectural decision making across the BitVelocity platform.

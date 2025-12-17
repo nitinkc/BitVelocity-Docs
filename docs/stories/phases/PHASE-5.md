@@ -42,7 +42,7 @@
      - Add health check endpoints (3 pts)
      - Create Grafana dashboards (3 pts)
      - Setup alerting rules and notifications (3 pts)
-   - [ ] **Files**: `grafana/` dashboards JSON; `docs/04-OPERATIONS/observability.md`
+  - [ ] **Files**: `grafana/` dashboards JSON; `docs/01-ARCHITECTURE/CROSS_OBSERVABILITY_AND_TESTING.md`
    - [ ] **Acceptance**: Dashboards for latency/error rate/throughput, basic alerts on error spikes
 
 Dependencies

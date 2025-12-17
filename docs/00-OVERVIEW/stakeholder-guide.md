@@ -54,8 +54,8 @@ This guide helps different stakeholders understand their role in the BitVelocity
 **Key Documents**:
 - [Cloud Strategy](../02-INFRASTRUCTURE/cloud-strategy.md) - Multi-cloud approach and Pulumi usage
 - [Deployment Architecture](../02-INFRASTRUCTURE/deployment-architecture.md) - CI/CD and deployment patterns
-- [Observability Strategy](../04-OPERATIONS/observability.md) - Monitoring, logging, tracing
-- [Disaster Recovery](../04-OPERATIONS/disaster-recovery.md) - DR strategies and procedures
+ - [Observability Strategy](../01-ARCHITECTURE/CROSS_OBSERVABILITY_AND_TESTING.md) - Monitoring, logging, tracing
+ - [Disaster Recovery](../01-ARCHITECTURE/CROSS_REPLAY_DR_DRILLS.md) - DR strategies and procedures
 
 **Your Responsibilities**:
 - Maintain infrastructure automation
@@ -74,7 +74,7 @@ This guide helps different stakeholders understand their role in the BitVelocity
 
 **Key Documents**:
 - [Data Architecture](../01-ARCHITECTURE/data-architecture.md) - Comprehensive data strategy
-- [Data Governance](../04-OPERATIONS/data-governance.md) - Data quality, lineage, compliance
+ - [Data Governance](../01-ARCHITECTURE/data-architecture.md) - Data quality, lineage, compliance
 - [Microservices Patterns](../03-DEVELOPMENT/microservices-patterns.md) - Event sourcing, CQRS, CDC patterns
 
 **Your Responsibilities**:

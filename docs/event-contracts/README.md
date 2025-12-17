@@ -64,4 +64,4 @@ The CI pipeline automatically validates:
 | telemetry.raw | anomaly_stream |
 | fraud.order.scored | review_queue (future) |
 
-For detailed specifications, see [../docs/CROSS_EVENT_CONTRACTS_AND_VERSIONING.md](../docs/CROSS_EVENT_CONTRACTS_AND_VERSIONING.md)
+For detailed specifications, see [../01-ARCHITECTURE/CROSS_EVENT_CONTRACTS_AND_VERSIONING.md](../01-ARCHITECTURE/CROSS_EVENT_CONTRACTS_AND_VERSIONING.md)

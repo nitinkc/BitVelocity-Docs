@@ -5,22 +5,22 @@ Welcome! This site houses architecture overviews, ADRs, event contracts, and sto
 ## 🚀 Quick Start
 
 New to the project? Start with Phases:
-
-- Project Management → [Phases Overview](05-PROJECT-MANAGEMENT/phases/README.md)
-- Then pick your current phase (0–9)  
-- For reference topics, see [Protocols & Concurrency Reference](stories/REFERENCE-TOPICS.md)
+ Project Management → [Phases Overview](stories/phases/README.md)
 
 ## 📁 Documentation Structure
 
 ### 00-OVERVIEW - Project Foundation
-- [**README.md**](00-OVERVIEW/README.md) - Main project overview and navigation
-- [**Project Charter**](00-OVERVIEW/project-charter.md) - Mission, objectives, and constraints
-- [**Stakeholder Guide**](00-OVERVIEW/stakeholder-guide.md) - Role-based navigation guide
+
+1. [Project Charter](00-OVERVIEW/project-charter.md) - Mission, objectives, and constraints
+2. [System Overview](01-ARCHITECTURE/system-overview.md)
+3. [Data Architecture](01-ARCHITECTURE/data-architecture.md)
+4. [Domain Architectures](01-ARCHITECTURE/domains/)
+5. [Architectural Decision Records](adr/)
+6. [**Stakeholder Guide**](00-OVERVIEW/stakeholder-guide.md) - Role-based navigation guide
 
 ### Stories - Execution & Learning
-- [Phases](stories/phases/) — Execution phases with integrated learning (0-9)
-- [Reference Topics](stories/REFERENCE-TOPICS.md) — Protocol & concurrency reference
 - [Quick Start Guide](stories/QUICK-START.md) — Entry point for contributors
+
 
 ### ADR - Architectural Decision Records
 - [**ADR-001**](adr/ADR-001-multi-repo-vs-monorepo.md) - Repository structure decision
@@ -44,12 +44,6 @@ graph LR
     D --> E[ADR Reviews]
 ```
 
-1. [Project Charter](00-OVERVIEW/project-charter.md)
-2. [System Overview](01-ARCHITECTURE/system-overview.md)
-3. [Data Architecture](01-ARCHITECTURE/data-architecture.md)
-4. [Domain Architectures](01-ARCHITECTURE/domains/)
-5. [Architectural Decision Records](adr/)
-
 ### Backend Developers
 
 ```mermaid
@@ -61,7 +55,7 @@ graph LR
 ```
 
 1. Phases → pick your current phase
-2. Actionable Build Plan
+2. [Actionable Build Plan](05-PROJECT-MANAGEMENT/budget-planning.md)
 3. Event Contracts → Guide/README
 
 ### Platform Engineers & DevOps
@@ -75,10 +69,10 @@ graph LR
 ```
 
 1. [Cloud Strategy](02-INFRASTRUCTURE/cloud-strategy.md)
-2. [Deployment Architecture](02-INFRASTRUCTURE/deployment-architecture.md)
-3. [Observability Strategy](04-OPERATIONS/observability.md)
-4. [Disaster Recovery](04-OPERATIONS/disaster-recovery.md)
-5. [Cost Optimization](02-INFRASTRUCTURE/cost-optimization.md)
+2. [Deployment Architecture](01-ARCHITECTURE/system-overview.md)
+3. [Observability Strategy](01-ARCHITECTURE/CROSS_OBSERVABILITY_AND_TESTING.md)
+4. [Disaster Recovery](01-ARCHITECTURE/CROSS_REPLAY_DR_DRILLS.md)
+5. [Cost Optimization](01-ARCHITECTURE/CROSS_COST_OPTIMIZATION.md)
 
 ### Data Engineers
 
@@ -91,9 +85,9 @@ graph LR
 ```
 
 1. [Data Architecture](01-ARCHITECTURE/data-architecture.md)
-2. [Data Governance](04-OPERATIONS/data-governance.md)
+2. [Data Governance](01-ARCHITECTURE/data-architecture.md)
 3. [Microservices Patterns](03-DEVELOPMENT/microservices-patterns.md) (Data sections)
-4. [Observability Strategy](04-OPERATIONS/observability.md) (Data monitoring)
+4. [Observability Strategy](01-ARCHITECTURE/CROSS_OBSERVABILITY_AND_TESTING.md) (Data monitoring)
 
 ### Project Managers
 
@@ -103,10 +97,6 @@ graph LR
     B --> C[Execution Roadmap]
     C --> D[Budget Planning]
 ```
-
-1. Project Charter
-2. Phases → Overview and current phase
-3. Actionable Build Plan
 
 ## 📊 Implementation Progress Tracking
 
@@ -141,11 +131,11 @@ graph LR
 ## 🆘 Getting Help
 
 ### Common Questions
-- **"Where do I start?"** → Begin with the [Stakeholder Guide](00-OVERVIEW/stakeholder-guide.md)
+ - **"Where do I start?"** → Begin with the [Stakeholder Guide](00-OVERVIEW/stakeholder-guide.md)
 - **"What's the budget?"** → See [Budget Planning](05-PROJECT-MANAGEMENT/budget-planning.md)
 - **"How are phases organized?"** → Check [Phases Overview](stories/phases/)
-- **"What about security?"** → Review [Security Architecture](01-ARCHITECTURE/security-architecture.md)
-- **"Where's the data strategy?"** → See [Data Architecture](01-ARCHITECTURE/data-architecture.md)
+ - **"What about security?"** → Review [Security Architecture](adr/ADR-005-security-layering.md)
+ - **"Where's the data strategy?"** → See [Data Architecture](01-ARCHITECTURE/data-architecture.md)
 
 ### Support Channels
 - **Technical Questions**: Review relevant ADRs and architecture documents

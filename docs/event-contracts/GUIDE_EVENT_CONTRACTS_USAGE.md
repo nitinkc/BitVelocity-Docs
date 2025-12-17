@@ -1,7 +1,7 @@
 # Event Contracts Usage Guide
 
 ## Quick Reference
-For detailed specifications, see [CROSS_EVENT_CONTRACTS_AND_VERSIONING.md](docs/CROSS_EVENT_CONTRACTS_AND_VERSIONING.md)
+For detailed specifications, see [CROSS_EVENT_CONTRACTS_AND_VERSIONING.md](../01-ARCHITECTURE/CROSS_EVENT_CONTRACTS_AND_VERSIONING.md)
 
 ## Naming Convention
 `<domain>.<context>.<entity>.<eventType>.v<majorVersion>`
