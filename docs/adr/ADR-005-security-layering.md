@@ -5,6 +5,7 @@ This document describes the security layering approach for BitVelocity, focusing
 - UserContext propagation
 - Role-based access control
 - JWT integration (planned)
+
 # BitVelocity Architecture Overview
 
 This document provides an overview of the BitVelocity architecture, including module structure, service boundaries, and technology choices.
