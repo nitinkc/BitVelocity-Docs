@@ -55,7 +55,7 @@ graph LR
 ```
 
 1. Phases → pick your current phase
-2. [Actionable Build Plan](05-PROJECT-MANAGEMENT/budget-planning.md)
+2. [Actionable Build Plan](05-PROJECT-MANAGEMENT/ACTIONABLE-BUILD-PLAN.md)
 3. Event Contracts → Guide/README
 
 ### Platform Engineers & DevOps
