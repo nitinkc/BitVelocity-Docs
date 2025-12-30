@@ -39,6 +39,9 @@ nav:
       - ADR-012 Social Domain Architecture: adr/ADR-012-social-domain-architecture.md
       - ADR-013 ML/AI Platform Architecture: adr/ADR-013-ml-ai-platform-architecture.md
       - ADR-014 Cross-Domain Integration: adr/ADR-014-cross-domain-integration.md
+      - ADR-015 Load Testing Strategy: adr/ADR-015-load-testing-strategy.md
+      - ADR-016 Chaos Engineering Framework: adr/ADR-016-chaos-engineering-framework.md
+      - ADR-017 CI/CD Pipeline Architecture: adr/ADR-017-cicd-pipeline-architecture.md
   - Event Contracts:
       - Guide: event-contracts/GUIDE_EVENT_CONTRACTS_USAGE.md
       - Readme: event-contracts/README.md
