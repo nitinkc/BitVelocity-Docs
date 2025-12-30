@@ -10,6 +10,40 @@ This roadmap provides a **detailed, week-by-week implementation plan** designed 
 
 ---
 
+## ✅ Recently Completed Infrastructure
+
+### Performance Testing (`bv-performance-testing/`)
+- ✅ Gatling tests (Java) - `OrderFlowSimulation.java`, `InventorySpikeTest.java`
+- ✅ k6 scripts for CI/CD - `api-smoke-test.js`
+- ✅ Performance baselines - `sli-targets.yaml`
+- 📚 [ADR-015: Load Testing Strategy](../adr/ADR-015-load-testing-strategy.md)
+- 📚 [Performance Testing Guide](../03-DEVELOPMENT/performance-testing-guide.md)
+
+### Chaos Engineering (`bv-chaos-experiments/`)
+- ✅ Chaos Mesh experiments (pod failure, network latency, resource stress, Kafka failures)
+- ✅ Game day runbook - Inventory service failure scenario
+- 📚 [ADR-016: Chaos Engineering Framework](../adr/ADR-016-chaos-engineering-framework.md)
+
+### Observability (`bv-observability/`)
+- ✅ OpenTelemetry Collector configuration
+- ✅ Prometheus alert rules (10 critical alerts)
+- ✅ Standard metrics and tracing conventions
+- 📚 [ADR-007: Observability Baseline](../adr/ADR-007-observability-baseline.md)
+
+### Security Testing (`bv-security-testing/`)
+- ✅ OWASP ZAP configuration
+- ✅ Security testing layers (SAST, DAST, dependency scanning)
+- 📚 [ADR-005: Security Layering](../adr/ADR-005-security-layering.md)
+
+### CI/CD Workflows (`.github/workflows/`)
+- ✅ `ci-build-test.yml` - Build and test
+- ✅ `security-scanning.yml` - Snyk, Trivy, TruffleHog
+- ✅ `contract-tests.yml` - Pact and gRPC validation
+- ✅ `performance-smoke.yml` - k6 regression detection
+- 📚 [ADR-017: CI/CD Pipeline Architecture](../adr/ADR-017-cicd-pipeline-architecture.md)
+
+---
+
 ## 🎯 Learning Objectives by Phase
 
 | Phase | Focus Area | Key Learnings |
