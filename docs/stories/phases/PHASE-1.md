@@ -49,7 +49,7 @@ Dependencies
 - Phase 0
 
 Learning & References
-- Reference Topics (Protocols & Concurrency): `../REFERENCE-TOPICS.md`
-- Actionable Build Plan: `../ACTIONABLE-BUILD-PLAN.md`
+- [Reference Topics (Protocols & Concurrency)](../REFERENCE-TOPICS.md)
+- [Actionable Build Plan](../ACTIONABLE-BUILD-PLAN.md)
 
 Next Phase: [Phase 2](./PHASE-2.md)

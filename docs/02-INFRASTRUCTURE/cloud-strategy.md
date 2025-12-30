@@ -24,6 +24,7 @@ This document outlines the cloud strategy for BitVelocity, focusing on multi-clo
 **Rationale**: Generous free tier, strong Kubernetes support, excellent data services
 
 **Free Tier Benefits**:
+
 - Compute Engine: 1 f1-micro instance (always free)
 - Cloud Storage: 5 GB (always free)
 - Cloud Firestore: 1 GiB storage + 50K reads/20K writes daily
@@ -35,12 +36,14 @@ This document outlines the cloud strategy for BitVelocity, focusing on multi-clo
 **Purpose**: Migration learning, multi-cloud patterns, disaster recovery
 
 **AWS Free Tier**:
+
 - EC2: 750 hours of t2.micro instances
 - RDS: 750 hours of db.t2.micro instances
 - S3: 5 GB storage
 - Lambda: 1M requests per month
 
 **Azure Free Tier**:
+
 - Virtual Machines: 750 hours B1S instances
 - Storage: 5 GB LRS hot block storage
 - Functions: 1M requests per month

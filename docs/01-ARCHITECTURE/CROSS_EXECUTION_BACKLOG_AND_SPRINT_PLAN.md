@@ -124,7 +124,9 @@ Each story: 4–8 hrs. If >8, split vertical slice (feature + test + docs).
 - Limit outstanding “unmitigated” items to <= 5.
 
 ## 7. Burndown & Metrics
+
 Track:
+
 - Completed stories vs planned
 - Test coverage trend
 - Mean time from event schema proposal → merge

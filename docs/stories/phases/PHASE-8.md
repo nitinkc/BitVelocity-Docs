@@ -52,7 +52,7 @@ Dependencies
 - Phase 7
 
 Learning Links
- - Reference Topics (Protocols & Concurrency): `../REFERENCE-TOPICS.md`
+ - [Reference Topics (Protocols & Concurrency)](../REFERENCE-TOPICS.md)
  - Phases Overview: `./README.md` (if exists)
 
 Next Phase: [Phase 9](./PHASE-9.md)

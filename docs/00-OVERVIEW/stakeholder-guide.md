@@ -1,5 +1,7 @@
 # Stakeholder Guide: Navigating BitVelocity Documentation
 
+**Last Updated**: December 29, 2025
+
 ## Purpose
 This guide helps different stakeholders understand their role in the BitVelocity project and navigate to the most relevant documentation for their responsibilities and interests.
 
@@ -10,12 +12,14 @@ This guide helps different stakeholders understand their role in the BitVelocity
 **Your Focus**: System design, architectural decisions, technical strategy
 
 **Key Documents**:
+
 - [System Architecture Overview](../01-ARCHITECTURE/system-overview.md) - High-level system design
 - [Data Architecture](../01-ARCHITECTURE/data-architecture.md) - OLTP→OLAP strategy, audit design
 - [Security Architecture](../01-ARCHITECTURE/security-architecture.md) - End-to-end security strategy
 - [Architectural Decision Records](../adr/) - Detailed technical decisions and rationale
 
 **Your Responsibilities**:
+
 - Review and approve architectural decisions
 - Ensure consistency across domains
 - Guide technical strategy and trade-offs
@@ -31,12 +35,14 @@ This guide helps different stakeholders understand their role in the BitVelocity
 **Your Focus**: Implementation patterns, coding standards, microservices development
 
 **Key Documents**:
+
 - [Microservices Patterns](../03-DEVELOPMENT/microservices-patterns.md) - Implementation patterns and practices
 - [API Protocols Guide](../03-DEVELOPMENT/api-protocols.md) - Protocol implementation details
 - [Domain Architecture](../01-ARCHITECTURE/domains/) - Domain-specific implementation guides
 - [Testing Strategy](../03-DEVELOPMENT/testing-strategy.md) - Testing approaches and tools
 
 **Your Responsibilities**:
+
 - Implement microservices following established patterns
 - Ensure proper testing coverage
 - Follow coding standards and best practices
@@ -52,12 +58,14 @@ This guide helps different stakeholders understand their role in the BitVelocity
 **Your Focus**: Infrastructure, deployment, observability, cloud operations
 
 **Key Documents**:
+
 - [Cloud Strategy](../02-INFRASTRUCTURE/cloud-strategy.md) - Multi-cloud approach and Pulumi usage
 - [Deployment Architecture](../02-INFRASTRUCTURE/deployment-architecture.md) - CI/CD and deployment patterns
  - [Observability Strategy](../01-ARCHITECTURE/CROSS_OBSERVABILITY_AND_TESTING.md) - Monitoring, logging, tracing
  - [Disaster Recovery](../01-ARCHITECTURE/CROSS_REPLAY_DR_DRILLS.md) - DR strategies and procedures
 
 **Your Responsibilities**:
+
 - Maintain infrastructure automation
 - Ensure system reliability and observability
 - Manage deployments and rollbacks
@@ -73,11 +81,13 @@ This guide helps different stakeholders understand their role in the BitVelocity
 **Your Focus**: Data pipelines, analytics, data governance, OLTP→OLAP flows
 
 **Key Documents**:
+
 - [Data Architecture](../01-ARCHITECTURE/data-architecture.md) - Comprehensive data strategy
  - [Data Governance](../01-ARCHITECTURE/data-architecture.md) - Data quality, lineage, compliance
 - [Microservices Patterns](../03-DEVELOPMENT/microservices-patterns.md) - Event sourcing, CQRS, CDC patterns
 
 **Your Responsibilities**:
+
 - Design and implement data pipelines
 - Ensure data quality and governance
 - Implement OLTP to OLAP data flows
@@ -93,11 +103,13 @@ This guide helps different stakeholders understand their role in the BitVelocity
 **Your Focus**: Security architecture, compliance, secrets management, authentication
 
 **Key Documents**:
+
 - [Security Architecture](../01-ARCHITECTURE/security-architecture.md) - Comprehensive security strategy
 - [ADR-005: Security Layering](../adr/ADR-005-security-layering.md) - Security architectural decisions
 - Authentication service documentation in domain architectures
 
 **Your Responsibilities**:
+
 - Implement security controls
 - Manage secrets and authentication systems
 - Ensure compliance requirements are met
@@ -113,12 +125,14 @@ This guide helps different stakeholders understand their role in the BitVelocity
 **Your Focus**: Sprint planning, execution tracking, resource management, timeline coordination
 
 **Key Documents**:
+
 - [Execution Roadmap](../05-PROJECT-MANAGEMENT/execution-roadmap.md) - Overall project timeline and milestones
 - [Sprint Planning](../05-PROJECT-MANAGEMENT/sprint-planning.md) - Detailed sprint breakdown
 - [Budget Planning](../05-PROJECT-MANAGEMENT/budget-planning.md) - Cost management and optimization
 - [Project Charter](project-charter.md) - High-level objectives and constraints
 
 **Your Responsibilities**:
+
 - Coordinate sprint planning and execution
 - Track progress against roadmap
 - Manage resource allocation
@@ -134,6 +148,7 @@ This guide helps different stakeholders understand their role in the BitVelocity
 **Your Focus**: Understanding patterns, learning new technologies, building portfolio projects
 
 **Key Documents**:
+
 - [Project Charter](project-charter.md) - Understanding the learning objectives
 - [System Overview](../01-ARCHITECTURE/system-overview.md) - Understanding the overall system
 - [Microservices Patterns](../03-DEVELOPMENT/microservices-patterns.md) - Learning implementation patterns
@@ -211,4 +226,26 @@ If you can't find what you're looking for or need clarification on your role:
 3. Consult the [Execution Roadmap](../05-PROJECT-MANAGEMENT/execution-roadmap.md) for timing
 4. Reach out to the appropriate stakeholder group for clarification
 
+---
+
+## Related Documentation
+
+### Overview
+- [Project Charter](project-charter.md)
+- [Projects & Modules](projects-and-modules.md)
+
+### Architecture
+- [System Overview](../01-ARCHITECTURE/system-overview.md)
+- [Domain Architectures](../01-ARCHITECTURE/domains/)
+
+### Development
+- [Microservices Patterns](../03-DEVELOPMENT/microservices-patterns.md)
+- [API Protocols](../03-DEVELOPMENT/api-protocols.md)
+- [Testing Strategy](../03-DEVELOPMENT/testing-strategy.md)
+
+---
+
 *This guide evolves with the project. Feedback and suggestions for improvement are always welcome.*
+
+**Document Status**: Active Reference ✅  
+**Last Review**: December 29, 2025

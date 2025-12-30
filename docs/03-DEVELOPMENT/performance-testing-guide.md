@@ -34,6 +34,7 @@ k6 run --vus 10 --duration 30s api-smoke-test.js
 ```
 
 **Success Criteria**:
+
 - p95 latency < 200ms
 - Error rate < 1%
 - No degradation > 10% vs baseline
@@ -51,8 +52,7 @@ cd bv-performance-testing/gatling-tests
 ./gradlew gatlingRun -Psimulation=OrderFlowSimulation
 ```
 
-**Success Criteria**:
-- Meet SLI targets (see `performance-baselines/sli-targets.yaml`)
+**Success Criteria**:\n\n- Meet SLI targets (see `performance-baselines/sli-targets.yaml`)
 - No errors > 1%
 - Resource utilization < 80%
 
@@ -64,6 +64,7 @@ cd bv-performance-testing/gatling-tests
 **Frequency**: Weekly  
 
 **Key Metrics**:
+
 - Maximum sustainable load
 - Point of degradation
 - Recovery behavior
@@ -77,6 +78,7 @@ cd bv-performance-testing/gatling-tests
 **Frequency**: Weekly  
 
 **Validation**:
+
 - Circuit breakers activate appropriately
 - No cascading failures
 - System recovers gracefully
@@ -89,6 +91,7 @@ cd bv-performance-testing/gatling-tests
 **Frequency**: Monthly or before major releases  
 
 **Monitor**:
+
 - Memory usage trends
 - Connection pool leaks
 - Database query performance over time

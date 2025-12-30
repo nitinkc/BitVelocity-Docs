@@ -1,5 +1,20 @@
 # Cross-Cutting – Replay & Disaster Recovery Drills
 
+**Last Updated**: December 29, 2025
+
+**Purpose**: Defines replay mechanisms for rebuilding projections and disaster recovery procedures for system resilience.
+
+**Related Documentation**:
+
+- [Data Platform](CROSS_DATA_PLATFORM_AND_ANALYTICS.md)
+- [Data Architecture](data-architecture.md)
+- [Chaos Engineering](../adr/ADR-016-chaos-engineering-framework.md)
+
+**Module References**:
+
+- Replay Service: `bv-eCommerce-core/replay-service/`
+- Chaos Experiments: `bv-chaos-experiments/`
+
 ## 1. Replay Goals
 Rebuild derived projections and recover from data corruption or missed events.
 
@@ -57,3 +72,23 @@ replay \
 - At least one successful replay of each major projection (orders, feed)
 - DR drill executed with RTO < 10m and RPO < 2m (learning targets)
 - Replay job idempotent & documented
+
+---
+
+## Related Documentation
+
+### Architecture References
+- [Data Platform & Analytics](CROSS_DATA_PLATFORM_AND_ANALYTICS.md)
+- [Data Architecture](data-architecture.md)
+- [System Overview](system-overview.md)
+
+### Module READMEs
+- `bv-eCommerce-core/replay-service/README.md`
+- `bv-chaos-experiments/README.md` - DR drill procedures
+
+### ADRs
+- [ADR-016: Chaos Engineering Framework](../adr/ADR-016-chaos-engineering-framework.md)
+- [ADR-002: Event vs CDC Strategy](../adr/ADR-002-event-vs-cdc-strategy.md)
+
+**Document Status**: Active Reference ✅  
+**Last Review**: December 29, 2025

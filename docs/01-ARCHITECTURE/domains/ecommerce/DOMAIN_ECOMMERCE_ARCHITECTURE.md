@@ -1,7 +1,19 @@
 # Domain Architecture – E-Commerce
 
+**Last Updated**: December 29, 2025
+
 ## 1. Purpose
-Primary backbone domain to exercise transactional integrity (OLTP), event propagation, multi-protocol interaction, and derived data patterns.
+Primary backbone domain to exercise transactional integrity (OLTP), event propagation, multi-protocol interaction, and derived data patterns. This is the most comprehensive domain showcasing all major communication protocols and architectural patterns.
+
+**Module Location**: `bv-eCommerce-core/`
+
+**Related Documentation**:
+
+- [System Overview](../../system-overview.md)
+- [Data Architecture](../../data-architecture.md)
+- [Event Contracts](../../../event-contracts/README.md)
+- [ADR-002: Event vs CDC Strategy](../../../adr/ADR-002-event-vs-cdc-strategy.md)
+- [ADR-007: Observability Baseline](../../../adr/ADR-007-observability-baseline.md)
 
 ## 2. Bounded Contexts & Services
 
@@ -35,7 +47,9 @@ Primary backbone domain to exercise transactional integrity (OLTP), event propag
 | Streaming revenue metrics | Kafka Streams             | Near real-time dashboard           |
 
 ## 4. External Interfaces (Stable Contract Surfaces)
+
 REST (simplified):
+
 - POST /api/v1/products
 - GET /api/v1/products/{id}
 - POST /api/v1/orders  (Headers: Idempotency-Key, Correlation-Id)
@@ -62,18 +76,24 @@ service Inventory {
 ```
 
 WebSocket Channels:
+
 - /ws/orders (subscribe {orderId} or personal channel)
+
 SSE:
+
 - /sse/flash-sales
 
 Outbound Webhooks:
+
 - HMAC-SHA256 signature header: X-BV-Signature
 - Retry schedule: 30s, 2m, 5m, 15m, 30m → DLQ event after max
 
 SOAP Payment (WSDL simulated):
+
 - Operation: ProcessPayment(orderId, amount, currency)
 
 MQTT Topics:
+
 - iot/inventory/{sku}/delta  (payload: { "delta": -2, "reason": "SENSOR" })
 
 ## 5. Data Architecture (OLTP → Derived → OLAP)
@@ -237,9 +257,37 @@ Logs:
 | Payment circuit thrashing | Configure conservative sliding window for breaker   |
 | Webhook backlog growth    | DLQ monitoring & alert threshold                    |
 
-## 17. Exit Criteria for Domain “MVP Complete”
+## 17. Exit Criteria for Domain "MVP Complete"
 - Order→Notification real-time path traced
 - Stock adjustment via event updates inventory snapshot
 - Payment failure path triggers retries & circuit open
 - Replay reconstructs orders_by_customer with parity
 - GraphQL resolved aggregated product + inventory
+
+---
+
+## Related Documentation
+
+### Architecture References
+- [System Overview](../../system-overview.md) - Overall platform architecture
+- [Data Architecture](../../data-architecture.md) - OLTP→OLAP flows
+- [Security Architecture](../../security-architecture.md) - Authentication & authorization
+- [Observability](../../CROSS_OBSERVABILITY_AND_TESTING.md) - Monitoring & tracing
+
+### Implementation Guides
+- [Microservices Patterns](../../../03-DEVELOPMENT/microservices-patterns.md)
+- [API Protocols Guide](../../../03-DEVELOPMENT/api-protocols.md)
+- [Testing Strategy](../../../03-DEVELOPMENT/testing-strategy.md)
+- [Performance Testing](../../../03-DEVELOPMENT/performance-testing-guide.md)
+
+### Project Management
+- [Execution Roadmap](../../../05-PROJECT-MANAGEMENT/execution-roadmap.md)
+- [Sprint Planning](../../../05-PROJECT-MANAGEMENT/sprint-planning.md)
+
+### ADRs
+- [ADR-002: Event vs CDC Strategy](../../../adr/ADR-002-event-vs-cdc-strategy.md)
+- [ADR-007: Observability Baseline](../../../adr/ADR-007-observability-baseline.md)
+- [ADR-015: Load Testing Strategy](../../../adr/ADR-015-load-testing-strategy.md)
+
+**Current Status**: Active Development ✅  
+**Last Review**: December 29, 2025

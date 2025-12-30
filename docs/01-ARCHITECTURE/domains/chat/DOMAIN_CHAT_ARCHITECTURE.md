@@ -1,7 +1,17 @@
 # Domain Architecture – Messaging & Chat
 
+**Last Updated**: December 29, 2025
+
 ## 1. Purpose
 Real-time bidirectional communication, presence tracking, and message propagation across regions.
+
+**Module Location**: `bv-chat-stream/`
+
+**Related Documentation**:
+
+- [System Overview](../../system-overview.md)
+- [WebSocket Implementation](../../../03-DEVELOPMENT/api-protocols.md)
+- ADR-007: Observability Baseline
 
 ## 2. Services
 | Service | Responsibility | Store |
@@ -22,14 +32,19 @@ Real-time bidirectional communication, presence tracking, and message propagatio
 | Moderation (future) | Event to ML/AI API (REST/gRPC) |
 
 ## 4. Data Model (Minimal)
+
 Postgres (metadata):
+
 - chat_rooms(id, name, created_at)
 - chat_room_members(room_id, user_id, joined_at)
 - attachments(id, owner_id, room_id, file_key, mime_type, size, created_at)
 
 Redis (presence):
+
 - presence:user:{userId} = { status: ONLINE, lastSeen: epoch } (TTL 90s)
+
 Kafka events:
+
 - chat.message.sent.v1
 - chat.message.edited.v1 (optional)
 - chat.message.deleted.v1 (optional)
@@ -93,12 +108,16 @@ Presence event push:
 - Content moderation (future): emit chat.message.flagged.v1 from ML classification.
 
 ## 9. Observability
+
 Metrics:
+
 - chat_ws_active_sessions
 - chat_messages_ingested_total
 - chat_messages_fanout_latency_ms
 - presence_online_users
+
 Tracing:
+
 - WS handshake spans
 - Kafka publish/consume spans with roomId attribute
 
@@ -139,3 +158,24 @@ Tracing:
 - Cross-region replication < 2s
 - Backpressure test dropping or delaying sends gracefully
 - Presence state auto-clears on disconnect / TTL expiry
+
+---
+
+## Related Documentation
+
+### Architecture References
+- [System Overview](../../system-overview.md) - Platform architecture
+- [Data Architecture](../../data-architecture.md) - Redis & Kafka patterns
+- [Observability](../../CROSS_OBSERVABILITY_AND_TESTING.md) - Real-time monitoring
+
+### Implementation Guides
+- [API Protocols Guide](../../../03-DEVELOPMENT/api-protocols.md) - WebSocket patterns
+- [Microservices Patterns](../../../03-DEVELOPMENT/microservices-patterns.md)
+- [Testing Strategy](../../../03-DEVELOPMENT/testing-strategy.md)
+
+### ADRs
+- [ADR-007: Observability Baseline](../../../adr/ADR-007-observability-baseline.md)
+- [ADR-002: Event vs CDC Strategy](../../../adr/ADR-002-event-vs-cdc-strategy.md)
+
+**Current Status**: Active Development ✅  
+**Last Review**: December 29, 2025

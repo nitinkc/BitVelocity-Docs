@@ -1,7 +1,16 @@
 # Data Architecture Strategy
 
+**Last Updated**: December 29, 2025
+
 ## Purpose
 This document defines the comprehensive data architecture for BitVelocity, including OLTP to OLAP data flows, audit database strategy, data governance, and analytics patterns that address the gaps identified in the original design.
+
+**Related Documentation**:
+
+- System Overview: `system-overview.md`
+- Domain Architectures: `domains/*/DOMAIN_*_ARCHITECTURE.md`
+- Event Contracts: `CROSS_EVENT_CONTRACTS_AND_VERSIONING.md`
+- Data Platform & Analytics: `CROSS_DATA_PLATFORM_AND_ANALYTICS.md`
 
 ## Architecture Overview
 
@@ -686,4 +695,30 @@ public class DataPipelineMonitor {
 
 ---
 
+## Related Documentation
+
+### Architecture References
+- [System Overview](system-overview.md) - Platform architecture
+- [E-Commerce Domain](domains/ecommerce/DOMAIN_ECOMMERCE_ARCHITECTURE.md) - OLTP examples
+- [IoT Domain](domains/iot/DOMAIN_IOT_ARCHITECTURE.md) - High-volume ingestion
+- [Data Platform & Analytics](CROSS_DATA_PLATFORM_AND_ANALYTICS.md) - Analytics patterns
+- [Observability](CROSS_OBSERVABILITY_AND_TESTING.md) - Data monitoring
+
+### Implementation Guides
+- [Microservices Patterns](../03-DEVELOPMENT/microservices-patterns.md) - CDC, CQRS patterns
+- [Testing Strategy](../03-DEVELOPMENT/testing-strategy.md) - Data quality testing
+
+### Project Management
+- [Execution Roadmap](../05-PROJECT-MANAGEMENT/execution-roadmap.md) - Implementation phases
+- [Budget Planning](../05-PROJECT-MANAGEMENT/budget-planning.md) - Storage costs
+
+### Key ADRs
+- [ADR-002: Event vs CDC Strategy](../adr/ADR-002-event-vs-cdc-strategy.md)
+- [ADR-007: Observability Baseline](../adr/ADR-007-observability-baseline.md)
+
+---
+
 This data architecture provides a solid foundation for learning comprehensive data engineering patterns while maintaining production-ready standards and addressing all the gaps identified in the original design.
+
+**Document Status**: Active Reference ✅  
+**Last Review**: December 29, 2025

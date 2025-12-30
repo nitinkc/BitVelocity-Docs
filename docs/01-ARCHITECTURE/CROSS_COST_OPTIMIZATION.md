@@ -1,5 +1,20 @@
 # Cross-Cutting – Cost Optimization Strategy
 
+**Last Updated**: December 29, 2025
+
+**Purpose**: Defines cost management strategies, budget controls, and resource optimization practices for cloud infrastructure.
+
+**Related Documentation**:
+
+- System Overview: `system-overview.md`
+- [Budget Planning](../05-PROJECT-MANAGEMENT/budget-planning.md)
+- Infrastructure: `bv-infra-service/README.md` (external module)
+
+**Module References**:
+
+- Infrastructure as Code: `bv-infra-service/`
+- Cost Scripts: `scripts/cost/`
+
 ## 1. Philosophy
 Spend only when a concept requires real infra; default to local containers & ephemeral clusters.
 
@@ -33,7 +48,9 @@ Spend only when a concept requires real infra; default to local containers & eph
 | 11–12 | Performance runs scheduled + immediate teardown |
 
 ## 5. Automation
+
 Scripts:
+
 - cost-report.sh (list active infra + hourly burn estimate)
 - prune-old-stacks.sh (Pulumi stack TTL check)
 - toggle-feature-flags.sh (disable costly domains)
@@ -47,3 +64,21 @@ Scripts:
 - Infra reproducible on demand, not persistent
 - Budget tracked sprintly
 - No orphaned resources after destroy script run
+
+---
+
+## Related Documentation
+
+### Project Management
+- [Budget Planning](../05-PROJECT-MANAGEMENT/budget-planning.md) - Detailed budget breakdown
+- [Execution Roadmap](../05-PROJECT-MANAGEMENT/execution-roadmap.md) - Phase-based costs
+
+### Infrastructure
+- `bv-infra-service/README.md` - Pulumi stack management
+- `scripts/cost/` - Cost analysis scripts
+
+### ADRs
+- [ADR-008: Pulumi Cloud Provider Abstraction](../adr/ADR-008-pulumi-cloud-provider-abstraction.md)
+
+**Document Status**: Active Reference ✅  
+**Last Review**: December 29, 2025

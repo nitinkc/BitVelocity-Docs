@@ -1,5 +1,24 @@
 # Cross-Cutting – Observability & Testing Strategy
 
+**Last Updated**: December 29, 2025
+
+**Purpose**: Defines platform-wide observability standards, testing strategies, and quality gates for all domains.
+
+**Related Documentation**:
+
+- System Overview: `system-overview.md`
+- [Performance Testing](../03-DEVELOPMENT/performance-testing-guide.md)
+- [Testing Strategy](../03-DEVELOPMENT/testing-strategy.md)
+- ADR-007: Observability Baseline
+- ADR-015: Load Testing Strategy
+- ADR-016: Chaos Engineering Framework
+
+**Module References**:
+
+- Observability Config: `bv-observability/`
+- Performance Testing: `bv-performance-testing/`
+- Chaos Experiments: `bv-chaos-experiments/`
+
 ## 1. Observability Stack
 
 | Aspect | Tool |
@@ -90,6 +109,28 @@
 - All domains produce baseline metrics & traces.
 - CI gating for contract & schema changes operational.
 - At least one chaos experiment validated.
+
+---
+
+## Related Documentation
+
+### Implementation Guides
+- [Performance Testing Guide](../03-DEVELOPMENT/performance-testing-guide.md)
+- [Testing Strategy](../03-DEVELOPMENT/testing-strategy.md)
+- [Microservices Patterns](../03-DEVELOPMENT/microservices-patterns.md)
+
+### Module READMEs
+- `bv-observability/README.md` - OpenTelemetry configuration
+- `bv-performance-testing/README.md` - Gatling & k6 setup
+- `bv-chaos-experiments/README.md` - Chaos Mesh experiments
+
+### ADRs
+- [ADR-007: Observability Baseline](../adr/ADR-007-observability-baseline.md)
+- [ADR-015: Load Testing Strategy](../adr/ADR-015-load-testing-strategy.md)
+- [ADR-016: Chaos Engineering Framework](../adr/ADR-016-chaos-engineering-framework.md)
+
+**Document Status**: Active Reference ✅  
+**Last Review**: December 29, 2025
 
 ```
 

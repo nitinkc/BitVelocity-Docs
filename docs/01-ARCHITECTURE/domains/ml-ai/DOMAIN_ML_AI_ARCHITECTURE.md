@@ -1,7 +1,17 @@
 # Domain Architecture – ML / AI Services
 
+**Last Updated**: December 29, 2025
+
 ## 1. Purpose
 Centralize model serving, feature retrieval, experimentation, and inference APIs consumed by other domains.
+
+**Module Location**: Distributed across domains (feature store, model serving)
+
+**Related Documentation**:
+
+- [System Overview](../../system-overview.md)
+- [Data Platform](../../CROSS_DATA_PLATFORM_AND_ANALYTICS.md)
+- [gRPC Protocol](../../../03-DEVELOPMENT/api-protocols.md)
 
 ## 2. Capabilities
 | Capability | Description |
@@ -23,9 +33,12 @@ Centralize model serving, feature retrieval, experimentation, and inference APIs
 - Batch loader populates from warehouse nightly.
 
 ## 5. Inference APIs
+
 REST:
+
 - GET /api/v1/recommendations/products?userId=U1
 - POST /api/v1/fraud/score { orderId }
+
 gRPC (optional future):
 ```
 service Recommendations {
@@ -34,11 +47,14 @@ service Recommendations {
 ```
 
 ## 6. Model Management
+
 Metadata store (Postgres):
+
 - models(id, name, version, status, created_at)
 - model_metrics(model_id, metric_name, value, recorded_at)
 
 Deployment Strategy:
+
 - Blue/Green via separate endpoint version
 - Model version header: X-Model-Version
 
@@ -58,13 +74,16 @@ Deployment Strategy:
 | Drift Monitoring (manual) | Compare feature distributions over time |
 
 ## 9. Observability
+
 Metrics:
+
 - inference_latency_ms
 - model_version_request_count
 - feature_cache_hit_ratio
 - fraud_score_distribution (histogram buckets)
 
 Tracing:
+
 - Inference call spans with model version attribute.
 
 ## 10. Security
@@ -92,3 +111,25 @@ Tracing:
 - Recommendation latency p95 < 150ms (local)
 - Fraud scoring event produced for each paid order
 - Feature cache > 80% hit rate after warmup
+
+---
+
+## Related Documentation
+
+### Architecture References
+- [System Overview](../../system-overview.md) - Platform architecture
+- [Data Platform](../../CROSS_DATA_PLATFORM_AND_ANALYTICS.md) - Feature engineering
+- [Data Architecture](../../data-architecture.md) - OLAP integration
+- [E-Commerce Domain](../ecommerce/DOMAIN_ECOMMERCE_ARCHITECTURE.md) - Fraud detection
+- [IoT Domain](../iot/DOMAIN_IOT_ARCHITECTURE.md) - Anomaly detection
+
+### Implementation Guides
+- [API Protocols Guide](../../../03-DEVELOPMENT/api-protocols.md) - gRPC patterns
+- [Microservices Patterns](../../../03-DEVELOPMENT/microservices-patterns.md)
+- [Testing Strategy](../../../03-DEVELOPMENT/testing-strategy.md)
+
+### ADRs
+- [ADR-007: Observability Baseline](../../../adr/ADR-007-observability-baseline.md)
+
+**Current Status**: Planned 📋  
+**Last Review**: December 29, 2025

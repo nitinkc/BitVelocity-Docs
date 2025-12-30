@@ -48,6 +48,7 @@ public class Customer {
 ```
 
 **Implementation Strategy**:
+
 - Start with logical separation in same database
 - Migrate to physical separation as services stabilize
 - Use shared libraries for common patterns

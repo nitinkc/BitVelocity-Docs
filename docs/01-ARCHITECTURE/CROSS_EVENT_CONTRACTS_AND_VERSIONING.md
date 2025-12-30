@@ -1,5 +1,21 @@
 # Cross-Cutting – Event Contracts & Versioning
 
+**Last Updated**: December 29, 2025
+
+**Purpose**: Defines event naming conventions, versioning strategy, and contract management for all event-driven communication across domains.
+
+**Related Documentation**:
+
+- [System Overview](system-overview.md)
+- [Data Architecture](data-architecture.md)
+- [Event Contracts Directory](../event-contracts/)
+- [ADR-002: Event vs CDC Strategy](../adr/ADR-002-event-vs-cdc-strategy.md)
+
+**Module References**:
+
+- Shared Events: `bv-core-common/bv-common-events/`
+- Validation Script: `scripts/validate-events.sh`
+
 ## 1. Naming Convention
 `<domain>.<context>.<entity>.<eventType>.v<majorVersion>`
 
@@ -88,3 +104,25 @@ event-contracts/
 - All producing services generate contract artifacts.
 - CI pipeline rejects incompatible schema modifications.
 - Documentation for each event includes: purpose, producer, consumer list, retention hint.
+
+---
+
+## Related Documentation
+
+### Architecture References
+- [System Overview](system-overview.md)
+- [Data Architecture](data-architecture.md) - CDC patterns
+- [All Domain Architectures](domains/) - Event definitions
+
+### Event Contracts
+- [Event Contracts Directory](../event-contracts/README.md) - All event schemas
+
+### Implementation
+- `bv-core-common/bv-common-events/` - Shared event library
+- `scripts/validate-events.sh` - Contract validation
+
+### ADRs
+- [ADR-002: Event vs CDC Strategy](../adr/ADR-002-event-vs-cdc-strategy.md)
+
+**Document Status**: Active Reference ✅  
+**Last Review**: December 29, 2025

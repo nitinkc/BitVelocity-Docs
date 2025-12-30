@@ -46,7 +46,7 @@ Dependencies
 - Phase 8
 
 Learning & References
-- Reference Topics (Protocols & Concurrency): `../REFERENCE-TOPICS.md`
-- ADRs: `../../adr/`
+- [Reference Topics (Protocols & Concurrency)](../REFERENCE-TOPICS.md)
+- [ADRs](../../adr/)
 
 Next: Close out and plan the next milestone

@@ -1,10 +1,26 @@
 # System Architecture Overview
 
+**Last Updated**: December 29, 2025
+
 ## Purpose
 This document provides a comprehensive overview of the BitVelocity distributed learning platform architecture, including system topology, key architectural decisions, and integration patterns across all domains.
 
 ## System Vision
 BitVelocity is designed as a multi-domain, protocol-rich distributed platform that demonstrates production-ready patterns while serving as a comprehensive learning laboratory for modern backend development, cloud deployment, and data engineering.
+
+**Current Active Modules**:
+
+- `bv-eCommerce-core/` - E-commerce domain services (11 microservices)
+- `bv-chat-stream/` - Real-time messaging and chat
+- `bv-iot-control-hub/` - IoT device management
+- `bv-social-pulse/` - Social media features
+- `bv-auth-service/` - Authentication & authorization
+- `bv-core-common/` - Shared libraries (auth, entities, events, logging, security)
+- `bv-infra-service/` - Infrastructure as code (Pulumi)
+- `bv-performance-testing/` - Load testing (Gatling, k6)
+- `bv-chaos-experiments/` - Chaos engineering
+- `bv-observability/` - Monitoring & tracing configuration
+- `bv-security-testing/` - Security testing tools
 
 ## Architectural Principles
 
@@ -315,4 +331,47 @@ BitVelocity is designed as a multi-domain, protocol-rich distributed platform th
 
 ---
 
+## Related Documentation
+
+### Domain Architectures
+- [E-Commerce Domain](domains/ecommerce/DOMAIN_ECOMMERCE_ARCHITECTURE.md) - Primary domain with all protocols
+- [Chat Domain](domains/chat/DOMAIN_CHAT_ARCHITECTURE.md) - Real-time communication
+- [IoT Domain](domains/iot/DOMAIN_IOT_ARCHITECTURE.md) - Device management
+- [Social Domain](domains/social/DOMAIN_SOCIAL_ARCHITECTURE.md) - Event-driven patterns
+- [ML/AI Domain](domains/ml-ai/DOMAIN_ML_AI_ARCHITECTURE.md) - Analytics & ML
+
+### Cross-Cutting Architecture
+- [Data Architecture](data-architecture.md) - OLTP→OLAP flows, audit strategy
+- [Security Architecture](security-architecture.md) - Authentication, authorization, secrets
+- [Observability & Testing](CROSS_OBSERVABILITY_AND_TESTING.md) - Monitoring, tracing, testing
+- [Event Contracts](CROSS_EVENT_CONTRACTS_AND_VERSIONING.md) - Event standards
+- [Cost Optimization](CROSS_COST_OPTIMIZATION.md) - Budget management
+- [DR & Replay](CROSS_REPLAY_DR_DRILLS.md) - Disaster recovery
+
+### Implementation Guides
+- [Microservices Patterns](../03-DEVELOPMENT/microservices-patterns.md)
+- [API Protocols Guide](../03-DEVELOPMENT/api-protocols.md)
+- [Testing Strategy](../03-DEVELOPMENT/testing-strategy.md)
+- [Performance Testing](../03-DEVELOPMENT/performance-testing-guide.md)
+
+### Project Management
+- [Project Charter](../00-OVERVIEW/project-charter.md)
+- [Projects & Modules](../00-OVERVIEW/projects-and-modules.md)
+- [Execution Roadmap](../05-PROJECT-MANAGEMENT/execution-roadmap.md)
+- [Sprint Planning](../05-PROJECT-MANAGEMENT/sprint-planning.md)
+
+### Key ADRs
+- [ADR-001: Multi-repo vs Monorepo](../adr/ADR-001-multi-repo-vs-monorepo.md)
+- [ADR-002: Event vs CDC Strategy](../adr/ADR-002-event-vs-cdc-strategy.md)
+- [ADR-005: Security Layering](../adr/ADR-005-security-layering.md)
+- [ADR-007: Observability Baseline](../adr/ADR-007-observability-baseline.md)
+- [ADR-015: Load Testing Strategy](../adr/ADR-015-load-testing-strategy.md)
+- [ADR-016: Chaos Engineering](../adr/ADR-016-chaos-engineering-framework.md)
+- [ADR-017: CI/CD Pipeline](../adr/ADR-017-cicd-pipeline-architecture.md)
+
+---
+
 This system architecture serves as the foundation for all implementation decisions and should be referenced when making architectural choices across domains.
+
+**Document Status**: Active Reference ✅  
+**Last Review**: December 29, 2025

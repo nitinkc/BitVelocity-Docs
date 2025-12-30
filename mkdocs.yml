@@ -1,53 +1,110 @@
 site_name: BitVelocity Wiki
 site_url: https://nitinkc.github.io/BitVelocity-Docs/
+
+extra_css:
+    - stylesheets/custom.css
+
 nav:
   - Home: index.md
   - Overview:
-      - Project Charter: 00-OVERVIEW/project-charter.md
-      - Stakeholder Guide: 00-OVERVIEW/stakeholder-guide.md
-      - README: 00-OVERVIEW/README.md
       - Projects & Modules: 00-OVERVIEW/projects-and-modules.md
+      - Stakeholder Guide: 00-OVERVIEW/stakeholder-guide.md
+      - Project Charter: 00-OVERVIEW/project-charter.md
+  - Architecture:
+      - System Overview: 01-ARCHITECTURE/system-overview.md
+      - Data Architecture: 01-ARCHITECTURE/data-architecture.md
+      - Security Architecture: 01-ARCHITECTURE/security-architecture.md
+      - Domains:
+          - E-Commerce: 01-ARCHITECTURE/domains/ecommerce/DOMAIN_ECOMMERCE_ARCHITECTURE.md
+          - Chat: 01-ARCHITECTURE/domains/chat/DOMAIN_CHAT_ARCHITECTURE.md
+          - IoT: 01-ARCHITECTURE/domains/iot/DOMAIN_IOT_ARCHITECTURE.md
+          - Social: 01-ARCHITECTURE/domains/social/DOMAIN_SOCIAL_ARCHITECTURE.md
+          - ML/AI: 01-ARCHITECTURE/domains/ml-ai/DOMAIN_ML_AI_ARCHITECTURE.md
+      - Cross-Cutting:
+          - Observability & Testing: 01-ARCHITECTURE/CROSS_OBSERVABILITY_AND_TESTING.md
+          - Event Contracts: 01-ARCHITECTURE/CROSS_EVENT_CONTRACTS_AND_VERSIONING.md
+          - Replay & DR: 01-ARCHITECTURE/CROSS_REPLAY_DR_DRILLS.md
+          - Cost Optimization: 01-ARCHITECTURE/CROSS_COST_OPTIMIZATION.md
+          - Data Platform: 01-ARCHITECTURE/CROSS_DATA_PLATFORM_AND_ANALYTICS.md
+  - Development:
+      - Microservices Patterns: 03-DEVELOPMENT/microservices-patterns.md
+      - API Protocols: 03-DEVELOPMENT/api-protocols.md
+      - Testing Strategy: 03-DEVELOPMENT/testing-strategy.md
+      - Performance Testing: 03-DEVELOPMENT/performance-testing-guide.md
+  - Infrastructure:
+      - Cloud Strategy: 02-INFRASTRUCTURE/cloud-strategy.md
+      - Deployment: 02-INFRASTRUCTURE/deployment-architecture.md
+  - Stories & Phases:
+      - Quick Start: stories/QUICK-START.md
+      - Reference Topics: stories/REFERENCE-TOPICS.md
+      - Phases Overview: stories/phases/README.md
+      - Phase 0 - Groundwork: stories/phases/PHASE-0.md
+      - Phase 1 - Foundations: stories/phases/PHASE-1.md
+      - Phase 2 - Contracts: stories/phases/PHASE-2.md
+      - Phase 3 - Protocols: stories/phases/PHASE-3.md
+      - Phase 4 - Data & State: stories/phases/PHASE-4.md
+      - Phase 5 - Real-Time: stories/phases/PHASE-5.md
+      - Phase 6 - Resilience: stories/phases/PHASE-6.md
+      - Phase 7 - Integrations: stories/phases/PHASE-7.md
+      - Phase 8 - UAT: stories/phases/PHASE-8.md
+      - Phase 9 - Hardening: stories/phases/PHASE-9.md
   - Project Management:
-      - Implementation Roadmap: 05-PROJECT-MANAGEMENT/IMPLEMENTATION-ROADMAP.md
-      - Phases:
-          - Overview: stories/phases/README.md
-          - Phase 0 — Groundwork: stories/phases/PHASE-0.md
-          - Phase 1 — Foundations: stories/phases/PHASE-1.md
-          - Phase 2 — Contracts & Scaffolding: stories/phases/PHASE-2.md
-          - Phase 3 — Core Protocols: stories/phases/PHASE-3.md
-          - Phase 4 — Data & State: stories/phases/PHASE-4.md
-          - Phase 5 — Real-Time & Observability: stories/phases/PHASE-5.md
-          - Phase 6 — Resilience & Replay: stories/phases/PHASE-6.md
-          - Phase 7 — Integrations & Edge: stories/phases/PHASE-7.md
-          - Phase 8 — UAT & Release Prep: stories/phases/PHASE-8.md
-          - Phase 9 — Hardening & Polish: stories/phases/PHASE-9.md
-      - Actionable Build Plan: 05-PROJECT-MANAGEMENT/ACTIONABLE-BUILD-PLAN.md
+      - Sprint Planning: 05-PROJECT-MANAGEMENT/sprint-planning.md
+      - Weekly Checklist: 05-PROJECT-MANAGEMENT/WEEKLY-CHECKLIST.md
+      - Roadmap: 05-PROJECT-MANAGEMENT/IMPLEMENTATION-ROADMAP.md
+      - Budget: 05-PROJECT-MANAGEMENT/budget-planning.md
   - ADRs:
-      - Template: adr/ADR-TEMPLATE.md
-      - Starter Pack: adr/GUIDE_ADR_STARTER_PACK.md
       - ADR-001 Multi-repo vs Monorepo: adr/ADR-001-multi-repo-vs-monorepo.md
-      - ADR-001 Github Packages vs JitPack: adr/ADR-001_1-github Packages-vs-JitPack.md
-      - ADR-002 Event vs CDC Strategy: adr/ADR-002-event-vs-cdc-strategy.md
-      - ADR-003 Protocol Introduction Order: adr/ADR-003-protocol-introduction-order.md
-      - ADR-004 OLTP CDC OLAP Architecture: adr/ADR-004-oltp-cdc-olap-architecture.md
-      - ADR-005 Security Layering: adr/ADR-005-security-layering.md
-      - ADR-006 Retry Backoff Policies: adr/ADR-006-retry-backoff-policies.md
-      - ADR-007 Observability Baseline: adr/ADR-007-observability-baseline.md
-      - ADR-008 Pulumi Cloud Provider Abstraction: adr/ADR-008-pulumi-cloud-provider-abstraction.md
-      - ADR-009 E-Commerce Domain Architecture: adr/ADR-009-ecommerce-domain-architecture.md
-      - ADR-010 Chat Domain Realtime Architecture: adr/ADR-010-chat-domain-realtime-architecture.md
-      - ADR-011 IoT Domain High Volume Architecture: adr/ADR-011-iot-domain-high-volume-architecture.md
-      - ADR-012 Social Domain Architecture: adr/ADR-012-social-domain-architecture.md
-      - ADR-013 ML/AI Platform Architecture: adr/ADR-013-ml-ai-platform-architecture.md
-      - ADR-014 Cross-Domain Integration: adr/ADR-014-cross-domain-integration.md
-      - ADR-015 Load Testing Strategy: adr/ADR-015-load-testing-strategy.md
-      - ADR-016 Chaos Engineering Framework: adr/ADR-016-chaos-engineering-framework.md
-      - ADR-017 CI/CD Pipeline Architecture: adr/ADR-017-cicd-pipeline-architecture.md
-  - Event Contracts:
-      - Guide: event-contracts/GUIDE_EVENT_CONTRACTS_USAGE.md
-      - Readme: event-contracts/README.md
+      - ADR-002 Event vs CDC: adr/ADR-002-event-vs-cdc-strategy.md
+      - ADR-003 Protocol Order: adr/ADR-003-protocol-introduction-order.md
+      - ADR-004 OLTP CDC OLAP: adr/ADR-004-oltp-cdc-olap-architecture.md
+      - ADR-005 Security: adr/ADR-005-security-layering.md
+      - ADR-006 Retry Policies: adr/ADR-006-retry-backoff-policies.md
+      - ADR-007 Observability: adr/ADR-007-observability-baseline.md
+      - ADR-008 Pulumi: adr/ADR-008-pulumi-cloud-provider-abstraction.md
+      - ADR-015 Load Testing: adr/ADR-015-load-testing-strategy.md
+      - ADR-016 Chaos Engineering: adr/ADR-016-chaos-engineering-framework.md
+      - ADR-017 CI/CD Pipeline: adr/ADR-017-cicd-pipeline-architecture.md
 
 plugins:
     - search
     - mermaid2:
         javascript: https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs
+
+theme:
+    name: material
+    features:
+        - navigation.instant
+        - navigation.tracking
+        - navigation.tabs
+        - navigation.sections
+        - navigation.top
+        - search.suggest
+        - search.highlight
+        - content.code.copy
+    palette:
+        - scheme: default
+          primary: indigo
+          accent: indigo
+          toggle:
+              icon: material/brightness-7
+              name: Switch to dark mode
+        - scheme: slate
+          primary: indigo
+          accent: indigo
+          toggle:
+              icon: material/brightness-4
+              name: Switch to light mode
+
+markdown_extensions:
+    - pymdownx.highlight
+    - pymdownx.superfences:
+        custom_fences:
+            - name: mermaid
+              class: mermaid
+              format: !!python/name:pymdownx.superfences.fence_code_format
+    - pymdownx.tabbed
+    - admonition
+    - tables
+    - attr_list
+    - md_in_html

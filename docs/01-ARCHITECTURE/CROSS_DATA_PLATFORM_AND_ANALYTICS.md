@@ -1,5 +1,21 @@
 # Cross-Cutting – Data Platform & Analytics
 
+**Last Updated**: December 29, 2025
+
+**Purpose**: Defines data platform architecture, analytics pipelines, data governance, and cross-domain data projections.
+
+**Related Documentation**:
+
+- Data Architecture: `data-architecture.md`
+- System Overview: `system-overview.md`
+- ML/AI Domain: `domains/ml-ai/DOMAIN_ML_AI_ARCHITECTURE.md`
+- ADR-002: Event vs CDC Strategy
+
+**Module References**:
+
+- Analytics Streaming: `bv-eCommerce-core/analytics-streaming-service/`
+- Replay Service: `bv-eCommerce-core/replay-service/`
+
 ## 1. Layer Overview
 OLTP (Postgres) → Domain Events + CDC (Debezium) → Stream Processing (Kafka Streams/Flink) → Serving (Redis/Cassandra/OpenSearch) → OLAP (Parquet + ClickHouse/BigQuery) → Feature Store (Redis) → ML Inference.
 
@@ -72,3 +88,27 @@ Steps:
 - At least 3 projections built via streams (not batch).
 - Replay successful on sample dataset.
 - Data quality run gating merges for schema changes.
+
+---
+
+## Related Documentation
+
+### Architecture References
+- [Data Architecture](data-architecture.md) - OLTP→OLAP flows
+- [System Overview](system-overview.md)
+- [ML/AI Domain](domains/ml-ai/DOMAIN_ML_AI_ARCHITECTURE.md) - Feature store
+- [E-Commerce Domain](domains/ecommerce/DOMAIN_ECOMMERCE_ARCHITECTURE.md) - Analytics streaming
+
+### Cross-Cutting
+- [Event Contracts](CROSS_EVENT_CONTRACTS_AND_VERSIONING.md)
+- [Replay & DR](CROSS_REPLAY_DR_DRILLS.md)
+
+### Module READMEs
+- `bv-eCommerce-core/analytics-streaming-service/README.md`
+- `bv-eCommerce-core/replay-service/README.md`
+
+### ADRs
+- [ADR-002: Event vs CDC Strategy](../adr/ADR-002-event-vs-cdc-strategy.md)
+
+**Document Status**: Active Reference ✅  
+**Last Review**: December 29, 2025

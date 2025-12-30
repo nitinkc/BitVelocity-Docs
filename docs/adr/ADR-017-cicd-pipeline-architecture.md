@@ -106,12 +106,14 @@ main (protected)
 ### Artifact Management
 
 **Container Images**:
+
 - Build on merge to main
 - Tag with commit SHA and semantic version
 - Push to GitHub Container Registry (ghcr.io)
 - Scan before push
 
 **Maven Artifacts**:
+
 - Publish to GitHub Packages (shared libs)
 - Semantic versioning (MAJOR.MINOR.PATCH)
 - SNAPSHOT for development branches
@@ -125,6 +127,7 @@ main (protected)
 4. **Production**: Manual approval (future)
 
 **Deployment Methods**:
+
 - Dev: Automatic on merge
 - Staging: Manual trigger
 - Production: Manual with approval gates

@@ -1,25 +1,52 @@
-# Documentation Navigation Index
+# BitVelocity Documentation
 
-Welcome! This site houses architecture overviews, ADRs, event contracts, and stories that guide implementation.
+Welcome! This site houses architecture overviews, ADRs, event contracts, and execution guides for the BitVelocity platform.
+
+## 📋 Project Boards
+
+Track and create stories directly on GitHub:
+
+- **📊 [Planner Board](https://github.com/users/nitinkc/projects/9)** - High-level planning and epic tracking
+- **🏃 [Scrum Board](https://github.com/users/nitinkc/projects/8)** - Sprint management and daily tasks
+
+> 💡 **Tip**: Use GitHub's "Create issue from project" feature to quickly add stories from the board interface. Link issues to this documentation for traceability.
 
 ## 🚀 Quick Start
 
-New to the project? Start with Phases:
- Project Management → [Phases Overview](stories/phases/README.md)
+New to the project? Start here:
+
+1. **[Projects & Modules Overview](00-OVERVIEW/projects-and-modules.md)** - Understand the codebase structure
+2. **[Quick Start Guide](stories/QUICK-START.md)** - Get your development environment ready
+3. **[Phases Overview](stories/phases/README.md)** - Follow the implementation roadmap
 
 ## 📁 Documentation Structure
 
 ### 00-OVERVIEW - Project Foundation
 
-1. [Project Charter](00-OVERVIEW/project-charter.md) - Mission, objectives, and constraints
-2. [System Overview](01-ARCHITECTURE/system-overview.md)
-3. [Data Architecture](01-ARCHITECTURE/data-architecture.md)
-4. [Domain Architectures](01-ARCHITECTURE/domains/)
-5. [Architectural Decision Records](adr/)
-6. [**Stakeholder Guide**](00-OVERVIEW/stakeholder-guide.md) - Role-based navigation guide
+- [**Projects & Modules**](00-OVERVIEW/projects-and-modules.md) - Complete module inventory and learning paths
+- [**Stakeholder Guide**](00-OVERVIEW/stakeholder-guide.md) - Role-based navigation guide  
+- [**Project Charter**](00-OVERVIEW/project-charter.md) - Mission, objectives, and constraints
 
-### Stories - Execution & Learning
-- [Quick Start Guide](stories/QUICK-START.md) — Entry point for contributors
+### 01-ARCHITECTURE - System Design
+
+- [**System Overview**](01-ARCHITECTURE/system-overview.md) - Platform architecture
+- [**Data Architecture**](01-ARCHITECTURE/data-architecture.md) - OLTP, CDC, OLAP flows
+- [**Security Architecture**](01-ARCHITECTURE/security-architecture.md) - Authentication, authorization, secrets
+- [**Domain Architectures**](01-ARCHITECTURE/domains/) - E-Commerce, Chat, IoT, Social, ML/AI
+- [**Cross-Cutting Concerns**](01-ARCHITECTURE/) - Observability, Events, Replay, Cost, Data Platform
+
+### 03-DEVELOPMENT - Implementation Guides
+
+- [**Microservices Patterns**](03-DEVELOPMENT/microservices-patterns.md)
+- [**API Protocols**](03-DEVELOPMENT/api-protocols.md) - REST, gRPC, WebSocket, SSE, MQTT
+- [**Testing Strategy**](03-DEVELOPMENT/testing-strategy.md)
+- [**Performance Testing**](03-DEVELOPMENT/performance-testing-guide.md)
+
+### Stories & Phases - Execution Roadmap
+
+- [**Quick Start**](stories/QUICK-START.md) - Get started quickly
+- [**Reference Topics**](stories/REFERENCE-TOPICS.md) - Protocol and concurrency patterns
+- [**Phases**](stories/phases/README.md) - Phase-by-phase implementation guide (Phase 0-9)
 
 
 ### ADR - Architectural Decision Records

@@ -1,7 +1,18 @@
 # Domain Architecture – Social / Feed
 
+**Last Updated**: December 29, 2025
+
 ## 1. Purpose
 Model post creation, comments, engagement, and feed dissemination with SSE for near real-time updates.
+
+**Module Location**: `bv-social-pulse/`
+
+**Related Documentation**:
+
+- [System Overview](../../system-overview.md)
+- [Event-Driven Patterns](../../../03-DEVELOPMENT/microservices-patterns.md)
+- [SSE Protocol](../../../03-DEVELOPMENT/api-protocols.md)
+- ADR-002: Event vs CDC Strategy
 
 ## 2. Services
 | Service | Responsibility | Store |
@@ -59,12 +70,16 @@ Strategy: Hybrid push/pull
 - Rate limiting (gateway): posts/min per user.
 
 ## 8. Observability
+
 Metrics:
+
 - posts_created_total
 - feed_sse_active_connections
 - feed_push_latency_ms
 - engagement_counter_update_failures
+
 Tracing:
+
 - REST create post -> Kafka publish -> SSE push chain
 
 ## 9. Testing
@@ -98,6 +113,31 @@ Tracing:
 - Delay search infra until event pipeline stable.
 
 ## 13. Exit Criteria
+- Post creation → SSE push latency < 500ms
+- Feed endpoint returns aggregated data from Redis
+- Comment events trigger engagement counter updates
+- GraphQL federated queries work across Post + User contexts
+
+---
+
+## Related Documentation
+
+### Architecture References
+- [System Overview](../../system-overview.md) - Platform architecture
+- [Data Architecture](../../data-architecture.md) - Feed materialization patterns
+- [Observability](../../CROSS_OBSERVABILITY_AND_TESTING.md)
+
+### Implementation Guides
+- [API Protocols Guide](../../../03-DEVELOPMENT/api-protocols.md) - SSE & GraphQL
+- [Microservices Patterns](../../../03-DEVELOPMENT/microservices-patterns.md) - Event-driven patterns
+- [Testing Strategy](../../../03-DEVELOPMENT/testing-strategy.md)
+
+### ADRs
+- [ADR-002: Event vs CDC Strategy](../../../adr/ADR-002-event-vs-cdc-strategy.md)
+- [ADR-007: Observability Baseline](../../../adr/ADR-007-observability-baseline.md)
+
+**Current Status**: Active Development ✅  
+**Last Review**: December 29, 2025
 - Post creation visible via SSE < 500ms median
 - Engagement counters accurate under concurrent updates
 - GraphQL consolidation query returning post + engagement fields

@@ -1,5 +1,8 @@
 # BitVelocity Project Charter
 
+**Last Updated**: December 29, 2025  
+**Status**: Active ✅
+
 ## Executive Summary
 BitVelocity is a comprehensive multi-domain distributed learning platform designed to provide hands-on experience with modern backend systems, cloud technologies, and data engineering patterns. The project serves as a practical learning laboratory for mastering enterprise-grade architectural patterns while maintaining cost-effective implementation strategies.
 
@@ -156,4 +159,25 @@ Build a production-ready, multi-domain distributed platform that enables compreh
 - **Portability**: Successful migration between at least two cloud providers
 
 ---
+
+## Related Documentation
+
+### Architecture
+- [System Overview](../01-ARCHITECTURE/system-overview.md)
+- [Projects & Modules](projects-and-modules.md)
+- [Domain Architectures](../01-ARCHITECTURE/domains/)
+
+### Project Management
+- [Execution Roadmap](../05-PROJECT-MANAGEMENT/execution-roadmap.md)
+- [Sprint Planning](../05-PROJECT-MANAGEMENT/sprint-planning.md)
+- [Budget Planning](../05-PROJECT-MANAGEMENT/budget-planning.md)
+
+### Stakeholders
+- [Stakeholder Guide](stakeholder-guide.md)
+
+---
+
 *This charter serves as the foundational agreement for the BitVelocity project and should be revisited quarterly to ensure alignment with learning objectives and constraints.*
+
+**Document Status**: Active Reference ✅  
+**Last Review**: December 29, 2025

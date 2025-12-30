@@ -60,11 +60,13 @@ To build confidence in system reliability and validate resilience patterns, BitV
 4. Use label selectors carefully
 
 **Environment Strategy**:
+
 - Dev: Open experimentation
 - Staging: Scheduled chaos (nightly)
 - Production: Manual game days only (future)
 
 **Always Have**:
+
 - Rollback plan (pause/delete experiment)
 - Active monitoring during experiment
 - Team notification before running
@@ -82,6 +84,7 @@ Structured chaos exercises with team participation:
 5. **Debrief** (30min): Discuss learnings, action items
 
 **Frequency**:
+
 - Monthly game days for primary domains
 - Quarterly cross-domain scenarios
 - Ad-hoc for new features

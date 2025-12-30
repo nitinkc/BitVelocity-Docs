@@ -43,6 +43,6 @@ Dependencies
 - Phase 1
 
 Learning & References
-- Reference Topics (Protocols & Concurrency): `../REFERENCE-TOPICS.md`
+- [Reference Topics (Protocols & Concurrency)](../REFERENCE-TOPICS.md)
 
 Next Phase: [Phase 3](./PHASE-3.md)

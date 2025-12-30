@@ -1,7 +1,18 @@
 # Domain Architecture – IoT Device Management
 
+**Last Updated**: December 29, 2025
+
 ## 1. Purpose
 Simulate device telemetry ingestion, inventory or analytics adjustments, firmware orchestration, anomaly detection learning path.
+
+**Module Location**: `bv-iot-control-hub/`
+
+**Related Documentation**:
+
+- [System Overview](../../system-overview.md)
+- [Data Architecture](../../data-architecture.md) - High-volume ingestion patterns
+- [MQTT Protocol](../../../03-DEVELOPMENT/api-protocols.md)
+- ADR-007: Observability Baseline
 
 ## 2. Services
 | Service | Responsibility | Store |
@@ -35,7 +46,9 @@ Payload (JSON):
 Transformed into event: iot.telemetry.raw.v1 (partition by deviceId).
 
 ## 5. Data Model
+
 Postgres:
+
 - devices(id, serial, type, status, created_at)
 - device_credentials(device_id, api_key_hash, rotated_at)
 - firmware_artifacts(id, version, checksum, created_at)
@@ -52,7 +65,9 @@ service Firmware {
 ```
 
 ## 7. Stream Processing
+
 Jobs:
+
 - TelemetryNormalizer → enrich + validate
 - AnomalyDetector (simple z-score or threshold)
 - InventoryAdjustmentForwarder (optionally triggers ecommerce.inventory.stock.adjusted.v1)
@@ -64,12 +79,16 @@ Jobs:
 - Tokenless internal event pipeline.
 
 ## 9. Observability
+
 Metrics:
+
 - telemetry_ingest_rate
 - telemetry_mqtt_connect_failures
 - firmware_rollout_progress
 - anomaly_events_total
+
 Tracing:
+
 - Firmware RPC sequences
 - Telemetry transform pipeline stages
 
@@ -98,6 +117,28 @@ Tracing:
 4. Firmware gRPC scaffold
 5. Anomaly threshold job
 6. (Optional) Integration with E-Commerce inventory adjustments
+
+---
+
+## Related Documentation
+
+### Architecture References
+- [System Overview](../../system-overview.md) - Platform architecture
+- [Data Architecture](../../data-architecture.md) - High-volume data patterns
+- [E-Commerce Domain](../ecommerce/DOMAIN_ECOMMERCE_ARCHITECTURE.md) - Inventory integration
+- [Observability](../../CROSS_OBSERVABILITY_AND_TESTING.md)
+
+### Implementation Guides
+- [API Protocols Guide](../../../03-DEVELOPMENT/api-protocols.md) - MQTT & gRPC
+- [Microservices Patterns](../../../03-DEVELOPMENT/microservices-patterns.md)
+- [Performance Testing](../../../03-DEVELOPMENT/performance-testing-guide.md) - Load testing
+
+### ADRs
+- [ADR-007: Observability Baseline](../../../adr/ADR-007-observability-baseline.md)
+- [ADR-015: Load Testing Strategy](../../../adr/ADR-015-load-testing-strategy.md)
+
+**Current Status**: Active Development ✅  
+**Last Review**: December 29, 2025
 7. Firmware rollout workflow
 8. Advanced anomaly detection simulation
 

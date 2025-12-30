@@ -37,6 +37,6 @@ Tasks (acceptance)
 
 
 Learning & References
- - Reference Topics (Protocols & Concurrency): `../REFERENCE-TOPICS.md`
+ - [Reference Topics (Protocols & Concurrency)](../REFERENCE-TOPICS.md)
 
 Next Phase: [Phase 4](./PHASE-4.md)

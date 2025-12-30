@@ -49,5 +49,5 @@ Dependencies
 - Phase 5
 
 Learning & References
- - Reference Topics (Protocols & Concurrency): `../REFERENCE-TOPICS.md`
+ - [Reference Topics (Protocols & Concurrency)](../REFERENCE-TOPICS.md)
 Next Phase: [Phase 7](./PHASE-7.md)
