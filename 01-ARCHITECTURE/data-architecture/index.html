@@ -1,293 +1,3607 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
         <link rel="canonical" href="https://nitinkc.github.io/BitVelocity-Docs/01-ARCHITECTURE/data-architecture/">
-        <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Data Architecture Strategy - BitVelocity Wiki</title>
-        <link href="../../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../../css/fontawesome.min.css" rel="stylesheet">
-        <link href="../../css/brands.min.css" rel="stylesheet">
-        <link href="../../css/solid.min.css" rel="stylesheet">
-        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
-        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-        <script>hljs.highlightAll();</script> 
-    </head>
+      
+      
+        <link rel="prev" href="../system-overview/">
+      
+      
+        <link rel="next" href="../security-architecture/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Data Architecture - BitVelocity Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="../..">BitVelocity Wiki</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="nav-item">
-                                <a href="../.." class="nav-link">Home</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Overview</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../00-OVERVIEW/project-charter/" class="dropdown-item">Project Charter</a>
-</li>
-                                    
-<li>
-    <a href="../../00-OVERVIEW/stakeholder-guide/" class="dropdown-item">Stakeholder Guide</a>
-</li>
-                                    
-<li>
-    <a href="../../00-OVERVIEW/README.md" class="dropdown-item">README</a>
-</li>
-                                    
-<li>
-    <a href="../../00-OVERVIEW/projects-and-modules/" class="dropdown-item">Projects & Modules</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Project Management</a>
-                                <ul class="dropdown-menu">
-                                    
-  <li class="dropdown-submenu">
-    <a href="#" class="dropdown-item">Phases</a>
-    <ul class="dropdown-menu">
-            
-<li>
-    <a href="../../stories/phases/README.md" class="dropdown-item">Overview</a>
-</li>
-            
-<li>
-    <a href="../../stories/phases/PHASE-0/" class="dropdown-item">Phase 0 — Groundwork</a>
-</li>
-            
-<li>
-    <a href="../../stories/phases/PHASE-1/" class="dropdown-item">Phase 1 — Foundations</a>
-</li>
-            
-<li>
-    <a href="../../stories/phases/PHASE-2/" class="dropdown-item">Phase 2 — Contracts & Scaffolding</a>
-</li>
-            
-<li>
-    <a href="../../stories/phases/PHASE-3/" class="dropdown-item">Phase 3 — Core Protocols</a>
-</li>
-            
-<li>
-    <a href="../../stories/phases/PHASE-4/" class="dropdown-item">Phase 4 — Data & State</a>
-</li>
-            
-<li>
-    <a href="../../stories/phases/PHASE-5/" class="dropdown-item">Phase 5 — Real-Time & Observability</a>
-</li>
-            
-<li>
-    <a href="../../stories/phases/PHASE-6/" class="dropdown-item">Phase 6 — Resilience & Replay</a>
-</li>
-            
-<li>
-    <a href="../../stories/phases/PHASE-7/" class="dropdown-item">Phase 7 — Integrations & Edge</a>
-</li>
-            
-<li>
-    <a href="../../stories/phases/PHASE-8/" class="dropdown-item">Phase 8 — UAT & Release Prep</a>
-</li>
-            
-<li>
-    <a href="../../stories/phases/PHASE-9/" class="dropdown-item">Phase 9 — Hardening & Polish</a>
-</li>
-    </ul>
-  </li>
-                                    
-<li>
-    <a href="../../05-PROJECT-MANAGEMENT/ACTIONABLE-BUILD-PLAN.md" class="dropdown-item">Actionable Build Plan</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">ADRs</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../adr/ADR-TEMPLATE/" class="dropdown-item">Template</a>
-</li>
-                                    
-<li>
-    <a href="../../adr/GUIDE_ADR_STARTER_PACK/" class="dropdown-item">Starter Pack</a>
-</li>
-                                    
-<li>
-    <a href="../../adr/ADR-001-multi-repo-vs-monorepo/" class="dropdown-item">ADR-001 Multi-repo vs Monorepo</a>
-</li>
-                                    
-<li>
-    <a href="../../adr/ADR-001_1-github%20Packages-vs-JitPack/" class="dropdown-item">ADR-001 Github Packages vs JitPack</a>
-</li>
-                                    
-<li>
-    <a href="../../adr/ADR-002-event-vs-cdc-strategy/" class="dropdown-item">ADR-002 Event vs CDC Strategy</a>
-</li>
-                                    
-<li>
-    <a href="../../adr/ADR-003-protocol-introduction-order/" class="dropdown-item">ADR-003 Protocol Introduction Order</a>
-</li>
-                                    
-<li>
-    <a href="../../adr/ADR-004-oltp-cdc-olap-architecture/" class="dropdown-item">ADR-004 OLTP CDC OLAP Architecture</a>
-</li>
-                                    
-<li>
-    <a href="../../adr/ADR-005-security-layering/" class="dropdown-item">ADR-005 Security Layering</a>
-</li>
-                                    
-<li>
-    <a href="../../adr/ADR-006-retry-backoff-policies/" class="dropdown-item">ADR-006 Retry Backoff Policies</a>
-</li>
-                                    
-<li>
-    <a href="../../adr/ADR-007-observability-baseline/" class="dropdown-item">ADR-007 Observability Baseline</a>
-</li>
-                                    
-<li>
-    <a href="../../adr/ADR-008-pulumi-cloud-provider-abstraction/" class="dropdown-item">ADR-008 Pulumi Cloud Provider Abstraction</a>
-</li>
-                                    
-<li>
-    <a href="../../adr/ADR-009-ecommerce-domain-architecture/" class="dropdown-item">ADR-009 E-Commerce Domain Architecture</a>
-</li>
-                                    
-<li>
-    <a href="../../adr/ADR-010-chat-domain-realtime-architecture/" class="dropdown-item">ADR-010 Chat Domain Realtime Architecture</a>
-</li>
-                                    
-<li>
-    <a href="../../adr/ADR-011-iot-domain-high-volume-architecture/" class="dropdown-item">ADR-011 IoT Domain High Volume Architecture</a>
-</li>
-                                    
-<li>
-    <a href="../../adr/ADR-012-social-domain-architecture/" class="dropdown-item">ADR-012 Social Domain Architecture</a>
-</li>
-                                    
-<li>
-    <a href="../../adr/ADR-013-ml-ai-platform-architecture/" class="dropdown-item">ADR-013 ML/AI Platform Architecture</a>
-</li>
-                                    
-<li>
-    <a href="../../adr/ADR-014-cross-domain-integration/" class="dropdown-item">ADR-014 Cross-Domain Integration</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Event Contracts</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../event-contracts/GUIDE_EVENT_CONTRACTS_USAGE/" class="dropdown-item">Guide</a>
-</li>
-                                    
-<li>
-    <a href="../../event-contracts/" class="dropdown-item">Readme</a>
-</li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav ms-md-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-bs-level="1"><a href="#data-architecture-strategy" class="nav-link">Data Architecture Strategy</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#purpose" class="nav-link">Purpose</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#architecture-overview" class="nav-link">Architecture Overview</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#oltp-database-strategy" class="nav-link">OLTP Database Strategy</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#oltp-to-olap-data-flow" class="nav-link">OLTP to OLAP Data Flow</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#real-time-analytics" class="nav-link">Real-Time Analytics</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#data-governance-quality" class="nav-link">Data Governance &amp; Quality</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#caching-strategy" class="nav-link">Caching Strategy</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#performance-optimization" class="nav-link">Performance Optimization</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#disaster-recovery-backup" class="nav-link">Disaster Recovery &amp; Backup</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#monitoring-alerting" class="nav-link">Monitoring &amp; Alerting</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#cost-optimization" class="nav-link">Cost Optimization</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#data-architecture-strategy" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
-</div></div>
-                    <div class="col-md-9" role="main">
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="BitVelocity Wiki" class="md-header__button md-logo" aria-label="BitVelocity Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            BitVelocity Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Data Architecture
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../00-OVERVIEW/projects-and-modules/" class="md-tabs__link">
+          
+  
+  
+  Overview
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../system-overview/" class="md-tabs__link">
+          
+  
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../03-DEVELOPMENT/microservices-patterns/" class="md-tabs__link">
+          
+  
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02-INFRASTRUCTURE/cloud-strategy/" class="md-tabs__link">
+          
+  
+  
+  Infrastructure
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../stories/QUICK-START/" class="md-tabs__link">
+          
+  
+  
+  Stories & Phases
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../05-PROJECT-MANAGEMENT/sprint-planning/" class="md-tabs__link">
+          
+  
+  
+  Project Management
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../adr/ADR-001-multi-repo-vs-monorepo/" class="md-tabs__link">
+          
+  
+  
+  ADRs
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="BitVelocity Wiki" class="md-nav__button md-logo" aria-label="BitVelocity Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    BitVelocity Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Overview
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-OVERVIEW/projects-and-modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects & Modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-OVERVIEW/stakeholder-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stakeholder Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-OVERVIEW/project-charter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Charter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../system-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Architecture
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Purpose
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Architecture Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-layer-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Layer Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oltp-database-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OLTP Database Strategy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OLTP Database Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#primary-transactional-database-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Primary Transactional Database: PostgreSQL
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Primary Transactional Database: PostgreSQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#table-design-with-audit-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table Design with Audit Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partitioning-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partitioning Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scale-out-databases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scale-Out Databases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scale-Out Databases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cassandra-for-high-volume-event-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cassandra for High-Volume Event Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mongodb-for-document-heavy-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MongoDB for Document-Heavy Domains
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oltp-to-olap-data-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OLTP to OLAP Data Flow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OLTP to OLAP Data Flow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#change-data-capture-cdc-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change Data Capture (CDC) Strategy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Change Data Capture (CDC) Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#debezium-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debezium Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-schema-with-audit-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event Schema with Audit Context
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#medallion-architecture-bronze-silver-gold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Medallion Architecture: Bronze → Silver → Gold
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Medallion Architecture: Bronze → Silver → Gold">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bronze-layer-raw-data-ingestion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bronze Layer (Raw Data Ingestion)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#silver-layer-cleaned-and-standardized" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Silver Layer (Cleaned and Standardized)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gold-layer-business-logic-and-aggregations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gold Layer (Business Logic and Aggregations)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-time-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-Time Analytics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Real-Time Analytics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kafka-streams-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kafka Streams Processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feature-store-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feature Store Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-governance-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Governance &amp; Quality
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Governance &amp; Quality">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schema-registry-and-evolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schema Registry and Evolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-quality-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Quality Framework
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-lineage-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Lineage Tracking
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caching-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caching Strategy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Caching Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multi-layer-caching-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Layer Caching Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cache-invalidation-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cache Invalidation Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Optimization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#database-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database Optimization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disaster-recovery-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disaster Recovery &amp; Backup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Disaster Recovery &amp; Backup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backup-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backup Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-region-replication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Region Replication
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-alerting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring &amp; Alerting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring &amp; Alerting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-pipeline-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Pipeline Monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost Optimization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cost Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#storage-cost-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage Cost Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resource-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resource Scaling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Related Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#architecture-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture References
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-guides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation Guides
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-adrs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key ADRs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domains
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Domains
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../domains/ecommerce/DOMAIN_ECOMMERCE_ARCHITECTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E-Commerce
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../domains/chat/DOMAIN_CHAT_ARCHITECTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chat
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../domains/iot/DOMAIN_IOT_ARCHITECTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IoT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../domains/social/DOMAIN_SOCIAL_ARCHITECTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Social
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../domains/ml-ai/DOMAIN_ML_AI_ARCHITECTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ML/AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cross-Cutting
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cross-Cutting
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CROSS_OBSERVABILITY_AND_TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Observability & Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CROSS_EVENT_CONTRACTS_AND_VERSIONING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Event Contracts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CROSS_REPLAY_DR_DRILLS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Replay & DR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CROSS_COST_OPTIMIZATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cost Optimization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CROSS_DATA_PLATFORM_AND_ANALYTICS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Platform
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-DEVELOPMENT/microservices-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microservices Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-DEVELOPMENT/api-protocols/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Protocols
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-DEVELOPMENT/testing-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testing Strategy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-DEVELOPMENT/performance-testing-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Performance Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Infrastructure
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-INFRASTRUCTURE/cloud-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Strategy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-INFRASTRUCTURE/deployment-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stories & Phases
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Stories & Phases
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stories/QUICK-START/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stories/REFERENCE-TOPICS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stories/phases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phases Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stories/phases/PHASE-0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 0 - Groundwork
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stories/phases/PHASE-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 1 - Foundations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stories/phases/PHASE-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2 - Contracts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stories/phases/PHASE-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 3 - Protocols
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stories/phases/PHASE-4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 4 - Data & State
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stories/phases/PHASE-5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 5 - Real-Time
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stories/phases/PHASE-6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 6 - Resilience
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stories/phases/PHASE-7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 7 - Integrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stories/phases/PHASE-8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 8 - UAT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stories/phases/PHASE-9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 9 - Hardening
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Management
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Project Management
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-PROJECT-MANAGEMENT/sprint-planning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint Planning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-PROJECT-MANAGEMENT/WEEKLY-CHECKLIST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weekly Checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-PROJECT-MANAGEMENT/IMPLEMENTATION-ROADMAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-PROJECT-MANAGEMENT/budget-planning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Budget
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADRs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ADRs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-001-multi-repo-vs-monorepo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-001 Multi-repo vs Monorepo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-002-event-vs-cdc-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-002 Event vs CDC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-003-protocol-introduction-order/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-003 Protocol Order
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-004-oltp-cdc-olap-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-004 OLTP CDC OLAP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-005-security-layering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-005 Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-006-retry-backoff-policies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-006 Retry Policies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-007-observability-baseline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-007 Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-008-pulumi-cloud-provider-abstraction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-008 Pulumi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-015-load-testing-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-015 Load Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-016-chaos-engineering-framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-016 Chaos Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-017-cicd-pipeline-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-017 CI/CD Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Purpose
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Architecture Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-layer-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Layer Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oltp-database-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OLTP Database Strategy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OLTP Database Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#primary-transactional-database-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Primary Transactional Database: PostgreSQL
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Primary Transactional Database: PostgreSQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#table-design-with-audit-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table Design with Audit Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partitioning-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partitioning Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scale-out-databases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scale-Out Databases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scale-Out Databases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cassandra-for-high-volume-event-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cassandra for High-Volume Event Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mongodb-for-document-heavy-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MongoDB for Document-Heavy Domains
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oltp-to-olap-data-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OLTP to OLAP Data Flow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OLTP to OLAP Data Flow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#change-data-capture-cdc-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change Data Capture (CDC) Strategy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Change Data Capture (CDC) Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#debezium-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debezium Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-schema-with-audit-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event Schema with Audit Context
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#medallion-architecture-bronze-silver-gold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Medallion Architecture: Bronze → Silver → Gold
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Medallion Architecture: Bronze → Silver → Gold">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bronze-layer-raw-data-ingestion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bronze Layer (Raw Data Ingestion)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#silver-layer-cleaned-and-standardized" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Silver Layer (Cleaned and Standardized)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gold-layer-business-logic-and-aggregations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gold Layer (Business Logic and Aggregations)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-time-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-Time Analytics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Real-Time Analytics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kafka-streams-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kafka Streams Processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feature-store-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feature Store Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-governance-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Governance &amp; Quality
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Governance &amp; Quality">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schema-registry-and-evolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schema Registry and Evolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-quality-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Quality Framework
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-lineage-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Lineage Tracking
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caching-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caching Strategy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Caching Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multi-layer-caching-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Layer Caching Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cache-invalidation-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cache Invalidation Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Optimization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#database-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database Optimization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disaster-recovery-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disaster Recovery &amp; Backup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Disaster Recovery &amp; Backup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backup-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backup Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-region-replication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Region Replication
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-alerting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring &amp; Alerting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring &amp; Alerting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-pipeline-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Pipeline Monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost Optimization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cost Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#storage-cost-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage Cost Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resource-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resource Scaling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Related Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#architecture-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture References
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-guides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation Guides
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-adrs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key ADRs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
 
 <h1 id="data-architecture-strategy">Data Architecture Strategy</h1>
+<p><strong>Last Updated</strong>: December 29, 2025</p>
 <h2 id="purpose">Purpose</h2>
 <p>This document defines the comprehensive data architecture for BitVelocity, including OLTP to OLAP data flows, audit database strategy, data governance, and analytics patterns that address the gaps identified in the original design.</p>
+<p><strong>Related Documentation</strong>:</p>
+<ul>
+<li>System Overview: <code>system-overview.md</code></li>
+<li>Domain Architectures: <code>domains/*/DOMAIN_*_ARCHITECTURE.md</code></li>
+<li>Event Contracts: <code>CROSS_EVENT_CONTRACTS_AND_VERSIONING.md</code></li>
+<li>Data Platform &amp; Analytics: <code>CROSS_DATA_PLATFORM_AND_ANALYTICS.md</code></li>
+</ul>
 <h2 id="architecture-overview">Architecture Overview</h2>
 <h3 id="data-layer-strategy">Data Layer Strategy</h3>
-<pre><code>┌─────────────────────────────────────────────────────────────────┐
+<div class="highlight"><pre><span></span><code>┌─────────────────────────────────────────────────────────────────┐
 │                        OLTP Layer                               │
 │  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐│
 │  │ PostgreSQL  │ │  Cassandra  │ │   MongoDB   │ │    Redis    ││
@@ -317,68 +3631,68 @@
 │  │ (Raw Data)  │ │ (Cleaned)   │ │ (Business)  │ │   Layer     ││
 │  └─────────────┘ └─────────────┘ └─────────────┘ └─────────────┘│
 └─────────────────────────────────────────────────────────────────┘
-</code></pre>
+</code></pre></div>
 <h2 id="oltp-database-strategy">OLTP Database Strategy</h2>
 <h3 id="primary-transactional-database-postgresql">Primary Transactional Database: PostgreSQL</h3>
 <h4 id="table-design-with-audit-strategy">Table Design with Audit Strategy</h4>
 <p>Every business entity includes comprehensive audit columns:</p>
-<pre><code class="language-sql">-- Standard audit columns for all tables
-CREATE TABLE audit_base (
-    id BIGSERIAL PRIMARY KEY,
-    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
-    created_by VARCHAR(255) NOT NULL,
-    updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
-    updated_by VARCHAR(255) NOT NULL,
-    version INTEGER NOT NULL DEFAULT 1,
-    deleted_at TIMESTAMP WITH TIME ZONE NULL,
-    deleted_by VARCHAR(255) NULL
-);
+<div class="highlight"><pre><span></span><code><span class="c1">-- Standard audit columns for all tables</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">audit_base</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="n">BIGSERIAL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">created_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">TIME</span><span class="w"> </span><span class="k">ZONE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">NOW</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">created_by</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">updated_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">TIME</span><span class="w"> </span><span class="k">ZONE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">NOW</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">updated_by</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="k">version</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="n">deleted_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">TIME</span><span class="w"> </span><span class="k">ZONE</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">deleted_by</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NULL</span>
+<span class="p">);</span>
 
--- Example: Orders table with audit
-CREATE TABLE orders (
-    order_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    customer_id UUID NOT NULL,
-    status VARCHAR(50) NOT NULL DEFAULT 'PENDING',
-    total_amount DECIMAL(10,2) NOT NULL,
-    currency VARCHAR(3) NOT NULL DEFAULT 'USD',
+<span class="c1">-- Example: Orders table with audit</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">order_id</span><span class="w"> </span><span class="n">UUID</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">gen_random_uuid</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">customer_id</span><span class="w"> </span><span class="n">UUID</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">status</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;PENDING&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">total_amount</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">currency</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;USD&#39;</span><span class="p">,</span>
 
-    -- Audit columns
-    LIKE audit_base INCLUDING ALL,
+<span class="w">    </span><span class="c1">-- Audit columns</span>
+<span class="w">    </span><span class="k">LIKE</span><span class="w"> </span><span class="n">audit_base</span><span class="w"> </span><span class="k">INCLUDING</span><span class="w"> </span><span class="k">ALL</span><span class="p">,</span>
 
-    -- Partitioning key
-    created_date DATE GENERATED ALWAYS AS (created_at::DATE) STORED
-) PARTITION BY RANGE (created_date);
+<span class="w">    </span><span class="c1">-- Partitioning key</span>
+<span class="w">    </span><span class="n">created_date</span><span class="w"> </span><span class="nb">DATE</span><span class="w"> </span><span class="k">GENERATED</span><span class="w"> </span><span class="n">ALWAYS</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="n">created_at</span><span class="p">::</span><span class="nb">DATE</span><span class="p">)</span><span class="w"> </span><span class="n">STORED</span>
+<span class="p">)</span><span class="w"> </span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">RANGE</span><span class="w"> </span><span class="p">(</span><span class="n">created_date</span><span class="p">);</span>
 
--- Audit trail table for complete change history
-CREATE TABLE orders_audit (
-    audit_id BIGSERIAL PRIMARY KEY,
-    order_id UUID NOT NULL,
-    operation_type VARCHAR(10) NOT NULL, -- INSERT, UPDATE, DELETE
-    operation_timestamp TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
-    operation_user VARCHAR(255) NOT NULL,
-    old_values JSONB,
-    new_values JSONB,
-    correlation_id UUID -- For tracing changes across services
-);
-</code></pre>
+<span class="c1">-- Audit trail table for complete change history</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">orders_audit</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">audit_id</span><span class="w"> </span><span class="n">BIGSERIAL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">order_id</span><span class="w"> </span><span class="n">UUID</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">operation_type</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="c1">-- INSERT, UPDATE, DELETE</span>
+<span class="w">    </span><span class="n">operation_timestamp</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">TIME</span><span class="w"> </span><span class="k">ZONE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">NOW</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">operation_user</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">old_values</span><span class="w"> </span><span class="n">JSONB</span><span class="p">,</span>
+<span class="w">    </span><span class="n">new_values</span><span class="w"> </span><span class="n">JSONB</span><span class="p">,</span>
+<span class="w">    </span><span class="n">correlation_id</span><span class="w"> </span><span class="n">UUID</span><span class="w"> </span><span class="c1">-- For tracing changes across services</span>
+<span class="p">);</span>
+</code></pre></div>
 <h4 id="partitioning-strategy">Partitioning Strategy</h4>
-<p><strong>Time-Based Partitioning</strong> for high-volume tables:</p>
-<pre><code class="language-sql">-- Monthly partitions for orders
-CREATE TABLE orders_y2024m01 PARTITION OF orders
-FOR VALUES FROM ('2024-01-01') TO ('2024-02-01');
+<p><strong>Time-Based Partitioning</strong> for high-volume tables:
+<div class="highlight"><pre><span></span><code><span class="c1">-- Monthly partitions for orders</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">orders_y2024m01</span><span class="w"> </span><span class="n">PARTITION</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="n">orders</span>
+<span class="k">FOR</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;2024-01-01&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;2024-02-01&#39;</span><span class="p">);</span>
 
--- Automated partition management
-SELECT partman.create_parent(
-    p_parent_table =&gt; 'public.orders',
-    p_control =&gt; 'created_date',
-    p_type =&gt; 'range',
-    p_interval =&gt; 'monthly',
-    p_premake =&gt; 2
-);
-</code></pre>
+<span class="c1">-- Automated partition management</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">partman</span><span class="p">.</span><span class="n">create_parent</span><span class="p">(</span>
+<span class="w">    </span><span class="n">p_parent_table</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;public.orders&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">p_control</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;created_date&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">p_type</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;range&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">p_interval</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;monthly&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">p_premake</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">2</span>
+<span class="p">);</span>
+</code></pre></div></p>
 <h3 id="scale-out-databases">Scale-Out Databases</h3>
 <h4 id="cassandra-for-high-volume-event-data">Cassandra for High-Volume Event Data</h4>
-<pre><code class="language-cql">-- Chat messages with time-series pattern
+<div class="highlight"><pre><span></span><code>-- Chat messages with time-series pattern
 CREATE TABLE chat_messages (
     room_id UUID,
     message_time TIMEUUID,
@@ -403,498 +3717,498 @@ CREATE TABLE device_telemetry (
     -- Partitioning by device and time
     PRIMARY KEY ((device_id, sensor_type), timestamp)
 ) WITH CLUSTERING ORDER BY (timestamp DESC);
-</code></pre>
+</code></pre></div>
 <h4 id="mongodb-for-document-heavy-domains">MongoDB for Document-Heavy Domains</h4>
-<pre><code class="language-javascript">// Social media posts with flexible schema
-{
-  _id: ObjectId,
-  user_id: UUID,
-  content: {
-    text: String,
-    media: [{
-      type: String, // image, video, link
-      url: String,
-      metadata: Object
-    }],
-    hashtags: [String],
-    mentions: [UUID]
-  },
-  engagement: {
-    likes: Number,
-    shares: Number,
-    comments: Number
-  },
-  // Audit fields
-  created_at: ISODate,
-  created_by: String,
-  updated_at: ISODate,
-  updated_by: String,
-  version: Number,
-  trace_id: String
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1">// Social media posts with flexible schema</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nx">_id</span><span class="o">:</span><span class="w"> </span><span class="nx">ObjectId</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">user_id</span><span class="o">:</span><span class="w"> </span><span class="nx">UUID</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">media</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">      </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="c1">// image, video, link</span>
+<span class="w">      </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">metadata</span><span class="o">:</span><span class="w"> </span><span class="nb">Object</span>
+<span class="w">    </span><span class="p">}],</span>
+<span class="w">    </span><span class="nx">hashtags</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nb">String</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">mentions</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">UUID</span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nx">engagement</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">likes</span><span class="o">:</span><span class="w"> </span><span class="nb">Number</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">shares</span><span class="o">:</span><span class="w"> </span><span class="nb">Number</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">comments</span><span class="o">:</span><span class="w"> </span><span class="nb">Number</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="c1">// Audit fields</span>
+<span class="w">  </span><span class="nx">created_at</span><span class="o">:</span><span class="w"> </span><span class="nx">ISODate</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">created_by</span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">updated_at</span><span class="o">:</span><span class="w"> </span><span class="nx">ISODate</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">updated_by</span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">version</span><span class="o">:</span><span class="w"> </span><span class="nb">Number</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">trace_id</span><span class="o">:</span><span class="w"> </span><span class="nb">String</span>
+<span class="p">}</span>
+</code></pre></div>
 <h2 id="oltp-to-olap-data-flow">OLTP to OLAP Data Flow</h2>
 <h3 id="change-data-capture-cdc-strategy">Change Data Capture (CDC) Strategy</h3>
 <h4 id="debezium-configuration">Debezium Configuration</h4>
-<pre><code class="language-yaml"># Debezium connector for PostgreSQL
-apiVersion: kafka.strimzi.io/v1beta2
-kind: KafkaConnector
-metadata:
-  name: postgres-orders-connector
-spec:
-  class: io.debezium.connector.postgresql.PostgresConnector
-  tasksMax: 3
-  config:
-    database.hostname: postgres-primary
-    database.port: 5432
-    database.user: debezium
-    database.password: ${DEBEZIUM_PASSWORD}
-    database.dbname: bitvelocity
-    database.server.name: postgres-orders
-    table.include.list: public.orders,public.order_items,public.payments
-    plugin.name: pgoutput
-    transforms: unwrap
-    transforms.unwrap.type: io.debezium.transforms.ExtractNewRecordState
-    key.converter: org.apache.kafka.connect.json.JsonConverter
-    value.converter: org.apache.kafka.connect.json.JsonConverter
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># Debezium connector for PostgreSQL</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kafka.strimzi.io/v1beta2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KafkaConnector</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres-orders-connector</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">io.debezium.connector.postgresql.PostgresConnector</span>
+<span class="w">  </span><span class="nt">tasksMax</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">  </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">database.hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres-primary</span>
+<span class="w">    </span><span class="nt">database.port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5432</span>
+<span class="w">    </span><span class="nt">database.user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">debezium</span>
+<span class="w">    </span><span class="nt">database.password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${DEBEZIUM_PASSWORD}</span>
+<span class="w">    </span><span class="nt">database.dbname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bitvelocity</span>
+<span class="w">    </span><span class="nt">database.server.name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres-orders</span>
+<span class="w">    </span><span class="nt">table.include.list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">public.orders,public.order_items,public.payments</span>
+<span class="w">    </span><span class="nt">plugin.name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pgoutput</span>
+<span class="w">    </span><span class="nt">transforms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unwrap</span>
+<span class="w">    </span><span class="nt">transforms.unwrap.type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">io.debezium.transforms.ExtractNewRecordState</span>
+<span class="w">    </span><span class="nt">key.converter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">org.apache.kafka.connect.json.JsonConverter</span>
+<span class="w">    </span><span class="nt">value.converter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">org.apache.kafka.connect.json.JsonConverter</span>
+</code></pre></div>
 <h4 id="event-schema-with-audit-context">Event Schema with Audit Context</h4>
-<pre><code class="language-json">{
-  &quot;schema&quot;: {
-    &quot;type&quot;: &quot;struct&quot;,
-    &quot;fields&quot;: [
-      {&quot;field&quot;: &quot;order_id&quot;, &quot;type&quot;: &quot;string&quot;},
-      {&quot;field&quot;: &quot;customer_id&quot;, &quot;type&quot;: &quot;string&quot;},
-      {&quot;field&quot;: &quot;status&quot;, &quot;type&quot;: &quot;string&quot;},
-      {&quot;field&quot;: &quot;total_amount&quot;, &quot;type&quot;: &quot;double&quot;},
-      {&quot;field&quot;: &quot;created_at&quot;, &quot;type&quot;: &quot;string&quot;},
-      {&quot;field&quot;: &quot;created_by&quot;, &quot;type&quot;: &quot;string&quot;},
-      {&quot;field&quot;: &quot;updated_at&quot;, &quot;type&quot;: &quot;string&quot;},
-      {&quot;field&quot;: &quot;updated_by&quot;, &quot;type&quot;: &quot;string&quot;},
-      {&quot;field&quot;: &quot;version&quot;, &quot;type&quot;: &quot;int32&quot;}
-    ]
-  },
-  &quot;payload&quot;: {
-    &quot;order_id&quot;: &quot;550e8400-e29b-41d4-a716-446655440000&quot;,
-    &quot;customer_id&quot;: &quot;123e4567-e89b-12d3-a456-426614174000&quot;,
-    &quot;status&quot;: &quot;CONFIRMED&quot;,
-    &quot;total_amount&quot;: 99.99,
-    &quot;created_at&quot;: &quot;2024-01-15T10:30:00Z&quot;,
-    &quot;created_by&quot;: &quot;customer-service&quot;,
-    &quot;updated_at&quot;: &quot;2024-01-15T10:35:00Z&quot;,
-    &quot;updated_by&quot;: &quot;payment-service&quot;,
-    &quot;version&quot;: 2
-  },
-  &quot;metadata&quot;: {
-    &quot;operation&quot;: &quot;UPDATE&quot;,
-    &quot;source&quot;: &quot;orders&quot;,
-    &quot;timestamp&quot;: &quot;2024-01-15T10:35:00Z&quot;,
-    &quot;transaction_id&quot;: &quot;txn_123456&quot;,
-    &quot;lsn&quot;: &quot;24/3F000140&quot;
-  }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;field&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;order_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;field&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;customer_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;field&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;status&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;field&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;total_amount&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;double&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;field&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;created_at&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;field&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;created_by&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;field&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;updated_at&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;field&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;updated_by&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;field&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;version&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;int32&quot;</span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;payload&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;order_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;550e8400-e29b-41d4-a716-446655440000&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;customer_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;123e4567-e89b-12d3-a456-426614174000&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CONFIRMED&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;total_amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">99.99</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;created_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-01-15T10:30:00Z&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;created_by&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;customer-service&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;updated_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-01-15T10:35:00Z&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;updated_by&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;payment-service&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;operation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UPDATE&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;orders&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-01-15T10:35:00Z&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;transaction_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;txn_123456&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;lsn&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;24/3F000140&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <h3 id="medallion-architecture-bronze-silver-gold">Medallion Architecture: Bronze → Silver → Gold</h3>
 <h4 id="bronze-layer-raw-data-ingestion">Bronze Layer (Raw Data Ingestion)</h4>
-<pre><code class="language-sql">-- Raw events from Kafka stored in Delta Lake format
-CREATE TABLE bronze_orders (
-    event_id UUID DEFAULT gen_random_uuid(),
-    event_timestamp TIMESTAMP WITH TIME ZONE,
-    source_system VARCHAR(100),
-    operation_type VARCHAR(20),
-    table_name VARCHAR(100),
-    raw_payload JSONB,
+<div class="highlight"><pre><span></span><code><span class="c1">-- Raw events from Kafka stored in Delta Lake format</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">bronze_orders</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">event_id</span><span class="w"> </span><span class="n">UUID</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">gen_random_uuid</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">event_timestamp</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">TIME</span><span class="w"> </span><span class="k">ZONE</span><span class="p">,</span>
+<span class="w">    </span><span class="n">source_system</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+<span class="w">    </span><span class="n">operation_type</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span>
+<span class="w">    </span><span class="k">table_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+<span class="w">    </span><span class="n">raw_payload</span><span class="w"> </span><span class="n">JSONB</span><span class="p">,</span>
 
-    -- Partitioning for efficient querying
-    ingestion_date DATE GENERATED ALWAYS AS (event_timestamp::DATE) STORED
-) PARTITION BY RANGE (ingestion_date);
+<span class="w">    </span><span class="c1">-- Partitioning for efficient querying</span>
+<span class="w">    </span><span class="n">ingestion_date</span><span class="w"> </span><span class="nb">DATE</span><span class="w"> </span><span class="k">GENERATED</span><span class="w"> </span><span class="n">ALWAYS</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="n">event_timestamp</span><span class="p">::</span><span class="nb">DATE</span><span class="p">)</span><span class="w"> </span><span class="n">STORED</span>
+<span class="p">)</span><span class="w"> </span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">RANGE</span><span class="w"> </span><span class="p">(</span><span class="n">ingestion_date</span><span class="p">);</span>
 
--- Example bronze record
-INSERT INTO bronze_orders (event_timestamp, source_system, operation_type, table_name, raw_payload)
-VALUES (
-    NOW(),
-    'postgres-orders',
-    'UPDATE',
-    'orders',
-    '{&quot;order_id&quot;: &quot;550e8400-e29b-41d4-a716-446655440000&quot;, &quot;status&quot;: &quot;CONFIRMED&quot;, ...}'
-);
-</code></pre>
+<span class="c1">-- Example bronze record</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">bronze_orders</span><span class="w"> </span><span class="p">(</span><span class="n">event_timestamp</span><span class="p">,</span><span class="w"> </span><span class="n">source_system</span><span class="p">,</span><span class="w"> </span><span class="n">operation_type</span><span class="p">,</span><span class="w"> </span><span class="k">table_name</span><span class="p">,</span><span class="w"> </span><span class="n">raw_payload</span><span class="p">)</span>
+<span class="k">VALUES</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">NOW</span><span class="p">(),</span>
+<span class="w">    </span><span class="s1">&#39;postgres-orders&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;UPDATE&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;orders&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;{&quot;order_id&quot;: &quot;550e8400-e29b-41d4-a716-446655440000&quot;, &quot;status&quot;: &quot;CONFIRMED&quot;, ...}&#39;</span>
+<span class="p">);</span>
+</code></pre></div>
 <h4 id="silver-layer-cleaned-and-standardized">Silver Layer (Cleaned and Standardized)</h4>
-<pre><code class="language-sql">-- Cleaned, typed, and standardized data
-CREATE TABLE silver_orders (
-    order_id UUID PRIMARY KEY,
-    customer_id UUID NOT NULL,
-    status order_status_enum NOT NULL,
-    total_amount DECIMAL(10,2) NOT NULL,
-    currency VARCHAR(3) NOT NULL,
-    order_date DATE NOT NULL,
+<div class="highlight"><pre><span></span><code><span class="c1">-- Cleaned, typed, and standardized data</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">silver_orders</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">order_id</span><span class="w"> </span><span class="n">UUID</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">customer_id</span><span class="w"> </span><span class="n">UUID</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">status</span><span class="w"> </span><span class="n">order_status_enum</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">total_amount</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">currency</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">order_date</span><span class="w"> </span><span class="nb">DATE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
 
-    -- Data quality indicators
-    data_quality_score DECIMAL(3,2),
-    quality_checks_passed TEXT[],
-    quality_issues TEXT[],
+<span class="w">    </span><span class="c1">-- Data quality indicators</span>
+<span class="w">    </span><span class="n">data_quality_score</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+<span class="w">    </span><span class="n">quality_checks_passed</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">[],</span>
+<span class="w">    </span><span class="n">quality_issues</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">[],</span>
 
-    -- Lineage information
-    source_bronze_id UUID,
-    processed_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-    processing_version VARCHAR(20)
-) PARTITION BY RANGE (order_date);
+<span class="w">    </span><span class="c1">-- Lineage information</span>
+<span class="w">    </span><span class="n">source_bronze_id</span><span class="w"> </span><span class="n">UUID</span><span class="p">,</span>
+<span class="w">    </span><span class="n">processed_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">TIME</span><span class="w"> </span><span class="k">ZONE</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">NOW</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">processing_version</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="p">)</span><span class="w"> </span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">RANGE</span><span class="w"> </span><span class="p">(</span><span class="n">order_date</span><span class="p">);</span>
 
--- ETL process to transform bronze to silver
-CREATE OR REPLACE FUNCTION bronze_to_silver_orders()
-RETURNS VOID AS $$
-BEGIN
-    INSERT INTO silver_orders (
-        order_id, customer_id, status, total_amount, currency, order_date,
-        data_quality_score, source_bronze_id
-    )
-    SELECT 
-        (raw_payload-&gt;&gt;'order_id')::UUID,
-        (raw_payload-&gt;&gt;'customer_id')::UUID,
-        (raw_payload-&gt;&gt;'status')::order_status_enum,
-        (raw_payload-&gt;&gt;'total_amount')::DECIMAL(10,2),
-        COALESCE(raw_payload-&gt;&gt;'currency', 'USD'),
-        (raw_payload-&gt;&gt;'created_at')::DATE,
-        calculate_quality_score(raw_payload),
-        event_id
-    FROM bronze_orders
-    WHERE operation_type = 'INSERT'
-    AND ingestion_date = CURRENT_DATE
-    ON CONFLICT (order_id) DO UPDATE SET
-        status = EXCLUDED.status,
-        total_amount = EXCLUDED.total_amount,
-        processed_at = NOW();
-END;
-$$ LANGUAGE plpgsql;
-</code></pre>
+<span class="c1">-- ETL process to transform bronze to silver</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">REPLACE</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="n">bronze_to_silver_orders</span><span class="p">()</span>
+<span class="k">RETURNS</span><span class="w"> </span><span class="n">VOID</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">$$</span>
+<span class="k">BEGIN</span>
+<span class="w">    </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">silver_orders</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="n">order_id</span><span class="p">,</span><span class="w"> </span><span class="n">customer_id</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">total_amount</span><span class="p">,</span><span class="w"> </span><span class="n">currency</span><span class="p">,</span><span class="w"> </span><span class="n">order_date</span><span class="p">,</span>
+<span class="w">        </span><span class="n">data_quality_score</span><span class="p">,</span><span class="w"> </span><span class="n">source_bronze_id</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span>
+<span class="w">        </span><span class="p">(</span><span class="n">raw_payload</span><span class="o">-&gt;&gt;</span><span class="s1">&#39;order_id&#39;</span><span class="p">)::</span><span class="n">UUID</span><span class="p">,</span>
+<span class="w">        </span><span class="p">(</span><span class="n">raw_payload</span><span class="o">-&gt;&gt;</span><span class="s1">&#39;customer_id&#39;</span><span class="p">)::</span><span class="n">UUID</span><span class="p">,</span>
+<span class="w">        </span><span class="p">(</span><span class="n">raw_payload</span><span class="o">-&gt;&gt;</span><span class="s1">&#39;status&#39;</span><span class="p">)::</span><span class="n">order_status_enum</span><span class="p">,</span>
+<span class="w">        </span><span class="p">(</span><span class="n">raw_payload</span><span class="o">-&gt;&gt;</span><span class="s1">&#39;total_amount&#39;</span><span class="p">)::</span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+<span class="w">        </span><span class="k">COALESCE</span><span class="p">(</span><span class="n">raw_payload</span><span class="o">-&gt;&gt;</span><span class="s1">&#39;currency&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;USD&#39;</span><span class="p">),</span>
+<span class="w">        </span><span class="p">(</span><span class="n">raw_payload</span><span class="o">-&gt;&gt;</span><span class="s1">&#39;created_at&#39;</span><span class="p">)::</span><span class="nb">DATE</span><span class="p">,</span>
+<span class="w">        </span><span class="n">calculate_quality_score</span><span class="p">(</span><span class="n">raw_payload</span><span class="p">),</span>
+<span class="w">        </span><span class="n">event_id</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">bronze_orders</span>
+<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">operation_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;INSERT&#39;</span>
+<span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="n">ingestion_date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">CURRENT_DATE</span>
+<span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">CONFLICT</span><span class="w"> </span><span class="p">(</span><span class="n">order_id</span><span class="p">)</span><span class="w"> </span><span class="k">DO</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="k">SET</span>
+<span class="w">        </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EXCLUDED</span><span class="p">.</span><span class="n">status</span><span class="p">,</span>
+<span class="w">        </span><span class="n">total_amount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EXCLUDED</span><span class="p">.</span><span class="n">total_amount</span><span class="p">,</span>
+<span class="w">        </span><span class="n">processed_at</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NOW</span><span class="p">();</span>
+<span class="k">END</span><span class="p">;</span>
+<span class="err">$$</span><span class="w"> </span><span class="k">LANGUAGE</span><span class="w"> </span><span class="n">plpgsql</span><span class="p">;</span>
+</code></pre></div>
 <h4 id="gold-layer-business-logic-and-aggregations">Gold Layer (Business Logic and Aggregations)</h4>
-<pre><code class="language-sql">-- Business-ready dimensional model
-CREATE TABLE gold_order_facts (
-    fact_id BIGSERIAL PRIMARY KEY,
-    order_date_key INTEGER, -- Links to date dimension
-    customer_key INTEGER,   -- Links to customer dimension
-    product_key INTEGER,    -- Links to product dimension
+<div class="highlight"><pre><span></span><code><span class="c1">-- Business-ready dimensional model</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">gold_order_facts</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">fact_id</span><span class="w"> </span><span class="n">BIGSERIAL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">order_date_key</span><span class="w"> </span><span class="nb">INTEGER</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Links to date dimension</span>
+<span class="w">    </span><span class="n">customer_key</span><span class="w"> </span><span class="nb">INTEGER</span><span class="p">,</span><span class="w">   </span><span class="c1">-- Links to customer dimension</span>
+<span class="w">    </span><span class="n">product_key</span><span class="w"> </span><span class="nb">INTEGER</span><span class="p">,</span><span class="w">    </span><span class="c1">-- Links to product dimension</span>
 
-    -- Measures
-    order_count INTEGER DEFAULT 1,
-    total_amount DECIMAL(12,2),
-    discount_amount DECIMAL(12,2),
-    tax_amount DECIMAL(12,2),
-    shipping_amount DECIMAL(12,2),
+<span class="w">    </span><span class="c1">-- Measures</span>
+<span class="w">    </span><span class="n">order_count</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="n">total_amount</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+<span class="w">    </span><span class="n">discount_amount</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+<span class="w">    </span><span class="n">tax_amount</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+<span class="w">    </span><span class="n">shipping_amount</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
 
-    -- Slowly Changing Dimension tracking
-    valid_from TIMESTAMP WITH TIME ZONE,
-    valid_to TIMESTAMP WITH TIME ZONE,
-    is_current BOOLEAN DEFAULT TRUE,
+<span class="w">    </span><span class="c1">-- Slowly Changing Dimension tracking</span>
+<span class="w">    </span><span class="n">valid_from</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">TIME</span><span class="w"> </span><span class="k">ZONE</span><span class="p">,</span>
+<span class="w">    </span><span class="n">valid_to</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">TIME</span><span class="w"> </span><span class="k">ZONE</span><span class="p">,</span>
+<span class="w">    </span><span class="n">is_current</span><span class="w"> </span><span class="nb">BOOLEAN</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">TRUE</span><span class="p">,</span>
 
-    -- Lineage
-    source_silver_order_id UUID,
-    etl_batch_id UUID,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
+<span class="w">    </span><span class="c1">-- Lineage</span>
+<span class="w">    </span><span class="n">source_silver_order_id</span><span class="w"> </span><span class="n">UUID</span><span class="p">,</span>
+<span class="w">    </span><span class="n">etl_batch_id</span><span class="w"> </span><span class="n">UUID</span><span class="p">,</span>
+<span class="w">    </span><span class="n">created_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">TIME</span><span class="w"> </span><span class="k">ZONE</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">NOW</span><span class="p">()</span>
+<span class="p">);</span>
 
--- Daily sales aggregations
-CREATE MATERIALIZED VIEW gold_daily_sales AS
-SELECT 
-    order_date_key,
-    COUNT(*) as order_count,
-    SUM(total_amount) as total_revenue,
-    AVG(total_amount) as avg_order_value,
-    COUNT(DISTINCT customer_key) as unique_customers
-FROM gold_order_facts
-WHERE is_current = TRUE
-GROUP BY order_date_key;
-</code></pre>
+<span class="c1">-- Daily sales aggregations</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="n">MATERIALIZED</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="n">gold_daily_sales</span><span class="w"> </span><span class="k">AS</span>
+<span class="k">SELECT</span><span class="w"> </span>
+<span class="w">    </span><span class="n">order_date_key</span><span class="p">,</span>
+<span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">order_count</span><span class="p">,</span>
+<span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">total_amount</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">total_revenue</span><span class="p">,</span>
+<span class="w">    </span><span class="k">AVG</span><span class="p">(</span><span class="n">total_amount</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">avg_order_value</span><span class="p">,</span>
+<span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">customer_key</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">unique_customers</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">gold_order_facts</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">is_current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">TRUE</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">order_date_key</span><span class="p">;</span>
+</code></pre></div>
 <h2 id="real-time-analytics">Real-Time Analytics</h2>
 <h3 id="kafka-streams-processing">Kafka Streams Processing</h3>
-<pre><code class="language-java">@Component
-public class OrderAnalyticsStream {
+<div class="highlight"><pre><span></span><code><span class="nd">@Component</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OrderAnalyticsStream</span><span class="w"> </span><span class="p">{</span>
 
-    @Autowired
-    public void processOrderEvents(StreamsBuilder builder) {
-        KStream&lt;String, OrderEvent&gt; orderStream = builder
-            .stream(&quot;orders-topic&quot;, Consumed.with(Serdes.String(), orderEventSerde));
+<span class="w">    </span><span class="nd">@Autowired</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">processOrderEvents</span><span class="p">(</span><span class="n">StreamsBuilder</span><span class="w"> </span><span class="n">builder</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">KStream</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">OrderEvent</span><span class="o">&gt;</span><span class="w"> </span><span class="n">orderStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">builder</span>
+<span class="w">            </span><span class="p">.</span><span class="na">stream</span><span class="p">(</span><span class="s">&quot;orders-topic&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Consumed</span><span class="p">.</span><span class="na">with</span><span class="p">(</span><span class="n">Serdes</span><span class="p">.</span><span class="na">String</span><span class="p">(),</span><span class="w"> </span><span class="n">orderEventSerde</span><span class="p">));</span>
 
-        // Real-time revenue calculation
-        KTable&lt;Windowed&lt;String&gt;, Double&gt; revenueByHour = orderStream
-            .filter((key, order) -&gt; &quot;CONFIRMED&quot;.equals(order.getStatus()))
-            .groupByKey()
-            .windowedBy(TimeWindows.of(Duration.ofHours(1)))
-            .aggregate(
-                () -&gt; 0.0,
-                (key, order, aggregate) -&gt; aggregate + order.getTotalAmount(),
-                Materialized.with(Serdes.String(), Serdes.Double())
-            );
+<span class="w">        </span><span class="c1">// Real-time revenue calculation</span>
+<span class="w">        </span><span class="n">KTable</span><span class="o">&lt;</span><span class="n">Windowed</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">revenueByHour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orderStream</span>
+<span class="w">            </span><span class="p">.</span><span class="na">filter</span><span class="p">((</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">order</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;CONFIRMED&quot;</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">order</span><span class="p">.</span><span class="na">getStatus</span><span class="p">()))</span>
+<span class="w">            </span><span class="p">.</span><span class="na">groupByKey</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">windowedBy</span><span class="p">(</span><span class="n">TimeWindows</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">Duration</span><span class="p">.</span><span class="na">ofHours</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span>
+<span class="w">            </span><span class="p">.</span><span class="na">aggregate</span><span class="p">(</span>
+<span class="w">                </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span>
+<span class="w">                </span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">order</span><span class="p">,</span><span class="w"> </span><span class="n">aggregate</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">aggregate</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">order</span><span class="p">.</span><span class="na">getTotalAmount</span><span class="p">(),</span>
+<span class="w">                </span><span class="n">Materialized</span><span class="p">.</span><span class="na">with</span><span class="p">(</span><span class="n">Serdes</span><span class="p">.</span><span class="na">String</span><span class="p">(),</span><span class="w"> </span><span class="n">Serdes</span><span class="p">.</span><span class="na">Double</span><span class="p">())</span>
+<span class="w">            </span><span class="p">);</span>
 
-        // Output to analytics topic
-        revenueByHour
-            .toStream()
-            .to(&quot;hourly-revenue-topic&quot;);
-    }
-}
-</code></pre>
+<span class="w">        </span><span class="c1">// Output to analytics topic</span>
+<span class="w">        </span><span class="n">revenueByHour</span>
+<span class="w">            </span><span class="p">.</span><span class="na">toStream</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">to</span><span class="p">(</span><span class="s">&quot;hourly-revenue-topic&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <h3 id="feature-store-integration">Feature Store Integration</h3>
-<pre><code class="language-java">@Entity
-@Table(name = &quot;customer_features&quot;)
-public class CustomerFeatures {
-    @Id
-    private UUID customerId;
+<div class="highlight"><pre><span></span><code><span class="nd">@Entity</span>
+<span class="nd">@Table</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;customer_features&quot;</span><span class="p">)</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CustomerFeatures</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Id</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">UUID</span><span class="w"> </span><span class="n">customerId</span><span class="p">;</span>
 
-    // Real-time features
-    private Integer orderCountLast30Days;
-    private BigDecimal totalSpentLast30Days;
-    private Double avgOrderValue;
-    private String preferredCategory;
+<span class="w">    </span><span class="c1">// Real-time features</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">orderCountLast30Days</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">BigDecimal</span><span class="w"> </span><span class="n">totalSpentLast30Days</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Double</span><span class="w"> </span><span class="n">avgOrderValue</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">preferredCategory</span><span class="p">;</span>
 
-    // Batch features
-    private String lifetimeSegment;
-    private Integer lifetimeOrderCount;
-    private BigDecimal lifetimeValue;
+<span class="w">    </span><span class="c1">// Batch features</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">lifetimeSegment</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">lifetimeOrderCount</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">BigDecimal</span><span class="w"> </span><span class="n">lifetimeValue</span><span class="p">;</span>
 
-    // Feature freshness tracking
-    @Column(name = &quot;features_updated_at&quot;)
-    private Instant featuresUpdatedAt;
+<span class="w">    </span><span class="c1">// Feature freshness tracking</span>
+<span class="w">    </span><span class="nd">@Column</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;features_updated_at&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Instant</span><span class="w"> </span><span class="n">featuresUpdatedAt</span><span class="p">;</span>
 
-    @Column(name = &quot;feature_version&quot;)
-    private String featureVersion;
-}
-</code></pre>
+<span class="w">    </span><span class="nd">@Column</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;feature_version&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">featureVersion</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 <h2 id="data-governance-quality">Data Governance &amp; Quality</h2>
 <h3 id="schema-registry-and-evolution">Schema Registry and Evolution</h3>
-<pre><code class="language-json">{
-  &quot;type&quot;: &quot;record&quot;,
-  &quot;name&quot;: &quot;OrderEvent&quot;,
-  &quot;namespace&quot;: &quot;com.bitvelocity.events&quot;,
-  &quot;version&quot;: &quot;v2&quot;,
-  &quot;fields&quot;: [
-    {&quot;name&quot;: &quot;orderId&quot;, &quot;type&quot;: &quot;string&quot;},
-    {&quot;name&quot;: &quot;customerId&quot;, &quot;type&quot;: &quot;string&quot;},
-    {&quot;name&quot;: &quot;status&quot;, &quot;type&quot;: {&quot;type&quot;: &quot;enum&quot;, &quot;symbols&quot;: [&quot;PENDING&quot;, &quot;CONFIRMED&quot;, &quot;SHIPPED&quot;, &quot;DELIVERED&quot;, &quot;CANCELLED&quot;]}},
-    {&quot;name&quot;: &quot;totalAmount&quot;, &quot;type&quot;: &quot;double&quot;},
-    {&quot;name&quot;: &quot;currency&quot;, &quot;type&quot;: &quot;string&quot;, &quot;default&quot;: &quot;USD&quot;},
-    {
-      &quot;name&quot;: &quot;auditInfo&quot;, 
-      &quot;type&quot;: {
-        &quot;type&quot;: &quot;record&quot;,
-        &quot;name&quot;: &quot;AuditInfo&quot;,
-        &quot;fields&quot;: [
-          {&quot;name&quot;: &quot;createdAt&quot;, &quot;type&quot;: &quot;long&quot;},
-          {&quot;name&quot;: &quot;createdBy&quot;, &quot;type&quot;: &quot;string&quot;},
-          {&quot;name&quot;: &quot;traceId&quot;, &quot;type&quot;: [&quot;null&quot;, &quot;string&quot;], &quot;default&quot;: null}
-        ]
-      }
-    }
-  ]
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;record&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OrderEvent&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;namespace&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;com.bitvelocity.events&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;v2&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;orderId&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;customerId&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;status&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;enum&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;symbols&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;PENDING&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;CONFIRMED&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;SHIPPED&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;DELIVERED&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;CANCELLED&quot;</span><span class="p">]}},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;totalAmount&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;double&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;currency&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;default&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;USD&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;auditInfo&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;record&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AuditInfo&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;createdAt&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;long&quot;</span><span class="p">},</span>
+<span class="w">          </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;createdBy&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">          </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;traceId&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;null&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">],</span><span class="w"> </span><span class="nt">&quot;default&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
 <h3 id="data-quality-framework">Data Quality Framework</h3>
-<pre><code class="language-sql">-- Data quality rules table
-CREATE TABLE data_quality_rules (
-    rule_id UUID PRIMARY KEY,
-    table_name VARCHAR(100),
-    column_name VARCHAR(100),
-    rule_type VARCHAR(50), -- NOT_NULL, RANGE, PATTERN, REFERENCE
-    rule_config JSONB,
-    severity VARCHAR(20), -- ERROR, WARNING, INFO
-    is_active BOOLEAN DEFAULT TRUE
-);
+<div class="highlight"><pre><span></span><code><span class="c1">-- Data quality rules table</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">data_quality_rules</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">rule_id</span><span class="w"> </span><span class="n">UUID</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="k">table_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+<span class="w">    </span><span class="k">column_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+<span class="w">    </span><span class="n">rule_type</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"> </span><span class="c1">-- NOT_NULL, RANGE, PATTERN, REFERENCE</span>
+<span class="w">    </span><span class="n">rule_config</span><span class="w"> </span><span class="n">JSONB</span><span class="p">,</span>
+<span class="w">    </span><span class="n">severity</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span><span class="w"> </span><span class="c1">-- ERROR, WARNING, INFO</span>
+<span class="w">    </span><span class="n">is_active</span><span class="w"> </span><span class="nb">BOOLEAN</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">TRUE</span>
+<span class="p">);</span>
 
--- Example quality rules
-INSERT INTO data_quality_rules VALUES
-('rule-001', 'orders', 'total_amount', 'RANGE', '{&quot;min&quot;: 0, &quot;max&quot;: 10000}', 'ERROR', true),
-('rule-002', 'orders', 'email', 'PATTERN', '{&quot;regex&quot;: &quot;^[^@]+@[^@]+\\.[^@]+$&quot;}', 'ERROR', true),
-('rule-003', 'orders', 'customer_id', 'REFERENCE', '{&quot;table&quot;: &quot;customers&quot;, &quot;column&quot;: &quot;id&quot;}', 'ERROR', true);
+<span class="c1">-- Example quality rules</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">data_quality_rules</span><span class="w"> </span><span class="k">VALUES</span>
+<span class="p">(</span><span class="s1">&#39;rule-001&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;orders&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;total_amount&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;RANGE&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;{&quot;min&quot;: 0, &quot;max&quot;: 10000}&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ERROR&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;rule-002&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;orders&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;email&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;PATTERN&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;{&quot;regex&quot;: &quot;^[^@]+@[^@]+\\.[^@]+$&quot;}&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ERROR&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;rule-003&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;orders&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;customer_id&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;REFERENCE&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;{&quot;table&quot;: &quot;customers&quot;, &quot;column&quot;: &quot;id&quot;}&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ERROR&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">);</span>
 
--- Quality check results
-CREATE TABLE data_quality_results (
-    check_id UUID PRIMARY KEY,
-    rule_id UUID REFERENCES data_quality_rules(rule_id),
-    checked_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-    record_count INTEGER,
-    failed_count INTEGER,
-    success_rate DECIMAL(5,2),
-    sample_failures JSONB
-);
-</code></pre>
+<span class="c1">-- Quality check results</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">data_quality_results</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">check_id</span><span class="w"> </span><span class="n">UUID</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">rule_id</span><span class="w"> </span><span class="n">UUID</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">data_quality_rules</span><span class="p">(</span><span class="n">rule_id</span><span class="p">),</span>
+<span class="w">    </span><span class="n">checked_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">TIME</span><span class="w"> </span><span class="k">ZONE</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">NOW</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">record_count</span><span class="w"> </span><span class="nb">INTEGER</span><span class="p">,</span>
+<span class="w">    </span><span class="n">failed_count</span><span class="w"> </span><span class="nb">INTEGER</span><span class="p">,</span>
+<span class="w">    </span><span class="n">success_rate</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+<span class="w">    </span><span class="n">sample_failures</span><span class="w"> </span><span class="n">JSONB</span>
+<span class="p">);</span>
+</code></pre></div>
 <h3 id="data-lineage-tracking">Data Lineage Tracking</h3>
-<pre><code class="language-sql">-- Data lineage tracking
-CREATE TABLE data_lineage (
-    lineage_id UUID PRIMARY KEY,
-    source_dataset VARCHAR(200),
-    target_dataset VARCHAR(200),
-    transformation_type VARCHAR(100),
-    transformation_config JSONB,
-    dependency_level INTEGER, -- 1=direct, 2=indirect, etc.
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
+<div class="highlight"><pre><span></span><code><span class="c1">-- Data lineage tracking</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">data_lineage</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">lineage_id</span><span class="w"> </span><span class="n">UUID</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">source_dataset</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">200</span><span class="p">),</span>
+<span class="w">    </span><span class="n">target_dataset</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">200</span><span class="p">),</span>
+<span class="w">    </span><span class="n">transformation_type</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+<span class="w">    </span><span class="n">transformation_config</span><span class="w"> </span><span class="n">JSONB</span><span class="p">,</span>
+<span class="w">    </span><span class="n">dependency_level</span><span class="w"> </span><span class="nb">INTEGER</span><span class="p">,</span><span class="w"> </span><span class="c1">-- 1=direct, 2=indirect, etc.</span>
+<span class="w">    </span><span class="n">created_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">TIME</span><span class="w"> </span><span class="k">ZONE</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">NOW</span><span class="p">()</span>
+<span class="p">);</span>
 
--- OpenLineage integration
-INSERT INTO data_lineage VALUES
-('lineage-001', 'postgres.public.orders', 'bronze_orders', 'CDC_CAPTURE', '{&quot;connector&quot;: &quot;debezium&quot;}', 1, NOW()),
-('lineage-002', 'bronze_orders', 'silver_orders', 'ETL_TRANSFORM', '{&quot;job&quot;: &quot;bronze_to_silver_orders&quot;}', 2, NOW()),
-('lineage-003', 'silver_orders', 'gold_order_facts', 'DIMENSIONAL_MODEL', '{&quot;type&quot;: &quot;fact_table&quot;}', 3, NOW());
-</code></pre>
+<span class="c1">-- OpenLineage integration</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">data_lineage</span><span class="w"> </span><span class="k">VALUES</span>
+<span class="p">(</span><span class="s1">&#39;lineage-001&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;postgres.public.orders&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;bronze_orders&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CDC_CAPTURE&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;{&quot;connector&quot;: &quot;debezium&quot;}&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">NOW</span><span class="p">()),</span>
+<span class="p">(</span><span class="s1">&#39;lineage-002&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;bronze_orders&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;silver_orders&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ETL_TRANSFORM&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;{&quot;job&quot;: &quot;bronze_to_silver_orders&quot;}&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">NOW</span><span class="p">()),</span>
+<span class="p">(</span><span class="s1">&#39;lineage-003&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;silver_orders&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;gold_order_facts&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;DIMENSIONAL_MODEL&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;{&quot;type&quot;: &quot;fact_table&quot;}&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">NOW</span><span class="p">());</span>
+</code></pre></div>
 <h2 id="caching-strategy">Caching Strategy</h2>
 <h3 id="multi-layer-caching-architecture">Multi-Layer Caching Architecture</h3>
-<pre><code class="language-java">@Component
-public class CacheStrategy {
+<div class="highlight"><pre><span></span><code><span class="nd">@Component</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CacheStrategy</span><span class="w"> </span><span class="p">{</span>
 
-    // L1: Application-level cache
-    @Cacheable(value = &quot;products&quot;, key = &quot;#productId&quot;)
-    public Product getProduct(UUID productId) {
-        return productRepository.findById(productId);
-    }
+<span class="w">    </span><span class="c1">// L1: Application-level cache</span>
+<span class="w">    </span><span class="nd">@Cacheable</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;products&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;#productId&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Product</span><span class="w"> </span><span class="nf">getProduct</span><span class="p">(</span><span class="n">UUID</span><span class="w"> </span><span class="n">productId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">productRepository</span><span class="p">.</span><span class="na">findById</span><span class="p">(</span><span class="n">productId</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 
-    // L2: Distributed cache
-    @Autowired
-    private RedisTemplate&lt;String, Object&gt; redisTemplate;
+<span class="w">    </span><span class="c1">// L2: Distributed cache</span>
+<span class="w">    </span><span class="nd">@Autowired</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">RedisTemplate</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">redisTemplate</span><span class="p">;</span>
 
-    public CustomerProfile getCustomerProfile(UUID customerId) {
-        String cacheKey = &quot;customer:&quot; + customerId;
-        CustomerProfile cached = (CustomerProfile) redisTemplate.opsForValue().get(cacheKey);
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">CustomerProfile</span><span class="w"> </span><span class="nf">getCustomerProfile</span><span class="p">(</span><span class="n">UUID</span><span class="w"> </span><span class="n">customerId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">cacheKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;customer:&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">customerId</span><span class="p">;</span>
+<span class="w">        </span><span class="n">CustomerProfile</span><span class="w"> </span><span class="n">cached</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">CustomerProfile</span><span class="p">)</span><span class="w"> </span><span class="n">redisTemplate</span><span class="p">.</span><span class="na">opsForValue</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="n">cacheKey</span><span class="p">);</span>
 
-        if (cached == null) {
-            cached = buildCustomerProfile(customerId);
-            redisTemplate.opsForValue().set(cacheKey, cached, Duration.ofMinutes(30));
-        }
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cached</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">cached</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buildCustomerProfile</span><span class="p">(</span><span class="n">customerId</span><span class="p">);</span>
+<span class="w">            </span><span class="n">redisTemplate</span><span class="p">.</span><span class="na">opsForValue</span><span class="p">().</span><span class="na">set</span><span class="p">(</span><span class="n">cacheKey</span><span class="p">,</span><span class="w"> </span><span class="n">cached</span><span class="p">,</span><span class="w"> </span><span class="n">Duration</span><span class="p">.</span><span class="na">ofMinutes</span><span class="p">(</span><span class="mi">30</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
 
-        return cached;
-    }
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">cached</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    // Cache warming strategy
-    @Scheduled(fixedRate = 300000) // Every 5 minutes
-    public void warmTopProducts() {
-        List&lt;UUID&gt; topProductIds = analyticsService.getTopSellingProducts(100);
-        topProductIds.forEach(this::getProduct);
-    }
-}
-</code></pre>
+<span class="w">    </span><span class="c1">// Cache warming strategy</span>
+<span class="w">    </span><span class="nd">@Scheduled</span><span class="p">(</span><span class="n">fixedRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">300000</span><span class="p">)</span><span class="w"> </span><span class="c1">// Every 5 minutes</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">warmTopProducts</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">UUID</span><span class="o">&gt;</span><span class="w"> </span><span class="n">topProductIds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">analyticsService</span><span class="p">.</span><span class="na">getTopSellingProducts</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<span class="w">        </span><span class="n">topProductIds</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="k">this</span><span class="p">::</span><span class="n">getProduct</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <h3 id="cache-invalidation-patterns">Cache Invalidation Patterns</h3>
-<pre><code class="language-java">@EventListener
-public class CacheInvalidationHandler {
+<div class="highlight"><pre><span></span><code><span class="nd">@EventListener</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CacheInvalidationHandler</span><span class="w"> </span><span class="p">{</span>
 
-    @Autowired
-    private CacheManager cacheManager;
+<span class="w">    </span><span class="nd">@Autowired</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">CacheManager</span><span class="w"> </span><span class="n">cacheManager</span><span class="p">;</span>
 
-    @KafkaListener(topics = &quot;product-updates&quot;)
-    public void handleProductUpdate(ProductUpdateEvent event) {
-        Cache productCache = cacheManager.getCache(&quot;products&quot;);
-        productCache.evict(event.getProductId());
+<span class="w">    </span><span class="nd">@KafkaListener</span><span class="p">(</span><span class="n">topics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;product-updates&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">handleProductUpdate</span><span class="p">(</span><span class="n">ProductUpdateEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Cache</span><span class="w"> </span><span class="n">productCache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cacheManager</span><span class="p">.</span><span class="na">getCache</span><span class="p">(</span><span class="s">&quot;products&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">productCache</span><span class="p">.</span><span class="na">evict</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="na">getProductId</span><span class="p">());</span>
 
-        // Invalidate related caches
-        if (event.isCategoryChange()) {
-            Cache categoryCache = cacheManager.getCache(&quot;categories&quot;);
-            categoryCache.evict(event.getCategoryId());
-        }
-    }
-}
-</code></pre>
+<span class="w">        </span><span class="c1">// Invalidate related caches</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="na">isCategoryChange</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Cache</span><span class="w"> </span><span class="n">categoryCache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cacheManager</span><span class="p">.</span><span class="na">getCache</span><span class="p">(</span><span class="s">&quot;categories&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="n">categoryCache</span><span class="p">.</span><span class="na">evict</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="na">getCategoryId</span><span class="p">());</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <h2 id="performance-optimization">Performance Optimization</h2>
 <h3 id="database-optimization">Database Optimization</h3>
-<pre><code class="language-sql">-- Index strategies for common query patterns
-CREATE INDEX CONCURRENTLY idx_orders_customer_date 
-ON orders (customer_id, created_date DESC) 
-WHERE deleted_at IS NULL;
+<div class="highlight"><pre><span></span><code><span class="c1">-- Index strategies for common query patterns</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">CONCURRENTLY</span><span class="w"> </span><span class="n">idx_orders_customer_date</span><span class="w"> </span>
+<span class="k">ON</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="p">(</span><span class="n">customer_id</span><span class="p">,</span><span class="w"> </span><span class="n">created_date</span><span class="w"> </span><span class="k">DESC</span><span class="p">)</span><span class="w"> </span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">deleted_at</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span>
 
--- Partial index for active orders
-CREATE INDEX CONCURRENTLY idx_orders_active_status 
-ON orders (status, created_date DESC) 
-WHERE status IN ('PENDING', 'CONFIRMED', 'PROCESSING');
+<span class="c1">-- Partial index for active orders</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">CONCURRENTLY</span><span class="w"> </span><span class="n">idx_orders_active_status</span><span class="w"> </span>
+<span class="k">ON</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">created_date</span><span class="w"> </span><span class="k">DESC</span><span class="p">)</span><span class="w"> </span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;PENDING&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CONFIRMED&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;PROCESSING&#39;</span><span class="p">);</span>
 
--- BRIN index for time-series data
-CREATE INDEX idx_telemetry_timestamp_brin 
-ON device_telemetry USING BRIN (timestamp);
+<span class="c1">-- BRIN index for time-series data</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_telemetry_timestamp_brin</span><span class="w"> </span>
+<span class="k">ON</span><span class="w"> </span><span class="n">device_telemetry</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">BRIN</span><span class="w"> </span><span class="p">(</span><span class="k">timestamp</span><span class="p">);</span>
 
--- Query optimization monitoring
-CREATE OR REPLACE FUNCTION track_slow_queries() 
-RETURNS TRIGGER AS $$
-BEGIN
-    IF (EXTRACT(EPOCH FROM (clock_timestamp() - statement_timestamp())) &gt; 1.0) THEN
-        INSERT INTO slow_query_log (query, duration, executed_at)
-        VALUES (current_query(), EXTRACT(EPOCH FROM (clock_timestamp() - statement_timestamp())), NOW());
-    END IF;
-    RETURN NULL;
-END;
-$$ LANGUAGE plpgsql;
-</code></pre>
+<span class="c1">-- Query optimization monitoring</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">REPLACE</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="n">track_slow_queries</span><span class="p">()</span><span class="w"> </span>
+<span class="k">RETURNS</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">$$</span>
+<span class="k">BEGIN</span>
+<span class="w">    </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="k">EXTRACT</span><span class="p">(</span><span class="n">EPOCH</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="p">(</span><span class="n">clock_timestamp</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">statement_timestamp</span><span class="p">()))</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="w">        </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">slow_query_log</span><span class="w"> </span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="w"> </span><span class="n">duration</span><span class="p">,</span><span class="w"> </span><span class="n">executed_at</span><span class="p">)</span>
+<span class="w">        </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="n">current_query</span><span class="p">(),</span><span class="w"> </span><span class="k">EXTRACT</span><span class="p">(</span><span class="n">EPOCH</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="p">(</span><span class="n">clock_timestamp</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">statement_timestamp</span><span class="p">())),</span><span class="w"> </span><span class="n">NOW</span><span class="p">());</span>
+<span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="k">IF</span><span class="p">;</span>
+<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span>
+<span class="k">END</span><span class="p">;</span>
+<span class="err">$$</span><span class="w"> </span><span class="k">LANGUAGE</span><span class="w"> </span><span class="n">plpgsql</span><span class="p">;</span>
+</code></pre></div>
 <h2 id="disaster-recovery-backup">Disaster Recovery &amp; Backup</h2>
 <h3 id="backup-strategy">Backup Strategy</h3>
-<pre><code class="language-yaml"># Automated backup configuration
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: backup-config
-data:
-  postgres-backup.sh: |
-    #!/bin/bash
-    DATE=$(date +%Y%m%d_%H%M%S)
+<div class="highlight"><pre><span></span><code><span class="c1"># Automated backup configuration</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backup-config</span>
+<span class="nt">data</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">postgres-backup.sh</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">#!/bin/bash</span>
+<span class="w">    </span><span class="no">DATE=$(date +%Y%m%d_%H%M%S)</span>
 
-    # Full database backup
-    pg_dump -h $POSTGRES_HOST -U $POSTGRES_USER -d bitvelocity \
-      --format=custom --compress=9 \
-      --file=&quot;/backups/full_backup_${DATE}.dump&quot;
+<span class="w">    </span><span class="no"># Full database backup</span>
+<span class="w">    </span><span class="no">pg_dump -h $POSTGRES_HOST -U $POSTGRES_USER -d bitvelocity \</span>
+<span class="w">      </span><span class="no">--format=custom --compress=9 \</span>
+<span class="w">      </span><span class="no">--file=&quot;/backups/full_backup_${DATE}.dump&quot;</span>
 
-    # Incremental WAL archiving
-    archive_command = 'cp %p /archive/%f'
+<span class="w">    </span><span class="no"># Incremental WAL archiving</span>
+<span class="w">    </span><span class="no">archive_command = &#39;cp %p /archive/%f&#39;</span>
 
-    # Upload to cloud storage
-    aws s3 cp &quot;/backups/full_backup_${DATE}.dump&quot; \
-      &quot;s3://bitvelocity-backups/postgres/${DATE}/&quot;
-</code></pre>
+<span class="w">    </span><span class="no"># Upload to cloud storage</span>
+<span class="w">    </span><span class="no">aws s3 cp &quot;/backups/full_backup_${DATE}.dump&quot; \</span>
+<span class="w">      </span><span class="no">&quot;s3://bitvelocity-backups/postgres/${DATE}/&quot;</span>
+</code></pre></div>
 <h3 id="cross-region-replication">Cross-Region Replication</h3>
-<pre><code class="language-sql">-- PostgreSQL streaming replication setup
--- Primary server configuration
-wal_level = replica
-max_wal_senders = 3
-wal_keep_segments = 32
-archive_mode = on
-archive_command = 'cp %p /archive/%f'
+<div class="highlight"><pre><span></span><code><span class="c1">-- PostgreSQL streaming replication setup</span>
+<span class="c1">-- Primary server configuration</span>
+<span class="n">wal_level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">replica</span>
+<span class="n">max_wal_senders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+<span class="n">wal_keep_segments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span>
+<span class="n">archive_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">on</span>
+<span class="n">archive_command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;cp %p /archive/%f&#39;</span>
 
--- Create replication user
-CREATE USER replicator REPLICATION LOGIN PASSWORD 'secure_password';
+<span class="c1">-- Create replication user</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">replicator</span><span class="w"> </span><span class="n">REPLICATION</span><span class="w"> </span><span class="n">LOGIN</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="s1">&#39;secure_password&#39;</span><span class="p">;</span>
 
--- Replica server setup
-standby_mode = 'on'
-primary_conninfo = 'host=primary_host port=5432 user=replicator'
-restore_command = 'cp /archive/%f %p'
-</code></pre>
+<span class="c1">-- Replica server setup</span>
+<span class="n">standby_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;on&#39;</span>
+<span class="n">primary_conninfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;host=primary_host port=5432 user=replicator&#39;</span>
+<span class="n">restore_command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;cp /archive/%f %p&#39;</span>
+</code></pre></div>
 <h2 id="monitoring-alerting">Monitoring &amp; Alerting</h2>
 <h3 id="data-pipeline-monitoring">Data Pipeline Monitoring</h3>
-<pre><code class="language-java">@Component
-public class DataPipelineMonitor {
+<div class="highlight"><pre><span></span><code><span class="nd">@Component</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DataPipelineMonitor</span><span class="w"> </span><span class="p">{</span>
 
-    @Autowired
-    private MeterRegistry meterRegistry;
+<span class="w">    </span><span class="nd">@Autowired</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">MeterRegistry</span><span class="w"> </span><span class="n">meterRegistry</span><span class="p">;</span>
 
-    @EventListener
-    public void handleDataProcessingEvent(DataProcessingEvent event) {
-        Timer.Sample sample = Timer.start(meterRegistry);
+<span class="w">    </span><span class="nd">@EventListener</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">handleDataProcessingEvent</span><span class="p">(</span><span class="n">DataProcessingEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Timer</span><span class="p">.</span><span class="na">Sample</span><span class="w"> </span><span class="n">sample</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Timer</span><span class="p">.</span><span class="na">start</span><span class="p">(</span><span class="n">meterRegistry</span><span class="p">);</span>
 
-        try {
-            // Process data
-            sample.stop(Timer.builder(&quot;data.processing.duration&quot;)
-                .tag(&quot;pipeline&quot;, event.getPipelineName())
-                .tag(&quot;status&quot;, &quot;success&quot;)
-                .register(meterRegistry));
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Process data</span>
+<span class="w">            </span><span class="n">sample</span><span class="p">.</span><span class="na">stop</span><span class="p">(</span><span class="n">Timer</span><span class="p">.</span><span class="na">builder</span><span class="p">(</span><span class="s">&quot;data.processing.duration&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">tag</span><span class="p">(</span><span class="s">&quot;pipeline&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">getPipelineName</span><span class="p">())</span>
+<span class="w">                </span><span class="p">.</span><span class="na">tag</span><span class="p">(</span><span class="s">&quot;status&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;success&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="n">meterRegistry</span><span class="p">));</span>
 
-            meterRegistry.counter(&quot;data.records.processed&quot;,
-                &quot;pipeline&quot;, event.getPipelineName())
-                .increment(event.getRecordCount());
+<span class="w">            </span><span class="n">meterRegistry</span><span class="p">.</span><span class="na">counter</span><span class="p">(</span><span class="s">&quot;data.records.processed&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s">&quot;pipeline&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">getPipelineName</span><span class="p">())</span>
+<span class="w">                </span><span class="p">.</span><span class="na">increment</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="na">getRecordCount</span><span class="p">());</span>
 
-        } catch (Exception e) {
-            sample.stop(Timer.builder(&quot;data.processing.duration&quot;)
-                .tag(&quot;pipeline&quot;, event.getPipelineName())
-                .tag(&quot;status&quot;, &quot;error&quot;)
-                .register(meterRegistry));
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">sample</span><span class="p">.</span><span class="na">stop</span><span class="p">(</span><span class="n">Timer</span><span class="p">.</span><span class="na">builder</span><span class="p">(</span><span class="s">&quot;data.processing.duration&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">tag</span><span class="p">(</span><span class="s">&quot;pipeline&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">getPipelineName</span><span class="p">())</span>
+<span class="w">                </span><span class="p">.</span><span class="na">tag</span><span class="p">(</span><span class="s">&quot;status&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;error&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="n">meterRegistry</span><span class="p">));</span>
 
-            meterRegistry.counter(&quot;data.processing.errors&quot;,
-                &quot;pipeline&quot;, event.getPipelineName(),
-                &quot;error_type&quot;, e.getClass().getSimpleName())
-                .increment();
-        }
-    }
-}
-</code></pre>
+<span class="w">            </span><span class="n">meterRegistry</span><span class="p">.</span><span class="na">counter</span><span class="p">(</span><span class="s">&quot;data.processing.errors&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s">&quot;pipeline&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">getPipelineName</span><span class="p">(),</span>
+<span class="w">                </span><span class="s">&quot;error_type&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getClass</span><span class="p">().</span><span class="na">getSimpleName</span><span class="p">())</span>
+<span class="w">                </span><span class="p">.</span><span class="na">increment</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <h2 id="cost-optimization">Cost Optimization</h2>
 <h3 id="storage-cost-management">Storage Cost Management</h3>
 <ul>
@@ -911,82 +4225,94 @@ public class DataPipelineMonitor {
 <li><strong>Resource Monitoring</strong>: Track resource utilization and costs</li>
 </ul>
 <hr />
-<p>This data architecture provides a solid foundation for learning comprehensive data engineering patterns while maintaining production-ready standards and addressing all the gaps identified in the original design.</p></div>
-            </div>
-        </div>
+<h2 id="related-documentation">Related Documentation</h2>
+<h3 id="architecture-references">Architecture References</h3>
+<ul>
+<li><a href="../system-overview/">System Overview</a> - Platform architecture</li>
+<li><a href="../domains/ecommerce/DOMAIN_ECOMMERCE_ARCHITECTURE/">E-Commerce Domain</a> - OLTP examples</li>
+<li><a href="../domains/iot/DOMAIN_IOT_ARCHITECTURE/">IoT Domain</a> - High-volume ingestion</li>
+<li><a href="../CROSS_DATA_PLATFORM_AND_ANALYTICS/">Data Platform &amp; Analytics</a> - Analytics patterns</li>
+<li><a href="../CROSS_OBSERVABILITY_AND_TESTING/">Observability</a> - Data monitoring</li>
+</ul>
+<h3 id="implementation-guides">Implementation Guides</h3>
+<ul>
+<li><a href="../../03-DEVELOPMENT/microservices-patterns/">Microservices Patterns</a> - CDC, CQRS patterns</li>
+<li><a href="../../03-DEVELOPMENT/testing-strategy/">Testing Strategy</a> - Data quality testing</li>
+</ul>
+<h3 id="project-management">Project Management</h3>
+<ul>
+<li><a href="../../05-PROJECT-MANAGEMENT/execution-roadmap/">Execution Roadmap</a> - Implementation phases</li>
+<li><a href="../../05-PROJECT-MANAGEMENT/budget-planning/">Budget Planning</a> - Storage costs</li>
+</ul>
+<h3 id="key-adrs">Key ADRs</h3>
+<ul>
+<li><a href="../../adr/ADR-002-event-vs-cdc-strategy/">ADR-002: Event vs CDC Strategy</a></li>
+<li><a href="../../adr/ADR-007-observability-baseline/">ADR-007: Observability Baseline</a></li>
+</ul>
+<hr />
+<p>This data architecture provides a solid foundation for learning comprehensive data engineering patterns while maintaining production-ready standards and addressing all the gaps identified in the original design.</p>
+<p><strong>Document Status</strong>: Active Reference ✅<br />
+<strong>Last Review</strong>: December 29, 2025</p>
 
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script src="../../js/bootstrap.bundle.min.js"></script>
-        <script>
-            var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../../js/base.js"></script>
-        <script src="../../search/main.js"></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
             </div>
-            <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
 </div>
-
-    </body>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
 </html>

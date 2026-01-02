@@ -1,0 +1,6335 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://nitinkc.github.io/BitVelocity-Docs/05-PROJECT-MANAGEMENT/IMPLEMENTATION-ROADMAP/">
+      
+      
+        <link rel="prev" href="../WEEKLY-CHECKLIST/">
+      
+      
+        <link rel="next" href="../budget-planning/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Roadmap - BitVelocity Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#bitvelocity-implementation-roadmap" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="BitVelocity Wiki" class="md-header__button md-logo" aria-label="BitVelocity Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            BitVelocity Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Roadmap
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../00-OVERVIEW/projects-and-modules/" class="md-tabs__link">
+          
+  
+  
+  Overview
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../01-ARCHITECTURE/system-overview/" class="md-tabs__link">
+          
+  
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../03-DEVELOPMENT/microservices-patterns/" class="md-tabs__link">
+          
+  
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02-INFRASTRUCTURE/cloud-strategy/" class="md-tabs__link">
+          
+  
+  
+  Infrastructure
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../stories/QUICK-START/" class="md-tabs__link">
+          
+  
+  
+  Stories & Phases
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../sprint-planning/" class="md-tabs__link">
+          
+  
+  
+  Project Management
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../adr/ADR-001-multi-repo-vs-monorepo/" class="md-tabs__link">
+          
+  
+  
+  ADRs
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="BitVelocity Wiki" class="md-nav__button md-logo" aria-label="BitVelocity Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    BitVelocity Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Overview
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-OVERVIEW/projects-and-modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects & Modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-OVERVIEW/stakeholder-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stakeholder Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-OVERVIEW/project-charter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Charter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-ARCHITECTURE/system-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-ARCHITECTURE/data-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-ARCHITECTURE/security-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domains
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Domains
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-ARCHITECTURE/domains/ecommerce/DOMAIN_ECOMMERCE_ARCHITECTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E-Commerce
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-ARCHITECTURE/domains/chat/DOMAIN_CHAT_ARCHITECTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chat
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-ARCHITECTURE/domains/iot/DOMAIN_IOT_ARCHITECTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IoT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-ARCHITECTURE/domains/social/DOMAIN_SOCIAL_ARCHITECTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Social
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-ARCHITECTURE/domains/ml-ai/DOMAIN_ML_AI_ARCHITECTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ML/AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cross-Cutting
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cross-Cutting
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-ARCHITECTURE/CROSS_OBSERVABILITY_AND_TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Observability & Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-ARCHITECTURE/CROSS_EVENT_CONTRACTS_AND_VERSIONING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Event Contracts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-ARCHITECTURE/CROSS_REPLAY_DR_DRILLS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Replay & DR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-ARCHITECTURE/CROSS_COST_OPTIMIZATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cost Optimization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-ARCHITECTURE/CROSS_DATA_PLATFORM_AND_ANALYTICS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Platform
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-DEVELOPMENT/microservices-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microservices Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-DEVELOPMENT/api-protocols/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Protocols
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-DEVELOPMENT/testing-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testing Strategy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-DEVELOPMENT/performance-testing-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Performance Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Infrastructure
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-INFRASTRUCTURE/cloud-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Strategy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-INFRASTRUCTURE/deployment-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stories & Phases
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Stories & Phases
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stories/QUICK-START/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stories/REFERENCE-TOPICS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stories/phases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phases Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stories/phases/PHASE-0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 0 - Groundwork
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stories/phases/PHASE-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 1 - Foundations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stories/phases/PHASE-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2 - Contracts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stories/phases/PHASE-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 3 - Protocols
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stories/phases/PHASE-4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 4 - Data & State
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stories/phases/PHASE-5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 5 - Real-Time
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stories/phases/PHASE-6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 6 - Resilience
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stories/phases/PHASE-7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 7 - Integrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stories/phases/PHASE-8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 8 - UAT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stories/phases/PHASE-9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 9 - Hardening
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Management
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Project Management
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprint-planning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint Planning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../WEEKLY-CHECKLIST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weekly Checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recently-completed-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Recently Completed Infrastructure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Recently Completed Infrastructure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#performance-testing-bv-performance-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Testing (bv-performance-testing/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chaos-engineering-bv-chaos-experiments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chaos Engineering (bv-chaos-experiments/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observability-bv-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observability (bv-observability/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-testing-bv-security-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Testing (bv-security-testing/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cicd-workflows-githubworkflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CI/CD Workflows (.github/workflows/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives-by-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Learning Objectives by Phase
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-1-foundation-setup-week-1-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1: Foundation Setup (Week 1-2)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 1: Foundation Setup (Week 1-2)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-1-local-development-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 1: Local Development Environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 1: Local Development Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-2-infrastructure-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1-2: Infrastructure Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-3-4-first-service-product-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 3-4: First Service - Product Service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-5-testing-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 5: Testing &amp; Documentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-1-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 1 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-2-expand-to-cart-service-observability-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 2: Expand to Cart Service + Observability Basics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 2: Expand to Cart Service + Observability Basics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-2-cart-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1-2: Cart Service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-3-4-basic-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 3-4: Basic Observability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-5-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 5: Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-2-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 2 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-2-messaging-events-week-3-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2: Messaging &amp; Events (Week 3-4)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 2: Messaging &amp; Events (Week 3-4)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-3-kafka-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 3: Kafka Integration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 3: Kafka Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-2-kafka-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1-2: Kafka Basics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-3-4-event-consumers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 3-4: Event Consumers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-5-event-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 5: Event Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-3-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 3 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-4-order-service-saga-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 4: Order Service + Saga Pattern
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 4: Order Service + Saga Pattern">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-3-order-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1-3: Order Service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-4-5-saga-compensation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 4-5: Saga Compensation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-4-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 4 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-3-observability-stack-week-5-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3: Observability Stack (Week 5-6)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 3: Observability Stack (Week 5-6)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-5-opentelemetry-tracing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 5: OpenTelemetry &amp; Tracing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 5: OpenTelemetry &amp; Tracing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-2-distributed-tracing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1-2: Distributed Tracing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-3-4-prometheus-grafana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 3-4: Prometheus + Grafana
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-5-alerting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 5: Alerting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-5-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 5 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-6-advanced-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 6: Advanced Observability
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 6: Advanced Observability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-2-slo-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1-2: SLO Monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-3-4-log-aggregation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 3-4: Log Aggregation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-5-correlation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 5: Correlation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-6-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 6 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-4-resilience-patterns-week-7-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 4: Resilience Patterns (Week 7-8)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 4: Resilience Patterns (Week 7-8)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-7-circuit-breakers-retries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 7: Circuit Breakers &amp; Retries
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 7: Circuit Breakers &amp; Retries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-2-resilience4j-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1-2: Resilience4j Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-3-4-bulkhead-rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 3-4: Bulkhead &amp; Rate Limiting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-5-fallbacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 5: Fallbacks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-7-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 7 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-8-chaos-engineering-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 8: Chaos Engineering Introduction
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 8: Chaos Engineering Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-2-chaos-mesh-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1-2: Chaos Mesh Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-3-4-network-chaos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 3-4: Network Chaos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-5-game-day-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 5: Game Day Preparation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-8-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 8 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-5-performance-testing-week-9-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 5: Performance Testing (Week 9-10)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 5: Performance Testing (Week 9-10)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-9-load-testing-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 9: Load Testing Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 9: Load Testing Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-2-gatling-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1-2: Gatling Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-3-4-baseline-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 3-4: Baseline Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-5-k6-ci-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 5: k6 CI Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-9-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 9 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-10-performance-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 10: Performance Optimization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 10: Performance Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-2-database-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1-2: Database Optimization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-3-4-caching-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 3-4: Caching Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-5-re-test-document" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 5: Re-test &amp; Document
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-10-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 10 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-6-security-cicd-week-11-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 6: Security &amp; CI/CD (Week 11-12)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 6: Security &amp; CI/CD (Week 11-12)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-11-security-hardening" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 11: Security Hardening
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 11: Security Hardening">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-2-dependency-scanning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1-2: Dependency Scanning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-3-4-authentication-authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 3-4: Authentication &amp; Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-5-secrets-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 5: Secrets Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-11-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 11 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-12-cicd-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 12: CI/CD Pipeline
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 12: CI/CD Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-2-build-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1-2: Build Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-3-4-contract-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 3-4: Contract Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-5-deployment-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 5: Deployment Automation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-12-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 12 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-7-multi-protocol-patterns-week-13-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 7: Multi-Protocol Patterns (Week 13-14)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 7: Multi-Protocol Patterns (Week 13-14)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-13-grpc-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 13: gRPC Implementation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 13: gRPC Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-2-grpc-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1-2: gRPC Service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-3-4-grpc-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 3-4: gRPC Client
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-5-grpc-resilience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 5: gRPC Resilience
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-13-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 13 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-14-websocket-sse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 14: WebSocket &amp; SSE
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 14: WebSocket &amp; SSE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-3-websocket-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1-3: WebSocket Implementation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-4-5-server-sent-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 4-5: Server-Sent Events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-14-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 14 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-8-advanced-patterns-week-15-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 8: Advanced Patterns (Week 15-16)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 8: Advanced Patterns (Week 15-16)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-15-cdc-projections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 15: CDC &amp; Projections
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 15: CDC &amp; Projections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-2-debezium-cdc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1-2: Debezium CDC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-3-4-kafka-streams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 3-4: Kafka Streams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-5-replay-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 5: Replay Framework
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-15-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 15 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-16-production-readiness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 16: Production Readiness
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 16: Production Readiness">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1: Documentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-2-kubernetes-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 2: Kubernetes Deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-3-final-game-day" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 3: Final Game Day
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-4-5-retrospective-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 4-5: Retrospective &amp; Planning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-16-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 16 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-9-12-advanced-domains-weeks-17-24-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 9-12: Advanced Domains (Weeks 17-24) - Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 9-12: Advanced Domains (Weeks 17-24) - Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-17-18-chat-domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 17-18: Chat Domain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-19-20-iot-domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 19-20: IoT Domain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-21-22-social-feed-domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 21-22: Social Feed Domain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-23-24-ml-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 23-24: ML Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#daily-routine-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Daily Routine Template
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Daily Routine Template">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#morning-60-minutes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Morning (60 minutes)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evening-60-90-minutes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evening (60-90 minutes)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weekend-optional-2-3-hours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Weekend (Optional 2-3 hours)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#success-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Support &amp; Resources
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Support &amp; Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-stuck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When Stuck
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Resources
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../budget-planning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Budget
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADRs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ADRs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-001-multi-repo-vs-monorepo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-001 Multi-repo vs Monorepo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-002-event-vs-cdc-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-002 Event vs CDC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-003-protocol-introduction-order/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-003 Protocol Order
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-004-oltp-cdc-olap-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-004 OLTP CDC OLAP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-005-security-layering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-005 Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-006-retry-backoff-policies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-006 Retry Policies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-007-observability-baseline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-007 Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-008-pulumi-cloud-provider-abstraction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-008 Pulumi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-015-load-testing-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-015 Load Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-016-chaos-engineering-framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-016 Chaos Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-017-cicd-pipeline-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-017 CI/CD Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recently-completed-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Recently Completed Infrastructure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Recently Completed Infrastructure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#performance-testing-bv-performance-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Testing (bv-performance-testing/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chaos-engineering-bv-chaos-experiments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chaos Engineering (bv-chaos-experiments/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observability-bv-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observability (bv-observability/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-testing-bv-security-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Testing (bv-security-testing/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cicd-workflows-githubworkflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CI/CD Workflows (.github/workflows/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives-by-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Learning Objectives by Phase
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-1-foundation-setup-week-1-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1: Foundation Setup (Week 1-2)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 1: Foundation Setup (Week 1-2)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-1-local-development-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 1: Local Development Environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 1: Local Development Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-2-infrastructure-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1-2: Infrastructure Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-3-4-first-service-product-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 3-4: First Service - Product Service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-5-testing-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 5: Testing &amp; Documentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-1-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 1 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-2-expand-to-cart-service-observability-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 2: Expand to Cart Service + Observability Basics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 2: Expand to Cart Service + Observability Basics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-2-cart-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1-2: Cart Service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-3-4-basic-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 3-4: Basic Observability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-5-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 5: Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-2-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 2 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-2-messaging-events-week-3-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2: Messaging &amp; Events (Week 3-4)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 2: Messaging &amp; Events (Week 3-4)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-3-kafka-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 3: Kafka Integration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 3: Kafka Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-2-kafka-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1-2: Kafka Basics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-3-4-event-consumers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 3-4: Event Consumers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-5-event-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 5: Event Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-3-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 3 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-4-order-service-saga-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 4: Order Service + Saga Pattern
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 4: Order Service + Saga Pattern">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-3-order-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1-3: Order Service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-4-5-saga-compensation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 4-5: Saga Compensation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-4-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 4 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-3-observability-stack-week-5-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3: Observability Stack (Week 5-6)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 3: Observability Stack (Week 5-6)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-5-opentelemetry-tracing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 5: OpenTelemetry &amp; Tracing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 5: OpenTelemetry &amp; Tracing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-2-distributed-tracing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1-2: Distributed Tracing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-3-4-prometheus-grafana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 3-4: Prometheus + Grafana
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-5-alerting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 5: Alerting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-5-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 5 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-6-advanced-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 6: Advanced Observability
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 6: Advanced Observability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-2-slo-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1-2: SLO Monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-3-4-log-aggregation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 3-4: Log Aggregation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-5-correlation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 5: Correlation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-6-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 6 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-4-resilience-patterns-week-7-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 4: Resilience Patterns (Week 7-8)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 4: Resilience Patterns (Week 7-8)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-7-circuit-breakers-retries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 7: Circuit Breakers &amp; Retries
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 7: Circuit Breakers &amp; Retries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-2-resilience4j-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1-2: Resilience4j Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-3-4-bulkhead-rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 3-4: Bulkhead &amp; Rate Limiting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-5-fallbacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 5: Fallbacks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-7-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 7 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-8-chaos-engineering-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 8: Chaos Engineering Introduction
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 8: Chaos Engineering Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-2-chaos-mesh-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1-2: Chaos Mesh Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-3-4-network-chaos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 3-4: Network Chaos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-5-game-day-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 5: Game Day Preparation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-8-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 8 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-5-performance-testing-week-9-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 5: Performance Testing (Week 9-10)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 5: Performance Testing (Week 9-10)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-9-load-testing-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 9: Load Testing Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 9: Load Testing Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-2-gatling-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1-2: Gatling Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-3-4-baseline-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 3-4: Baseline Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-5-k6-ci-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 5: k6 CI Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-9-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 9 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-10-performance-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 10: Performance Optimization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 10: Performance Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-2-database-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1-2: Database Optimization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-3-4-caching-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 3-4: Caching Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-5-re-test-document" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 5: Re-test &amp; Document
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-10-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 10 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-6-security-cicd-week-11-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 6: Security &amp; CI/CD (Week 11-12)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 6: Security &amp; CI/CD (Week 11-12)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-11-security-hardening" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 11: Security Hardening
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 11: Security Hardening">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-2-dependency-scanning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1-2: Dependency Scanning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-3-4-authentication-authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 3-4: Authentication &amp; Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-5-secrets-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 5: Secrets Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-11-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 11 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-12-cicd-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 12: CI/CD Pipeline
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 12: CI/CD Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-2-build-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1-2: Build Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-3-4-contract-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 3-4: Contract Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-5-deployment-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 5: Deployment Automation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-12-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 12 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-7-multi-protocol-patterns-week-13-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 7: Multi-Protocol Patterns (Week 13-14)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 7: Multi-Protocol Patterns (Week 13-14)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-13-grpc-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 13: gRPC Implementation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 13: gRPC Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-2-grpc-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1-2: gRPC Service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-3-4-grpc-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 3-4: gRPC Client
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-5-grpc-resilience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 5: gRPC Resilience
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-13-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 13 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-14-websocket-sse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 14: WebSocket &amp; SSE
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 14: WebSocket &amp; SSE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-3-websocket-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1-3: WebSocket Implementation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-4-5-server-sent-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 4-5: Server-Sent Events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-14-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 14 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-8-advanced-patterns-week-15-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 8: Advanced Patterns (Week 15-16)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 8: Advanced Patterns (Week 15-16)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-15-cdc-projections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 15: CDC &amp; Projections
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 15: CDC &amp; Projections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-2-debezium-cdc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1-2: Debezium CDC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-3-4-kafka-streams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 3-4: Kafka Streams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-5-replay-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 5: Replay Framework
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-15-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 15 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-16-production-readiness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 16: Production Readiness
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week 16: Production Readiness">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#day-1-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 1: Documentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-2-kubernetes-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 2: Kubernetes Deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-3-final-game-day" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 3: Final Game Day
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-4-5-retrospective-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Day 4-5: Retrospective &amp; Planning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-16-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 16 Deliverable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-9-12-advanced-domains-weeks-17-24-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 9-12: Advanced Domains (Weeks 17-24) - Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 9-12: Advanced Domains (Weeks 17-24) - Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-17-18-chat-domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 17-18: Chat Domain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-19-20-iot-domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 19-20: IoT Domain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-21-22-social-feed-domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 21-22: Social Feed Domain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-23-24-ml-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 23-24: ML Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#daily-routine-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Daily Routine Template
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Daily Routine Template">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#morning-60-minutes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Morning (60 minutes)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evening-60-90-minutes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evening (60-90 minutes)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weekend-optional-2-3-hours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Weekend (Optional 2-3 hours)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#success-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Support &amp; Resources
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Support &amp; Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-stuck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When Stuck
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Resources
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="bitvelocity-implementation-roadmap">BitVelocity Implementation Roadmap</h1>
+<h2 id="overview">Overview</h2>
+<p>This roadmap provides a <strong>detailed, week-by-week implementation plan</strong> designed for maximum learning while building a production-ready platform. Each sprint is 1 week with <strong>2-3 hours daily commitment</strong>.</p>
+<p><strong>Total Timeline</strong>: 16-20 weeks (4-5 months)<br />
+<strong>Daily Commitment</strong>: 2-3 hours<br />
+<strong>Learning Approach</strong>: Incremental, hands-on, with validation at each step</p>
+<hr />
+<h2 id="recently-completed-infrastructure">✅ Recently Completed Infrastructure</h2>
+<h3 id="performance-testing-bv-performance-testing">Performance Testing (<code>bv-performance-testing/</code>)</h3>
+<ul>
+<li>✅ Gatling tests (Java) - <code>OrderFlowSimulation.java</code>, <code>InventorySpikeTest.java</code></li>
+<li>✅ k6 scripts for CI/CD - <code>api-smoke-test.js</code></li>
+<li>✅ Performance baselines - <code>sli-targets.yaml</code></li>
+<li>📚 <a href="../../adr/ADR-015-load-testing-strategy/">ADR-015: Load Testing Strategy</a></li>
+<li>📚 <a href="../../03-DEVELOPMENT/performance-testing-guide/">Performance Testing Guide</a></li>
+</ul>
+<h3 id="chaos-engineering-bv-chaos-experiments">Chaos Engineering (<code>bv-chaos-experiments/</code>)</h3>
+<ul>
+<li>✅ Chaos Mesh experiments (pod failure, network latency, resource stress, Kafka failures)</li>
+<li>✅ Game day runbook - Inventory service failure scenario</li>
+<li>📚 <a href="../../adr/ADR-016-chaos-engineering-framework/">ADR-016: Chaos Engineering Framework</a></li>
+</ul>
+<h3 id="observability-bv-observability">Observability (<code>bv-observability/</code>)</h3>
+<ul>
+<li>✅ OpenTelemetry Collector configuration</li>
+<li>✅ Prometheus alert rules (10 critical alerts)</li>
+<li>✅ Standard metrics and tracing conventions</li>
+<li>📚 <a href="../../adr/ADR-007-observability-baseline/">ADR-007: Observability Baseline</a></li>
+</ul>
+<h3 id="security-testing-bv-security-testing">Security Testing (<code>bv-security-testing/</code>)</h3>
+<ul>
+<li>✅ OWASP ZAP configuration</li>
+<li>✅ Security testing layers (SAST, DAST, dependency scanning)</li>
+<li>📚 <a href="../../adr/ADR-005-security-layering/">ADR-005: Security Layering</a></li>
+</ul>
+<h3 id="cicd-workflows-githubworkflows">CI/CD Workflows (<code>.github/workflows/</code>)</h3>
+<ul>
+<li>✅ <code>ci-build-test.yml</code> - Build and test</li>
+<li>✅ <code>security-scanning.yml</code> - Snyk, Trivy, TruffleHog</li>
+<li>✅ <code>contract-tests.yml</code> - Pact and gRPC validation</li>
+<li>✅ <code>performance-smoke.yml</code> - k6 regression detection</li>
+<li>📚 <a href="../../adr/ADR-017-cicd-pipeline-architecture/">ADR-017: CI/CD Pipeline Architecture</a></li>
+</ul>
+<hr />
+<h2 id="learning-objectives-by-phase">🎯 Learning Objectives by Phase</h2>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Focus Area</th>
+<th>Key Learnings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1-4</td>
+<td>Foundation &amp; Core Services</td>
+<td>Spring Boot, Docker, Postgres, REST APIs, Testing</td>
+</tr>
+<tr>
+<td>5-8</td>
+<td>Messaging &amp; Events</td>
+<td>Kafka, event-driven architecture, CDC, projections</td>
+</tr>
+<tr>
+<td>9-12</td>
+<td>Observability &amp; Resilience</td>
+<td>OpenTelemetry, Prometheus, Circuit Breakers, Chaos Engineering</td>
+</tr>
+<tr>
+<td>13-16</td>
+<td>Performance &amp; Security</td>
+<td>Load testing, optimization, security scanning, CI/CD</td>
+</tr>
+<tr>
+<td>17-20</td>
+<td>Advanced Patterns</td>
+<td>Multi-protocol, real-time, ML integration, production readiness</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="phase-1-foundation-setup-week-1-2">Phase 1: Foundation Setup (Week 1-2)</h2>
+<h3 id="week-1-local-development-environment">Week 1: Local Development Environment</h3>
+<p><strong>Goal</strong>: Working local infrastructure + first microservice</p>
+<h4 id="day-1-2-infrastructure-setup">Day 1-2: Infrastructure Setup</h4>
+<ul>
+<li>
+<p>[ ] <strong>Task 1.1</strong>: Install prerequisites
+  <div class="highlight"><pre><span></span><code><span class="c1"># Install Docker Desktop</span>
+<span class="c1"># Install Java 17 (Temurin)</span>
+<span class="c1"># Install Maven</span>
+<span class="c1"># Verify: docker --version, java -version, mvn -version</span>
+</code></pre></div>
+  <strong>Learning</strong>: Container orchestration basics, Java ecosystem
+  <strong>Validation</strong>: All commands return versions</p>
+</li>
+<li>
+<p>[ ] <strong>Task 1.2</strong>: Start local infrastructure
+  <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/Users/PSP1000909/Learn/BitVelocity
+docker-compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.infra.yml<span class="w"> </span>up<span class="w"> </span>-d
+<span class="c1"># Services: Postgres, Redis, Redpanda (Kafka)</span>
+</code></pre></div>
+  <strong>Learning</strong>: Docker Compose, multi-container apps
+  <strong>Validation</strong>: <code>docker ps</code> shows 3 running containers
+  <strong>Time</strong>: 1 hour</p>
+</li>
+</ul>
+<h4 id="day-3-4-first-service-product-service">Day 3-4: First Service - Product Service</h4>
+<ul>
+<li>[ ] <strong>Task 1.3</strong>: Create Product entity and repository
+  <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>bv-eCommerce-core/product-service
+</code></pre></div></li>
+<li>Create <code>Product.java</code> entity (id, name, description, price, createdAt, updatedAt)</li>
+<li>Create <code>ProductRepository</code> extends <code>JpaRepository</code></li>
+<li>Add <code>application.yml</code> with Postgres config</li>
+</ul>
+<p><strong>Learning</strong>: JPA entities, Spring Data, database configuration
+  <strong>Validation</strong>: Run tests <code>mvn test</code>
+  <strong>Time</strong>: 2 hours</p>
+<ul>
+<li>[ ] <strong>Task 1.4</strong>: Create REST API</li>
+<li>Create <code>ProductController</code> with CRUD endpoints</li>
+<li>Create <code>ProductService</code> for business logic</li>
+<li>Add validation (<code>@Valid</code>, <code>@NotNull</code>, etc.)</li>
+</ul>
+<p><strong>Learning</strong>: REST API design, dependency injection, validation
+  <strong>Validation</strong>: Use Postman/curl to test endpoints
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="day-5-testing-documentation">Day 5: Testing &amp; Documentation</h4>
+<ul>
+<li>[ ] <strong>Task 1.5</strong>: Write tests</li>
+<li>Unit tests for <code>ProductService</code></li>
+<li>Integration tests with Testcontainers</li>
+<li>Test coverage &gt; 80%</li>
+</ul>
+<p><strong>Learning</strong>: JUnit 5, Mockito, Testcontainers
+  <strong>Validation</strong>: <code>mvn verify</code> passes, coverage report
+  <strong>Time</strong>: 2 hours</p>
+<ul>
+<li>[ ] <strong>Task 1.6</strong>: Add OpenAPI documentation</li>
+<li>Add Springdoc OpenAPI dependency</li>
+<li>Add API descriptions with <code>@Operation</code>, <code>@ApiResponse</code></li>
+<li>Access Swagger UI: <code>http://localhost:8080/swagger-ui.html</code></li>
+</ul>
+<p><strong>Learning</strong>: API documentation, Swagger/OpenAPI
+  <strong>Validation</strong>: View API docs in browser
+  <strong>Time</strong>: 1 hour</p>
+<h4 id="week-1-deliverable">Week 1 Deliverable</h4>
+<p>✅ Working Product Service with CRUD operations<br />
+✅ Local infrastructure running<br />
+✅ Tests passing<br />
+✅ API documentation available</p>
+<hr />
+<h3 id="week-2-expand-to-cart-service-observability-basics">Week 2: Expand to Cart Service + Observability Basics</h3>
+<h4 id="day-1-2-cart-service">Day 1-2: Cart Service</h4>
+<ul>
+<li>[ ] <strong>Task 2.1</strong>: Create Cart service structure</li>
+<li>Copy structure from product-service</li>
+<li>Create <code>Cart</code> and <code>CartItem</code> entities</li>
+<li>Implement in-memory cart (Redis later)</li>
+</ul>
+<p><strong>Learning</strong>: Multi-entity relationships, DTOs
+  <strong>Validation</strong>: Cart CRUD works via Postman
+  <strong>Time</strong>: 3 hours</p>
+<ul>
+<li>[ ] <strong>Task 2.2</strong>: Add Redis caching</li>
+<li>Add Spring Data Redis dependency</li>
+<li>Implement <code>@Cacheable</code> for product lookups</li>
+<li>Configure Redis connection</li>
+</ul>
+<p><strong>Learning</strong>: Caching strategies, Redis basics
+  <strong>Validation</strong>: Cache hit/miss logs, faster responses
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="day-3-4-basic-observability">Day 3-4: Basic Observability</h4>
+<ul>
+<li>[ ] <strong>Task 2.3</strong>: Add Actuator endpoints</li>
+<li>Add Spring Boot Actuator</li>
+<li>Enable health, metrics, info endpoints</li>
+<li>Custom health indicator for database</li>
+</ul>
+<p><strong>Learning</strong>: Application monitoring, health checks
+  <strong>Validation</strong>: Access <code>/actuator/health</code>
+  <strong>Time</strong>: 1 hour</p>
+<ul>
+<li>[ ] <strong>Task 2.4</strong>: Add structured logging</li>
+<li>Configure Logback with JSON format</li>
+<li>Add MDC for correlation IDs</li>
+<li>Log key business events</li>
+</ul>
+<p><strong>Learning</strong>: Structured logging, correlation
+  <strong>Validation</strong>: JSON logs in console
+  <strong>Time</strong>: 2 hours</p>
+<ul>
+<li>[ ] <strong>Task 2.5</strong>: Basic Prometheus metrics</li>
+<li>Add Micrometer registry</li>
+<li>Expose <code>/actuator/prometheus</code></li>
+<li>Create custom business metrics counter</li>
+</ul>
+<p><strong>Learning</strong>: Metrics collection, Prometheus format
+  <strong>Validation</strong>: Metrics visible at endpoint
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="day-5-integration">Day 5: Integration</h4>
+<ul>
+<li>[ ] <strong>Task 2.6</strong>: Connect Cart to Product</li>
+<li>Cart service calls Product service via RestTemplate</li>
+<li>Handle errors gracefully</li>
+<li>Add retry logic (Spring Retry)</li>
+</ul>
+<p><strong>Learning</strong>: Service-to-service communication, resilience
+  <strong>Validation</strong>: Add product to cart works
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="week-2-deliverable">Week 2 Deliverable</h4>
+<p>✅ Two microservices communicating<br />
+✅ Redis caching implemented<br />
+✅ Basic observability (health, logs, metrics)<br />
+✅ Retry patterns applied</p>
+<hr />
+<h2 id="phase-2-messaging-events-week-3-4">Phase 2: Messaging &amp; Events (Week 3-4)</h2>
+<h3 id="week-3-kafka-integration">Week 3: Kafka Integration</h3>
+<h4 id="day-1-2-kafka-basics">Day 1-2: Kafka Basics</h4>
+<ul>
+<li>[ ] <strong>Task 3.1</strong>: Kafka setup and exploration</li>
+<li>Verify Redpanda (Kafka) is running</li>
+<li>Create topics via CLI</li>
+<li>Produce/consume messages manually</li>
+</ul>
+<p><strong>Learning</strong>: Kafka concepts, topics, partitions
+  <strong>Validation</strong>: Send message, receive it
+  <strong>Time</strong>: 2 hours</p>
+<ul>
+<li>[ ] <strong>Task 3.2</strong>: First domain event</li>
+<li>Create <code>ProductCreatedEvent</code> class</li>
+<li>Implement event publishing in Product service</li>
+<li>Use Spring Kafka</li>
+</ul>
+<p><strong>Learning</strong>: Event-driven architecture, serialization
+  <strong>Validation</strong>: Event appears in Kafka topic
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="day-3-4-event-consumers">Day 3-4: Event Consumers</h4>
+<ul>
+<li>[ ] <strong>Task 3.3</strong>: Inventory service consumer</li>
+<li>Create basic Inventory service</li>
+<li>Consume <code>ProductCreatedEvent</code></li>
+<li>Initialize inventory record</li>
+</ul>
+<p><strong>Learning</strong>: Event consumers, offset management
+  <strong>Validation</strong>: Inventory record created on product creation
+  <strong>Time</strong>: 3 hours</p>
+<ul>
+<li>[ ] <strong>Task 3.4</strong>: Event schema validation</li>
+<li>Define JSON schemas for events</li>
+<li>Validate events against schemas</li>
+<li>Create event contract tests</li>
+</ul>
+<p><strong>Learning</strong>: Schema evolution, contract testing
+  <strong>Validation</strong>: Schema violations fail
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="day-5-event-patterns">Day 5: Event Patterns</h4>
+<ul>
+<li>[ ] <strong>Task 3.5</strong>: Idempotency</li>
+<li>Add idempotency keys to events</li>
+<li>Implement duplicate detection</li>
+<li>Test duplicate event handling</li>
+</ul>
+<p><strong>Learning</strong>: Exactly-once processing patterns
+  <strong>Validation</strong>: Duplicate events don't create duplicates
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="week-3-deliverable">Week 3 Deliverable</h4>
+<p>✅ Kafka-based event publishing<br />
+✅ Event consumers working<br />
+✅ Event schemas defined<br />
+✅ Idempotency implemented</p>
+<hr />
+<h3 id="week-4-order-service-saga-pattern">Week 4: Order Service + Saga Pattern</h3>
+<h4 id="day-1-3-order-service">Day 1-3: Order Service</h4>
+<ul>
+<li>[ ] <strong>Task 4.1</strong>: Order entity and workflow</li>
+<li>Create Order, OrderItem entities</li>
+<li>Implement order state machine (PENDING → CONFIRMED → PAID → FULFILLED)</li>
+<li>Add state validation</li>
+</ul>
+<p><strong>Learning</strong>: State machines, aggregate patterns
+  <strong>Validation</strong>: State transitions work correctly
+  <strong>Time</strong>: 4 hours</p>
+<ul>
+<li>[ ] <strong>Task 4.2</strong>: Order creation saga</li>
+<li>Reserve inventory (call Inventory service)</li>
+<li>Create order</li>
+<li>Publish <code>OrderCreatedEvent</code></li>
+</ul>
+<p><strong>Learning</strong>: Distributed transactions, saga orchestration
+  <strong>Validation</strong>: Happy path works end-to-end
+  <strong>Time</strong>: 3 hours</p>
+<h4 id="day-4-5-saga-compensation">Day 4-5: Saga Compensation</h4>
+<ul>
+<li>[ ] <strong>Task 4.3</strong>: Implement rollback</li>
+<li>Handle inventory reservation failure</li>
+<li>Compensate by releasing inventory</li>
+<li>Publish compensation events</li>
+</ul>
+<p><strong>Learning</strong>: Saga compensation, eventual consistency
+  <strong>Validation</strong>: Failed orders roll back inventory
+  <strong>Time</strong>: 3 hours</p>
+<ul>
+<li>[ ] <strong>Task 4.4</strong>: Add saga timeout</li>
+<li>Configure saga timeout (30 seconds)</li>
+<li>Auto-cancel if not completed</li>
+<li>Clean up resources</li>
+</ul>
+<p><strong>Learning</strong>: Timeout handling, resource cleanup
+  <strong>Validation</strong>: Saga times out correctly
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="week-4-deliverable">Week 4 Deliverable</h4>
+<p>✅ Order service with state machine<br />
+✅ Saga pattern for order creation<br />
+✅ Compensation logic working<br />
+✅ End-to-end order flow functional</p>
+<hr />
+<h2 id="phase-3-observability-stack-week-5-6">Phase 3: Observability Stack (Week 5-6)</h2>
+<h3 id="week-5-opentelemetry-tracing">Week 5: OpenTelemetry &amp; Tracing</h3>
+<h4 id="day-1-2-distributed-tracing">Day 1-2: Distributed Tracing</h4>
+<ul>
+<li>[ ] <strong>Task 5.1</strong>: OpenTelemetry agent setup</li>
+<li>Add OpenTelemetry Java agent to services</li>
+<li>Configure OTLP exporter</li>
+<li>Deploy Jaeger locally</li>
+</ul>
+<p><strong>Learning</strong>: Distributed tracing, span context propagation
+  <strong>Validation</strong>: Traces visible in Jaeger UI
+  <strong>Time</strong>: 3 hours</p>
+<ul>
+<li>[ ] <strong>Task 5.2</strong>: Custom spans</li>
+<li>Add custom spans for business operations</li>
+<li>Add span attributes (orderId, userId, etc.)</li>
+<li>Link spans across service boundaries</li>
+</ul>
+<p><strong>Learning</strong>: Span lifecycle, attributes, baggage
+  <strong>Validation</strong>: Rich traces with business context
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="day-3-4-prometheus-grafana">Day 3-4: Prometheus + Grafana</h4>
+<ul>
+<li>
+<p>[ ] <strong>Task 5.3</strong>: Deploy observability stack
+  <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>bv-observability/otel-collector/deployment.yaml
+kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>bv-observability/prometheus/deployment.yaml
+kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>bv-observability/grafana/deployment.yaml
+</code></pre></div>
+  <strong>Learning</strong>: Kubernetes deployments, service discovery
+  <strong>Validation</strong>: Access Grafana at localhost:3000
+  <strong>Time</strong>: 2 hours</p>
+</li>
+<li>
+<p>[ ] <strong>Task 5.4</strong>: Create first dashboard</p>
+</li>
+<li>Import service overview dashboard</li>
+<li>Add panels for request rate, latency, errors</li>
+<li>Configure data sources</li>
+</ul>
+<p><strong>Learning</strong>: Grafana dashboards, PromQL queries
+  <strong>Validation</strong>: Live metrics in dashboard
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="day-5-alerting">Day 5: Alerting</h4>
+<ul>
+<li>[ ] <strong>Task 5.5</strong>: Configure alerts</li>
+<li>Apply Prometheus alert rules</li>
+<li>Configure Alertmanager</li>
+<li>Test alert firing (simulate high error rate)</li>
+</ul>
+<p><strong>Learning</strong>: Alert rules, evaluation intervals
+  <strong>Validation</strong>: Alert fires and shows in Alertmanager
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="week-5-deliverable">Week 5 Deliverable</h4>
+<p>✅ Distributed tracing with Jaeger<br />
+✅ Prometheus metrics collection<br />
+✅ Grafana dashboards<br />
+✅ Alerts configured and tested</p>
+<hr />
+<h3 id="week-6-advanced-observability">Week 6: Advanced Observability</h3>
+<h4 id="day-1-2-slo-monitoring">Day 1-2: SLO Monitoring</h4>
+<ul>
+<li>[ ] <strong>Task 6.1</strong>: Define SLOs</li>
+<li>Document SLOs in <code>sli-targets.yaml</code></li>
+<li>Create SLO dashboard in Grafana</li>
+<li>Track error budget</li>
+</ul>
+<p><strong>Learning</strong>: SLI/SLO/SLA concepts, error budgets
+  <strong>Validation</strong>: SLO compliance visible
+  <strong>Time</strong>: 3 hours</p>
+<ul>
+<li>[ ] <strong>Task 6.2</strong>: Latency percentiles</li>
+<li>Configure histogram buckets</li>
+<li>Create latency distribution graphs</li>
+<li>Set up p95/p99 alerts</li>
+</ul>
+<p><strong>Learning</strong>: Percentiles, histograms
+  <strong>Validation</strong>: Latency percentile charts
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="day-3-4-log-aggregation">Day 3-4: Log Aggregation</h4>
+<ul>
+<li>[ ] <strong>Task 6.3</strong>: Deploy Loki (optional)</li>
+<li>Install Loki</li>
+<li>Configure Promtail for log shipping</li>
+<li>Query logs in Grafana</li>
+</ul>
+<p><strong>Learning</strong>: Log aggregation, LogQL
+  <strong>Validation</strong>: Logs searchable in Grafana
+  <strong>Time</strong>: 3 hours</p>
+<h4 id="day-5-correlation">Day 5: Correlation</h4>
+<ul>
+<li>[ ] <strong>Task 6.4</strong>: Traces + Logs + Metrics</li>
+<li>Add trace IDs to logs</li>
+<li>Link logs to traces in Grafana</li>
+<li>Create exemplars in metrics</li>
+</ul>
+<p><strong>Learning</strong>: Observability correlation, exemplars
+  <strong>Validation</strong>: Jump from metric → trace → logs
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="week-6-deliverable">Week 6 Deliverable</h4>
+<p>✅ SLO monitoring dashboard<br />
+✅ Log aggregation (optional)<br />
+✅ Full observability correlation<br />
+✅ Production-ready monitoring</p>
+<hr />
+<h2 id="phase-4-resilience-patterns-week-7-8">Phase 4: Resilience Patterns (Week 7-8)</h2>
+<h3 id="week-7-circuit-breakers-retries">Week 7: Circuit Breakers &amp; Retries</h3>
+<h4 id="day-1-2-resilience4j-integration">Day 1-2: Resilience4j Integration</h4>
+<ul>
+<li>[ ] <strong>Task 7.1</strong>: Add Resilience4j</li>
+<li>Add dependencies to shared library</li>
+<li>Configure circuit breaker for inventory calls</li>
+<li>Set thresholds (failure rate, slow call rate)</li>
+</ul>
+<p><strong>Learning</strong>: Circuit breaker pattern, failure thresholds
+  <strong>Validation</strong>: Circuit opens on failures
+  <strong>Time</strong>: 3 hours</p>
+<ul>
+<li>[ ] <strong>Task 7.2</strong>: Retry policies</li>
+<li>Configure exponential backoff</li>
+<li>Add jitter to prevent thundering herd</li>
+<li>Set max attempts</li>
+</ul>
+<p><strong>Learning</strong>: Retry strategies, backoff algorithms
+  <strong>Validation</strong>: Retries visible in logs/traces
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="day-3-4-bulkhead-rate-limiting">Day 3-4: Bulkhead &amp; Rate Limiting</h4>
+<ul>
+<li>[ ] <strong>Task 7.3</strong>: Bulkhead isolation</li>
+<li>Create separate thread pools for different operations</li>
+<li>Configure bulkhead sizes</li>
+<li>Test resource isolation</li>
+</ul>
+<p><strong>Learning</strong>: Bulkhead pattern, thread pool isolation
+  <strong>Validation</strong>: One failing operation doesn't block others
+  <strong>Time</strong>: 2 hours</p>
+<ul>
+<li>[ ] <strong>Task 7.4</strong>: Rate limiting</li>
+<li>Add rate limiter to public APIs</li>
+<li>Configure per-user limits</li>
+<li>Return 429 Too Many Requests</li>
+</ul>
+<p><strong>Learning</strong>: Rate limiting, token bucket algorithm
+  <strong>Validation</strong>: Requests throttled after limit
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="day-5-fallbacks">Day 5: Fallbacks</h4>
+<ul>
+<li>[ ] <strong>Task 7.5</strong>: Implement fallbacks</li>
+<li>Fallback to cached data on service failure</li>
+<li>Default responses when unavailable</li>
+<li>Graceful degradation</li>
+</ul>
+<p><strong>Learning</strong>: Fault tolerance, graceful degradation
+  <strong>Validation</strong>: Service works with degraded functionality
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="week-7-deliverable">Week 7 Deliverable</h4>
+<p>✅ Circuit breakers protecting calls<br />
+✅ Intelligent retry strategies<br />
+✅ Rate limiting enforced<br />
+✅ Graceful degradation working</p>
+<hr />
+<h3 id="week-8-chaos-engineering-introduction">Week 8: Chaos Engineering Introduction</h3>
+<h4 id="day-1-2-chaos-mesh-setup">Day 1-2: Chaos Mesh Setup</h4>
+<ul>
+<li>
+<p>[ ] <strong>Task 8.1</strong>: Install Chaos Mesh
+  <div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-sSL<span class="w"> </span>https://mirrors.chaos-mesh.org/v2.6.0/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
+</code></pre></div>
+  <strong>Learning</strong>: Chaos engineering principles, Kubernetes CRDs
+  <strong>Validation</strong>: Chaos Mesh dashboard accessible
+  <strong>Time</strong>: 1 hour</p>
+</li>
+<li>
+<p>[ ] <strong>Task 8.2</strong>: First chaos experiment</p>
+</li>
+<li>Run pod kill experiment on Product service</li>
+<li>Observe behavior in dashboards</li>
+<li>Document findings</li>
+</ul>
+<p><strong>Learning</strong>: Failure injection, observability under chaos
+  <strong>Validation</strong>: Service recovers, metrics show impact
+  <strong>Time</strong>: 3 hours</p>
+<h4 id="day-3-4-network-chaos">Day 3-4: Network Chaos</h4>
+<ul>
+<li>[ ] <strong>Task 8.3</strong>: Network latency injection</li>
+<li>Add 200ms latency to inventory calls</li>
+<li>Observe circuit breaker activation</li>
+<li>Validate timeout handling</li>
+</ul>
+<p><strong>Learning</strong>: Network failures, timeout tuning
+  <strong>Validation</strong>: Circuit breaker opens, no cascading failures
+  <strong>Time</strong>: 3 hours</p>
+<ul>
+<li>[ ] <strong>Task 8.4</strong>: Packet loss experiment</li>
+<li>Inject 20% packet loss</li>
+<li>Test retry mechanisms</li>
+<li>Validate data consistency</li>
+</ul>
+<p><strong>Learning</strong>: Network reliability, packet loss handling
+  <strong>Validation</strong>: Retries work, no data loss
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="day-5-game-day-preparation">Day 5: Game Day Preparation</h4>
+<ul>
+<li>[ ] <strong>Task 8.5</strong>: First game day runbook</li>
+<li>Complete inventory failure runbook</li>
+<li>Assign roles (incident commander, observer)</li>
+<li>Schedule game day session</li>
+</ul>
+<p><strong>Learning</strong>: Incident response, runbook creation
+  <strong>Validation</strong>: Runbook complete, team briefed
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="week-8-deliverable">Week 8 Deliverable</h4>
+<p>✅ Chaos Mesh operational<br />
+✅ 3+ chaos experiments run<br />
+✅ Resilience patterns validated<br />
+✅ Game day runbook ready</p>
+<hr />
+<h2 id="phase-5-performance-testing-week-9-10">Phase 5: Performance Testing (Week 9-10)</h2>
+<h3 id="week-9-load-testing-setup">Week 9: Load Testing Setup</h3>
+<h4 id="day-1-2-gatling-setup">Day 1-2: Gatling Setup</h4>
+<ul>
+<li>
+<p>[ ] <strong>Task 9.1</strong>: Configure Gatling project
+  <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>bv-performance-testing/gatling-tests
+./gradlew<span class="w"> </span>build
+</code></pre></div>
+  <strong>Learning</strong>: Gatling Java API, load testing concepts
+  <strong>Validation</strong>: Sample simulation runs
+  <strong>Time</strong>: 2 hours</p>
+</li>
+<li>
+<p>[ ] <strong>Task 9.2</strong>: Order flow simulation</p>
+</li>
+<li>Implement realistic order creation scenario</li>
+<li>Add think time, realistic data</li>
+<li>Configure load profile (ramp users)</li>
+</ul>
+<p><strong>Learning</strong>: Realistic load modeling, user behavior
+  <strong>Validation</strong>: Simulation runs successfully
+  <strong>Time</strong>: 3 hours</p>
+<h4 id="day-3-4-baseline-performance">Day 3-4: Baseline Performance</h4>
+<ul>
+<li>[ ] <strong>Task 9.3</strong>: Run baseline tests</li>
+<li>Execute load tests with current code</li>
+<li>Record p50, p95, p99 latencies</li>
+<li>Document throughput limits</li>
+</ul>
+<p><strong>Learning</strong>: Performance baselining, latency analysis
+  <strong>Validation</strong>: Baseline recorded in <code>sli-targets.yaml</code>
+  <strong>Time</strong>: 3 hours</p>
+<ul>
+<li>[ ] <strong>Task 9.4</strong>: Identify bottlenecks</li>
+<li>Analyze Gatling reports</li>
+<li>Check database query performance</li>
+<li>Look at resource utilization</li>
+</ul>
+<p><strong>Learning</strong>: Performance analysis, bottleneck identification
+  <strong>Validation</strong>: Bottlenecks documented
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="day-5-k6-ci-integration">Day 5: k6 CI Integration</h4>
+<ul>
+<li>[ ] <strong>Task 9.5</strong>: k6 smoke test</li>
+<li>Create k6 smoke test script</li>
+<li>Add to GitHub Actions workflow</li>
+<li>Set performance gates (p95 &lt; 200ms)</li>
+</ul>
+<p><strong>Learning</strong>: CI performance testing, quality gates
+  <strong>Validation</strong>: Smoke test runs in PR
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="week-9-deliverable">Week 9 Deliverable</h4>
+<p>✅ Gatling load tests working<br />
+✅ Performance baselines established<br />
+✅ Bottlenecks identified<br />
+✅ k6 smoke tests in CI</p>
+<hr />
+<h3 id="week-10-performance-optimization">Week 10: Performance Optimization</h3>
+<h4 id="day-1-2-database-optimization">Day 1-2: Database Optimization</h4>
+<ul>
+<li>[ ] <strong>Task 10.1</strong>: Add database indexes</li>
+<li>Analyze slow query logs</li>
+<li>Add indexes on frequently queried columns</li>
+<li>Measure improvement</li>
+</ul>
+<p><strong>Learning</strong>: Database indexing, query optimization
+  <strong>Validation</strong>: Query times reduced by 50%+
+  <strong>Time</strong>: 3 hours</p>
+<ul>
+<li>[ ] <strong>Task 10.2</strong>: Connection pooling tuning</li>
+<li>Configure HikariCP settings</li>
+<li>Adjust pool size based on load</li>
+<li>Monitor connection metrics</li>
+</ul>
+<p><strong>Learning</strong>: Connection pool configuration
+  <strong>Validation</strong>: No connection timeouts under load
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="day-3-4-caching-strategy">Day 3-4: Caching Strategy</h4>
+<ul>
+<li>[ ] <strong>Task 10.3</strong>: Implement cache warming</li>
+<li>Pre-load hot products into Redis</li>
+<li>Create cache warming job</li>
+<li>Monitor cache hit ratio</li>
+</ul>
+<p><strong>Learning</strong>: Cache strategies, cache warming
+  <strong>Validation</strong>: Cache hit ratio &gt; 80%
+  <strong>Time</strong>: 2 hours</p>
+<ul>
+<li>[ ] <strong>Task 10.4</strong>: Add HTTP caching</li>
+<li>Implement ETags</li>
+<li>Add Cache-Control headers</li>
+<li>Test conditional requests</li>
+</ul>
+<p><strong>Learning</strong>: HTTP caching, conditional requests
+  <strong>Validation</strong>: 304 responses for unchanged resources
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="day-5-re-test-document">Day 5: Re-test &amp; Document</h4>
+<ul>
+<li>[ ] <strong>Task 10.5</strong>: Performance validation</li>
+<li>Re-run load tests</li>
+<li>Compare with baseline</li>
+<li>Document improvements</li>
+</ul>
+<p><strong>Learning</strong>: Performance comparison, regression detection
+  <strong>Validation</strong>: 30%+ improvement in p95 latency
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="week-10-deliverable">Week 10 Deliverable</h4>
+<p>✅ Database optimized<br />
+✅ Caching strategy implemented<br />
+✅ Performance improved 30%+<br />
+✅ Optimization documented</p>
+<hr />
+<h2 id="phase-6-security-cicd-week-11-12">Phase 6: Security &amp; CI/CD (Week 11-12)</h2>
+<h3 id="week-11-security-hardening">Week 11: Security Hardening</h3>
+<h4 id="day-1-2-dependency-scanning">Day 1-2: Dependency Scanning</h4>
+<ul>
+<li>[ ] <strong>Task 11.1</strong>: OWASP Dependency Check</li>
+<li>Add to Maven build</li>
+<li>Run scan, review results</li>
+<li>Update vulnerable dependencies</li>
+</ul>
+<p><strong>Learning</strong>: Dependency vulnerabilities, CVE management
+  <strong>Validation</strong>: No CRITICAL vulnerabilities
+  <strong>Time</strong>: 2 hours</p>
+<ul>
+<li>[ ] <strong>Task 11.2</strong>: Container scanning</li>
+<li>Scan Docker images with Trivy</li>
+<li>Fix base image vulnerabilities</li>
+<li>Use distroless images</li>
+</ul>
+<p><strong>Learning</strong>: Container security, minimal images
+  <strong>Validation</strong>: Clean Trivy scan
+  <strong>Time</strong>: 3 hours</p>
+<h4 id="day-3-4-authentication-authorization">Day 3-4: Authentication &amp; Authorization</h4>
+<ul>
+<li>[ ] <strong>Task 11.3</strong>: JWT authentication</li>
+<li>Implement JWT generation in auth service</li>
+<li>Add JWT validation filter</li>
+<li>Secure endpoints with @PreAuthorize</li>
+</ul>
+<p><strong>Learning</strong>: JWT, Spring Security, RBAC
+  <strong>Validation</strong>: Protected endpoints require auth
+  <strong>Time</strong>: 4 hours</p>
+<ul>
+<li>[ ] <strong>Task 11.4</strong>: OWASP ZAP scan</li>
+<li>Run ZAP baseline scan</li>
+<li>Fix identified issues (XSS, SQL injection)</li>
+<li>Document false positives</li>
+</ul>
+<p><strong>Learning</strong>: DAST, common web vulnerabilities
+  <strong>Validation</strong>: No HIGH findings in ZAP report
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="day-5-secrets-management">Day 5: Secrets Management</h4>
+<ul>
+<li>[ ] <strong>Task 11.5</strong>: Externalize secrets</li>
+<li>Move secrets to environment variables</li>
+<li>Use Spring Cloud Config or Vault (simple setup)</li>
+<li>Rotate database credentials</li>
+</ul>
+<p><strong>Learning</strong>: Secrets management, environment config
+  <strong>Validation</strong>: No secrets in code
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="week-11-deliverable">Week 11 Deliverable</h4>
+<p>✅ No critical vulnerabilities<br />
+✅ JWT authentication working<br />
+✅ OWASP ZAP scan passed<br />
+✅ Secrets externalized</p>
+<hr />
+<h3 id="week-12-cicd-pipeline">Week 12: CI/CD Pipeline</h3>
+<h4 id="day-1-2-build-pipeline">Day 1-2: Build Pipeline</h4>
+<ul>
+<li>[ ] <strong>Task 12.1</strong>: GitHub Actions setup</li>
+<li>Configure build workflow</li>
+<li>Add test stages</li>
+<li>Cache Maven dependencies</li>
+</ul>
+<p><strong>Learning</strong>: GitHub Actions, CI/CD concepts
+  <strong>Validation</strong>: Build runs on push
+  <strong>Time</strong>: 2 hours</p>
+<ul>
+<li>[ ] <strong>Task 12.2</strong>: Quality gates</li>
+<li>Add test coverage gate (80%)</li>
+<li>Add security scan gate</li>
+<li>Fail build on critical issues</li>
+</ul>
+<p><strong>Learning</strong>: Quality gates, shift-left testing
+  <strong>Validation</strong>: Poor quality commits blocked
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="day-3-4-contract-testing">Day 3-4: Contract Testing</h4>
+<ul>
+<li>[ ] <strong>Task 12.3</strong>: Pact consumer tests</li>
+<li>Write consumer contract tests</li>
+<li>Publish contracts to broker</li>
+<li>Verify provider compatibility</li>
+</ul>
+<p><strong>Learning</strong>: Contract testing, consumer-driven contracts
+  <strong>Validation</strong>: Contract tests pass
+  <strong>Time</strong>: 3 hours</p>
+<ul>
+<li>[ ] <strong>Task 12.4</strong>: Contract in CI</li>
+<li>Add contract test stage to pipeline</li>
+<li>Block merge on contract breaking changes</li>
+<li>Document contract versioning</li>
+</ul>
+<p><strong>Learning</strong>: Contract versioning, API evolution
+  <strong>Validation</strong>: Breaking changes detected
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="day-5-deployment-automation">Day 5: Deployment Automation</h4>
+<ul>
+<li>[ ] <strong>Task 12.5</strong>: Docker image building</li>
+<li>Add Docker build to pipeline</li>
+<li>Tag with git SHA</li>
+<li>Push to container registry</li>
+</ul>
+<p><strong>Learning</strong>: Container registries, image tagging
+  <strong>Validation</strong>: Images built and pushed
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="week-12-deliverable">Week 12 Deliverable</h4>
+<p>✅ Full CI/CD pipeline operational<br />
+✅ Automated quality gates<br />
+✅ Contract testing enforced<br />
+✅ Container images auto-built</p>
+<hr />
+<h2 id="phase-7-multi-protocol-patterns-week-13-14">Phase 7: Multi-Protocol Patterns (Week 13-14)</h2>
+<h3 id="week-13-grpc-implementation">Week 13: gRPC Implementation</h3>
+<h4 id="day-1-2-grpc-service">Day 1-2: gRPC Service</h4>
+<ul>
+<li>[ ] <strong>Task 13.1</strong>: Define proto file</li>
+<li>Create <code>inventory.proto</code></li>
+<li>Define ReserveStock, QueryStock methods</li>
+<li>Generate Java code</li>
+</ul>
+<p><strong>Learning</strong>: Protocol Buffers, gRPC service definition
+  <strong>Validation</strong>: Java classes generated
+  <strong>Time</strong>: 2 hours</p>
+<ul>
+<li>[ ] <strong>Task 13.2</strong>: Implement gRPC service</li>
+<li>Create InventoryGrpcService</li>
+<li>Implement business logic</li>
+<li>Add gRPC server configuration</li>
+</ul>
+<p><strong>Learning</strong>: gRPC server implementation, blocking/async
+  <strong>Validation</strong>: gRPC calls work via grpcurl
+  <strong>Time</strong>: 3 hours</p>
+<h4 id="day-3-4-grpc-client">Day 3-4: gRPC Client</h4>
+<ul>
+<li>[ ] <strong>Task 13.3</strong>: gRPC client in Order service</li>
+<li>Add gRPC client stub</li>
+<li>Call inventory via gRPC</li>
+<li>Handle gRPC errors</li>
+</ul>
+<p><strong>Learning</strong>: gRPC client, error handling
+  <strong>Validation</strong>: Order service calls inventory via gRPC
+  <strong>Time</strong>: 2 hours</p>
+<ul>
+<li>[ ] <strong>Task 13.4</strong>: gRPC observability</li>
+<li>Add gRPC interceptors for tracing</li>
+<li>Expose gRPC metrics</li>
+<li>Test distributed tracing</li>
+</ul>
+<p><strong>Learning</strong>: gRPC interceptors, observability
+  <strong>Validation</strong>: gRPC traces in Jaeger
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="day-5-grpc-resilience">Day 5: gRPC Resilience</h4>
+<ul>
+<li>[ ] <strong>Task 13.5</strong>: gRPC retry and timeout</li>
+<li>Configure retry policy</li>
+<li>Set deadlines</li>
+<li>Test failure scenarios</li>
+</ul>
+<p><strong>Learning</strong>: gRPC deadlines, retry semantics
+  <strong>Validation</strong>: Resilient gRPC calls
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="week-13-deliverable">Week 13 Deliverable</h4>
+<p>✅ gRPC service implemented<br />
+✅ gRPC client working<br />
+✅ gRPC observability<br />
+✅ gRPC resilience patterns</p>
+<hr />
+<h3 id="week-14-websocket-sse">Week 14: WebSocket &amp; SSE</h3>
+<h4 id="day-1-3-websocket-implementation">Day 1-3: WebSocket Implementation</h4>
+<ul>
+<li>[ ] <strong>Task 14.1</strong>: Notification service setup</li>
+<li>Create notification-service</li>
+<li>Add Spring WebSocket dependency</li>
+<li>Configure WebSocket endpoint</li>
+</ul>
+<p><strong>Learning</strong>: WebSocket protocol, STOMP
+  <strong>Validation</strong>: WebSocket connection established
+  <strong>Time</strong>: 2 hours</p>
+<ul>
+<li>[ ] <strong>Task 14.2</strong>: Order status notifications</li>
+<li>Publish order updates to WebSocket</li>
+<li>Subscribe clients to order channels</li>
+<li>Test bidirectional communication</li>
+</ul>
+<p><strong>Learning</strong>: Pub/sub over WebSocket, message routing
+  <strong>Validation</strong>: Clients receive real-time updates
+  <strong>Time</strong>: 3 hours</p>
+<ul>
+<li>[ ] <strong>Task 14.3</strong>: WebSocket security</li>
+<li>Add JWT authentication to handshake</li>
+<li>Implement subscription authorization</li>
+<li>Test unauthorized access</li>
+</ul>
+<p><strong>Learning</strong>: WebSocket security, authentication
+  <strong>Validation</strong>: Unauthorized connections rejected
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="day-4-5-server-sent-events">Day 4-5: Server-Sent Events</h4>
+<ul>
+<li>[ ] <strong>Task 14.4</strong>: SSE endpoint</li>
+<li>Create SSE endpoint for flash sales</li>
+<li>Broadcast sale start/end events</li>
+<li>Handle client reconnection</li>
+</ul>
+<p><strong>Learning</strong>: SSE protocol, long-lived connections
+  <strong>Validation</strong>: Clients receive SSE events
+  <strong>Time</strong>: 2 hours</p>
+<ul>
+<li>[ ] <strong>Task 14.5</strong>: Load test real-time</li>
+<li>Create Gatling WebSocket scenario</li>
+<li>Test concurrent connections (1000+)</li>
+<li>Monitor resource usage</li>
+</ul>
+<p><strong>Learning</strong>: Real-time performance, connection scaling
+  <strong>Validation</strong>: Handle 1000+ concurrent connections
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="week-14-deliverable">Week 14 Deliverable</h4>
+<p>✅ WebSocket notifications working<br />
+✅ SSE for broadcasts<br />
+✅ Real-time security implemented<br />
+✅ Load tested for concurrency</p>
+<hr />
+<h2 id="phase-8-advanced-patterns-week-15-16">Phase 8: Advanced Patterns (Week 15-16)</h2>
+<h3 id="week-15-cdc-projections">Week 15: CDC &amp; Projections</h3>
+<h4 id="day-1-2-debezium-cdc">Day 1-2: Debezium CDC</h4>
+<ul>
+<li>[ ] <strong>Task 15.1</strong>: Debezium setup</li>
+<li>Deploy Debezium Postgres connector</li>
+<li>Configure CDC for orders table</li>
+<li>Verify CDC events in Kafka</li>
+</ul>
+<p><strong>Learning</strong>: Change Data Capture, database replication
+  <strong>Validation</strong>: DB changes appear in Kafka
+  <strong>Time</strong>: 3 hours</p>
+<ul>
+<li>[ ] <strong>Task 15.2</strong>: First projection</li>
+<li>Create orders_by_customer projection</li>
+<li>Build from CDC events</li>
+<li>Store in Cassandra (or Postgres)</li>
+</ul>
+<p><strong>Learning</strong>: Event sourcing, projections, read models
+  <strong>Validation</strong>: Projection stays in sync
+  <strong>Time</strong>: 3 hours</p>
+<h4 id="day-3-4-kafka-streams">Day 3-4: Kafka Streams</h4>
+<ul>
+<li>[ ] <strong>Task 15.3</strong>: Stream processing</li>
+<li>Create Kafka Streams app</li>
+<li>Aggregate order totals</li>
+<li>Window by time period</li>
+</ul>
+<p><strong>Learning</strong>: Stream processing, windowing, aggregation
+  <strong>Validation</strong>: Aggregated metrics available
+  <strong>Time</strong>: 4 hours</p>
+<h4 id="day-5-replay-framework">Day 5: Replay Framework</h4>
+<ul>
+<li>[ ] <strong>Task 15.4</strong>: Projection rebuild</li>
+<li>Implement replay service skeleton</li>
+<li>Replay events from beginning</li>
+<li>Validate projection correctness</li>
+</ul>
+<p><strong>Learning</strong>: Event replay, data recovery
+  <strong>Validation</strong>: Projection rebuilt correctly
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="week-15-deliverable">Week 15 Deliverable</h4>
+<p>✅ CDC pipeline operational<br />
+✅ Projections built from events<br />
+✅ Kafka Streams aggregations<br />
+✅ Replay capability demonstrated</p>
+<hr />
+<h3 id="week-16-production-readiness">Week 16: Production Readiness</h3>
+<h4 id="day-1-documentation">Day 1: Documentation</h4>
+<ul>
+<li>[ ] <strong>Task 16.1</strong>: Complete documentation</li>
+<li>Update all READMEs</li>
+<li>Document architecture decisions</li>
+<li>Create operational runbooks</li>
+</ul>
+<p><strong>Learning</strong>: Technical documentation, runbooks
+  <strong>Validation</strong>: Docs reviewed by peer
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="day-2-kubernetes-deployment">Day 2: Kubernetes Deployment</h4>
+<ul>
+<li>[ ] <strong>Task 16.2</strong>: Helm charts</li>
+<li>Create Helm chart for each service</li>
+<li>Configure resource limits</li>
+<li>Add health probes</li>
+</ul>
+<p><strong>Learning</strong>: Kubernetes, Helm, resource management
+  <strong>Validation</strong>: Services deploy to K8s
+  <strong>Time</strong>: 3 hours</p>
+<h4 id="day-3-final-game-day">Day 3: Final Game Day</h4>
+<ul>
+<li>[ ] <strong>Task 16.3</strong>: Multi-service chaos</li>
+<li>Run complex failure scenario</li>
+<li>Involve full team</li>
+<li>Document incident response</li>
+</ul>
+<p><strong>Learning</strong>: Incident management, team coordination
+  <strong>Validation</strong>: System handles chaos gracefully
+  <strong>Time</strong>: 3 hours</p>
+<h4 id="day-4-5-retrospective-planning">Day 4-5: Retrospective &amp; Planning</h4>
+<ul>
+<li>[ ] <strong>Task 16.4</strong>: Phase 1 retrospective</li>
+<li>Review what worked/didn't work</li>
+<li>Document key learnings</li>
+<li>Plan Phase 2 (advanced domains)</li>
+</ul>
+<p><strong>Learning</strong>: Continuous improvement, reflection
+  <strong>Validation</strong>: Retro notes documented
+  <strong>Time</strong>: 2 hours</p>
+<h4 id="week-16-deliverable">Week 16 Deliverable</h4>
+<p>✅ Production-ready documentation<br />
+✅ Kubernetes deployment working<br />
+✅ Final game day completed<br />
+✅ Phase 1 complete!</p>
+<hr />
+<h2 id="phase-9-12-advanced-domains-weeks-17-24-overview">Phase 9-12: Advanced Domains (Weeks 17-24) - Overview</h2>
+<h3 id="week-17-18-chat-domain">Week 17-18: Chat Domain</h3>
+<ul>
+<li>WebSocket-based chat</li>
+<li>Message persistence</li>
+<li>Read receipts, typing indicators</li>
+<li>Scaling WebSocket connections</li>
+</ul>
+<h3 id="week-19-20-iot-domain">Week 19-20: IoT Domain</h3>
+<ul>
+<li>MQTT ingestion</li>
+<li>High-volume telemetry processing</li>
+<li>Anomaly detection</li>
+<li>Time-series data</li>
+</ul>
+<h3 id="week-21-22-social-feed-domain">Week 21-22: Social Feed Domain</h3>
+<ul>
+<li>Activity streams</li>
+<li>Fan-out patterns</li>
+<li>Feed ranking algorithms</li>
+<li>GraphQL API</li>
+</ul>
+<h3 id="week-23-24-ml-integration">Week 23-24: ML Integration</h3>
+<ul>
+<li>Fraud detection model</li>
+<li>Recommendation engine</li>
+<li>Model serving</li>
+<li>A/B testing framework</li>
+</ul>
+<hr />
+<h2 id="daily-routine-template">Daily Routine Template</h2>
+<h3 id="morning-60-minutes">Morning (60 minutes)</h3>
+<ol>
+<li><strong>Review</strong> (15 min): Check yesterday's work, read docs</li>
+<li><strong>Plan</strong> (5 min): Review today's tasks</li>
+<li><strong>Code</strong> (40 min): Focus on implementation</li>
+</ol>
+<h3 id="evening-60-90-minutes">Evening (60-90 minutes)</h3>
+<ol>
+<li><strong>Code</strong> (45 min): Continue implementation</li>
+<li><strong>Test</strong> (20 min): Write tests, run validation</li>
+<li><strong>Document</strong> (10 min): Update notes, capture learnings</li>
+<li><strong>Commit</strong> (5 min): Commit work with clear message</li>
+</ol>
+<h3 id="weekend-optional-2-3-hours">Weekend (Optional 2-3 hours)</h3>
+<ul>
+<li>Catch up if behind</li>
+<li>Explore advanced topics</li>
+<li>Refactor and improve code quality</li>
+<li>Prepare for next week</li>
+</ul>
+<hr />
+<h2 id="success-metrics">Success Metrics</h2>
+<p>Track your progress weekly:</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tasks completed</td>
+<td>100% of week's tasks</td>
+</tr>
+<tr>
+<td>Test coverage</td>
+<td>&gt; 80%</td>
+</tr>
+<tr>
+<td>Build status</td>
+<td>Green</td>
+</tr>
+<tr>
+<td>Documentation</td>
+<td>Updated</td>
+</tr>
+<tr>
+<td>Learning log</td>
+<td>Daily entries</td>
+</tr>
+<tr>
+<td>Code commits</td>
+<td>5+ per week</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="support-resources">Support &amp; Resources</h2>
+<h3 id="when-stuck">When Stuck</h3>
+<ol>
+<li>Check existing ADRs and docs</li>
+<li>Review example code in other services</li>
+<li>Search official documentation</li>
+<li>Ask AI assistant with specific context</li>
+<li>Take break, come back fresh</li>
+</ol>
+<h3 id="learning-resources">Learning Resources</h3>
+<ul>
+<li>Keep <code>LEARNING_LOG.md</code> to track insights</li>
+<li>Document problems and solutions</li>
+<li>Take screenshots of dashboards/results</li>
+<li>Share learnings (blog, team, etc.)</li>
+</ul>
+<hr />
+<h2 id="next-steps">Next Steps</h2>
+<ol>
+<li><strong>Print this roadmap</strong> - Keep it visible</li>
+<li><strong>Set up calendar</strong> - Block daily 2-3 hour slots</li>
+<li><strong>Create tracking sheet</strong> - Check off completed tasks</li>
+<li><strong>Join community</strong> - Find accountability partner</li>
+<li><strong>Start Day 1</strong> - Begin infrastructure setup tomorrow!</li>
+</ol>
+<p><strong>Remember</strong>: Progress over perfection. Small, consistent daily progress beats occasional intense sessions.</p>
+<p>Good luck! 🚀</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
